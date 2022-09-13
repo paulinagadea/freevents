@@ -16,9 +16,9 @@ describe('Videogame routes', () => {
   }));
   beforeEach(() => Videogame.sync({ force: true })
     .then(() => Videogame.create(videogame)));
-  describe('GET /videogames', () => {
+  describe('GET /freevents', () => {
     it('should get 200', () =>
-      agent.get('/videogames').expect(200)
+      agent.get('/freevents').expect(200)
     );
   });
 });
