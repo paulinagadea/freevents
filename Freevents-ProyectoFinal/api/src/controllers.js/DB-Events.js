@@ -5,3 +5,8 @@ let eventcumpleaños = {
     name: "Cumpleaños",
 
 }
+
+let eventMatrimonio = {
+    id: 2,
+    name: "Matrimonio",
+}
