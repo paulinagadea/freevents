@@ -16,5 +16,17 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-    });
-};
+        
+        password: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+
+        },
+       
+        typeuser: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false,
+        }
+    })
+
+}
