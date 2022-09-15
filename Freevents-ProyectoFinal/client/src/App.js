@@ -8,7 +8,7 @@ function App() {
       <div className="App">
         <h1>AGUANTE FREEVENTS</h1>
         <Routes>
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" element={<LandingPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
