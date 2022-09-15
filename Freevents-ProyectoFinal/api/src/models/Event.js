@@ -16,12 +16,12 @@ module.exports = (sequelize) => {
         },
 
         description: {
-            type: DataType.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
 
         image: {
-            type: DataType.TEXT,
+            type: DataTypes.TEXT,
             alloNull: false,
         },
     });
