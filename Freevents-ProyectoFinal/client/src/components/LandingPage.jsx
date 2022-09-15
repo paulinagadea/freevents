@@ -6,7 +6,7 @@ export default function LandingPage(){
         <div>
             <h1>Bienvenidos</h1>
             <Link to="/home">
-                <button>CREA TU EVENTO</button>
+                <button>CREA TU EVENTOs</button>
             </Link>
         </div>
     )
