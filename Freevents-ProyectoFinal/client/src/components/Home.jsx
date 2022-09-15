@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import Slider from "./Slider";
+import image13 from "../imagenes/13.jpeg";
+import image15 from "../imagenes/15.jpeg";
+
+
+
 
 const Home = () => {
     return (
@@ -7,6 +13,7 @@ const Home = () => {
             <button>INGRESA</button>
             <button>CREA TU CUENTA</button>
             <h1>Freevents</h1>
+
             <div>
                 <select>
                     <option selected disabled>
@@ -23,8 +30,22 @@ const Home = () => {
                     <option value="5-0">5-0</option>
                 </select>
             </div>
+            <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
+            <Slider />
             <div>
-
+                <button>FULL PARTY</button>
+                <button>15 AÑOS</button>
+                <button>GRADUACIONES</button>
+                <button>CASAMIENTOS</button>
+                <button>CUMPLEAÑOS</button>
+                <button>ANIVERSARIO</button>
+                <button>BABY SHOWER</button>
+            </div>
+            <div>
+                <h1>CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
+                
+                <img src={image13} alt="" />
+                <img src={image15} alt="" />
             </div>
         </div>
     )
