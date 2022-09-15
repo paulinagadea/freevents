@@ -5,8 +5,6 @@ import image13 from "../imagenes/13.jpeg";
 import image15 from "../imagenes/15.jpeg";
 
 
-
-
 const Home = () => {
     return (
         <div>
