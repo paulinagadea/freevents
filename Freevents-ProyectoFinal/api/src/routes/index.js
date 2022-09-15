@@ -24,7 +24,9 @@ router.get('/events/:id', (req, res, next) => {})
 
 router.get('/services', (req, res, next) => {})
 
-router.get('/services/:id', (req, res, next) => {})
+router.get('/services/:id', (req, res, next) => {
+    
+})
 
 router.get('/orders', (req, res, next) => {})
 
