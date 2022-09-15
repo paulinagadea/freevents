@@ -4,41 +4,30 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('order', {
-
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },
-
         subtotal: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
-        paymen_method: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        
-        direction: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-
+            allowNull: false, 
         },
-
-        data_service: {
+        status:{
+            type: DataTypes.ENUM("fulfilled", "pending", "canceled", "cart")
+        },
+        event_date: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+        },
+        event_address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-
-        status: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-       
-       
+        payment_method: {
+            type: DataTypes.ENUM("credit_card", "debit")
+        }
     })
 
 }
