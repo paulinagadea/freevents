@@ -1,0 +1,18 @@
+.titulo{
+    color: black;
+    font-family: Hahmlet;
+}
+.titulo2{
+    color: #D9C2BA;
+    font-family: Hahmlet;
+}
+.tituloCombo{
+    display:flex;
+    
+
+    /* flex-direction: column; */
+}
+.conjunto{
+    display: flex;
+    flex-direction: row;
+}
