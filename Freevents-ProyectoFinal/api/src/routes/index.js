@@ -5,6 +5,7 @@ const { Router } = require('express');
 const {DBServices} = require('../controllers/DB-Services');
 
 const Provider = require('./Provider')
+const Service = require('./Service.js');
 
 
 const router = Router();
@@ -13,6 +14,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use('/providers', Provider)
+router.use('/services', Service);
 
 // router.get('/admins/:id', (req, res, next) => { })
 
