@@ -26,10 +26,9 @@ const Home = () => {
                 <button className="centrado">CREA TU CUENTA</button>
                 <img className="imghome" src={image20} alt="" />
                 <h1 className="texto-encima">Freevents</h1>
-                
             </div>
-            <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
 
+            <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
             <ul>
                 <li>ANIVERSARIOS</li>
                 <li>CUMPLEAÑOS</li>
@@ -40,9 +39,9 @@ const Home = () => {
                 <li>FULL PARTY</li>
             </ul>
             <Link to="/paquetes">
-            <Slider className="slider" />
+                <Slider className="slider" />
             </Link>
-            <div>
+            {/* <div>
                 <select>
                     <option selected disabled>Eventos</option>
                     <option>FULL PARTY</option>
@@ -53,20 +52,36 @@ const Home = () => {
                     <option>ANIVERSARIO</option>
                     <option>BABY SHOWER</option>
                 </select>
-            </div>
+            </div> */}
             <div>
                 <h1>CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
-                <img src={image7} alt="" />
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
-                    ipsum fugit laudantium corrupti dolore nihil,
-                    eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.</p>
+                <img className="fotocate" src={image7} alt="" />
                 <img src={image13} alt="" />
+                <div className="parrafoc">
+                    <h1 className="parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
+                        ipsum fugit laudantium corrupti dolore nihil,
+                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
+                        ipsum fugit laudantium corrupti dolore nihil,
+                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
+                        ipsum fugit laudantium corrupti dolore nihil,
+                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
+                        ipsum fugit laudantium corrupti dolore nihil,
+                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.</h1>
+                </div>
             </div>
             <div>
-                <img src={footer} alt="" />
+                <img className="footer" src={footer} alt="" />
                 <h1> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                <button> REGISTRATE AQUI</button>
+                <Link to="/providerregister">
+                    <button> REGISTRATE AQUI</button>
+                </Link>
             </div>
         </div>
     )
