@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
             <div>
             <div className="conjunto">
             <div className="tituloCombo">
-            <h3 className="titulo">Find</h3>
+            <h3 className="titulo_navBar">Find</h3>
             <h1 className="titulo2">EVENT</h1>
             </div>
             <div>
