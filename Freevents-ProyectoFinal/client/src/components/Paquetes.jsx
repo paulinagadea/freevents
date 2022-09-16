@@ -1,12 +1,14 @@
 import React from "react";
 import NavBar from "./NavBar";
 import './Paquetes.css'
+import Card from './Card'
 
 
 const Paquetes = () => {  
 return (
     <div>
     <NavBar></NavBar>
+
 
         <h1 className="Titulo"> Paquetes de servicios </h1>
         <div className="row">
@@ -30,6 +32,7 @@ return (
         <option>Catering</option>
       </select>
       </div>
+      <Card></Card>
     </div>
 )
 }
