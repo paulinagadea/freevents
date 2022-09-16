@@ -1,7 +1,7 @@
 import React from "react";
-import "./LandingPage.css"
+import "./Eventos.css"
 import {Link} from "react-router-dom";
-import cabeza from "../imagenes/20.jpg";
+
 import f9 from "../imagenes/9.jpg";
 import f15 from "../imagenes/15.jpg";
 import f6 from "../imagenes/5.jpg";
@@ -10,20 +10,13 @@ import f16 from "../imagenes/16.jpg";
 import f8 from "../imagenes/8.jpg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
-import NavBar from "./NavBar";
+
 
 export default function LandingPage(){
     return(
-                <div className="encabezado">
-                <img className="cabeza" src={cabeza} width="1300px" height="100px"></img>
-                <div>
         <div className="container">
                 
-                </div>
-                <Link to="/home">
-                    <button>CREA TU EVENTO</button>
-                </Link>
-                <div className="galeria">
+                   <div className="galeria grid">
                     <div className="evento">
                         <img src={f9}></img>
                         <h1>Matrimonios</h1>
@@ -45,14 +38,12 @@ export default function LandingPage(){
                         <h1>15 Años</h1>   
                     </div>
                     <div className="evento">
+                    {/* <Link to= {`/detail/${g.id}`}>               */}
                         <img src={f4}></img>
-                        <h1>Full Party</h1>   
+                        <h1>Full Party</h1>
+                            {/* </Link>  */}
                     </div>
                 </div>
             </div>
-            <div>
-
-            </div>
-        </div>
-    )
-}
+        )
+    }
