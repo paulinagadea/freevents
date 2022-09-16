@@ -6,9 +6,9 @@ import image5 from "../imagenes/5.jpg";
 import image8 from "../imagenes/8.jpg";
 import image15 from "../imagenes/15.jpg";
 import image16 from "../imagenes/16.jpg";
+import image24 from "../imagenes/24.jpg"
 
-
-let images = [image1,image6,image4,image15,image16,image8,image5]
+let images = [image1,image6,image4,image15,image16,image8,image5,image24]
 
 const Slider = () => {
     return (
