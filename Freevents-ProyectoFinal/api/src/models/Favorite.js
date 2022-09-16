@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
 
-        provider: {
+        user_provider: {
             type: DataTypes.STRING,
             allowNull: false,
         },

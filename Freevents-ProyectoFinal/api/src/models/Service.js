@@ -21,7 +21,23 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-         
+        type_service: {
+            type: DataTypes.ENUM(
+                "catering",
+                "sonido",
+                "decoracion",
+                "dj",
+                "arreglos_florales",
+                "fotografo",
+                "salon_de_evento",
+                "servicio_de_traslado",
+                "bar",
+                "show",
+                "entretenimiento_en_vivo",
+                "disfraz_y_cotillon"
+            ),
+            allowNull: false,
+        },
         image: {
             type: DataTypes.TEXT,
             allowNull: false,
