@@ -5,44 +5,43 @@ import image7 from "../imagenes/7.jpg";
 import image20 from "../imagenes/20.jpg";
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
+import "./Home.css"
 
 // import image1 from "../imagenes/1.jpg";
 // import image6 from "../imagenes/6.jpg";
 // import image4 from "../imagenes/4.jpg";
 // import image5 from "../imagenes/5.jpg";
 // import image8 from "../imagenes/8.jpg";
-// import image15 from "../imagenes/15.jpg";
-// import image16 from "../imagenes/16.jpg";
+//import image15 from "../imagenes/15.jpg";
+//import image16 from "../imagenes/16.jpg";
 
 
 const Home = () => {
+
+    //let eventsmany = ["ANIVERSARIOS", "CUMPLEAÑOS", "DESPEDIDAS", "GRADUACIONES", "BABY SHOWER", "15 AÑOS", "CASAMIENTOS", "FULL PARTY"]
+
     return (
         <div>
-            <Link to="/userregister">
-                <button>CREA TU CUENTA</button>
-            </Link>
-            
-            <h1>Freevents</h1>
-            <img src={image20} alt="" />
-            <div>
-                <select>
-                    <option selected disabled>
-                        Orden Alfabetico
-                    </option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Z-A">Z-A</option>
-                </select>
-                <select>
-                    <option selected disabled>
-                        Rating
-                    </option>
-                    <option value="0-5">0-5</option>
-                    <option value="5-0">5-0</option>
-                </select>
+            <div className="contiene">
+                <button className="centrado">CREA TU CUENTA</button>
+                <img className="imghome" src={image20} alt="" />
+                <h1 className="texto-encima">Freevents</h1>
+                
             </div>
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
-            
-            <Slider />
+
+            <ul>
+                <li>ANIVERSARIOS</li>
+                <li>CUMPLEAÑOS</li>
+                <li>DESPEDIDAS</li>
+                <li>GRADUACIONES</li>
+                <li>BABY SHOWERS</li>
+                <li>15 AÑOS</li>
+                <li>FULL PARTY</li>
+            </ul>
+            <Link to="/paquetes">
+            <Slider className="slider" />
+            </Link>
             <div>
                 <select>
                     <option selected disabled>Eventos</option>

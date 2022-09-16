@@ -1,15 +1,21 @@
 import React from 'react'
 import { Link}  from 'react-router-dom'
 import './Details.css'
-import { Proveedores, Servicios } from './../data';
+// import { Proveedores, Servicios } from './../data';
 import NavBar from "./NavBar";
+import { getData, getEvent } from '../dataJSON';
+import image from '../imagenes/bluefoxx.png'
 
 // import { useNavigate, useParams } from 'react-router-dom'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { getDetail, deleteDog } from '../Redux/Actions'
 // import { useEffect } from 'react'
 
+
 const Details = () => {
+    console.log(getData, "soy los paquetes")
+    console.log(getEvent, "soy los eventos")
+
     // let {id} = useParams()
     // const navigate = useNavigate()
     // const dispatch = useDispatch()
@@ -36,11 +42,22 @@ return (
        
         
         {/* <h1>{Proveedores.map(el=>el.name)[1]}</h1> */}
-        <h1>Combo 1</h1>
-        <h3>Servicios</h3>
-        <h3>Nombre: {Servicios.map(el=>el.name)}</h3>
+        <h1>{getData.map(el=>el.pack_service.map(el=>el.name)[0])[0]}</h1>
+        <h3>Descripción: </h3>
+        <p>{getData.map(el=>el.pack_service.map(el=>el.description)[0])[0]}</p>
+        <img src={image} height="200px" width="400px" alt=""/>
+        <p>Precio: {getData.map(el=>el.pack_service.map(el=>el.price)[0])[0]}</p>
+        <p>Eventos relacionados: {getData.map(el=>el.pack_service.map(el=>el.event)[0])[0]}</p>
+        <p>Servicios que incluye: {getData.map(el=>el.pack_service.map(el=>el.service.map(el=>el.name))[0])[0]}</p>
+        <h3>Proveedor: </h3>
+        <Link to= '/home/proveedoresID'>
+        <p>{getData.map(el=>el.name)[0]}</p>
+        </Link>
+        
+
+        {/* <h3>Nombre: {Servicios.map(el=>el.name)}</h3>
         <h3>Descripción: {Servicios.map(el=>el.description)}</h3>
-        <img src={Servicios.map(el=>el.image)} alt=""/>
+        <img src={Servicios.map(el=>el.image)} alt=""/> */}
        
         
         </div>
@@ -58,10 +75,10 @@ return (
         <div>
         {/* <h2>Proveedor : </h2> */}
         
-        <h2>Proveedor :</h2>
-        <Link to= '/home/idProveedor'>
+        {/* <h2>Proveedor :</h2> */}
+        {/* <Link to= '/home/idProveedor'>
         <h2>{Proveedores.map(el=>el.name)[1]}</h2>
-        </Link>
+        </Link> */}
         {/* <h3>Calificación</h3>
         <h3>Comentarios</h3> */}
         </div>
@@ -72,10 +89,12 @@ return (
         <h3>COMBO 2</h3>
         </div>
          */}
-        <Link to= '/home'>
-        <button className='Button'>Presupuesto</button>
+        <Link to= '/home/payment'>
+        <button className='Button'>Pay out</button>
         </Link>
+        <Link to= '/home'>
         <button>Volver</button>
+        </Link>
         {/* <button onClick={handleDelete}>Borrar perro</button> */}
 
     </div>

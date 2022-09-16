@@ -1,4 +1,4 @@
-const getData = [
+export const getData = [
     {
         name: "Perla Eventos",
         address: "Copina 2049",
@@ -11,60 +11,60 @@ const getData = [
             {
                 name: "EVENTOS GRANDES", 
                 description: "Este pack cuenta con todo lo que necesitas para tu gran evento.",
-                price: 25000,
-                event: ["wedding", 
-                        "anniversary", 
-                        "15th birthday party", 
-                        "birthday party",
+                price: "$" + 25000,
+                event: ["Wedding, ", 
+                        "Anniversary, ", 
+                        "15th birthday party, ", 
+                        "Birthday party ",
                 ],
                 service:[
                     {
-                        name: "catering", 
+                        name: "catering ,", 
                         description: "Nuestros excelente servicio de catering a dispocisión de usted. Menúes completos y para todos los gustos (incluye Sin TAC-Vegetarianos y Veganos).", 
                         type_service: "catering",
                     },
                     {
-                        name: "mesa dulce", 
+                        name: "mesa dulce ,", 
                         description: "Las mejores propuestas para armar una mesa dulce perfecta (incluye decoración y motivo)", 
                         type_service: "catering",
                     },
                     {
-                        name: "arreglos florales", 
+                        name: "arreglos florales ,", 
                         description: "Catálogo completo con las mejores propuestas.", 
                         type_service: "arreglos_florales",
                     },
                     {
-                        name: "Decoración a gusto del cliente.", 
+                        name: "Decoración a gusto del cliente, ", 
                         description: "Nuestros profesionales con amplio rango de todo tipo de eventos lograran la decoración de tus sueños.", 
                         type_service: "decoracion",
                     },
                     {
-                        name: "Sonido 'Impacto'", 
+                        name: "Sonido 'Impacto', ", 
                         description: "Ofrece una excelente variedad para todo tipo de gustos, también cuenta con un animador para darle chispa a tu fiesta (remix a elección del cliente).", 
                         type_service: "sonido",
                     },
                     {
-                        name: "La Quinta Casona, salón de eventos", 
+                        name: "La Quinta Casona, salón de eventos, ", 
                         description: "Ubicado en Celso Barrios 3490, la belleza y perfección de un espectacular salón para que puedas disfrutar y divertirte.", 
                         type_service: "salon_de_eventos",
                     },
                     {
-                        name: "Jessica Biagioni, fotografía.", 
+                        name: "Jessica Biagioni, fotografía, ", 
                         description: "Profesional con una extensa experiencia para poder capturar tus mejores momentos.", 
                         type_service: "fotografo",
                     },
                     {
-                        name: "Barra de tragos.", 
+                        name: "Barra de tragos, ", 
                         description: "Extensa variedad de bebidas y tragos preparados por nuestro barman, Matias (catálogo con bebias con y sin alcohol).", 
                         type_service: "bar",
                     },
                     {
-                        name: "Cotillón y disfraces.", 
+                        name: "Cotillón y disfraces, ", 
                         description: "Contamos con el mejor cotillón y disfraces para adultos y niños. ", 
                         type_service: "disfraz_y_cotillon",
                     },
                     {
-                        name: "Traslado", 
+                        name: "Traslado, ", 
                         description: "Tenemos a tu dispocisión de media gama con un chofer matriculado para que puedas trasladarte hasta el lugar del evento.", 
                         type_service: "servicio_de_traslado",
                     },
@@ -223,7 +223,8 @@ const getData = [
     }]
 }
 ]
-const getEvent = [
+
+export const getEvent = [
         {
             id: 1,
             name: "wedding",
@@ -257,3 +258,6 @@ const getEvent = [
             name: "full_party",
         },
 ]
+var info = [getData, getEvent];
+
+export default info

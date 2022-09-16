@@ -1,0 +1,35 @@
+ul{
+    list-style-type: none;
+}
+
+li{
+    float: left;
+    text-align: center;
+    width: 5em; 
+}
+
+.imghome{
+    width: 1500px;
+    
+}
+
+.contiene{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+.texto-encima{
+    position: absolute;
+    top: 450px;
+    left: 350px; 
+    color: aliceblue;
+    font-size: 150px;
+}
+
+.centrado{
+    position: relative;
+    top: 50px;
+}
+
