@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
+import image20 from "../imagenes/20.jpg";
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 
@@ -12,6 +13,7 @@ const Home = () => {
             <button>INGRESA</button>
             <button>CREA TU CUENTA</button>
             <h1>Freevents</h1>
+            <img src={image20} alt=""/>
             <div>
                 <select>
                     <option selected disabled>Eventos</option>
