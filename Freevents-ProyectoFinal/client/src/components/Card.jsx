@@ -1,8 +1,18 @@
-// import React from "react";
+import React from "react";
+import { getData } from '../dataJSON';
 // import {Link} from "react-router-dom";
 // import image13 from "../imagenes/13.jpeg";
 
-// const Card = ({name, id, description, price, type_service}) => {
+const Card = () => {
+    return (
+        <div>
+            <h3>{getData.map(el=>el.pack_service.map(el=>el.name)[0])[0]}</h3>
+            <p>Servicios que incluye: {getData.map(el=>el.pack_service.map(el=>el.service.map(el=>el.name))[0])[0]}</p>
+            <p>Precio: {getData.map(el=>el.pack_service.map(el=>el.price)[0])[0]}</p>
+
+        </div>
+    )
+}
 // return(
 //     <div>
 //         <Link to={`/detail/${id}`}>
@@ -23,4 +33,4 @@
 // )
 // }
 
-// export default Card;
+export default Card;
