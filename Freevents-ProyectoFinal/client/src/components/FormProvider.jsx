@@ -16,7 +16,7 @@ export default function FormUser(){
             <Link to="/home">
                 <button>Inicio</button>
             </Link>
-            <h1 className='titulo'>Formulario de usuarios</h1>
+            <h1 className='titulo'>Formulario de proveedores</h1>
             <Formik
                 initialValues={{
                     // objeto con valores por defecto
