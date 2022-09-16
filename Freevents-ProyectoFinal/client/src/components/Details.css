@@ -1,0 +1,25 @@
+.Button{
+    background-color: #D9C2BA;
+}
+.rowlogo{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+    /* scroll-padding-block-end: 10%; */
+}
+
+.rowCombo{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+    
+
+}
+.rowpCalif{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+}
+.p{
+    display: flex;
+}
