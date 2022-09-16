@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import './FormUser.css'
 // import { ThemeProvider } from '@material-ui/core/styles'; //estilos de material ui
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+
 
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
@@ -12,6 +14,9 @@ export default function FormUser(){
 
     return(
         <div>
+            <Link to="/home">
+                <button>Inicio</button>
+            </Link>
             <h1 className='titulo'>Formulario de usuarios</h1>
             <Formik
                 initialValues={{
@@ -49,9 +54,10 @@ export default function FormUser(){
 
                     //validacion contraseña
                     if(!valores.password){
-                        errores.surname = 'Por favor ingresa un apellido';
-                    } else if(!validacionContraseña.test(valores.password)){
-                        errores.surname = 'La contraseña debe contener minimo 8 caracteres'
+                        errores.password = 'Por favor ingresa una contraseña';
+                    } 
+                    else if(!validacionContraseña.test(valores.password)){
+                        errores.password = 'La contraseña debe contener minimo 8 caracteres'
                     }
 
                     //validacion dni
@@ -68,9 +74,9 @@ export default function FormUser(){
                     }
                     return errores
                 }} 
-                onSubmit={(valores, {resetForm})=>{
+                onSubmit={(values, {resetForm})=>{
                     // console.log(valores)
-                    resetForm() // para limpiar el formulario
+                    resetForm({values : ''}) // para limpiar el formulario
                     console.log("formulario enviado")
                     setFormularioEnviado(true);
                     setTimeout(()=>setFormularioEnviado(false), 5000)
@@ -111,6 +117,7 @@ export default function FormUser(){
                                 label="Contraseña"
                                 type="password"
                                 name="password"
+                                value={values.password}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -132,6 +139,7 @@ export default function FormUser(){
                                 label="DNI"
                                 type="number"
                                 name= "dni"
+                                value={values.dni}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -143,6 +151,7 @@ export default function FormUser(){
                                 label="Email"
                                 type="email"
                                 name= "email"
+                                value={values.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -154,6 +163,7 @@ export default function FormUser(){
                                 label="Número telefónico"
                                 type="number"
                                 name= "phone_number"
+                                value={values.phone_number}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />

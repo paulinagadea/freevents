@@ -74,9 +74,9 @@ export default function FormUser(){
                     }
                     return errores
                 }} 
-                onSubmit={(valores, {resetForm})=>{
-                    // console.log(valores)
-                    resetForm() // para limpiar el formulario
+                onSubmit={(values, {resetForm})=>{
+                    console.log(values)
+                    resetForm({values : ''}) // para limpiar el formulario
                     console.log("formulario enviado")
                     setFormularioEnviado(true);
                     setTimeout(()=>setFormularioEnviado(false), 5000)
@@ -114,9 +114,9 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
-                                className=''
                                 label="Location"
                                 name="location"
+                                value={values.location}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -125,9 +125,10 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
-                                className=''
                                 label="postal_code"
+                                type="number"
                                 name="postal_code"
+                                value={values.postal_code}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -139,6 +140,7 @@ export default function FormUser(){
                                 label="cuit"
                                 type="number"
                                 name= "cuit"
+                                value={values.cuit}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -150,6 +152,7 @@ export default function FormUser(){
                                 label="Email"
                                 type="email"
                                 name= "email"
+                                value={values.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -161,6 +164,7 @@ export default function FormUser(){
                                 label="Número telefónico"
                                 type="number"
                                 name= "phone_number"
+                                value={values.phone_number}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
