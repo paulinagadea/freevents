@@ -1,11 +1,13 @@
 ul{
     list-style-type: none;
+    
 }
 
 li{
     float: left;
     text-align: center;
-    width: 5em; 
+    width: 10em; 
+    color: rgb(209, 18, 177);
 }
 
 .imghome{
@@ -33,3 +35,23 @@ li{
     top: 50px;
 }
 
+.slider{
+    margin-top: 200px;
+}
+
+.footer{
+width: 200px;
+}
+
+.fotocate{
+    height: 750px;
+}
+
+.parrafo{
+    font-size: large;
+}
+
+.parrafoc{
+    text-align: justify;
+    
+}
