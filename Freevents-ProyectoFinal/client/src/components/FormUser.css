@@ -1,0 +1,20 @@
+/* paleta de colores
+    #D9C2BA;
+    #735949
+    #B5B4BF
+    #736A68
+    #EBEBF2
+*/
+
+.titulo{
+    font-size: 40px;
+    color: #D9C2BA;
+}
+.inputs{
+    margin: 15px;
+}
+.error{
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
