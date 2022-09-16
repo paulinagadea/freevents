@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import './NavBar.css'
-
-
 // import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 
 // const Nav = ({onSearch}) => {
     const NavBar = () => {
@@ -25,7 +24,7 @@ import { NavLink } from 'react-router-dom';
                 <NavLink to="/home/proveedores">
                     <button>Proveedores</button>
                 </NavLink>
-
+                
                 {/* <form>
                     <input
                         type="search"

@@ -6,6 +6,9 @@ import image20 from "../imagenes/20.jpg";
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 import "./Home.css"
+import Button  from "@material-ui/core/Button"
+import { NavBar2 } from "./NavBar2"
+
 
 // import image1 from "../imagenes/1.jpg";
 // import image6 from "../imagenes/6.jpg";
@@ -23,26 +26,24 @@ const Home = () => {
     return (
         <div>
             <div className="contiene">
-                <Link to="/userregister">
-                <button className="centrado">CREA TU CUENTA</button>
-                </Link>
-                <Link to="/eventos">
-                <button className="centrado">CREA TU EVENTO</button>
-                </Link>
+                <NavBar2 />
+                
+                
                 <img className="imghome" src={image20} alt="" />
                 <h1 className="texto-encima">Freevents</h1>
             </div>
 
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
             <ul>
-                <li>ANIVERSARIOS</li>
-                <li>CUMPLEAÑOS</li>
-                <li>DESPEDIDAS</li>
-                <li>GRADUACIONES</li>
-                <li>BABY SHOWERS</li>
-                <li>15 AÑOS</li>
-                <li>FULL PARTY</li>
+                <Button href="/paquetes" color = "secondary">ANIVERSARIOS</Button>
+                <Button href="/paquetes" color = "secondary">CUMPLEAÑOS</Button>
+                <Button href="/paquetes" color = "secondary">DESPEDIDAS</Button>
+                <Button href="/paquetes" color = "secondary">GRADUACIONES</Button>
+                <Button href="/paquetes" color = "secondary">BABY SHOWERS</Button>
+                <Button href="/paquetes" color = "secondary">15 AÑOS</Button>
+                <Button href="/paquetes" color = "secondary">FULL PARTY</Button>
             </ul>
+                <Button  color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button>
             <Link to="/paquetes">
                 <Slider className="slider" />
             </Link>
@@ -84,9 +85,9 @@ const Home = () => {
             <div>
                 <img className="footer" src={footer} alt="" />
                 <h1> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                <Link to="/providerregister">
-                    <button> REGISTRATE AQUI</button>
-                </Link>
+                
+                    <Button color="secondary" href="/providerregister" variant="outlined"> REGISTRATE AQUI</Button>
+                
             </div>
         </div>
     )

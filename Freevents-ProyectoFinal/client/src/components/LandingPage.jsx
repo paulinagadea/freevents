@@ -11,18 +11,20 @@ import f8 from "../imagenes/8.jpg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
 import NavBar from "./NavBar";
+import theme from '../temaConfig'
+import { NavBar2 } from "./NavBar2"
+import { Button, Container } from "@mui/material";
+
 
 export default function LandingPage(){
     return(
                 <div className="encabezado">
+                    <NavBar2 />
+                    <Container sx={{mt:5}} maxWidth="xl"/>
                 <img className="cabeza" src={cabeza} width="1300px" height="100px"></img>
                 <div>
         <div className="container">
-                
                 </div>
-                <Link to="/home">
-                    <button>CREA TU EVENTO</button>
-                </Link>
                 <div className="galeria">
                     <div className="evento">
                         <img src={f9}></img>
