@@ -34,7 +34,8 @@ module.exports = (sequelize) => {
                 "bar",
                 "show",
                 "entretenimiento_en_vivo",
-                "disfraz_y_cotillon"
+                "disfraz_y_cotillon",
+                "staff"
             ),
             allowNull: false,
         },
