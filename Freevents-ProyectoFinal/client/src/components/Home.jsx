@@ -23,7 +23,9 @@ const Home = () => {
     return (
         <div>
             <div className="contiene">
+                <Link to="/userregister">
                 <button className="centrado">CREA TU CUENTA</button>
+                </Link>
                 <img className="imghome" src={image20} alt="" />
                 <h1 className="texto-encima">Freevents</h1>
             </div>
