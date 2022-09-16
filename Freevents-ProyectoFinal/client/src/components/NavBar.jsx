@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
             <h3 className="titulo_navBar">Find</h3>
             <h1 className="titulo2">EVENT</h1>
             </div>
-            <div>
+            <div className="linkardos">
                 <ul>
                 <NavLink to="/home">
                 <button>inicio</button>
