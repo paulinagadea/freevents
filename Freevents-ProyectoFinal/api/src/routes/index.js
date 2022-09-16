@@ -1,6 +1,7 @@
 const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
+const {DBServices} = require('../controllers.js/DBServices.js');
 
 
 const router = Router();
@@ -22,9 +23,27 @@ router.get('/events', (req, res, next) => {})
 
 router.get('/events/:id', (req, res, next) => {})
 
-router.get('/services', (req, res, next) => {})
+router.get('/services', (req, res) => {
+    
+    try {
+         
+        let services = DBServices;
+        res.status(200).json(services);
+    
+    }
+    
+    catch (err) {
+        console.log(err);
+    }
+})
 
-router.get('/services/:id', (req, res, next) => {})
+router.get('/services/:id', (req, res, next) => {
+     
+    const {id} = req.params;
+    
+    
+      
+});
 
 router.get('/orders', (req, res, next) => {})
 

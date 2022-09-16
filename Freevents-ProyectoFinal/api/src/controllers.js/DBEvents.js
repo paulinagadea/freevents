@@ -1,12 +1,15 @@
 
-let eventcumpleaños = {
+let DBEvents = [{
 
     id: 1,
     name: "Cumpleaños",
 
-}
-
-let eventMatrimonio = {
+},
+{ 
     id: 2,
     name: "Matrimonio",
-}
+}]
+
+module.exports = {DBEvents};
+
+
