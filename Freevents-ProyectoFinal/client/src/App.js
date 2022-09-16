@@ -6,6 +6,7 @@ import Detail from './components/Details'
 import FormUser from "./components/FormUser"
 import FormProvider from "./components/FormProvider"
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
             <Route exact path = '/home/details' element= { <Detail/> }/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/providerregister' element= { <FormProvider/> }/>
+
       </Routes>
         </div>
       </div>
