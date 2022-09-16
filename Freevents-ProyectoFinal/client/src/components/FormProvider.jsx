@@ -13,9 +13,9 @@ export default function FormUser(){
 
     return(
         <div>
-            <Link to="/home">
-                <button>Inicio</button>
-            </Link>
+            
+                <Button href="/home" color= "secondary" variant="outlined">Inicio</Button>
+            
             <h1 className='titulo'>Formulario de proveedores</h1>
             <Formik
                 initialValues={{
@@ -167,7 +167,7 @@ export default function FormUser(){
                         </div>
                         
                         <div>
-                            <Button type="submit" variant="outlined">Enviar</Button>
+                            <Button color= "secondary" type="submit" variant="outlined">Enviar</Button>
                             {formularioEnviado && <p>Formulario enviado con exito</p>}
                         </div>
                     </form>
