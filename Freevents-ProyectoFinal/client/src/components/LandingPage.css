@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: center;
+
+}
+.encabezado{
+    justify-content:space-around ;
+    position: absolute;
+}
+
+.cabeza{
+    height: 100%;
+    width: 100%;
+}
+
+.evento{
+    margin-left: 5px;
+}
+
+.galeria{
+    display: flex;
+  
+}

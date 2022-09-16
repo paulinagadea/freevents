@@ -20,10 +20,10 @@ import { NavLink } from 'react-router-dom';
                 <button>inicio</button>
                 </NavLink>
                 <NavLink to="/home/eventos">
-                <button>Eventos</button>
+                    <button>Eventos</button>
                 </NavLink>
                 <NavLink to="/home/proveedores">
-                <button>Proveedores</button>
+                    <button>Proveedores</button>
                 </NavLink>
 
                 {/* <form>
