@@ -14,8 +14,6 @@ router.use('/providers', Provider)
 
 // router.get('/free-event/admin', (req, res, next) => { })
 
-// router.get('/providers/:id', (req, res, next) => { })
-
 // router.get('/free-event/provider', (req, res, next) => { })
 
 // router.get('/events', (req, res, next) => { })
@@ -44,8 +42,6 @@ router.use('/providers', Provider)
 
 // router.post('/user', (req, res, next) => { })
 
-// router.post('/provider', (req, res, next) => { })
-
 // router.post('/event', (req, res, next) => { })
 
 // router.post('/service', (req, res, next) => { })
@@ -57,8 +53,6 @@ router.use('/providers', Provider)
 // router.post('/favorite', (req, res, next) => { })
 
 // router.put('/free-event/admin/:id', (req, res, next) => { })
-
-// router.put('/providers/:id', (req, res, next) => { })
 
 // router.put('/events/:id', (req, res, next) => { })
 
