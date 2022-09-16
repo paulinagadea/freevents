@@ -1,15 +1,8 @@
 const { Provider } = require('../db')
 
-const getAllProvider = async () => {
-    try {
-        const provider = await Provider.findAll({
-            // order: [['name', 'ASC']],
-            // include: { model: Pack_services, attributes: ['name'] }
-        })
-        return provider
-    } catch (error) {
-        console.log('error:', error)
-    }
+const getAllProviders = async () => {
+    const provedores = await Provider.findAll()
+    return provedores.length ? provedores : "not found"
 }
 
-module.exports = { getAllProvider }
+module.exports = { getAllProviders }
