@@ -26,6 +26,9 @@ const Home = () => {
                 <Link to="/userregister">
                 <button className="centrado">CREA TU CUENTA</button>
                 </Link>
+                <Link to="/eventos">
+                <button className="centrado">CREA TU EVENTO</button>
+                </Link>
                 <img className="imghome" src={image20} alt="" />
                 <h1 className="texto-encima">Freevents</h1>
             </div>

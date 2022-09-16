@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
+import Eventos from "./components/Eventos";
 import Home from "./components/Home";
 import Detail from './components/Details';
 import FormUser from "./components/FormUser";
@@ -16,6 +17,7 @@ function App() {
       <Routes>
             <Route exact path = '/' element= { <LandingPage/> }/>
             <Route exact path = '/home' element= { <Home/> }/>
+            <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/home/details' element= { <Detail/> }/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/providerregister' element= { <FormProvider/> }/>
