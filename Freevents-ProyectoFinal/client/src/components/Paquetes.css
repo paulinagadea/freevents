@@ -1,0 +1,14 @@
+.Titulo{
+    color: black;
+    font-family: Hahmlet;
+    background-color: #D9C2BA;
+    margin-top: 0%;
+    
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* justify-items: center; */
+    /* justify-self: center; */
+}
