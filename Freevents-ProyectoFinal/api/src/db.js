@@ -34,7 +34,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Event, Service, Provider, Order, Review, User, Favorite } = sequelize.models;
+const { Category, Pack_Service, Provider, Order, Review, User, Favorite } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -43,51 +43,51 @@ const { Event, Service, Provider, Order, Review, User, Favorite } = sequelize.mo
 
 //Uno a Muchos User
 
-User.hasMany(Event);
-Event.belongsTo(User);
+// User.hasMany(Category, {as: "usuario_categorias", foreignKe: "usuario_categoriasId" });
+// Category.belongsTo(User, {as: "categoria_usuarios"});
 
-User.hasMany(Provider);
-Provider.belongsTo(User);
+// User.hasMany(Provider, {as: "usuario_proveedores", foreignKe: "usuario_proveedoresId" });
+// Provider.belongsTo(User, {as: "proveedor_usuarios"});
 
-User.hasMany(Service);
-Service.belongsTo(User);
+// User.hasMany(Pack_Service, {as: "usuario_servicios", foreignKe: "usuario_serviciosId" });
+// Pack_Service.belongsTo(User, {as: "servicio_usuarios"});
 
-User.hasMany(Order);
-Order.belongsTo(User);
+// User.hasMany(Order, {as: "usuario_ordenes", foreignKe: "usuario_ordenesId" });
+// Order.belongsTo(User, {as: "orden_usuarios"});
 
-User.hasMany(Review);
-Review.belongsTo(User);
+// User.hasMany(Review, {as: "usuario_calificaciónes", foreignKe: "usuario_calificaciónesId" });
+// Review.belongsTo(User, {as: "calificación_usuarios"});
 
-User.hasMany(Favorite);
-Favorite.belongsTo(User);
+// User.hasMany(Favorite, {as: "usuario_favoritos", foreignKe: "usuario_favoritosId" });
+// Favorite.belongsTo(User, {as: "favorito_usuarios"});
 
 //Uno a Muchos Event, Provider, Service con Order
 
-Event.hasMany(Order);
-Order.belongsTo(Event);
+// Category.hasMany(Order, {as: "categoria_ordenes", foreignKe: "categoria_ordenesId" });
+// Order.belongsTo(Category, {as: "orden_categorias"});
 
-Provider.hasMany(Order);
-Order.belongsTo(Provider);
+// Provider.hasMany(Order, {as: "proveedor_ordenes", foreignKe: "proveedor_ordenesId" });
+// Order.belongsTo(Provider, {as: "orden_proveedores"});
 
-Service.hasMany(Order);
-Order.belongsTo(Service);
+// Pack_Service.hasMany(Order, {as: "pack_servicio_ordenes", foreignKe: "pack_servicio_ordenesId" });
+// Order.belongsTo(Pack_Service,{as: "orden_pack_servicios"});
 
-//Uno a Muchos Provider
+// //Uno a Muchos Provider
 
-Provider.hasMany(Review);
-Review.belongsTo(Provider);
+// Provider.hasMany(Review, {as: "proveedor_calificaciónes", foreignKe: "proveedor_calificaciónesId" });
+// Review.belongsTo(Provider, {as: "calificación_proveedores"});
 
-Provider.hasMany(Favorite);
-Favorite.belongsTo(Provider);
+// Provider.hasMany(Favorite, {as: "proveedor_favoritos", foreignKe: "proveedor_favoritosId" });
+// Favorite.belongsTo(Provider, {as: "favorito_proveedores"});
 
 
 //Muchos a Muchos
 
-Event.belongsToMany(Provider, { through: 'events_providers' });
-Provider.belongsToMany(Event, { through: 'events_providers' });
+Category.belongsToMany(Provider, { through: 'events_providers' });
+Provider.belongsToMany(Category, { through: 'events_providers' });
 
-Provider.belongsToMany(Service, { through: 'providers_services' });
-Service.belongsToMany(Provider, { through: 'providers_services' });
+Category.belongsToMany(Pack_Service, { through: 'providers_services' });
+Pack_Service.belongsToMany(Category, { through: 'providers_services' });
 
 
 
