@@ -12,13 +12,13 @@ import "./Home.css"
 // import image4 from "../imagenes/4.jpg";
 // import image5 from "../imagenes/5.jpg";
 // import image8 from "../imagenes/8.jpg";
-import image15 from "../imagenes/15.jpg";
-import image16 from "../imagenes/16.jpg";
+//import image15 from "../imagenes/15.jpg";
+//import image16 from "../imagenes/16.jpg";
 
 
 const Home = () => {
 
-    let eventsmany = ["ANIVERSARIOS", "CUMPLEAÑOS", "DESPEDIDAS", "GRADUACIONES", "BABY SHOWER", "15 AÑOS", "CASAMIENTOS", "FULL PARTY"]
+    //let eventsmany = ["ANIVERSARIOS", "CUMPLEAÑOS", "DESPEDIDAS", "GRADUACIONES", "BABY SHOWER", "15 AÑOS", "CASAMIENTOS", "FULL PARTY"]
 
     return (
         <div>
@@ -39,7 +39,9 @@ const Home = () => {
                 <li>15 AÑOS</li>
                 <li>FULL PARTY</li>
             </ul>
+            <Link to="/paquetes">
             <Slider className="slider" />
+            </Link>
             <div>
                 <select>
                     <option selected disabled>Eventos</option>

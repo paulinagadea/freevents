@@ -1,3 +1,16 @@
+import React from "react";
+
+
+const Paquetes = () => {  
+return (
+    <div>
+        <h1> HOLIWIS </h1>
+    </div>
+)
+}
+
+export default Paquetes;
+
 <div>
 <select>
     <option selected disabled>
