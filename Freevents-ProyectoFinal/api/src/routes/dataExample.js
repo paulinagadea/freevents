@@ -223,6 +223,7 @@ const getData = [
     }]
 }
 ]
+
 const getEvent = [
         {
             id: 1,
@@ -257,3 +258,7 @@ const getEvent = [
             name: "full_party",
         },
 ]
+
+module.exports = {
+    getEvent
+}

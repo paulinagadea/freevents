@@ -9,10 +9,10 @@ const {
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/test_db_g88r_iujt`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  dialect: 'postgres',
-  protocol: 'postgres',
-  dialectOptions: {
-    ssl: {}}
+  // dialect: 'postgres',
+  // protocol: 'postgres',
+  // dialectOptions: {
+  //   ssl: {}}
 });
 const basename = path.basename(__filename);
 
@@ -34,7 +34,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Event, Service, Provider, Order, Review, User, Favorite } = sequelize.models;
+const { Event, Service, Provider, Order, Review, User, Favorite, Pack_services } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -80,14 +80,21 @@ Review.belongsTo(Provider);
 Provider.hasMany(Favorite);
 Favorite.belongsTo(Provider);
 
+Provider.hasMany(Pack_services);  
+Pack_services.belongsTo(Provider);
 
 //Muchos a Muchos
 
-Event.belongsToMany(Provider, { through: 'events_providers' });
-Provider.belongsToMany(Event, { through: 'events_providers' });
-
 Provider.belongsToMany(Service, { through: 'providers_services' });
 Service.belongsToMany(Provider, { through: 'providers_services' });
+
+Pack_services.belongsToMany(Service, {through: 'pack_service_service'});
+Service.belongsToMany(Pack_services, {through: 'pack_service_service'});
+
+Pack_services.belongsToMany(Event, {through: 'pack_service_event'});
+Event.belongsToMany(Pack_services, {through: 'pack_service_event'})
+
+
 
 
 
