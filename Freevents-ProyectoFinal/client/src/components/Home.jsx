@@ -18,7 +18,10 @@ import footer from "../imagenes/footer.jpg";
 const Home = () => {
     return (
         <div>
-            <button>CREA TU CUENTA</button>
+            <Link to="/userregister">
+                <button>CREA TU CUENTA</button>
+            </Link>
+            
             <h1>Freevents</h1>
             <img src={image20} alt="" />
             <div>
@@ -64,7 +67,9 @@ const Home = () => {
             <div>
                 <img src={footer} alt="" />
                 <h1> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                <button> REGISTRATE AQUI</button>
+                <Link to="/providerregister">
+                    <button> REGISTRATE AQUI</button>
+                </Link>
             </div>
         </div>
     )

@@ -1,0 +1,12 @@
+.titulo{
+    font-size: 40px;
+    color: #D9C2BA;
+}
+.inputs{
+    margin: 15px;
+}
+.error{
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
