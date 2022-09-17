@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const CardProveedor = ({name, address, email, phone_number })=>{
     
     return (

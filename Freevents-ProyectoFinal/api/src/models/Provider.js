@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
             allowNull: false, 
         },
         cuit: { 
-            type: DataTypes.INTEGER, 
+            type: DataTypes.TEXT, 
             allowNull: false,
         },
         email: {
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
             allowNull: false, 
         },
         phone_number: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false,
         }
     });
