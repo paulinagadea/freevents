@@ -9,7 +9,7 @@ import f15 from "../imagenes/15.jpg";
 import f6 from "../imagenes/5.jpg";
 import f7 from "../imagenes/6.jpg";
 import f16 from "../imagenes/16.jpg";
-import f8 from "../imagenes/8.jpg";
+import f8 from "../imagenes/HOME5.jpeg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
 import { Grid } from "@material-ui/core";
@@ -18,37 +18,42 @@ const images = [
     {
       img: f4,
       title: 'Full Party',
-      width: '20%',
+      width: '100%',
     },
     {
       img: f14,
       title: '15 Años',
-      width: '20%',
+      width: '100%',
     },
     {
       img: f15,
-      title: 'Egreso',
-      width: '20%',
+      title: 'Egresos',
+      width: '100%',
     },
     {
         img: f9,
-        title: 'Matrimonio',
-        width: '20%',
+        title: 'Matrimonios',
+        width: '100%',
       },
       {
         img: f6,
         title: 'Despedida de Solter@s',
-        width: '20%',
+        width: '100%',
       },
       {
         img: f7,
         title: 'Cumpleaños',
-        width: '20%',
+        width: '100%',
       },
       {
         img: f16,
-        title: 'Baby Shower',
-        width: '20%',
+        title: 'Baby Showers',
+        width: '100%',
+      },
+      {
+        img: f8,
+        title: 'Aniversarios',
+        width: '100%',
       },
       
       
@@ -131,10 +136,9 @@ export default function ButtonBases() {
 
   return (
     <div className={classes.root}>
-    <Grid container spacing={3}>
+    <Grid container spacing={1}>
 
-
-    {/* Full Party */}
+    <Grid item xs={3}>
     <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -162,7 +166,39 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
+    </Grid>
 
+    <Grid item xs={3}>
+    <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[7].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[7].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[7].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+    </Grid>
+
+    <Grid item xs={6}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -190,7 +226,9 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
+        </Grid>
 
+        <Grid item xs={4}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -218,7 +256,9 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
-
+</Grid>
+        
+        <Grid item xs={4}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -246,7 +286,9 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
-
+        </Grid>
+        
+        <Grid item xs={4}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -274,7 +316,9 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
-
+        </Grid>
+        
+        <Grid item xs={7}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -302,7 +346,9 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
-
+        </Grid>
+        
+        <Grid item xs={5}>
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -330,7 +376,7 @@ export default function ButtonBases() {
             </Typography>
           </span>
         </ButtonBase>
-            
+        </Grid>  
     </Grid>
     </div>
   );
