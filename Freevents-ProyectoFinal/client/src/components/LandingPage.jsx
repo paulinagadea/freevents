@@ -10,7 +10,7 @@ import f16 from "../imagenes/16.jpg";
 import f8 from "../imagenes/8.jpg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
-import NavBar from "./NavBar";
+import NavBar from "./NavBar4";
 import theme from '../temaConfig'
 import { NavBar2 } from "./NavBar2"
 import { Button, Container } from "@mui/material";

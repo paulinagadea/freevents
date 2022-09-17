@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
-import NavBar4 from "./NavBar";
+import NavBar4 from "./NavBar4";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";

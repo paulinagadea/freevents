@@ -2,7 +2,7 @@ import React from 'react'
 import { Link}  from 'react-router-dom'
 import './Details.css'
 // import { Proveedores, Servicios } from './../data';
-import NavBar4 from "./NavBar";
+import NavBar from "./NavBar";
 import { getData, getEvent } from '../dataJSON';
 import image from '../imagenes/bluefoxx.png'
 
@@ -36,7 +36,7 @@ const Details = () => {
 
 return (
     <div>  
-    <NavBar4></NavBar4>
+    <NavBar></NavBar>
 
         <div >
         
