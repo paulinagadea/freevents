@@ -11,4 +11,4 @@ const getAllServices = async () => {
     };
 };
 
-module.exports = { getAllServices }
+module.exports = { getAllServices } 
