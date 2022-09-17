@@ -39,7 +39,6 @@ return (
     <NavBar></NavBar>
 
         <div >
-       
         
         {/* <h1>{Proveedores.map(el=>el.name)[1]}</h1> */}
         <h1>{getData.map(el=>el.pack_service.map(el=>el.name)[0])[0]}</h1>

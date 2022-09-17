@@ -1,35 +1,40 @@
+import { actionTypes } from "../actions";
 
-// const initialState = {
-//     eventos:[],
-//     proveedores:[],
-//     allProveedores:[],
-//     detail: [],
-
-// }
-function rootReducer(){
+const initialState = {
+    events: [],
+    allEvents: [],
+    providers: [],
+    allProviders: [],
+    detail: [],
 
 }
-// function rootReducer(state = initialState, action){
-// switch (action.type) {
-//     case "CLEAR_STATE":
-//         return{
-//             ...state,
-//             detail:[],
-//             proveedores:[],
-//         };
-//         case "GET_PROVEEDORES":
-//             return {
-//                 ...state,
-//                 proveedores: action.payload,
-//                 allProveedores: action.payload
-//             }
-        
-        
 
-//     default:
-//         break;
-// }
-// }
+function rootReducer(state = initialState, action) {
+    switch (action.type) {
+        case actionTypes.getEvents: {
+            return {
+                ...state,
+                events: action.payload,
+                allEvents: action.payload,
+            };
+        }
+        case actionTypes.getProviders: {
+            return{
+                ...state,
+                providers: action.payload,
+                allProviders: action.payload,
+            }
+        } 
+        case actionTypes.getServices: {
+            return {
+                ...state,
+                services: action.payload,
+            }
+        }
+    default:
+        return state;
+    }
+}
 
 export default rootReducer;
 
