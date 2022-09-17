@@ -12,6 +12,7 @@ import CardProveedor from "./CardProveedor";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
+import Eventos from "./Eventos"
 
 
 const Home = () => {
@@ -43,9 +44,8 @@ const Home = () => {
                 <Button href="/paquetes" color="secondary">FULL PARTY</Button>
             </ul>
             <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button>
-            <Link to="/paquetes">
-                <Slider className="slider" />
-            </Link>
+            <Eventos/>
+
             {/* EN VEZ DEL SLIDER PONER LOS EVENTOS CON EL TEMPLATE LINDO DE HOSMAR ACA */}
             <div>
                 <h1>CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
