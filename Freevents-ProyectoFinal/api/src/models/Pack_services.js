@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER, 
             allowNull: false,
         },
-        status:{
+        status_enabled:{
             type: DataTypes.ENUM("disabled", "enabled")
         },
         galery_image: {
