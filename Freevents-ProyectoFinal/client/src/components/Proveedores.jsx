@@ -2,8 +2,14 @@ import React from "react";
 import NavBar from "./NavBar";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
+import { useSelector} from 'react-redux'
+import { Link } from "react-router-dom";
 
-const Paquetes = () => {
+
+const Proveedores = () => {
+    const allProviders = useSelector((state) => state.providers)
+    console.log(allProviders, "todos los prov")
+
   return (
     <div>
       <NavBar></NavBar>
@@ -26,27 +32,27 @@ const Paquetes = () => {
           <option>Transporte</option>
           <option>Catering</option>
         </select>
-      </div>
-      <CardProveedor></CardProveedor>
+      </div>{
+        allProviders?.map(d=>{
+            return (
+                <div>
+          <Link style={{textDecoration:"none"}} to={"/proveedores/detail"}>
+
+          <CardProveedor
+          name={d.name} 
+          email={d.email} 
+          address={ d.address}
+          phone_number={d.phone_number}
+          
+          />
+          </Link>
+          </div>
+            )
+        })
+      }
+      
     </div>
   );
 };
 
-export default Paquetes;
-
-<div>
-  <select>
-    <option selected disabled>
-      Orden Alfabetico
-    </option>
-    <option value="A-Z">A-Z</option>
-    <option value="Z-A">Z-A</option>
-  </select>
-  <select>
-    <option selected disabled>
-      Price
-    </option>
-    <option value="0-5">0-5</option>
-    <option value="5-0">5-0</option>
-  </select>
-</div>;
+export default Proveedores;

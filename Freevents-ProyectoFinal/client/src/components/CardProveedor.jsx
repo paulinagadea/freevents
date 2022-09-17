@@ -1,11 +1,11 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
+// import { useSelector} from 'react-redux'
 
 
 const CardProveedor = ({name, address, email, phone_number })=>{
     
-    const allProviders = useSelector((state) => state.providers)
-    console.log(allProviders, "Los proveedores")
+    // const allProviders = useSelector((state) => state.providers)
+    // console.log(allProviders, "Los proveedores")
     
     return (
         <div >
