@@ -1,37 +1,49 @@
 import React, {useState} from "react";
+import { IconButton, makeStyles } from "@material-ui/core";
+import { Container } from "@mui/system";
 import './NavBar.css'
 // import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { Box, Toolbar, AppBar, Grid, Button, Typography, Stack } from "@mui/material";
 
-
+const useStyles = makeStyles(theme => ({
+    offset: theme.mixins.toolbar
+}))
 // const Nav = ({onSearch}) => {
-    const NavBar = () => {
+    const NavBar : React.FC<{}> = () => {
+        const classes = useStyles()
         return (
-            <div>
-            <div className="conjunto">
-            <div className="tituloCombo">
-            <h3 className="titulo_navBar">Find</h3>
-            <h1 className="titulo2">EVENT</h1>
-            </div>
-            <div className="linkardos">
-                <ul>
-                <NavLink to="/home">
-                <button>inicio</button>
-                </NavLink>
-                <NavLink to="/proveedores">
-                    <button>Proveedores</button>
-                </NavLink>
+            <Box sx={{flexGrow: 1 }}>
+            <AppBar color="secondary" position="fixed">
+                <Toolbar>
+                    
+                    <Container maxWidth="xl">
+                        <Grid 
+                        container 
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        >
+                        <Grid item>
+                        <Typography variant="h6">
+                            Freefest
+                            </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Stack direction="row" spacing = {2}>
+                                <Button color= "secondary" variant="contained" m={1} href="/home" >inicio</Button>
+                                <Button color= "secondary" variant="contained" m={1} href="/proveedores">Proveedores</Button>
+                                </Stack>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Toolbar>
+            </AppBar>
+            {/* <div className={classes.offset}></div> */}
+        </Box>
                 
-                {/* <form>
-                    <input
-                        type="search"
-                        placeholder="Buscar proveedor"
-                    />
-                </form> */}
-                </ul>
-                </div>
-                </div>
-            </div>
+                
+                
         )
     }
     export default NavBar

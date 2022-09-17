@@ -64,6 +64,7 @@ const images = [
       flexWrap: 'wrap',
       minWidth: 300,
       width: '100%',
+      
     },
     image: {
       position: 'relative',

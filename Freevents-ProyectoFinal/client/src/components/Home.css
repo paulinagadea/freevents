@@ -40,11 +40,12 @@ li{
 }
 
 .footer{
-width: 200px;
+width: 100%;
+
 }
 
 .fotocate{
-    height: 750px;
+    height: 10%;
 }
 
 .parrafo{
@@ -55,8 +56,8 @@ width: 200px;
     text-align: justify;
     
 }
-.eventos Button{
+/* .eventos Button{
     display: flex;
     justify-content: space-around;
     align-items:center ;
-}
+} */
