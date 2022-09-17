@@ -38,6 +38,11 @@ module.exports = (sequelize) => {
         phone_number: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+        createdInDb: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false, 
+            defaultValue: true,
         }
     });
 };
