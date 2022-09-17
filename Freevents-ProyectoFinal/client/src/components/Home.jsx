@@ -2,65 +2,67 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
-import image20 from "../imagenes/20.jpg";
+import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 import "./Home.css"
-import Button  from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button"
 import { NavBar3 } from "./NavBar3"
-
-
-// import image1 from "../imagenes/1.jpg";
-// import image6 from "../imagenes/6.jpg";
-// import image4 from "../imagenes/4.jpg";
-// import image5 from "../imagenes/5.jpg";
-// import image8 from "../imagenes/8.jpg";
-//import image15 from "../imagenes/15.jpg";
-//import image16 from "../imagenes/16.jpg";
+import CardProveedor from "./CardProveedor";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProviders } from "../actions";
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const allProviders = useSelector((state) => state.providers)
 
-    //let eventsmany = ["ANIVERSARIOS", "CUMPLEAÑOS", "DESPEDIDAS", "GRADUACIONES", "BABY SHOWER", "15 AÑOS", "CASAMIENTOS", "FULL PARTY"]
+    useEffect(() => {
+        dispatch(getProviders())
+    }, [dispatch])
 
     return (
         <div>
             <div className="contiene">
                 <NavBar3 />
-                
-                
+
+                {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <img className="imghome" src={image20} alt="" />
-                <h1 className="texto-encima">Freevents</h1>
+                {/* <h1 className="texto-encima">Freevents</h1> */}
             </div>
 
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
             <ul>
-                <Button href="/paquetes" color = "secondary">ANIVERSARIOS</Button>
-                <Button href="/paquetes" color = "secondary">CUMPLEAÑOS</Button>
-                <Button href="/paquetes" color = "secondary">DESPEDIDAS</Button>
-                <Button href="/paquetes" color = "secondary">GRADUACIONES</Button>
-                <Button href="/paquetes" color = "secondary">BABY SHOWERS</Button>
-                <Button href="/paquetes" color = "secondary">15 AÑOS</Button>
-                <Button href="/paquetes" color = "secondary">FULL PARTY</Button>
+                <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
+                <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
+                <Button href="/paquetes" color="secondary">DESPEDIDAS</Button>
+                <Button href="/paquetes" color="secondary">GRADUACIONES</Button>
+                <Button href="/paquetes" color="secondary">BABY SHOWERS</Button>
+                <Button href="/paquetes" color="secondary">15 AÑOS</Button>
+                <Button href="/paquetes" color="secondary">FULL PARTY</Button>
             </ul>
-                <Button  color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button>
+            <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button>
             <Link to="/paquetes">
                 <Slider className="slider" />
             </Link>
-            {/* <div>
-                <select>
-                    <option selected disabled>Eventos</option>
-                    <option>FULL PARTY</option>
-                    <option>15 AÑOS</option>
-                    <option>GRADUACIONES</option>
-                    <option>CASAMIENTOS</option>
-                    <option>CUMPLEAÑOS</option>
-                    <option>ANIVERSARIO</option>
-                    <option>BABY SHOWER</option>
-                </select>
-            </div> */}
+            {/* EN VEZ DEL SLIDER PONER LOS EVENTOS CON EL TEMPLATE LINDO DE HOSMAR ACA */}
             <div>
                 <h1>CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
+
+
+                {allProviders && allProviders.map((provider) => {
+                    return (
+                        <CardProveedor
+                            name={provider.name}
+                            address={provider.address}
+                            email={provider.email}
+                            phone_number={provider.phone_number}
+                        />
+                    )
+                })}
+
+
                 <img className="fotocate" src={image7} alt="" />
                 <img src={image13} alt="" />
                 <div className="parrafoc">
@@ -85,9 +87,9 @@ const Home = () => {
             <div>
                 <img className="footer" src={footer} alt="" />
                 <h1> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                
-                    <Button color="secondary" href="/providerregister" variant="outlined"> REGISTRATE AQUI</Button>
-                
+
+                <Button color="secondary" href="/providerregister" variant="outlined"> REGISTRATE AQUI</Button>
+
             </div>
         </div>
     )

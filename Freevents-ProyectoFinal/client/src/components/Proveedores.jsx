@@ -1,9 +1,20 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProviders } from "../actions";
 import NavBar from "./NavBar";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 
-const Paquetes = () => {
+const Proveedores = () => {
+
+  const dispatch = useDispatch();
+  const allProviders = useSelector((state) => state.providers)
+
+  useEffect(() => {
+    dispatch(getProviders())
+  }, [dispatch])
+
   return (
     <div>
       <NavBar></NavBar>
@@ -27,12 +38,24 @@ const Paquetes = () => {
           <option>Catering</option>
         </select>
       </div>
-      <CardProveedor></CardProveedor>
+
+      {allProviders && allProviders.map((provider) => {
+        return (
+          <CardProveedor
+            name={provider.name}
+            address={provider.address}
+            email={provider.email}
+            phone_number={provider.phone_number}
+          />
+        )
+      })}
+
+
     </div>
   );
 };
 
-export default Paquetes;
+export default Proveedores;
 
 <div>
   <select>

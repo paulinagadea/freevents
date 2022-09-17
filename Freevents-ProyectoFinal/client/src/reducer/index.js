@@ -1,11 +1,11 @@
 import { actionTypes } from "../actions";
 
 const initialState = {
-    events: [],
-    allEvents: [],
-    providers: [],
-    allProviders: [],
-    detail: [],
+    events:[],
+    allEvents:[],
+    providers:[],
+    allProviders:[],
+    detail:[],
 
 }
 
@@ -31,6 +31,7 @@ function rootReducer(state = initialState, action) {
                 services: action.payload,
             }
         }
+        
     default:
         return state;
     }
