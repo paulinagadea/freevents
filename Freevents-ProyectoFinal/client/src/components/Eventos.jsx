@@ -12,6 +12,7 @@ import f16 from "../imagenes/16.jpg";
 import f8 from "../imagenes/8.jpg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
+import { Grid } from "@material-ui/core";
 
 const images = [
     {
@@ -125,65 +126,29 @@ const images = [
     },
   }));
 
-// export default function LandingPage() {
-//     return (
-//         <div className="container">
-
-//             <div className="galeria grid">
-//                 <div className="evento">
-//                     <img src={f9}></img>
-//                     <h1>Matrimonios</h1>
-//                 </div>
-//                 <div className="evento">
-//                     <img src={f15}></img>
-//                     <h1>Egresos</h1>
-//                 </div>
-//                 <div className="evento">
-//                     <img src={f7}></img>
-//                     <h1>Cumpleaños</h1>
-//                 </div>
-//                 <div className="evento">
-//                     <img src={f16}></img>
-//                     <h1>Baby Showers</h1>
-//                 </div>
-//                 <div className="evento">
-//                     <img src={f8}></img>
-//                     <h1>15 Años</h1>
-//                 </div>
-//                 <div className="evento">
-//                     {/* <Link to= {`/detail/${g.id}`}>               */}
-//                     <img src={f4}></img>
-//                     <h1>Full Party</h1>
-//                     {/* </Link>  */}
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-
 export default function ButtonBases() {
   const classes = useStyles();
 
   return (
-    <div className="grip">
-      {images.map((image) => (
-        <ButtonBase
-          focusRipple
-          key={image.title}
+    <div className={classes.root}>
+    <Grid container spacing={3}>
+
+
+    {/* Full Party */}
+    <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
-            width: image.width,
+            width: images[0].width,
           }}
-        >
+          >
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.img})`,
+              backgroundImage: `url(${images[0].img})`,
             }}
-          />
+            />
           <span className={classes.imageBackdrop} />
           <span className={classes.imageButton}>
             <Typography
@@ -191,13 +156,182 @@ export default function ButtonBases() {
               variant="subtitle1"
               color="inherit"
               className={classes.imageTitle}
-            >
-              {image.title}
+              >
+              {images[0].title}
               <span className={classes.imageMarked} />
             </Typography>
           </span>
         </ButtonBase>
-      ))}
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[1].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[1].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[1].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[2].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[2].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[2].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[3].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[3].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[3].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[4].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[4].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[4].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[5].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[5].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[5].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        <ButtonBase focusRipple
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          href="/paquetes"  // ojo cambiar por filtro de evento
+          style={{
+            width: images[6].width,
+          }}
+          >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[6].img})`,
+            }}
+            />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+              >
+              {images[6].title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+            
+    </Grid>
     </div>
   );
 }
