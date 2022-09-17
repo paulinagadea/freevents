@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
+import { getProviders } from "../actions";
 
 const Paquetes = () => {
   return (
@@ -27,7 +28,7 @@ const Paquetes = () => {
           <option>Catering</option>
         </select>
       </div>
-      <CardProveedor></CardProveedor>
+      <CardProveedor ></CardProveedor>
     </div>
   );
 };

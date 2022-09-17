@@ -1,5 +1,6 @@
 import { Box, Toolbar, AppBar, Grid, Button, Typography, Stack } from "@mui/material";
 import { Container } from "@mui/system";
+import "./LandingPage.css"
 import React from "react";
 import { Link } from "react-router-dom";
 

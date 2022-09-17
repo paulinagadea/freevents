@@ -12,6 +12,7 @@ import f16 from "../imagenes/16.jpg";
 import f8 from "../imagenes/8.jpg";
 import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
+import { Container } from "@mui/system";
 
 const images = [
     {
@@ -166,6 +167,7 @@ export default function ButtonBases() {
   const classes = useStyles();
 
   return (
+    <Container maxWidth= "lg">
     <div className="grip">
       {images.map((image) => (
         <ButtonBase
@@ -199,5 +201,6 @@ export default function ButtonBases() {
         </ButtonBase>
       ))}
     </div>
+    </Container>
   );
 }

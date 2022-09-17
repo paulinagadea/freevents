@@ -20,7 +20,7 @@ export const getProviders = () => {
     return async function (dispatch) {
         var json = await axios.get(`http://localhost:3001/providers`);
         return dispatch({
-            type: actionTypes.getProviders,
+            type: "GET_PROVIDERS",
             payload: json.data,
         });
     };

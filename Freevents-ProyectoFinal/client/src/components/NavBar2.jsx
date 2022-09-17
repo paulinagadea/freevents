@@ -9,7 +9,7 @@ export const NavBar2: React.FC<{}> = () => {
         <Box sx={{flexGrow: 1 }}>
             <AppBar color="secondary" position="fixed">
                 <Toolbar>
-                    <Container maxWidth="xl">
+                    <Container maxWidth="xl" className="cont" >
                         <Grid 
                         container 
                         direction="row"

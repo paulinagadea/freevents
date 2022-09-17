@@ -18,7 +18,7 @@ function rootReducer(state = initialState, action) {
                 allEvents: action.payload,
             };
         }
-        case actionTypes.getProviders: {
+        case "GET_PROVIDERS": {
             return{
                 ...state,
                 providers: action.payload,
