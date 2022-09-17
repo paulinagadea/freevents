@@ -23,6 +23,13 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER, 
             allowNull: false,
         },
+        status:{
+            type: DataTypes.ENUM("disabled", "enabled")
+        },
+        galery_image: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+        },
         createdInDb: {
             type: DataTypes.BOOLEAN,
             allowNull: false, 

@@ -39,6 +39,18 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        logotype: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        background_image: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        galery_image: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+        },
         createdInDb: {
             type: DataTypes.BOOLEAN,
             allowNull: false, 
