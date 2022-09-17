@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { getAllProviders } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
+const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
 const { Provider } = require('../db')
 
@@ -20,6 +21,21 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Error', error })
     }
 })
+
+router.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const provedorById = await getProviderById(id)
+
+        console.log('esto es provedorById', provedorById)
+
+        res.status(200).json(provedorById)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+})
+
 
 router.post("/", async (req, res) => {
     const { name, adress, location, postal_code, cuit, email, phone_number } = req.body;
