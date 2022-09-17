@@ -30,12 +30,13 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {name, description, image } = req.body;
+    const {name, description, type_service, image } = req.body;
 
     try {
         const serviceCreated = await Service.create({
             name,
             description,
+            type_service,
             image
         })
         res.status(200).json(serviceCreated);
