@@ -14,9 +14,8 @@ export default function FormUser(){
 
     return(
         <div>
-            <Link to="/home">
-                <button>Inicio</button>
-            </Link>
+                <Button href='/home' variant="outlined">Inicio</Button>
+            
             <h1 className='titulo'>Formulario de usuarios</h1>
             <Formik
                 initialValues={{
