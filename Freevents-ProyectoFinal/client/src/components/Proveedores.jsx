@@ -37,6 +37,7 @@ const Proveedores = () => {
       {allProviders && allProviders.map((provider) => {
         return (
           <CardProveedor
+            background_image={provider.background_image}
             name={provider.name}
             address={provider.address}
             email={provider.email}
