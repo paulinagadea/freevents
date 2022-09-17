@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         password: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false
         }, 
         gender: {
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         phone_number: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         createdInDb: {
