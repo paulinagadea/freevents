@@ -1,14 +1,19 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProviders } from "../actions";
 import NavBar from "./NavBar";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
-import { useSelector} from 'react-redux'
-import { Link } from "react-router-dom";
-
 
 const Proveedores = () => {
-    const allProviders = useSelector((state) => state.providers)
-    console.log(allProviders, "todos los prov")
+
+  const dispatch = useDispatch();
+  const allProviders = useSelector((state) => state.providers)
+
+  useEffect(() => {
+    dispatch(getProviders())
+  }, [dispatch])
 
   return (
     <div>
@@ -32,27 +37,23 @@ const Proveedores = () => {
           <option>Transporte</option>
           <option>Catering</option>
         </select>
-      </div>{
-        allProviders?.map(d=>{
-            return (
-                <div>
-          <Link style={{textDecoration:"none"}} to={"/proveedores/detail"}>
 
+      </div>
+
+      {allProviders && allProviders.map((provider) => {
+        return (
           <CardProveedor
-          name={d.name} 
-          email={d.email} 
-          address={ d.address}
-          phone_number={d.phone_number}
-          
+            name={provider.name}
+            address={provider.address}
+            email={provider.email}
+            phone_number={provider.phone_number}
           />
-          </Link>
-          </div>
-            )
-        })
-      }
-      
+        )
+      })}
+
     </div>
   );
 };
 
 export default Proveedores;
+

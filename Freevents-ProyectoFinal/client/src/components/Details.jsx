@@ -57,8 +57,7 @@ return (
         {/* <h3>Nombre: {Servicios.map(el=>el.name)}</h3>
         <h3>Descripción: {Servicios.map(el=>el.description)}</h3>
         <img src={Servicios.map(el=>el.image)} alt=""/> */}
-       
-        
+
         </div>
         {/* <h2>Resumen proveedor</h2> */}
         <div className='rowpCalif'>
@@ -88,9 +87,9 @@ return (
         <h3>COMBO 2</h3>
         </div>
          */}
-        <Link to= '/home/payment'>
+        {/* <Link to= '/home/payment'>
         <button className='Button'>Pay out</button>
-        </Link>
+        </Link> */}
         <Link to= '/home'>
         <button>Volver</button>
         </Link>

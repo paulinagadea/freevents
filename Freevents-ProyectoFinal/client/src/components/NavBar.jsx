@@ -18,10 +18,7 @@ import { NavLink } from 'react-router-dom';
                 <NavLink to="/home">
                 <button>inicio</button>
                 </NavLink>
-                <NavLink to="/home/eventos">
-                    <button>Eventos</button>
-                </NavLink>
-                <NavLink to="/home/proveedores">
+                <NavLink to="/proveedores">
                     <button>Proveedores</button>
                 </NavLink>
                 

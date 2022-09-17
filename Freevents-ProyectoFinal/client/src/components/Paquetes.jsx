@@ -4,6 +4,7 @@ import './Paquetes.css'
 import Card from './Card'
 
 
+
 const Paquetes = () => {  
 return (
     <div>
@@ -11,6 +12,7 @@ return (
 
 
         <h1 className="Titulo"> Paquetes de servicios </h1>
+        <div>
         <div className="row">
         <p>Ordenamiento : </p>
       <select >
@@ -34,24 +36,9 @@ return (
       </div>
       <Card></Card>
     </div>
+    </div>
 )
 }
 
 export default Paquetes;
 
-<div>
-<select>
-    <option selected disabled>
-        Orden Alfabetico
-    </option>
-    <option value="A-Z">A-Z</option>
-    <option value="Z-A">Z-A</option>
-</select>
-<select>
-    <option selected disabled>
-        Price
-    </option>
-    <option value="0-5">0-5</option>
-    <option value="5-0">5-0</option>
-</select>
-</div>
