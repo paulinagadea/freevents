@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
-import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
+// import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
+import fotogeneral from '../imagenes/FOTOGENERAL.png';
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 import "./Home.css"
@@ -27,12 +28,15 @@ const Home = () => {
     return (
         <div>
                 <NavBar3 />
-                <img className="imghome" src={image20} alt="" />
+                {/* <img className="imghome" src={image20} alt="" /> */}
             <Container fixed>
 
             <div className="contiene">
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
-                {/* <h1 className="texto-encima">Freevents</h1> */}
+                <Slider/>
+                <h1 className="texto-encima">Freevents</h1>
+                
+                {/* <img src={fotogeneral} className="fotogeneral_home" alt="" /> */}
             </div>
 
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>

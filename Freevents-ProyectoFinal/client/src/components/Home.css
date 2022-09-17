@@ -19,15 +19,20 @@ li{
     /* position: relative;
     display: inline-block;
     text-align: center; */
-    
+    width: 100%;
+}
+
+.fotogeneral_home{
+    position: absolute;
 }
 
 .texto-encima{
     position: absolute;
-    top: 450px;
-    left: 350px; 
+    margin: 50px auto;
+    top: 350px;
+    left: 550px; 
     color: aliceblue;
-    font-size: 150px;
+    font-size: 120px;
 }
 
 .centrado{

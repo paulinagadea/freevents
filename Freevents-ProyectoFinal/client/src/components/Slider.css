@@ -1,3 +1,17 @@
-.sliderc{
-    margin-top: 100px;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+main{
+    /* max-width: 1000px; */
+    margin: 10%;
+    width: 100%;
+    margin: 50px auto;
+    overflow: hidden;
 }
