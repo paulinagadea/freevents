@@ -49,7 +49,7 @@ return (
         <p>Eventos relacionados: {getData.map(el=>el.pack_service.map(el=>el.event)[0])[0]}</p>
         <p>Servicios que incluye: {getData.map(el=>el.pack_service.map(el=>el.service.map(el=>el.name))[0])[0]}</p>
         <h3>Proveedor: </h3>
-        <Link to= '/home/proveedoresID'>
+        <Link to= '/proveedores'>
         <p>{getData.map(el=>el.name)[0]}</p>
         </Link>
         
