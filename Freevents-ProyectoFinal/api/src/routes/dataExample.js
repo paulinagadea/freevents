@@ -226,38 +226,118 @@ const getData = [
 
 const getEvent = [
         {
-            id: 1,
+            id: "ab14552-f977-4e48-802b-e59c7e2c17e8",
             name: "wedding",
         },
         {
-            id: 2,
+            id: "2ce7d220-f207-4f2f-bd18-69a113aa7eae",
             name: "anniversary",
         },
         {
-            id: 3,
+            id: "9b008d20-f80a-4eba-a115-1279c6ddc5b9",
             name: "15_birthday_party",
         },
         {
-            id: 4,
+            id: "d05cd97a-e6c0-4d67-8a10-a52b043d7508",
             name: "birthday_party",
         },
         {
-            id: 5,
+            id: "c0767d73-8db9-48fc-9fb8-196f2867f795",
             name: "graduation",
         },
         {
-            id: 6,
+            id: "0916ba66-7616-479a-af7b-095fd0377094",
             name: "bachelor_party",
         },
         {
-            id: 7,
+            id: "8352e6cb-e362-49a8-8473-4e8de297a3e2",
             name: "baby_shower",
         },
         {
-            id: 8,
+            id: "6c06256c-7558-4743-ad3a-99434443294a",
             name: "full_party",
         },
 ]
+
+        // (1) id: a533aa44-67ed-4521-ad60-1c5d12fc927c
+        // name: "Perla Eventos",
+        // address: "Copina 2049",
+        // location: "Ciudad de Códoba, Córdoba",
+        // postal_code: "X5153",
+        // cuit: 30-60888953-2,
+        // email: "perlaeventos@gmail.com",
+        // phone_number: 3514851949,
+
+        // (2) id: ef2671c2-58eb-4acc-831e-d50e8d2aacd9
+        // name: "Luxury Eventos",
+        // address: "Av. Juramento 1475 Piso 2",
+        // location: "CABA",
+        // postal_code: "C1428",
+        // cuit: 30-55689777-8,
+        // email: "luxuryevents@gmail.com",
+        // phone_number: 1149703266,
+
+        // (3) id: 5ce3e6ec-fb35-401c-abf5-14612c4cbeb1 
+        // name: "Épico eventos",
+        // address: "Mendoza 3019",
+        // location: "Mar del Plata, Buenos Aires",
+        // postal_code: "B7602",
+        // cuit: 30-57890534-1,
+        // email: "epicoeventos@gmail.com",
+        // phone_number: 2235890765,
+
+        // (4) id: 5a6ca913-d299-41a3-b476-fd3ae0114cb8
+        // name: "Twenty Eventos",
+        // address: "Av. Arquitecto Jorge Bunge 1230",
+        // location: "Pinamar, Buenos Aires",
+        // postal_code: "B7167",
+        // cuit: 30-61789567-2,
+        // email: "mejoreseventos@gmail.com",
+        // phone_number: 2254678901,
+
+        // (5) id: dbaf37b2-deec-4254-a324-6a41233898fd
+        // name: "HDS Sónido",
+        // address: "Av. Constitución 299",
+        // location: "Pinamar, Buenos Aires",
+        // postal_code: "B7167",
+        // cuit: 30-58761253-0,
+        // email: "hdssonido@gmail.com",
+        // phone_number: 2254780911,
+
+        // (6) id: 465ffeb9-d892-4ac7-90f8-e31d99b994cd
+        // name: "Manuel Coronado, fotografía",
+        // address: "Av. Juan B. Justo 4700",
+        // location: "CABA",
+        // postal_code: "C1428",
+        // cuit: 30-60987123-9,
+        // email: "manuelcoronado@gmail.com",
+        // phone_number: 1189641133,
+
+
+
+
+
+
+// date: 2022-09-09T03:24:00
+
+
+// UUIDS EJEMPLOS: 
+// 
+// 
+// 
+// 
+// 
+// 
+// 6f9ba92b-4c96-4622-860b-26ea841d2f63
+// 8f1a09b8-c7c0-46b3-9f34-37827cfc4d7c
+// 95899037-1a6c-48ea-8f5a-0cd5be02f36a
+// fefb084f-27df-4151-9f48-2d17e9048d81
+// 425bd235-0b25-4038-a703-616c206290cb
+// 6af2d75d-3e83-4206-87f3-235f8c7e6b05
+// 8bec10fd-15d1-4479-a44a-9552611925ad
+// efa5f4fd-3ca7-4411-a426-01e51fadc123
+// 4a834395-cde1-4aa8-a896-35a2a9f413d9
+// 09cd387e-3b4c-47e3-b2fe-17b375ab4c71
 
 module.exports = {
     getEvent
