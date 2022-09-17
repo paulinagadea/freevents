@@ -2,10 +2,12 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-const {DBServices} = require('../controllers/DB-Services');
 
-const Provider = require('./Provider')
+const Provider = require('./Provider.js');
 const Service = require('./Service.js');
+const ServiceId = require('./ServiceId.js');
+const Event = require('./Event.js');
+const EventId = require('./EventId.js');
 
 
 const router = Router();
@@ -13,8 +15,12 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use('/providers', Provider)
+router.use('/providers', Provider);
 router.use('/services', Service);
+router.use('/services/:id', ServiceId);
+router.use('/events', Event);
+router.use('/events/:id', EventId);
+
 
 // router.get('/admins/:id', (req, res, next) => { })
 
@@ -27,30 +33,6 @@ router.use('/services', Service);
 // router.get('/events', (req, res, next) => { })
 
 // router.get('/events/:id', (req, res, next) => { })
-
-
-router.get('/services', (req, res) => {
-    
-    try {
-         
-        let services = DBServices;
-        res.status(200).json(services);
-    
-    }
-    
-    catch (err) {
-        console.log(err);
-    }
-})
-
-router.get('/services/:id', (req, res, next) => {
-     
-    const {id} = req.params;
-    
-    
-      
-});
-
 
 // router.get('/orders', (req, res, next) => { })
 

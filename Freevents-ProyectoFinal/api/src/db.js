@@ -34,7 +34,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Category, Pack_Service, Provider, Order, Review, User, Favorite } = sequelize.models;
+const { Event, Pack_Service, Provider, Order, Review, User, Favorite } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -83,11 +83,11 @@ const { Category, Pack_Service, Provider, Order, Review, User, Favorite } = sequ
 
 //Muchos a Muchos
 
-Category.belongsToMany(Provider, { through: 'events_providers' });
-Provider.belongsToMany(Category, { through: 'events_providers' });
+Event.belongsToMany(Provider, { through: 'events_providers' });
+Provider.belongsToMany(Event, { through: 'events_providers' });
 
-Category.belongsToMany(Pack_Service, { through: 'providers_services' });
-Pack_Service.belongsToMany(Category, { through: 'providers_services' });
+Event.belongsToMany(Pack_Service, { through: 'providers_services' });
+Pack_Service.belongsToMany(Event, { through: 'providers_services' });
 
 
 
