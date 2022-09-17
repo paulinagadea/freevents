@@ -5,6 +5,9 @@ import { getProviders } from "../actions";
 import NavBar from "./NavBar";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
+import image13 from "../imagenes/13.jpeg";
+import png from "../imagenes/FOTOGENERAL.png";
+
 
 const Proveedores = () => {
 
@@ -18,27 +21,18 @@ const Proveedores = () => {
   return (
     <div>
       <NavBar></NavBar>
-
+      <img className="png" src={png} alt="" />
       <h1 className="Titulo"> Proveedores </h1>
+
       <div className="row">
-        <p>Ordenamiento : </p>
         <select>
+          <option selected disabled>Ordenamiento</option>
           <option value="ascendente">A-Z</option>
           <option value="descendente">Z-A</option>
         </select>
-
-        <p>Servicios : </p>
-        <select>
-          <option>Todos</option>
-          <option>Arreglos florales</option>
-          <option>Dj</option>
-          <option>Streaper</option>
-          <option>Multimedia</option>
-          <option>Transporte</option>
-          <option>Catering</option>
-        </select>
-
       </div>
+
+      <img src={image13} alt="" />
 
       {allProviders && allProviders.map((provider) => {
         return (
@@ -50,10 +44,10 @@ const Proveedores = () => {
           />
         )
       })}
-
     </div>
   );
 };
+
 
 export default Proveedores;
 

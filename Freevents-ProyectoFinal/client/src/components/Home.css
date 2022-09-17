@@ -11,14 +11,14 @@ li{
 }
 
 .imghome{
-    width: 1500px;
+    width: 100%;
     
 }
 
 .contiene{
-    position: relative;
+    /* position: relative;
     display: inline-block;
-    text-align: center;
+    text-align: center; */
     
 }
 
@@ -54,4 +54,9 @@ width: 200px;
 .parrafoc{
     text-align: justify;
     
+}
+.eventos Button{
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
 }

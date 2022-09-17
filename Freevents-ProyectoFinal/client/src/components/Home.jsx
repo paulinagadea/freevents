@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
 import Eventos from "./Eventos"
+import { Box, Container, Grid } from "@material-ui/core";
 
 
 const Home = () => {
@@ -25,16 +26,17 @@ const Home = () => {
 
     return (
         <div>
-            <div className="contiene">
                 <NavBar3 />
-
-                {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <img className="imghome" src={image20} alt="" />
+            <Container fixed>
+
+            <div className="contiene">
+                {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 {/* <h1 className="texto-encima">Freevents</h1> */}
             </div>
 
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
-            <ul>
+            <Box component="span" m={1}>
                 <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
                 <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
                 <Button href="/paquetes" color="secondary">DESPEDIDAS</Button>
@@ -42,7 +44,7 @@ const Home = () => {
                 <Button href="/paquetes" color="secondary">BABY SHOWERS</Button>
                 <Button href="/paquetes" color="secondary">15 AÑOS</Button>
                 <Button href="/paquetes" color="secondary">FULL PARTY</Button>
-            </ul>
+            </Box>
             <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button>
             <Eventos/>
 
@@ -91,6 +93,7 @@ const Home = () => {
                 <Button color="secondary" href="/providerregister" variant="outlined"> REGISTRATE AQUI</Button>
 
             </div>
+            </Container>
         </div>
     )
 }
