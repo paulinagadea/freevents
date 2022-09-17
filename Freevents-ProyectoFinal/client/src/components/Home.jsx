@@ -7,7 +7,7 @@ import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 import "./Home.css"
 import Button  from "@material-ui/core/Button"
-import { NavBar2 } from "./NavBar2"
+import { NavBar3 } from "./NavBar3"
 
 
 // import image1 from "../imagenes/1.jpg";
@@ -26,7 +26,7 @@ const Home = () => {
     return (
         <div>
             <div className="contiene">
-                <NavBar2 />
+                <NavBar3 />
                 
                 
                 <img className="imghome" src={image20} alt="" />
