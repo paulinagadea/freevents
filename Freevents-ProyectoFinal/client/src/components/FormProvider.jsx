@@ -5,6 +5,7 @@ import './FormUser.css'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
@@ -26,7 +27,10 @@ export default function FormUser(){
                     postal_code: '',
                     cuit: '',
                     email: '',
-                    phone_number: ''
+                    phone_number: '',
+                    logotype: '',
+                    background_image: '',
+                    galery_image: ''
                 }}
                 validate={(valores)=>{
                     let errores = {};
@@ -165,6 +169,36 @@ export default function FormUser(){
                                 type="number"
                                 name= "phone_number"
                                 value={values.phone_number}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                label="Logo"
+                                name= "logotype"
+                                value={values.logotype}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                label="Fondo"
+                                name= "background_image"
+                                value={values.background_image}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                label="Galeria de imagenes"
+                                name= "galery_image"
+                                value={values.galery_image}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
