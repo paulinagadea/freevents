@@ -2,11 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
-import NavBar from "./NavBar";
+import NavBarProveedores from "./NavBarProveedores";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";
-import png from "../imagenes/FOTOGENERAL.png";
+import png from "../imagenes/footer.jpg";
 
 
 const Proveedores = () => {
@@ -20,9 +20,9 @@ const Proveedores = () => {
 
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBarProveedores/>
       <img className="png" src={png} alt="" />
-      <h1 className="Titulo"> Proveedores </h1>
+      <h1 className="Titulo-proveedores"> Proveedores </h1>
 
       <div className="row">
         <select>
@@ -31,9 +31,7 @@ const Proveedores = () => {
           <option value="descendente">Z-A</option>
         </select>
       </div>
-
-      <img src={image13} alt="" />
-
+      <div className="grid">
       {allProviders && allProviders.map((provider) => {
         return (
           <CardProveedor
@@ -45,6 +43,7 @@ const Proveedores = () => {
           />
         )
       })}
+      </div>
     </div>
   );
 };

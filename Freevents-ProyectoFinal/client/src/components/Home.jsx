@@ -58,10 +58,11 @@ const Home = () => {
             <div>
             <h1 className="titulo">CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
 
-
+            <div className="grid">
                 {allProviders && allProviders.map((provider) => {
                     return (
                         <CardProveedor
+                            background_image={provider.background_image}
                             name={provider.name}
                             address={provider.address}
                             email={provider.email}
@@ -69,6 +70,7 @@ const Home = () => {
                         />
                     )
                 })}
+            </div>
                 <Grid container spacing={1}>
                     <Grid item xs={4}>
                     <img style={{width:"45%"}} src={image7} alt="" />
@@ -100,8 +102,11 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <Button color="secondary" href="/providerregister" variant="outlined"> REGISTRATE AQUI</Button>
-
+                <Button color="secondary" 
+                        href="/providerregister" 
+                        variant="outlined"
+                        >REGISTRATE AQUI
+                </Button>
 
             </div>
             </Container>
