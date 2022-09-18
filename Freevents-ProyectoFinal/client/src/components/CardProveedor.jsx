@@ -9,66 +9,66 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-      maxWidth: 345,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-    media: {
-        height: 140,
-      },
-  });
+  root: {
+    minWidth: 275,
+    maxWidth: 345,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  media: {
+    height: 140,
+  },
+});
 
 
 
-const CardProveedor = ({name, address, email, phone_number,background_image })=>{
-    const classes = useStyles();
+const CardProveedor = ({ name, address, email, phone_number, background_image }) => {
+  const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-    return (
+  return (
 
-        <Card className={classes.root}>
-        <CardActionArea>
+    <Card className={classes.root}>
+      <CardActionArea>
         <CardMedia
           className={classes.media}
           image={background_image}
           title="Contemplative Reptile"
         />
-            <CardContent>
-            {/* <Typography variant="h5" component="h2">
+        <CardContent>
+          {/* <Typography variant="h5" component="h2">
             Free Events
             </Typography> */}
-            <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2">
             {name}
-         </Typography>
-         {/* <Typography className={classes.pos} color="textSecondary">
+          </Typography>
+          {/* <Typography className={classes.pos} color="textSecondary">
           Info:
          </Typography> */}
-         <Typography variant="body2" component="p">
-          email: {email}
-          <br />
-          Dirección: {address}
-          <br />
-          Número de telefono: {phone_number}
-         </Typography>
-            </CardContent>
-            </CardActionArea>
-            
-            <CardActions>
-         <Button size="small"> + Info</Button>
-       </CardActions>
-        </Card>
-    )
+          <Typography variant="body2" component="p">
+            email: {email}
+            <br />
+            Dirección: {address}
+            <br />
+            Número de telefono: {phone_number}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
+      <CardActions>
+        <Button size="small"> + Info</Button>
+      </CardActions>
+    </Card>
+  )
 }
 export default CardProveedor
 // <div >

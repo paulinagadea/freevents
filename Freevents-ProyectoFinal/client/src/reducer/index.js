@@ -6,7 +6,7 @@ const initialState = {
     providers:[],
     allProviders:[],
     detail:[],
-
+    services:[],
 }
 
 function rootReducer(state = initialState, action) {
@@ -31,7 +31,18 @@ function rootReducer(state = initialState, action) {
                 services: action.payload,
             }
         }
-        
+        case actionTypes.clearDetails: {
+            return {
+                ...state, 
+                detail:[],
+            }
+        }
+        case actionTypes.getDetails: {
+            return {
+                ...state,
+                detail:[],
+            }
+        }  
     default:
         return state;
     }
