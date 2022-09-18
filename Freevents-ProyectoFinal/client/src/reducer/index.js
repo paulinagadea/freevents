@@ -40,7 +40,7 @@ function rootReducer(state = initialState, action) {
         case actionTypes.getDetails: {
             return {
                 ...state,
-                detail:[],
+                detail:action.payload,
             }
         }  
     default:

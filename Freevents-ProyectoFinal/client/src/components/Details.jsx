@@ -22,7 +22,7 @@ const Details = () => {
 
     useEffect(()=>{
         dispatch(getDetails(id));
-        return ()=>{dispatch(clearDetails())}
+        // return ()=>{dispatch(clearDetails())} ojo esta dando error con esta linea, "verificar"
     },[dispatch, id])
 
     // const myDog = useSelector((state) => state.detail)
@@ -40,7 +40,7 @@ const Details = () => {
                     <div key={myservice.id}>
                         <div>
                             <div>
-                                <img className="imgdetail" src={myservice.img} alt={myservice.nombre} width="250" height="250px" ></img>
+                                <img className="imgdetail" src={myservice.background_image} alt={myservice.nombre} width="250" height="250px" ></img>
 
                             </div>
 
@@ -56,7 +56,7 @@ const Details = () => {
                             </div>
                         </div>
                         <div>
-                            <Link to={'/home'}>
+                            <Link to={'/proveedores'}>
                                 <button key={id}>Volver</button>
                             </Link>
                         </div>
