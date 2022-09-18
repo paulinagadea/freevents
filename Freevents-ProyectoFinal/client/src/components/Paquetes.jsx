@@ -2,14 +2,14 @@ import React from "react";
 import NavBar from "./NavBar";
 import './Paquetes.css'
 import Card from './Card'
-
+import Container from '@mui/material/Container'
 
 
 const Paquetes = () => {
   return (
     <div>
-      <NavBar></NavBar>
-
+      <NavBar/>
+      <Container m={5} maxWidth="xs">
 
       <h1 className="Titulo"> Paquetes de servicios </h1>
       <div>
@@ -36,6 +36,7 @@ const Paquetes = () => {
         </div>
       </div>
       <Card></Card>
+      </Container>
     </div>
   )
 }
