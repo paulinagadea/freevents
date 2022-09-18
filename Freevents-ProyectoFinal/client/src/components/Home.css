@@ -19,7 +19,7 @@ li{
     /* position: relative;
     display: inline-block;
     text-align: center; */
-    width: 100%;
+    /* width: 100%; */
 }
 
 .fotogeneral_home{
@@ -45,11 +45,11 @@ li{
 }
 
 .footer{
-width: 200px;
+    width: 100%;
 }
 
 .fotocate{
-    height: 750px;
+    height: 10%;
 }
 
 .parrafo{

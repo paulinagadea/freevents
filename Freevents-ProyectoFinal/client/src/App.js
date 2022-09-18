@@ -7,11 +7,13 @@ import Detail from './components/Details';
 import FormUser from "./components/FormUser";
 import FormProvider from "./components/FormProvider";
 import Paquetes from "./components/Paquetes";
-import Proveedores from './components/Proveedores'
+import Proveedores from './components/Proveedores';
+import { ThemeProvider } from '@material-ui/core';
 
 
 function App() {
   return (
+    <ThemeProvider>
     <BrowserRouter>
     <div>
       <div className="App">
@@ -28,6 +30,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 export default App; 
