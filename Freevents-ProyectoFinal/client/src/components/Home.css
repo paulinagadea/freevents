@@ -44,9 +44,7 @@ li{
     margin-top: 200px;
 }
 
-.footer{
-    width: 100%;
-}
+
 
 .fotocate{
     height: 10%;
@@ -58,10 +56,59 @@ li{
 
 .parrafoc{
     text-align: justify;
+    margin-top: 30px;
     
 }
 .eventos Button{
     display: flex;
     justify-content: space-around;
     align-items:center ;
+}
+.grid-Home{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,8fr));
+    gap: 20px 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.boxing{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.Prove{
+    margin-top: 90px;
+}
+
+.titulo-home{
+    font-size: 40px;
+    color: #D9C2BA;
+    margin-bottom: 2%;
+
+}
+.footer-completo{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.footer{
+    
+    width: 100%;
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    margin-right: 110%;
+    
+}
+.container-footer{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background: url(https://www.elblogdeunanovia.com/wp-content/uploads/2017/08/damas-de-honor-de-la-novia-.jpg);
+    width: 100%;
+    height: 300px;
+    background-size:cover;
+    margin-top: 30px;
 }
