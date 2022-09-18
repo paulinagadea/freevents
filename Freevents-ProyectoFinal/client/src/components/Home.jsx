@@ -16,6 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
 import Eventos from "./Eventos"
 import { Box, Container, Grid } from "@material-ui/core";
+import Boximg from "./Boxing";
+
 
 
 const Home = () => {
@@ -30,8 +32,6 @@ const Home = () => {
         <div>
                 <NavBar3 />
                 {/* <img className="imghome" src={image20} alt="" /> */}
-            <Container fixed>
-
             <div className="contiene">
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <Slider/>
@@ -39,7 +39,7 @@ const Home = () => {
                 
                 {/* <img src={fotogeneral} className="fotogeneral_home" alt="" /> */}
             </div>
-
+            <Container fixed>
             <Box color = "primary.main" component="span" b= {4}>
                 <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
                 <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
@@ -55,22 +55,9 @@ const Home = () => {
             <Eventos/>
 
             {/* EN VEZ DEL SLIDER PONER LOS EVENTOS CON EL TEMPLATE LINDO DE HOSMAR ACA */}
-            <div>
-            <h1 className="titulo">CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
+            <div className="Prove">
+            <h1 className="titulo-home">PROVEEDORES DE SERVICIOS</h1>
 
-            <div className="grid">
-                {allProviders && allProviders.map((provider) => {
-                    return (
-                        <CardProveedor
-                            background_image={provider.background_image}
-                            name={provider.name}
-                            address={provider.address}
-                            email={provider.email}
-                            phone_number={provider.phone_number}
-                        />
-                    )
-                })}
-            </div>
                 <Grid container spacing={1}>
                     <Grid item xs={4}>
                     <img style={{width:"45%"}} src={image7} alt="" />
@@ -95,13 +82,17 @@ const Home = () => {
                         Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
                         ipsum fugit laudantium corrupti dolore nihil,
                         eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
-                        ipsum fugit laudantium corrupti dolore nihil,
-                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.</h1>
+                        </h1>
                 </div>
             </div>
+            <h1 className="titulo">CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
+            <div className="boxing">
+                <Boximg/>
+            </div>
+    
+
             <div>
+                <h1 className="titulo-home"> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
                 <Button color="secondary" 
                         href="/providerregister" 
                         variant="outlined"
@@ -110,8 +101,24 @@ const Home = () => {
 
             </div>
             </Container>
-                <h1> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                <img className="footer" src={footer} alt="" />
+                <div className="container-footer">
+                    <div className="footer-completo">
+                        <div className="botones">
+                        <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
+                        <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
+                        <Button href="/paquetes" color="secondary">DESPEDIDAS</Button>
+                        <Button href="/paquetes" color="secondary">GRADUACIONES</Button>
+                        </div>
+                        <div  className="botones">
+                        <Button href="/paquetes" color="secondary">BABY SHOWERS</Button>
+                        <Button href="/paquetes" color="secondary">15 AÑOS</Button>
+                        <Button href="/paquetes" color="secondary">FULL PARTY</Button>
+                        <Button href="/paquetes" color="secondary">MATRIMONIO</Button>
+                        </div>
+                    </div>
+                </div>
+                {/* <img className="footer" src={footer} alt="" /> */}
+           
         </div>
     )
 }
