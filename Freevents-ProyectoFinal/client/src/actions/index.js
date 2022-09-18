@@ -68,7 +68,7 @@ export function createProvider(payload) {
 export function getDetails(id) {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/services/${id}`);
+            var json = await axios.get(`http://localhost:3001/providers/${id}`);
             return dispatch({
                 type: actionTypes.getDetails,
                 payload: json.data,

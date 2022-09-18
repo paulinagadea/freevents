@@ -7,6 +7,7 @@ import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";
 import png from "../imagenes/footer.jpg";
+import { Link } from "react-router-dom";
 
 
 const Proveedores = () => {
@@ -32,15 +33,18 @@ const Proveedores = () => {
         </select>
       </div>
       <div className="grid">
-      {allProviders && allProviders.map((provider) => {
+      {allProviders.map((provider) => {
         return (
-          <CardProveedor
-            background_image={provider.background_image}
-            name={provider.name}
-            address={provider.address}
-            email={provider.email}
-            phone_number={provider.phone_number}
-          />
+          <div key={provider.id} className='item'>
+          <Link to= {`/detail/${provider.id}`}>
+              <CardProveedor
+                background_image={provider.background_image}
+                name={provider.name}
+                address={provider.address}
+                email={provider.email}
+                phone_number={provider.phone_number}/>
+          </Link>
+          </div>
         )
       })}
       </div>
