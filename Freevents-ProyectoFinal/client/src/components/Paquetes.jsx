@@ -2,14 +2,24 @@ import React from "react";
 import NavBar from "./NavBar";
 import './Paquetes.css'
 import Card from './Card'
-import Container from '@mui/material/Container'
+//import Container from '@mui/material/Container'
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getServices } from "../actions";
 
 
 const Paquetes = () => {
+  const dispatch = useDispatch();
+  const allServices = useSelector((state) => state.services)
+
+  useEffect(() => {
+    dispatch(getServices())
+  }, [dispatch])
+
   return (
     <div>
       <NavBar/>
-      <Container m={5} maxWidth="xs">
+      {/* <Container m={5} maxWidth="xs"> */}
 
       <h1 className="Titulo"> Paquetes de servicios </h1>
       <div>
@@ -24,19 +34,24 @@ const Paquetes = () => {
 
           <select>
             <option selected disabled>Servicios</option>
-            <option>Todos</option>
-            <option>Arreglos florales</option>
+            {/* {allServices.map((ser, index) => (
+              <option key={index} value={ser}>
+                {ser}
+              </option>
+            ))} */}
+
+            {/* <option>Arreglos florales</option>
             <option>Dj</option>
             <option>Streaper</option>
             <option>Multimedia</option>
             <option>Transporte</option>
-            <option>Catering</option>
+            <option>Catering</option> */}
           </select>
 
         </div>
       </div>
       <Card></Card>
-      </Container>
+      {/* </Container> */}
     </div>
   )
 }
