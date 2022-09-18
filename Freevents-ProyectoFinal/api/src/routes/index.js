@@ -4,7 +4,7 @@ const { Router } = require('express');
 const Provider = require('./Provider')
 const Service = require('./Service.js');
 const Event = require('./Event.js');
-
+const Client = require('./Client.js')
 const router = Router();
 
 // Configurar los routers
@@ -13,6 +13,7 @@ const router = Router();
 router.use('/providers', Provider)
 router.use('/services', Service);
 router.use('/events', Event);
+router.use('/client', Client)
 
 // router.get('/admins/:id', (req, res, next) => { })
 

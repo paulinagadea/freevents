@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
             allowNull: true
         },
         dni: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         email: {
