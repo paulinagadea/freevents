@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
             postal_code,
             cuit,
             email,
-            phone_number
+            phone_number,
         })
 
         res.status(200).json(actCreated);
