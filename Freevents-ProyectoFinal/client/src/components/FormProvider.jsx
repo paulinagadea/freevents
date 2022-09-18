@@ -4,6 +4,10 @@ import './FormUser.css'
 // import { ThemeProvider } from '@material-ui/core/styles'; //estilos de material ui
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Stack from '@mui/material/Stack';
+
 
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
@@ -26,7 +30,10 @@ export default function FormUser(){
                     postal_code: '',
                     cuit: '',
                     email: '',
-                    phone_number: ''
+                    phone_number: '',
+                    logotype: '',
+                    background_image: '',
+                    galery_image: ''
                 }}
                 validate={(valores)=>{
                     let errores = {};
@@ -92,6 +99,7 @@ export default function FormUser(){
                         {/* {console.log(errors)} */}
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="Nombre"
                                 name= "name"
                                 value={values.name}
@@ -103,6 +111,7 @@ export default function FormUser(){
                         
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="Apellido"
                                 name= "adress"
                                 value={values.adress}
@@ -114,6 +123,7 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="Location"
                                 name="location"
                                 value={values.location}
@@ -125,6 +135,7 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="postal_code"
                                 type="number"
                                 name="postal_code"
@@ -137,6 +148,7 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="cuit"
                                 type="number"
                                 name= "cuit"
@@ -149,6 +161,7 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="Email"
                                 type="email"
                                 name= "email"
@@ -161,10 +174,43 @@ export default function FormUser(){
 
                         <div className='inputs'>
                             <TextField
+                                color="secondary"
                                 label="Número telefónico"
                                 type="number"
                                 name= "phone_number"
                                 value={values.phone_number}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
+                        <div className='inputs'>
+                        <Stack alignItems="center" spacing={2}>
+                            <label htmlFor="">Agregra una foto</label>
+                            <IconButton color="secondary" aria-label="upload picture" component="label">
+                                <input hidden accept="image/*" type="file" />
+                                <PhotoCamera />
+                            </IconButton>
+                        </Stack>
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                color="secondary"
+                                label="Fondo"
+                                name= "background_image"
+                                value={values.background_image}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                color="secondary"
+                                label="Galeria de imagenes"
+                                name= "galery_image"
+                                value={values.galery_image}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
