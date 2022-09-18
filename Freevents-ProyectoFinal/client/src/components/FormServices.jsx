@@ -32,15 +32,9 @@ export default function FormUser(){
                 initialValues={{
                     // objeto con valores por defecto
                     name: '',
-                    adress: '',
-                    location: '',
-                    postal_code: '',
-                    cuit: '',
-                    email: '',
-                    phone_number: '',
-                    logotype: '',
-                    background_image: '',
-                    galery_image: ''
+                    description: '',
+                    type_service: '',
+                    image: ''
                 }}
                 validate={(valores)=>{
                     let errores = {};
@@ -54,38 +48,13 @@ export default function FormUser(){
                     // validacion nombre
                     if(!valores.name){
                         errores.name = 'Por favor ingresa un nombre';
-                    } else if(!validacionLetras.test(valores.name)){
-                        errores.name = 'El nombre solo puede contener letras'
                     }
 
-                    //validacion apellido
-                    if(!valores.adress){
-                        errores.adress = 'Por favor ingresa un apellido';
-                    } else if(!validacionLetras.test(valores.surname)){
-                        errores.adress = 'El apellido solo puede contener letras'
+                    //validacion descripcion
+                    if(!valores.description){
+                        errores.description = 'Este campo es obligatorio';
                     }
-
-                    //validacion location
-                    if(!valores.location){
-                        errores.location = 'Este campo es obligatorio';
-                    } 
-
-                    //validacion postal_code
-                    if(!valores.postal_code){
-                        errores.dni = 'Este campo es obligatorio';
-                    }
-                    
-                    //validacion cuit
-                    if(!valores.cuit){
-                        errores.cuit = 'Este campo es obligatorio';
-                    }
-
-                    //validacion correo
-                    if(!valores.email){
-                        errores.email = 'Por favor ingresa un email';
-                    } else if(!validacionCorreo.test(valores.email)){
-                        errores.email = 'Ingresa un email valido'
-                    }
+                
                     return errores
                 }} 
                 onSubmit={(values, {resetForm})=>{
@@ -124,108 +93,37 @@ export default function FormUser(){
                         <div className='inputs'>
                             <TextField
                                 color="secondary"
-                                label="Apellido"
-                                name= "adress"
-                                value={values.adress}
+                                label="Descripcion"
+                                name= "description"
+                                value={values.description}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.adress && errors.adress && <div className='error'>{errors.adress}</div>}
+                            {touched.description && errors.description && <div className='error'>{errors.description}</div>}
                         </div>
 
                         <div className='inputs'>
                             <TextField
                                 color="secondary"
-                                label="Location"
-                                name="location"
-                                value={values.location}
+                                label="Tipo"
+                                name="type_service"
+                                value={values.type_service}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.location && errors.location && <div className='error'>{errors.location}</div>}
+                            {touched.type_service && errors.type_service && <div className='error'>{errors.type_service}</div>}
                         </div>
 
                         <div className='inputs'>
                             <TextField
                                 color="secondary"
-                                label="postal_code"
-                                type="number"
-                                name="postal_code"
-                                value={values.postal_code}
+                                label="Imagen"
+                                name="image"
+                                value={values.image}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.postal_code && errors.postal_code && <div className='error'>{errors.postal_code}</div>}
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="cuit"
-                                type="number"
-                                name= "cuit"
-                                value={values.cuit}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                            {touched.cuit && errors.cuit && <div className='error'>{errors.cuit}</div>}
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Email"
-                                type="email"
-                                name= "email"
-                                value={values.email}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                            {touched.email && errors.email && <div className='error'>{errors.email}</div>}
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Número telefónico"
-                                type="number"
-                                name= "phone_number"
-                                value={values.phone_number}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                        </div>
-
-                        <div className='inputs'>
-                        <Stack alignItems="center" spacing={2}>
-                            <label htmlFor="">Agregra una foto</label>
-                            <IconButton color="secondary" aria-label="upload picture" component="label">
-                                <input hidden accept="image/*" type="file" />
-                                <PhotoCamera />
-                            </IconButton>
-                        </Stack>
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Fondo"
-                                name= "background_image"
-                                value={values.background_image}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Galeria de imagenes"
-                                name= "galery_image"
-                                value={values.galery_image}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
+                            {touched.image && errors.image && <div className='error'>{errors.image}</div>}
                         </div>
                         
                         <div className='boton_form'>
