@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
                         alignItems="center"
                         >
                         <Grid item>
-                        <Typography variant="h6">
+                        <Typography variant="h3">
                             Freefest
                             </Typography>
                             </Grid>
