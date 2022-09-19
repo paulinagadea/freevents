@@ -19,9 +19,11 @@ export default function SearchBar({setCurrentPage}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log(name)
         
         if (!name) return alert("Busca un proveedor");
-        if(provider.find(el=>el.name === name) ){
+        
+        if(provider.find(el=>el.name.toLowerCase().includes(name.toLowerCase())) ){
 
             dispatch(getNamesProviders(name));
             setName("")
