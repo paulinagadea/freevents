@@ -25,6 +25,8 @@ export default function LandingPage(){
                 <div>
         <div className="container">
                 </div>
+
+                <Link style={{textDecoration:"none"}} to ="/home">
                 <div className="galeria">
                     <div className="evento">
                         <img src={f9}></img>
@@ -51,6 +53,7 @@ export default function LandingPage(){
                         <h1>Full Party</h1>   
                     </div>
                 </div>
+                </Link>
             </div>
             <div>
 
