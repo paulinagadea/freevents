@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-    const { name, adress, location, postal_code, cuit, email, phone_number } = req.body;
+    const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image } = req.body;
     try {
         const actCreated = await Provider.create({
             name,
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
         })
 
 
-        //
+        ////
 
         res.status(200).json(actCreated);
     } catch (error) {
