@@ -34,7 +34,8 @@ function rootReducer(state = initialState, action) {
         case actionTypes.clearDetails: {
             return {
                 ...state,
-                detail: [],
+                detail:[],
+                providers:[],
             }
         }
         case actionTypes.getDetails: {
@@ -78,36 +79,6 @@ function rootReducer(state = initialState, action) {
                 providers: sortedArr
             }
         };
-
-    //     case actionTypes.orderByNamee:{
-    //         let sortedArr ; 
-    //         if (action.payload === 'ascendente'){
-    //             sortedArr = state.providers.sort(function(a, b){
-    //             if(a.name.toLowerCase() > b.name.toLowerCase()){ 
-    //                 return 1;
-    //             }
-    //             if (b.name.toLowerCase() > a.name.toLowerCase()){
-    //                 return -1;
-    //             }
-    //                 return 0;
-    //         })
-    //             }else if (action.payload === "descendente") {
-    //                 sortedArr = state.providers.sort(function (a, b) {
-    //             if (a.name.toLowerCase() > b.name.toLowerCase()) {
-    //                 return -1
-    //             }
-    //             if (b.name.toLowerCase() > a.name.toLowerCase()) {
-    //                 return 1
-    //           }
-    //           return 0
-    //         })
-    //       }
-                
-    //     return {
-    //         ...state,
-    //         dogs:sortedArr
-    // }
-    //     }
         case actionTypes.createProvider: {
             return{
                 ...state

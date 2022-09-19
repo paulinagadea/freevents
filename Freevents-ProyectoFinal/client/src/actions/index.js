@@ -9,6 +9,7 @@ export const actionTypes ={
     getDetails:"getDetails",
     getNamesProviders:"getNamesProviders",
     orderByName:"orderByName",
+    clearDetails:"clearDetails",
 
 };
 

@@ -25,7 +25,7 @@ const Details = () => {
 
     useEffect(()=>{
         dispatch(getDetails(id));
-        // return ()=>{dispatch(clearDetails())} ojo esta dando error con esta linea, "verificar"
+        return ()=>{dispatch(clearDetails())} 
     },[dispatch, id])
 
     // const myDog = useSelector((state) => state.detail)
