@@ -10,3 +10,14 @@
     color: red;
     font-weight: bold;
 }
+.boton_inicio{
+    float: left;
+}
+.mensaje_alerta{
+    position: absolute;
+    top: 1000px;
+}
+.formulario{
+    left: 2000px;
+    background-color: aqua;
+}
