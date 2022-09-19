@@ -55,6 +55,7 @@ const Details = () => {
                                 <h3 className="statstext">e-mail: {myservice.email}</h3>
                                 <h3 className="statstext">Numero de telefono: {myservice.phone_number}</h3>
                                 <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
+                                {/* <h5>Temperamento: {myDog.temperament?.length === 0 && "Desconocido" }{myDog.createdInDb? myDog.temperament.map(el=>el.name + ' '): myDog.temperament?.join(' ')}</h5> */}
                                 <div>
                                 </div>
                             </div>
