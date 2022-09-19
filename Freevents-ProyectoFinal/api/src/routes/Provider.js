@@ -3,12 +3,13 @@ const { getAllProviders } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
-const { Provider, Event } = require('../db')
+const { Provider } = require('../db')
 
 router.get('/', async (req, res) => {
     try {
         const { name } = req.query
         const provedores = await getAllProviders()
+        res.status(200).json(provedores)
         const provedorByName = await getAllProviderByName(name)
 
         console.log('esto es provedorByName', provedorByName)
@@ -20,10 +21,9 @@ router.get('/', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error', error })
     }
-})
+});
 
-
-router.get('/:id', async (req, res) => {
+Router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const provedorById = await getProviderById(id)
@@ -39,19 +39,16 @@ router.get('/:id', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
+    const { name, adress, location, postal_code, cuit, email, phone_number } = req.body;
     try {
         const actCreated = await Provider.create({
             name,
-            address,
+            adress,
             location,
             postal_code,
             cuit,
             email,
-            phone_number,
-            logotype,
-            background_image,
-            galery_image
+            phone_number
         })
 
         res.status(200).json(actCreated);
@@ -59,7 +56,6 @@ router.post("/", async (req, res) => {
         res.status(500).json({ msg: 'Error', error })
     }
 });
-
 
 
 module.exports = router;
