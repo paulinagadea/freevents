@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Details.css'
-import NavBarProveedores from "./NavBarProveedores";
+
 // import { Proveedores, Servicios } from './../data';
 import NavBar from "./NavBar";
 import { getData, getEvent } from '../dataJSON';
@@ -39,7 +39,7 @@ const Details = () => {
         myservice && myservice.id
             ? (
                 <div className="conteiner">
-                <NavBarProveedores></NavBarProveedores>
+                <NavBar></NavBar>
                     <div key={myservice.id}>
                         <div>
                             <div>
