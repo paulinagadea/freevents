@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-Router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const provedorById = await getProviderById(id)
@@ -39,16 +39,19 @@ Router.get('/:id', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    const { name, adress, location, postal_code, cuit, email, phone_number } = req.body;
+    const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
     try {
         const actCreated = await Provider.create({
             name,
-            adress,
+            address,
             location,
             postal_code,
             cuit,
             email,
-            phone_number
+            phone_number,
+            logotype,
+            background_image,
+            galery_image
         })
 
         res.status(200).json(actCreated);
