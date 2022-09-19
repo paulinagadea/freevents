@@ -149,7 +149,7 @@ export default function FormUser(){
                             {touched.location && errors.location && <div className='error'>{errors.location}</div>}
                         </div>
 
-                        <div className='inputs'>
+                        <div className='inputs'> 
                             <TextField
                                 color="secondary"
                                 label="postal_code"
