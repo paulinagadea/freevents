@@ -243,7 +243,7 @@ export default function FormUser(){
                                 color="secondary"
                                 label="Eventos"
                                 name= "events"
-                                value={values.events}
+                                value={[values.events]}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />

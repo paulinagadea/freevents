@@ -57,6 +57,7 @@ export function createService(payload) {
 
 export function createProvider(payload) {
     return async function () {
+        console.log('que llega en payload', payload)
         try {
             const creado = await axios.post("http://localhost:3001/providers", payload);
             console.log(creado)

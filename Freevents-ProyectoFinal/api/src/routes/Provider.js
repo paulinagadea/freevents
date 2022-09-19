@@ -40,6 +40,8 @@ router.get('/:id', async (req, res) => {
 router.post("/", async (req, res) => {
     const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
     console.log('estamos aqui', req.body)
+    const aux1 = [galery_image]
+    const aux2 = [events]
     try {
         const actCreated = await Provider.create({
             name,
@@ -51,9 +53,10 @@ router.post("/", async (req, res) => {
             phone_number,
             logotype,
             background_image,
-            galery_image
+            aux1,
         })
-        for (let e of events){
+        console.log('acá');
+        for (let e of aux2){
             let eventsDb = await Event.findOne({
                 where : {name: e}
             }) 
@@ -62,7 +65,7 @@ router.post("/", async (req, res) => {
 
         res.status(200).json(actCreated);
     } catch (error) {
-        console.log(error)
+        console.log("perritos errores", error)
         res.status(500).json({ msg: 'Error', error })
     }
 });
