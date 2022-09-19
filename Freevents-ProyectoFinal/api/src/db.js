@@ -34,7 +34,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Event, Service, Provider, Order, Review, User, Favorite } = sequelize.models;
+const { Event, Service, Provider, Order, Review, Client, Favorite, Pack_services } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -43,23 +43,23 @@ const { Event, Service, Provider, Order, Review, User, Favorite } = sequelize.mo
 
 //Uno a Muchos User
 
-User.hasMany(Event);
-Event.belongsTo(User);
+Client.hasMany(Event);
+Event.belongsTo(Client);
 
-User.hasMany(Provider);
-Provider.belongsTo(User);
+Client.hasMany(Provider);
+Provider.belongsTo(Client);
 
-User.hasMany(Service);
-Service.belongsTo(User);
+Client.hasMany(Service);
+Service.belongsTo(Client);
 
-User.hasMany(Order);
-Order.belongsTo(User);
+Client.hasMany(Order);
+Order.belongsTo(Client);
 
-User.hasMany(Review);
-Review.belongsTo(User);
+Client.hasMany(Review);
+Review.belongsTo(Client);
 
-User.hasMany(Favorite);
-Favorite.belongsTo(User);
+Client.hasMany(Favorite);
+Favorite.belongsTo(Client);
 
 //Uno a Muchos Event, Provider, Service con Order
 
@@ -80,14 +80,21 @@ Review.belongsTo(Provider);
 Provider.hasMany(Favorite);
 Favorite.belongsTo(Provider);
 
+Provider.hasMany(Pack_services);  
+Pack_services.belongsTo(Provider);
 
 //Muchos a Muchos
 
-Event.belongsToMany(Provider, { through: 'events_providers' });
-Provider.belongsToMany(Event, { through: 'events_providers' });
-
 Provider.belongsToMany(Service, { through: 'providers_services' });
 Service.belongsToMany(Provider, { through: 'providers_services' });
+
+Pack_services.belongsToMany(Service, {through: 'pack_service_service'});
+Service.belongsToMany(Pack_services, {through: 'pack_service_service'});
+
+Pack_services.belongsToMany(Event, {through: 'pack_service_event'});
+Event.belongsToMany(Pack_services, {through: 'pack_service_event'})
+
+
 
 
 

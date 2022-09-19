@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        adress:{
+        address:{
             type: DataTypes.STRING,
             allowNull: false, 
         },
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
             allowNull: false, 
         },
         cuit: { 
-            type: DataTypes.INTEGER, 
+            type: DataTypes.TEXT, 
             allowNull: false,
         },
         email: {
@@ -36,8 +36,25 @@ module.exports = (sequelize) => {
             allowNull: false, 
         },
         phone_number: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false,
+        },
+        logotype: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        background_image: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        galery_image: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+        },
+        createdInDb: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false, 
+            defaultValue: true,
         }
     });
 };

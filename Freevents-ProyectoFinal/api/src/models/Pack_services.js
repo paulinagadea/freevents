@@ -22,6 +22,18 @@ module.exports = (sequelize) => {
         price:{
             type: DataTypes.INTEGER, 
             allowNull: false,
+        },
+        status_enabled:{
+            type: DataTypes.ENUM("disabled", "enabled")
+        },
+        galery_image: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+        },
+        createdInDb: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false, 
+            defaultValue: true,
         }
     })
 }
