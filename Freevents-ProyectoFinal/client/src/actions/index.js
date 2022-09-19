@@ -108,4 +108,4 @@ export function orderByName(payload){
         type:actionTypes.orderByName,
         payload
     }
-};
+}; 

@@ -6,52 +6,54 @@ import { Container } from "@mui/system";
 import Slide from '@material-ui/core/Slide';
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function HideOnScroll(props) {
     const { children, window } = props;
     const trigger = useScrollTrigger({ target: window ? window() : undefined });
-  
+
     return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {children}
-      </Slide>
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
     );
-  }
-  
-  HideOnScroll.propTypes = {
+}
+
+HideOnScroll.propTypes = {
     children: PropTypes.element.isRequired,
     window: PropTypes.func,
-  };
+};
 
 export default function HideAppBar(props) {
-    return(
+    return (
         <React.Fragment>
-        <CssBaseline />
-        <HideOnScroll {...props}>
-        
-            <AppBar color="secondary" position="fixed">
-                <Toolbar>
-                    <Container maxWidth="xl">
-                        <Grid 
-                        container 
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        >
-                        <Grid item>
-                        <Typography variant="h3">Freefest</Typography>
+            <CssBaseline />
+            <HideOnScroll {...props}>
+
+                <AppBar color="secondary" position="fixed">
+                    <Toolbar>
+                        <Container maxWidth="xl">
+                            <Grid
+                                container
+                                direction="row"
+                                justifyContent="space-between"
+                                alignItems="center"
+                            >
+                                <Grid item>
+                                    <Typography variant="h3">Freefest</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Stack direction="row" spacing={2}>
+                                        <SearchBar />
+                                        <Button href="/home" color="secondary" variant="contained">Inicio</Button>
+                                        <Button href="/userregister" color="secondary" variant="contained">Registrarse</Button>
+                                        <Button href="/paquetes" color="secondary" variant="contained">Paquetes</Button>
+                                    </Stack>
+                                </Grid>
                             </Grid>
-                            <Grid item>
-                                <Stack direction="row" spacing = {2}>
-                                <Button href="/home" color= "secondary" variant="contained">Inicio</Button>
-                                <Button href="/userregister" color= "secondary" variant="contained">Registrarse</Button>
-                                <Button href="/paquetes" color= "secondary" variant="contained">Paquetes</Button>
-                                </Stack>
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </Toolbar>
-            </AppBar>
+                        </Container>
+                    </Toolbar>
+                </AppBar>
             </HideOnScroll>
             <Toolbar />
         </React.Fragment>
