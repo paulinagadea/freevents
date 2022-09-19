@@ -42,12 +42,15 @@ router.post("/", async (req, res) => {
     try {
         const actCreated = await Provider.create({
             name,
-            adress,
+            address,
             location,
             postal_code,
             cuit,
             email,
             phone_number,
+            logotype,
+            background_id,
+            galery_image
         })
 
         res.status(200).json(actCreated);
