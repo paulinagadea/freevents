@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 
 
-const CardProveedor = ({ name, address, email, phone_number, background_image }) => {
+const CardProveedor = ({ name, address, email, phone_number, background_image, createdInDb, event }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -60,6 +60,8 @@ const CardProveedor = ({ name, address, email, phone_number, background_image })
             Dirección: {address}
             <br />
             Número de telefono: {phone_number}
+            {/* <br />
+            Eventos: {event?.length === 0 && "Desconocido" } {createdInDb? event?.map(el=>el.name):event.map(el=>el)} */}
           </Typography>
         </CardContent>
       </CardActionArea>
