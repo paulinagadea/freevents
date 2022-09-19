@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNamesProviders } from "../actions";
+import SearchIcon from '@material-ui/icons/Search';
 
 
 export default function SearchBar() {
@@ -36,12 +37,7 @@ export default function SearchBar() {
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
             >
-                <img
-                    width="30px"
-                    height="30px"
-                    src=""
-                    alt=""
-                />
+                <SearchIcon/>
             </button>
         </div>
     )
