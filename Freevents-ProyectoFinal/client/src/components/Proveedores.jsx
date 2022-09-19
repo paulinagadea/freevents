@@ -11,6 +11,7 @@ import footer2 from "../imagenes/foterfoto.png";
 // import imagenf from "../imagenes/HOME6f.png"
 // import png from "../imagenes/footer.jpg";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 
 const Proveedores = () => {
@@ -47,6 +48,8 @@ const Proveedores = () => {
   return (
     <div>
       <NavBarProveedores/>
+      <SearchBar
+      setCurrentPage={setCurrentPage}/>
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Proveedores </h1>
       <Paginado
