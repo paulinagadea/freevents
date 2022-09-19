@@ -85,8 +85,8 @@ Pack_services.belongsTo(Provider);
 
 //Muchos a Muchos
 
-Provider.belongsToMany(Service, { through: 'providers_services' });
-Service.belongsToMany(Provider, { through: 'providers_services' });
+Provider.belongsToMany(Event, { through: 'providers_events' });
+Event.belongsToMany(Provider, { through: 'providers_events' });
 
 Pack_services.belongsToMany(Service, {through: 'pack_service_service'});
 Service.belongsToMany(Pack_services, {through: 'pack_service_service'});
