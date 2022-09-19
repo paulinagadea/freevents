@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getNamesProviders } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -8,6 +8,8 @@ import SearchIcon from '@material-ui/icons/Search';
 export default function SearchBar({setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
+    const provider = useSelector((state) => state.providers)
+    console.log(provider, "soy el provider")
 
 
     function handleInputChange(e) {
@@ -17,10 +19,16 @@ export default function SearchBar({setCurrentPage}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        
         if (!name) return alert("Busca un proveedor");
-        dispatch(getNamesProviders(name));
-        setName("")
-        setCurrentPage(1) 
+        if(provider.find(el=>el.name === name) ){
+
+            dispatch(getNamesProviders(name));
+            setName("")
+            setCurrentPage(1) 
+        }else{
+            alert ("No se encontró el proveedor")
+        }
         
     }
 
