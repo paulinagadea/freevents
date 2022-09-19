@@ -38,7 +38,7 @@ const Proveedores = () => {
       {allProviders.map((provider) => {
         return (
           <div key={provider.id} className='item'>
-          <Link to= {`/detail/${provider.id}`}>
+          <Link style={{textDecoration:"none"}} to= {`/detail/${provider.id}`}>
               <CardProveedor
                 background_image={provider.background_image}
                 name={provider.name}
