@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Details.css'
+import NavBarProveedores from "./NavBarProveedores";
 // import { Proveedores, Servicios } from './../data';
 import NavBar from "./NavBar";
 import { getData, getEvent } from '../dataJSON';
@@ -18,6 +19,7 @@ const Details = () => {
     let { id } = useParams()
     //const navigate = useNavigate()
     const myservice = useSelector((state)=>state.detail)
+    console.log(myservice)
 
 
     useEffect(()=>{
@@ -37,6 +39,7 @@ const Details = () => {
         myservice && myservice.id
             ? (
                 <div className="conteiner">
+                <NavBarProveedores></NavBarProveedores>
                     <div key={myservice.id}>
                         <div>
                             <div>
@@ -47,10 +50,11 @@ const Details = () => {
                             <div className="titulo"><h1>{myservice.nombre}</h1></div>
 
                             <div className="stats">
-                                <h3 className="statstext">Nombre: {myservice.name}</h3>
-                                <h3 className="statstext">Description: {myservice.description}</h3>
-                                <h3 className="statstext">Tipo de Servicio: {myservice.type_service}</h3>
-                                <h3 className="statstext">Imagen: {myservice.image}</h3>
+                                <h3 className="statstext">Nombre: {myservice.address}</h3>
+                                <h3 className="statstext">CUIT: {myservice.cuit}</h3>
+                                <h3 className="statstext">e-mail: {myservice.email}</h3>
+                                <h3 className="statstext">Numero de telefono: {myservice.phone_number}</h3>
+                                <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
                                 <div>
                                 </div>
                             </div>
@@ -68,7 +72,7 @@ const Details = () => {
                 <img
                     className="imgloading"
                     alt="img not found"
-                    src="https://media.giphy.com/media/3b2yGAUr5B5O8/giphy.gif"
+                    src="https://pa1.narvii.com/6707/510b0daee67fbc091f14b9d8ef40aeb6c0d4dc7d_hq.gif"
                 />
             </div>
     )
