@@ -37,3 +37,16 @@ box-shadow: 0 9px 15px rgba(46, 47, 68, 0.505);
 .imgdetail1{
     display: flex;
 }
+
+.container-detail{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: inherit;
+}
+
+.conteinerd{
+    display: flex;
+     justify-content: center;
+     align-items: center;
+}

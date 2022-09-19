@@ -25,8 +25,8 @@ export const NavBar2: React.FC<{}> = () => {
                         alignItems="center"
                         >
                         <Grid item>
-                        <Typography variant="h3">
-                            Freefest
+                        <Typography variant="h4">
+                            Freevents
                             </Typography>
                             </Grid>
                             <Grid item>

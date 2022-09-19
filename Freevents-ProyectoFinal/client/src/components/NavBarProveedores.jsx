@@ -42,10 +42,11 @@ export default function HideAppBar(props) {
                                 alignItems="center"
                             >
                                 <Grid item>
-                                    <Typography variant="h3">Freefest</Typography>
+                                    <Typography variant="h4">Freevents</Typography>
                                 </Grid>
                                 <Grid item>
                                     <Stack direction="row" spacing={2}>
+                                        <SearchBar/>
                                         <Button href="/home" color="secondary" variant="contained">Inicio</Button>
                                         <Button href="/userregister" color="secondary" variant="contained">Registrarse</Button>
                                         <Button href="/paquetes" color="secondary" variant="contained">Paquetes</Button>
