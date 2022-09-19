@@ -44,80 +44,69 @@ function rootReducer(state = initialState, action) {
             }
         }
         case actionTypes.getNamesProviders: {
-            const nameProvid = state.allProviders
-            let nameVi = nameProvid.filter(v => {
-                return v.name.toLowerCase().trim().includes(action.payload.toLowerCase().trim())
-            })
-            if (nameVi.length > 0) {
-                return {
-                    ...state,
-                    providers: nameVi
-                }
-            } else {
-                return {
-                    ...state,
-                    providers: state.allProviders
-                }
+            return {
+                ...state,
+                providers: action.payload
             }
         }
-        case actionTypes.orderByName:{
-            let sortedArr ; 
-            if (action.payload === 'ascendente'){
-                sortedArr = state.providers.sort(function(a, b){
-                if(a.name.toLowerCase() > b.name.toLowerCase()){ 
-                    return 1;
-                }
-                if (b.name.toLowerCase() > a.name.toLowerCase()){
-                    return -1;
-                }
+        case actionTypes.orderByName: {
+            let sortedArr;
+            if (action.payload === 'ascendente') {
+                sortedArr = state.providers.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return 1;
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return -1;
+                    }
                     return 0;
-            })
-                }else if (action.payload === "descendente") {
-                    sortedArr = state.providers.sort(function (a, b) {
-                if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                    return -1
-                }
-                if (b.name.toLowerCase() > a.name.toLowerCase()) {
-                    return 1
-              }
-              return 0
-            })
-          }
-                
-        return {
-            ...state,
-            dogs:sortedArr
-    }
+                })
+            } else if (action.payload === "descendente") {
+                sortedArr = state.providers.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return -1
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return 1
+                    }
+                    return 0
+                })
+            }
+
+            return {
+                ...state,
+                providers: sortedArr
+            }
         };
-    //     case actionTypes.orderByNamee:{
-    //         let sortedArr ; 
-    //         if (action.payload === 'ascendente'){
-    //             sortedArr = state.providers.sort(function(a, b){
-    //             if(a.name.toLowerCase() > b.name.toLowerCase()){ 
-    //                 return 1;
-    //             }
-    //             if (b.name.toLowerCase() > a.name.toLowerCase()){
-    //                 return -1;
-    //             }
-    //                 return 0;
-    //         })
-    //             }else if (action.payload === "descendente") {
-    //                 sortedArr = state.providers.sort(function (a, b) {
-    //             if (a.name.toLowerCase() > b.name.toLowerCase()) {
-    //                 return -1
-    //             }
-    //             if (b.name.toLowerCase() > a.name.toLowerCase()) {
-    //                 return 1
-    //           }
-    //           return 0
-    //         })
-    //       }
-                
-    //     return {
-    //         ...state,
-    //         dogs:sortedArr
-    // }
-    //     }
+        //     case actionTypes.orderByNamee:{
+        //         let sortedArr ; 
+        //         if (action.payload === 'ascendente'){
+        //             sortedArr = state.providers.sort(function(a, b){
+        //             if(a.name.toLowerCase() > b.name.toLowerCase()){ 
+        //                 return 1;
+        //             }
+        //             if (b.name.toLowerCase() > a.name.toLowerCase()){
+        //                 return -1;
+        //             }
+        //                 return 0;
+        //         })
+        //             }else if (action.payload === "descendente") {
+        //                 sortedArr = state.providers.sort(function (a, b) {
+        //             if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        //                 return -1
+        //             }
+        //             if (b.name.toLowerCase() > a.name.toLowerCase()) {
+        //                 return 1
+        //           }
+        //           return 0
+        //         })
+        //       }
+
+        //     return {
+        //         ...state,
+        //         dogs:sortedArr
+        // }
+        //     }
         default:
             return state;
     }

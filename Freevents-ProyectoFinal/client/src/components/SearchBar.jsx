@@ -21,6 +21,7 @@ export default function SearchBar({setCurrentPage}) {
         dispatch(getNamesProviders(name));
         setName("")
         setCurrentPage(1) 
+        
     }
 
     return (
