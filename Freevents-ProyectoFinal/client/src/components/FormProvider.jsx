@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
 import './FormUser.css'
+import foto from '../imagenes/FOTOCONFREEVENTS.jpg'
 // import { ThemeProvider } from '@material-ui/core/styles'; //estilos de material ui
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -9,7 +10,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import { positions } from '@mui/system';
+import { positions, width } from '@mui/system';
 
 import { createProvider } from '../actions';
 import { useDispatch } from "react-redux";
@@ -107,8 +108,9 @@ export default function FormUser(){
                 ({values, handleChange, handleSubmit, handleBlur, errors, touched})=> (
                     <form onSubmit={handleSubmit} style={{
                             float:'left',
-                            margin: 50
+                            margin: 50,
                         }}
+                        sx={{ }}
                     >
                         {/* {console.log(errors)} */}
                         <div className='inputs'>
@@ -286,6 +288,9 @@ export default function FormUser(){
                 )
             } 
             </Formik>
+            <div className='imagenForm'>
+                <img src={foto} style={{margin: 80, width: 900}} alt="" />
+            </div>
         </div>
     )
 }
