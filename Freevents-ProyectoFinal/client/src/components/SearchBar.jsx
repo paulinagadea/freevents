@@ -33,12 +33,12 @@ export default function SearchBar({setCurrentPage}) {
                 onChange={(e) => handleInputChange(e)}
             />
 
-            <button
+            <path
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
             >
                 <SearchIcon/>
-            </button>
+            </path>
         </div>
     )
 }
