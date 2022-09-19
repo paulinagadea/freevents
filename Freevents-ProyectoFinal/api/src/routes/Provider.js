@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 
-Router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const provedorById = await getProviderById(id)
