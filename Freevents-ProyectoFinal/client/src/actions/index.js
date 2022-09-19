@@ -98,7 +98,7 @@ export function getNamesProviders(name) {
             })
         } catch (error) {
             console.log(error)
-            alert("No tal Proveedor")
+            alert("No existe tal proveedor")
         }
     }
 };

@@ -44,9 +44,20 @@ function rootReducer(state = initialState, action) {
             }
         }
         case actionTypes.getNamesProviders: {
-            return {
-                ...state,
-                providers: action.payload
+            const nameProvid = state.allProviders
+            let nameVi = nameProvid.filter(v => {
+                return v.name.toLowerCase().trim().includes(action.payload.toLowerCase().trim())
+            })
+            if (nameVi.length > 0) {
+                return {
+                    ...state,
+                    providers: nameVi
+                }
+            } else {
+                return {
+                    ...state,
+                    providers: state.allProviders
+                }
             }
         }
         case actionTypes.orderByName:
