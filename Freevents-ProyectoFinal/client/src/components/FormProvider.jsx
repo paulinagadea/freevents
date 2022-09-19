@@ -11,14 +11,15 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import { positions } from '@mui/system';
 
-
+import { createProvider } from '../actions';
+import { useDispatch } from "react-redux";
 
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 export default function FormUser(){
     const [ formularioEnviado, setFormularioEnviado ] = useState(false)
-
+    const dispatch = useDispatch();
     return(
         <div>
             <div className='boton_inicio'>
@@ -89,7 +90,9 @@ export default function FormUser(){
                     return errores
                 }} 
                 onSubmit={(values, {resetForm})=>{
-                    console.log(values)
+                    console.log(values, 'valores')
+                    dispatch(createProvider(values));
+                    console.log(createProvider, 'action')
                     resetForm({values : ''}) // para limpiar el formulario
                     console.log("formulario enviado")
                     setFormularioEnviado(true);
@@ -204,6 +207,17 @@ export default function FormUser(){
                                 <PhotoCamera />
                             </IconButton>
                         </Stack>
+                        </div>
+
+                        <div className='inputs'>
+                            <TextField
+                                color="secondary"
+                                label="Logo"
+                                name= "logotype"
+                                value={values.logotype}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
                         </div>
 
                         <div className='inputs'>

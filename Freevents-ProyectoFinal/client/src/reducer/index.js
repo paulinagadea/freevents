@@ -107,6 +107,11 @@ function rootReducer(state = initialState, action) {
     //         dogs:sortedArr
     // }
     //     }
+        case actionTypes.createProvider: {
+            return{
+                ...state
+            }
+        }
         default:
             return state;
     }
