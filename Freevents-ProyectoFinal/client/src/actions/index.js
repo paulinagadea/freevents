@@ -7,6 +7,8 @@ export const actionTypes ={
     createService:"createService",
     createProvider:"createProvider",
     getDetails:"getDetails",
+    getNamesProviders:"getNamesProviders",
+    orderByName:"orderByName",
 
 };
 
@@ -85,3 +87,25 @@ export const clearDetails = () => {
         type: actionTypes.clearDetails
     }
 }
+
+export function getNamesProviders(name) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get("http://localhost:3001/providers?name=" + name)
+            return dispatch({
+                type: actionTypes.getNamesProviders,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error)
+            alert("No tal Proveedor")
+        }
+    }
+};
+
+export function orderByName(payload){
+    return{
+        type:actionTypes.orderByName,
+        payload
+    }
+};
