@@ -11,6 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetails, clearDetails } from "../actions"
 import { useEffect } from 'react'
+import { Container } from '@material-ui/core';
 
 
 const Details = () => {
@@ -38,16 +39,49 @@ const Details = () => {
     return (
         myservice && myservice.id
             ? (
-                <div className="conteiner">
-                <NavBar></NavBar>
+                <div className="conteinerd">
+                <NavBar/>
                     <div key={myservice.id}>
-                        <div>
-                            <div>
-                                <img className="imgdetail" src={myservice.background_image} alt={myservice.nombre} width="250" height="250px" ></img>
+                        
+                            <div className='imgdetail'>
+                                <img 
+                                src={myservice.background_image} 
+                                alt={myservice.nombre} 
+                                width="1600" 
+                                height="300px" 
+                                >
+                                </img>
 
                             </div>
+                                <img className="imgdetail2" 
+                                src={myservice.logotype} 
+                                alt={myservice.nombre} 
+                                width="200px" 
+                                height="200px" 
+                                >
+                                </img>
+                            <div className='container-detail'>
+                        
+                                <div className='imgdetail1'>
+                                {myservice.galery_image.map((i)=>{
+                                    return(
+                                        <div>
+                                        <img className="imgdetail3" 
+                                        src={i} 
+                                        alt={myservice.nombre} 
+                                        width="150px" 
+                                        height="150px" 
+                                        >
+                                        </img>
+                                    </div>
+                                    )
+                                })}
+                                </div>
 
-                            <div className="titulo"><h1>{myservice.nombre}</h1></div>
+
+                            <div className="titulo">
+                                <h1>{myservice.nombre}</h1>
+                            </div>
 
                             <div className="stats">
                                 <h3 className="statstext">Nombre: {myservice.address}</h3>
@@ -56,15 +90,15 @@ const Details = () => {
                                 <h3 className="statstext">Numero de telefono: {myservice.phone_number}</h3>
                                 <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
                                 {/* <h5>Temperamento: {myDog.temperament?.length === 0 && "Desconocido" }{myDog.createdInDb? myDog.temperament.map(el=>el.name + ' '): myDog.temperament?.join(' ')}</h5> */}
-                                <div>
-                                </div>
+                               
                             </div>
                         </div>
                         <div>
+                                </div>
                             <Link to={'/proveedores'}>
                                 <button key={id}>Volver</button>
                             </Link>
-                        </div>
+                        
                     </div>
                 </div>
             )

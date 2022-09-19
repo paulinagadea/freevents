@@ -8,6 +8,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
+
+
 function HideOnScroll(props) {
     const { children, window } = props;
     const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -40,11 +42,11 @@ export default function HideAppBar(props) {
                                 alignItems="center"
                             >
                                 <Grid item>
-                                    <Typography variant="h3">Freefest</Typography>
+                                    <Typography variant="h4">Freevents</Typography>
                                 </Grid>
                                 <Grid item>
                                     <Stack direction="row" spacing={2}>
-                                        <SearchBar />
+                                        <SearchBar/>
                                         <Button href="/home" color="secondary" variant="contained">Inicio</Button>
                                         <Button href="/userregister" color="secondary" variant="contained">Registrarse</Button>
                                         <Button href="/paquetes" color="secondary" variant="contained">Paquetes</Button>

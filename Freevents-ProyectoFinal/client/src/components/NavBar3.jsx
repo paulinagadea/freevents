@@ -39,7 +39,7 @@ export default function HideAppBar(props) {
                         alignItems="center"
                         >
                         <Grid item>
-                        <Typography variant="h3">Freefest</Typography>
+                        <Typography variant="h4">Freevents</Typography>
                             </Grid>
                             <Grid item>
                                 <Stack direction="row" spacing = {2}>

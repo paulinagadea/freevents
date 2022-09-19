@@ -4,6 +4,7 @@ const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
 const { Provider } = require('../db')
+const { Event } = require("../db")
 
 router.get('/', async (req, res) => {
     try {
@@ -38,6 +39,7 @@ router.get('/:id', async (req, res) => {
 
 router.post("/", async (req, res) => {
     const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
+    console.log('estamos aqui', req.body)
     try {
         const actCreated = await Provider.create({
             name,
@@ -51,9 +53,16 @@ router.post("/", async (req, res) => {
             background_image,
             galery_image
         })
+        for (let e of events){
+            let eventsDb = await Event.findOne({
+                where : {name: e}
+            }) 
+            actCreated.addEvent(eventsDb); 
+        }
 
         res.status(200).json(actCreated);
     } catch (error) {
+        console.log(error)
         res.status(500).json({ msg: 'Error', error })
     }
 });
