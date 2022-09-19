@@ -70,18 +70,7 @@ const Home = () => {
                     </Grid>
                 </Grid>
                 <div className="parrafoc">
-                    <h1 className="parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
-                        ipsum fugit laudantium corrupti dolore nihil,
-                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
-                        ipsum fugit laudantium corrupti dolore nihil,
-                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Sapiente ducimus ullam nostrum ea. Autem adipisci inventore,
-                        ipsum fugit laudantium corrupti dolore nihil,
-                        eligendi perferendis obcaecati earum deserunt tenetur numquam temporibus.
+                    <h1 className="parrafo">Con nuestros proveedores de servicios podrás conseguir que tu evento soñado sea una realidad. Adaptarás todas tus necesidades con los paquetes personalizados para cada tipo de evento. Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero éxito.
                         </h1>
                 </div>
             </div>
