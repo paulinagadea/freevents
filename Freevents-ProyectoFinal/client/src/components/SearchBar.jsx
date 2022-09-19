@@ -5,7 +5,7 @@ import { getNamesProviders } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
 
 
-export default function SearchBar() {
+export default function SearchBar({setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
 
@@ -20,7 +20,7 @@ export default function SearchBar() {
         if (!name) return alert("Busca un proveedor");
         dispatch(getNamesProviders(name));
         setName("")
-        //setCurrentPage(1) 
+        setCurrentPage(1) 
     }
 
     return (
