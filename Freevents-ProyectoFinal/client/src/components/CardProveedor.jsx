@@ -10,8 +10,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-    maxWidth: 345,
+    minWidth: 300,
+    maxWidth: 500,
   },
   bullet: {
     display: 'inline-block',
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 });
 
@@ -40,6 +40,7 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          
           className={classes.media}
           image={background_image}
           title="Contemplative Reptile"
@@ -55,20 +56,21 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
           Info:
          </Typography> */}
           <Typography variant="body2" component="p">
-            email: {email}
+          ★★★
+            {/* email: {email}
             <br />
             Dirección: {address}
             <br />
-            Número de telefono: {phone_number}
+            Número de telefono: {phone_number} */}
             {/* <br />
             Eventos: {event?.length === 0 && "Desconocido" } {createdInDb? event?.map(el=>el.name):event.map(el=>el)} */}
           </Typography>
         </CardContent>
       </CardActionArea>
 
-      <CardActions>
+      {/* <CardActions>
         <Button size="small"> + Info</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   )
 }

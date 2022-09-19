@@ -9,8 +9,14 @@
 }
 
 .cabeza{
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 212.6vh;
+}
+
+.cabeza2{
+    height: 100vh;
+    width: 212.6vh;
+    position: absolute;
 }
 
 .evento{
@@ -21,3 +27,5 @@
     display: flex;
   
 }
+
+
