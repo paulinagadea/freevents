@@ -59,6 +59,7 @@ export function createProvider(payload) {
     return async function () {
         try {
             const creado = await axios.post("http://localhost:3001/providers", payload);
+            console.log(creado)
             return creado;
         } catch (error) {
             throw new Error(error);
