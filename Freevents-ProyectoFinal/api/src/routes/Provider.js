@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
     try {
         const { name } = req.query
         const provedores = await getAllProviders()
-        res.status(200).json(provedores)
         const provedorByName = await getAllProviderByName(name)
 
         console.log('esto es provedorByName', provedorByName)
@@ -21,7 +20,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-
+//
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
