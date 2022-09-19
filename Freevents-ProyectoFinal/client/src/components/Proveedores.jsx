@@ -44,6 +44,11 @@ const Proveedores = () => {
     setCurrentPage(1)
     setOrder(`Ordenado.${e.target.value}`)
   }
+  const handleClick = (e) =>{
+    e.preventDefault() //preventivo
+    dispatch(getProviders())
+    // setPaginaActual(1)
+  }
 
   return (
     <div>
@@ -52,6 +57,7 @@ const Proveedores = () => {
       setCurrentPage={setCurrentPage}/>
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Proveedores </h1>
+      <button onClick={e=> {handleClick(e)}}> ⇦</button>
       <Paginado
       providersPerPage={providersPerPage}
       allProviders={allProviders.length}
