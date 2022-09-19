@@ -21,7 +21,7 @@ const Proveedores = () => {
   // const eventos = useSelector((state) => state.events)
 
   const [currentPage, setCurrentPage ] = useState(1) //pagina uno
-  const [providersPerPage, setProvidersXPagina] = useState(8)// cantidad de cards x pagina
+  const [providersPerPage] = useState(5)// cantidad de cards x pagina
   const indexOfLastProvider = currentPage * providersPerPage //8
   const indexOfFirstProvider = indexOfLastProvider - providersPerPage //0
   const currentProviders = allProviders.slice(indexOfFirstProvider, indexOfLastProvider)
@@ -63,7 +63,7 @@ const Proveedores = () => {
         </select>
       </div>
       <div className="grid">
-      {allProviders.map((provider) => {
+      {currentProviders.map((provider) => {
         return (
           <div key={provider.id} className='item'>
           <Link style={{textDecoration:"none"}} to= {`/detail/${provider.id}`}>
