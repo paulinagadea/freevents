@@ -33,7 +33,7 @@ export default function FormUser(){
                 initialValues={{
                     // objeto con valores por defecto
                     name: '',
-                    adress: '',
+                    address: '',
                     location: '',
                     postal_code: '',
                     cuit: '',
@@ -41,7 +41,8 @@ export default function FormUser(){
                     phone_number: '',
                     logotype: '',
                     background_image: '',
-                    galery_image: ''
+                    galery_image: [],
+                    events: []
                 }}
                 validate={(valores)=>{
                     let errores = {};
@@ -60,11 +61,9 @@ export default function FormUser(){
                     }
 
                     //validacion apellido
-                    if(!valores.adress){
-                        errores.adress = 'Por favor ingresa un apellido';
-                    } else if(!validacionLetras.test(valores.surname)){
-                        errores.adress = 'El apellido solo puede contener letras'
-                    }
+                    if(!valores.address){
+                        errores.address = 'Este campo es obligatorio';
+                    } 
 
                     //validacion location
                     if(!valores.location){
@@ -73,7 +72,7 @@ export default function FormUser(){
 
                     //validacion postal_code
                     if(!valores.postal_code){
-                        errores.dni = 'Este campo es obligatorio';
+                        errores.postal_code = 'Este campo es obligatorio';
                     }
                     
                     //validacion cuit
@@ -127,13 +126,13 @@ export default function FormUser(){
                         <div className='inputs'>
                             <TextField
                                 color="secondary"
-                                label="Apellido"
-                                name= "adress"
-                                value={values.adress}
+                                label="Direccion"
+                                name= "address"
+                                value={values.address}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.adress && errors.adress && <div className='error'>{errors.adress}</div>}
+                            {touched.address && errors.address && <div className='error'>{errors.address}</div>}
                         </div>
 
                         <div className='inputs'>
@@ -152,7 +151,6 @@ export default function FormUser(){
                             <TextField
                                 color="secondary"
                                 label="postal_code"
-                                type="number"
                                 name="postal_code"
                                 value={values.postal_code}
                                 onChange={handleChange}
@@ -165,7 +163,6 @@ export default function FormUser(){
                             <TextField
                                 color="secondary"
                                 label="cuit"
-                                type="number"
                                 name= "cuit"
                                 value={values.cuit}
                                 onChange={handleChange}
@@ -191,7 +188,6 @@ export default function FormUser(){
                             <TextField
                                 color="secondary"
                                 label="Número telefónico"
-                                type="number"
                                 name= "phone_number"
                                 value={values.phone_number}
                                 onChange={handleChange}
@@ -199,7 +195,7 @@ export default function FormUser(){
                             />
                         </div>
 
-                        <div className='inputs'>
+                        {/* <div className='inputs'>
                         <Stack alignItems="center" spacing={2}>
                             <label htmlFor="">Agregra una foto</label>
                             <IconButton color="secondary" aria-label="upload picture" component="label">
@@ -207,7 +203,7 @@ export default function FormUser(){
                                 <PhotoCamera />
                             </IconButton>
                         </Stack>
-                        </div>
+                        </div> */}
 
                         <div className='inputs'>
                             <TextField
@@ -242,6 +238,17 @@ export default function FormUser(){
                             />
                         </div>
                         
+                        <div className='inputs'>
+                            <TextField
+                                color="secondary"
+                                label="Eventos"
+                                name= "events"
+                                value={values.events}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                        </div>
+
                         <div className='boton_form'>
                             <Button color= "secondary" type="submit" variant="outlined">Enviar</Button>
                         </div>
