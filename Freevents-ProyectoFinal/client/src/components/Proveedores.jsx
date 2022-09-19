@@ -6,6 +6,8 @@ import NavBarProveedores from "./NavBarProveedores";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";
+import footer2 from "../imagenes/foterfoto.png";
+import imagenf from "../imagenes/HOME6f.png"
 import png from "../imagenes/footer.jpg";
 import { Link } from "react-router-dom";
 
@@ -22,7 +24,7 @@ const Proveedores = () => {
   return (
     <div>
       <NavBarProveedores/>
-      <img className="png" src={png} alt="" />
+      <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Proveedores </h1>
 
       <div className="row">
