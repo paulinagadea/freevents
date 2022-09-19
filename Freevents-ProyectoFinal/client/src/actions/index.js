@@ -98,8 +98,12 @@ export function getNamesProviders(name) {
                 payload: json.data
             })
         } catch (error) {
-            console.log(error)
-            alert("No existe tal proveedor")
+            return dispatch({
+                type: actionTypes.getNamesProviders,
+                payload: "ERROR"
+            })
+            
+            
         }
     }
 };

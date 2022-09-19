@@ -47,7 +47,7 @@ const Proveedores = () => {
 
   return (
     <div>
-      <NavBarProveedores/>
+      <NavBarProveedores
       
       setCurrentPage={setCurrentPage}/>
       <img className="png" src={footer2} alt="" />
@@ -66,7 +66,7 @@ const Proveedores = () => {
         </select>
       </div>
       <div className="grid">
-      {currentProviders.map((provider) => {
+      {currentProviders?.map((provider) => {
         return (
           <div key={provider.id} className='item'>
           <Link style={{textDecoration:"none"}} to= {`/detail/${provider.id}`}>

@@ -27,6 +27,7 @@ HideOnScroll.propTypes = {
 };
 
 export default function HideAppBar(props) {
+    console.log(props)
     return (
         <React.Fragment>
             <CssBaseline />
@@ -46,7 +47,9 @@ export default function HideAppBar(props) {
                                 </Grid>
                                 <Grid item>
                                     <Stack direction="row" spacing={2}>
-                                        <SearchBar/>
+                                        <SearchBar
+                                            setCurrentPage={props.setCurrentPage}
+                                        />
                                         <Button href="/home" color="secondary" variant="contained">Inicio</Button>
                                         <Button href="/userregister" color="secondary" variant="contained">Registrarse</Button>
                                         <Button href="/paquetes" color="secondary" variant="contained">Paquetes</Button>

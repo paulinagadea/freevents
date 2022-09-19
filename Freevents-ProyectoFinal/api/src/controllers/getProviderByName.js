@@ -13,7 +13,7 @@ const getAllProviderByName = async (name) => {
             }}
     })
     console.log('esto es el controller provider', provider)
-    return provider.length ? provider : "not found"
+    return provider.length ? provider : []
 }
 
 module.exports = { getAllProviderByName }
