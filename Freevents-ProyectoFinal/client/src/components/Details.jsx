@@ -42,10 +42,42 @@ const Details = () => {
                 <NavBar></NavBar>
                     <div key={myservice.id}>
                         <div>
-                            <div>
-                                <img className="imgdetail" src={myservice.background_image} alt={myservice.nombre} width="250" height="250px" ></img>
+                            <div className='imgdetail'>
+                                <img 
+                                src={myservice.background_image} 
+                                alt={myservice.nombre} 
+                                width="1600" 
+                                height="300px" 
+                                >
+                                </img>
 
                             </div>
+                            <div>
+                                <img className="imgdetail2" 
+                                src={myservice.logotype} 
+                                alt={myservice.nombre} 
+                                width="200px" 
+                                height="200px" 
+                                >
+                                </img>
+
+                                </div>
+                                <div className='imgdetail1'>
+                                {myservice.galery_image.map((i)=>{
+                                return(
+                                    <div>
+                                        <img className="imgdetail3" 
+                                        src={i} 
+                                        alt={myservice.nombre} 
+                                        width="150px" 
+                                        height="150px" 
+                                        >
+                                        </img>
+                                    </div>
+                                    )
+                                })}
+                                </div>
+
 
                             <div className="titulo"><h1>{myservice.nombre}</h1></div>
 

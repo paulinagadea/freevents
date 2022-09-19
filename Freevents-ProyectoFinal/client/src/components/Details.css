@@ -23,3 +23,17 @@
 .p{
     display: flex;
 }
+
+.imgdetail{
+    box-shadow: 0 9px 15px rgba(46, 47, 68, 0.194);
+}
+
+.imgdetail2{
+border-radius: 50%;
+transform: translate(-280%, -70%);
+box-shadow: 0 9px 15px rgba(46, 47, 68, 0.505);
+
+}
+.imgdetail1{
+    display: flex;
+}
