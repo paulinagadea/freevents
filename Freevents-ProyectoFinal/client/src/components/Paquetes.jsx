@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "./NavBar";
 import './Paquetes.css'
-import Card from './Card'
+import CardPaquetes from './CardPaquetes'
+import footer2 from "../imagenes/foterfoto.png";
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,8 +21,8 @@ const Paquetes = () => {
     <div>
       <NavBar/>
       {/* <Container m={5} maxWidth="xs"> */}
-
-      <h1 className="Titulo"> Paquetes de servicios </h1>
+      <img className="png" src={footer2} alt="" />
+      <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
       <div>
         <div className="row">
           <select >
@@ -50,7 +51,7 @@ const Paquetes = () => {
 
         </div>
       </div>
-      <Card></Card>
+      <CardPaquetes></CardPaquetes>
       {/* </Container> */}
     </div>
   )

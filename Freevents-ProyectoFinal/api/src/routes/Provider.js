@@ -15,13 +15,12 @@ router.get('/', async (req, res) => {
         name ?
             res.status(200).json(provedorByName)
             : res.status(200).json(provedores)
-
-
     } catch (error) {
         res.status(500).json({ message: 'Error', error })
     }
-})
+});
 
+//
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
@@ -38,16 +37,19 @@ router.get('/:id', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    const { name, adress, location, postal_code, cuit, email, phone_number } = req.body;
+    const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
     try {
         const actCreated = await Provider.create({
             name,
-            adress,
+            address,
             location,
             postal_code,
             cuit,
             email,
             phone_number,
+            logotype,
+            background_image,
+            galery_image
         })
 
         res.status(200).json(actCreated);

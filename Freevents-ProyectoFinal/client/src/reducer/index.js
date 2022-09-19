@@ -60,33 +60,64 @@ function rootReducer(state = initialState, action) {
                 }
             }
         }
-        case actionTypes.orderByName:
-            let providersorder = []
-            const allProvi = state.providers
-            if (action.payload === "asc") {
-                providersorder = allProvi.sort(function (a, b) {
-                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                        return 1;
-                    }
-                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                        return -1;
-                    } return 0;
-                })
-            } else {
-                providersorder = allProvi.sort(function (a, b) {
-                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                        return -1;
-                    }
-                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
-                        return 1;
-                    }
+        case actionTypes.orderByName:{
+            let sortedArr ; 
+            if (action.payload === 'ascendente'){
+                sortedArr = state.providers.sort(function(a, b){
+                if(a.name.toLowerCase() > b.name.toLowerCase()){ 
+                    return 1;
+                }
+                if (b.name.toLowerCase() > a.name.toLowerCase()){
+                    return -1;
+                }
                     return 0;
-                })
-            }
-            return {
-                ...state,
-                providers: providersorder
-            };
+            })
+                }else if (action.payload === "descendente") {
+                    sortedArr = state.providers.sort(function (a, b) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    return -1
+                }
+                if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                    return 1
+              }
+              return 0
+            })
+          }
+                
+        return {
+            ...state,
+            dogs:sortedArr
+    }
+        };
+    //     case actionTypes.orderByNamee:{
+    //         let sortedArr ; 
+    //         if (action.payload === 'ascendente'){
+    //             sortedArr = state.providers.sort(function(a, b){
+    //             if(a.name.toLowerCase() > b.name.toLowerCase()){ 
+    //                 return 1;
+    //             }
+    //             if (b.name.toLowerCase() > a.name.toLowerCase()){
+    //                 return -1;
+    //             }
+    //                 return 0;
+    //         })
+    //             }else if (action.payload === "descendente") {
+    //                 sortedArr = state.providers.sort(function (a, b) {
+    //             if (a.name.toLowerCase() > b.name.toLowerCase()) {
+    //                 return -1
+    //             }
+    //             if (b.name.toLowerCase() > a.name.toLowerCase()) {
+    //                 return 1
+    //           }
+    //           return 0
+    //         })
+    //       }
+                
+    //     return {
+    //         ...state,
+    //         dogs:sortedArr
+    // }
+    //     }
         default:
             return state;
     }

@@ -52,7 +52,6 @@ const Proveedores = () => {
       setCurrentPage={setCurrentPage}/>
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Proveedores </h1>
-
       <Paginado
       providersPerPage={providersPerPage}
       allProviders={allProviders.length}
