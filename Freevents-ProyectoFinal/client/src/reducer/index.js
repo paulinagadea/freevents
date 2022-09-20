@@ -84,7 +84,12 @@ function rootReducer(state = initialState, action) {
                 ...state
             }
         }
-        
+        case actionTypes.createUser:{
+            return{
+                ...state
+            }
+        }
+         
         default:
             return state;
     }
