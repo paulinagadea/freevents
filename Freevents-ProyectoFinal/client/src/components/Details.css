@@ -26,6 +26,8 @@
 
 .imgdetail{
     box-shadow: 0 9px 15px rgba(46, 47, 68, 0.194);
+    width: 200vh;
+    height: 40vh;;
 }
 
 .imgdetail2{

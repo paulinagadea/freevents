@@ -38,13 +38,13 @@ function Navbar() {
 .link{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 50px;
- margin-left: 15%;
+ margin-left: 5%;
  font-family: 'Epilogue', sans-serif;
 }
 
 
  .containerbar{
-    margin-right: 15%;
+    margin-right: 5%;
  }
 
 
@@ -58,8 +58,9 @@ function Navbar() {
     padding: .4rem;
     background-color: #736A68;
     display: flex;
-    margin-bottom:-50px;
-    height: 100px;
+    margin-bottom:-6.3vh;
+    height: 10vh;
+    width: 213.5vh;
     align-items: center;
     
     justify-content: space-between;
