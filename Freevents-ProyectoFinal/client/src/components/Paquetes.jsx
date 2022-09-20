@@ -6,20 +6,20 @@ import footer2 from "../imagenes/foterfoto.png";
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getServices } from "../actions";
+import { getPacks } from "../actions";
 
 
 const Paquetes = () => {
   const dispatch = useDispatch();
-  const allServices = useSelector((state) => state.services)
+  const allPacks = useSelector((state) => state.packs)
 
   useEffect(() => {
-    dispatch(getServices())
+    dispatch(getPacks())
   }, [dispatch])
 
   return (
     <div>
-      <NavbarNuevo/>
+      <NavbarNuevo />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
@@ -51,8 +51,20 @@ const Paquetes = () => {
 
         </div>
       </div>
-      <CardPaquetes></CardPaquetes>
-      {/* </Container> */}
+      <div>
+        {allPacks?.map((packs)=>{
+          return (
+            <div> 
+              <CardPaquetes 
+              name={packs.name}
+              price={packs.price}
+              gallery_image={packs.gallery_image ? packs.gallery_image  : <img src="https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg" alt="img not found"/>}
+              events={events}
+              />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
