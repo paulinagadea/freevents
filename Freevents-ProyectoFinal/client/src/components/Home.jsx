@@ -3,13 +3,14 @@ import React from "react";
 import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
 import image10 from "../imagenes/10.jpg";
+import { brown } from '@material-ui/core/colors';
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 import fotogeneral from '../imagenes/FOTOGENERAL.png';
 import image13 from "../imagenes/13.jpeg";
 import footer from "../imagenes/footer.jpg";
 import "./Home.css"
 import Button from "@material-ui/core/Button"
-import NavBar3  from "./NavBar3.jsx"
+import NavbarNuevo  from "./NavbarNuevo.jsx"
 import CardProveedor from "./CardProveedor";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,7 +31,7 @@ const Home = () => {
 
     return (
         <div>
-                <NavBar3 />
+                <NavbarNuevo />
                 {/* <img className="imghome" src={image20} alt="" /> */}
             <div className="contiene">
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
@@ -41,14 +42,14 @@ const Home = () => {
             </div>
             <Container fixed>
             <Box color = "primary.main" component="span" b= {4}>
-                <Button href="/proveedores" color="secondary">ANIVERSARIOS</Button>
-                <Button href="/proveedores" color="secondary">CUMPLEAÑOS</Button>
-                <Button href="/proveedores" color="secondary">DESPEDIDAS</Button>
-                <Button href="/proveedores" color="secondary">GRADUACIONES</Button>
-                <Button href="/proveedores" color="secondary">BABY SHOWERS</Button>
-                <Button href="/proveedores" color="secondary">15 AÑOS</Button>
-                <Button href="/proveedores" color="secondary">FULL PARTY</Button>
-                <Button href="/proveedores" color="secondary">MATRIMONIO</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>ANIVERSARIOS</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>CUMPLEAÑOS</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>DESPEDIDAS</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>GRADUACIONES</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>BABY SHOWERS</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>15 AÑOS</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>FULL PARTY</Button>
+                <Button href="/proveedores" style={{ color: brown[400] }}>MATRIMONIO</Button>
             </Box>
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
             {/* <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button> */}
@@ -82,9 +83,10 @@ const Home = () => {
 
             <div>
                 <h1 className="titulo-home"> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
-                <Button color="secondary" 
+                <Button style={{ color: brown[500] }} 
                         href="/providerregister" 
-                        variant="outlined"
+                        variant="contained"
+                        disableElevation
                         >REGISTRATE AQUI
                 </Button>
 

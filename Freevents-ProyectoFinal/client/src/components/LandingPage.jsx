@@ -13,14 +13,14 @@ import f4 from "../imagenes/4.jpg";
 import f14 from "../imagenes/14.jpg";
 import NavBar from "./NavBar";
 import theme from '../temaConfig'
-import { NavBar2 } from "./NavBar2"
+import  NavbarNuevo  from "./NavbarNuevo"
 import { Button, Container } from "@mui/material";
 
 
 export default function LandingPage(){
     return(
                 <div className="encabezado">
-                    <NavBar2 />
+                    <NavbarNuevo/>
                     <Container sx={{mt:5}} maxWidth="xl"></Container>
                 <img className="cabeza2" src={FOTOGENERAL} width="1300px" height="800px"></img>
                 <img className="cabeza" src={cabeza} width="1300px" height="800px"></img>

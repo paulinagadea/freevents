@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders, getEvents, orderByName } from "../actions";
-import NavBarProveedores from "./NavBarProveedores";
+import NavbarNuevo from "./NavbarNuevo";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
@@ -52,9 +52,9 @@ const Proveedores = () => {
 
   return (
     <div>
-      <NavBarProveedores
+      <NavbarNuevo/>
       
-      setCurrentPage={setCurrentPage}/>
+      {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Proveedores </h1>
       <button onClick={e=> {handleClick(e)}}> ⇦</button>
