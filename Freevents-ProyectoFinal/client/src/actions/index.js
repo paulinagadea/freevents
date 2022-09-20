@@ -158,7 +158,6 @@ export function orderByName(payload){
     }
 }; 
 
-<<<<<<< HEAD
 export function getNamesPacks(name) {
     return async function (dispatch) {
         try {
@@ -176,15 +175,4 @@ export function getNamesPacks(name) {
             
         }
     }
-=======
-export function createUser(payload) {
-    return async function () {
-        try {
-            const creado = await axios.post("http://localhost:3001/client", payload);
-            return creado;
-        } catch (error) {
-            throw new Error(error);
-        }
-    }; 
->>>>>>> 317cd71ca919da7234d34883282ffefecd21fdc3
 };

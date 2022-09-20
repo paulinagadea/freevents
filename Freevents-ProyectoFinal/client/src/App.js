@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
+import Login from "./components/Login";
 import Eventos from "./components/Eventos";
 import Home from "./components/Home";
 import Detail from './components/Details';
@@ -26,6 +27,7 @@ function App() {
             <Route exact path = '/providerregister' element= { <FormProvider/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
+            <Route exact path = '/login' element={<Login/>}/>
       </Routes>
         </div>
       </div>
