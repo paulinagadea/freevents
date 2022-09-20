@@ -32,24 +32,31 @@ const useStyles = makeStyles({
     },
   });
 
-const CardPaquetes = () => {
+const CardPaquetes = ({name, price, gallery_image, events, services}) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
     return (
         <Card className={classes.root}>
         <CardActionArea>
+        <CardMedia
+          
+          className={classes.media}
+          image={gallery_image}
+          title="Contemplative Reptile"
+        />
         <CardContent>
+          
         <Typography variant="h5" component="h2">
             <Link style={{textDecoration:"none"}} to= '/proveedores'>
-            <h3>{getData.map(el=>el.pack_service.map(el=>el.name)[0])[0]}</h3>
+            <h3>{name}</h3>
             </Link>
         </Typography>
         <Typography variant="body2" component="p">
-            Servicios que incluye: {getData.map(el=>el.pack_service.map(el=>el.service.map(el=>el.name))[0])[0]}
+            Servicios que incluye: {services}
             <br/>
-            Precio: {getData.map(el=>el.pack_service.map(el=>el.price)[0])[0]}
+            Precio: {price}
             <br/>
-            Proveedor:
+            Eventos: {events}
         </Typography>
         </CardContent>
         <CardActions>
