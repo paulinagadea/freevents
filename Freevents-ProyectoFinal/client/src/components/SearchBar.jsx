@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
 import { getNamesProviders } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
+import './SearchBar.css'
 
 
 export default function SearchBar({setCurrentPage}) {
@@ -35,7 +37,7 @@ export default function SearchBar({setCurrentPage}) {
     }
 
     return (
-        <div>
+        <div className="sear">
             <input
                 className="input1"
                 type="text"
@@ -48,7 +50,7 @@ export default function SearchBar({setCurrentPage}) {
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
             >
-                <SearchIcon/>
+                <SearchIcon fontSize="large" style={{ color: grey[100] }}/>
             </path>
         </div>
     )

@@ -1,0 +1,13 @@
+.input1{
+    height: 30px;
+    width: 290px;
+    font-family: 'Roboto', sans-serif;
+   
+    font-size: 100%;
+}
+
+.sear{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
