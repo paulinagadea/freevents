@@ -12,7 +12,6 @@ export const actionTypes ={
     clearDetails:"clearDetails",
     getPacks:"getPacks",
     getNamesPacks:"getNamesPacks",
-    createUser:"createUser",
     getDetailsPacks:"getDetailsPacks",
 
 };
