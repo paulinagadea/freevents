@@ -59,7 +59,7 @@ const Paquetes = () => {
               name={packs.name}
               price={packs.price}
               gallery_image={packs.gallery_image ? packs.gallery_image  : <img src="https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg" alt="img not found"/>}
-              events={events}
+              
               />
             </div>
           )
