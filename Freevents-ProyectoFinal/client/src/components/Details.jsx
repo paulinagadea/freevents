@@ -49,8 +49,8 @@ const Details = () => {
                                 <img 
                                 src={myservice.background_image} 
                                 alt={myservice.nombre} 
-                                width="1600" 
-                                height="300px" 
+                                width="100%" 
+                                height="100%" 
                                 >
                                 </img>
 
