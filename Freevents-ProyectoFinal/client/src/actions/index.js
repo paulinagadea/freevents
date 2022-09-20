@@ -14,6 +14,7 @@ export const actionTypes ={
     getNamesPacks:"getNamesPacks",
     createUser:"createUser",
     getDetailsPacks:"getDetailsPacks",
+    orderByNamePack:"orderByNamePack",
 
 };
 
@@ -152,8 +153,16 @@ export function getNamesProviders(name) {
 };
 
 export function orderByName(payload){
+    console.log(payload, "soy el payload")
     return{
         type:actionTypes.orderByName,
+        payload
+    }
+}; 
+export function orderByNamePack(payload){
+    console.log(payload, "soy el payload")
+    return{
+        type:actionTypes.orderByNamePack,
         payload
     }
 }; 
