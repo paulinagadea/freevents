@@ -10,6 +10,7 @@ export const actionTypes ={
     getNamesProviders:"getNamesProviders",
     orderByName:"orderByName",
     clearDetails:"clearDetails",
+    getPacks:"getPacks"
 
 };
 
@@ -31,6 +32,16 @@ export const getProviders = () => {
             payload: json.data,
         });
     };
+};
+
+export const getPacks = () => {
+    return async function (dispatch) {
+        var json = await axios.get(`http://localhost:3001/packs`)
+        return dispatch ({
+            type: actionTypes.getPacks,
+            payload: json.data,
+        })
+    }
 };
 
 export const getServices = () => {
