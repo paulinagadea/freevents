@@ -38,12 +38,12 @@ const CardPaquetes = ({name, price, gallery_image, events, services}) => {
     return (
         <Card className={classes.root}>
         <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           
           className={classes.media}
           image={gallery_image}
           title="Contemplative Reptile"
-        />
+        /> */}
         <CardContent>
           
         <Typography variant="h5" component="h2">
@@ -60,9 +60,9 @@ const CardPaquetes = ({name, price, gallery_image, events, services}) => {
         </Typography>
         </CardContent>
         <CardActions>
-        <Link style={{textDecoration:"none"}} to= '/proveedores'>
+        {/* <Link style={{textDecoration:"none"}} to= '/proveedores'>
         <Button size="small"> + Info</Button>
-        </Link>
+        </Link> */}
       </CardActions>
             </CardActionArea>
         </Card>
