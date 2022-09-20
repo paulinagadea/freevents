@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
             res.status(200).json(provedorByName)
             : res.status(200).json(provedores)
     } catch (error) {
+        console.log(error)
         res.status(500).json({ message: 'Error', error })
     }
 });
@@ -32,6 +33,7 @@ router.get('/:id', async (req, res) => {
         res.status(200).json(provedorById)
 
     } catch (error) {
+        console.log(error)
         res.status(500).json({ message: 'Error', error })
     }
 })
