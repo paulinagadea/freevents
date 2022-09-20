@@ -18,70 +18,7 @@ const getData = [
                         "birthday party",
                 ],
                 service:[
-                    {
-                        id: "6f9ba92b-4c96-4622-860b-26ea841d2f63",
-                        name: "catering", 
-                        description: "Nuestros excelente servicio de catering a dispocisión de usted. Menúes completos y para todos los gustos (incluye Sin TAC-Vegetarianos y Veganos).", 
-                        type_service: "catering",
-                    },
-                    {
-                        id: "8f1a09b8-c7c0-46b3-9f34-37827cfc4d7c",
-                        name: "mesa dulce", 
-                        description: "Las mejores propuestas para armar una mesa dulce perfecta (incluye decoración y motivo)", 
-                        type_service: "catering",
-                    },
-                    {
-                        id: "09cd387e-3b4c-47e3-b2fe-17b375ab4c71",
-                        name: "arreglos florales", 
-                        description: "Catálogo completo con las mejores propuestas.", 
-                        type_service: "arreglos_florales",
-                    },
-                    {
-                        id: "4a834395-cde1-4aa8-a896-35a2a9f413d9",
-                        name: "Decoración a gusto del cliente.", 
-                        description: "Nuestros profesionales con amplio rango de todo tipo de eventos lograran la decoración de tus sueños.", 
-                        type_service: "decoracion",
-                    },
-                    {
-                        id:"efa5f4fd-3ca7-4411-a426-01e51fadc123",
-                        name: "Sonido 'Impacto'", 
-                        description: "Ofrece una excelente variedad para todo tipo de gustos, también cuenta con un animador para darle chispa a tu fiesta (remix a elección del cliente).", 
-                        type_service: "sonido",
-                    },
-                    {
-                        id:"fefb084f-27df-4151-9f48-2d17e9048d81",
-                        name: "La Quinta Casona, salón de eventos", 
-                        description: "Ubicado en Celso Barrios 3490, la belleza y perfección de un espectacular salón para que puedas disfrutar y divertirte.", 
-                        type_service: "salon_de_eventos",
-                    },
-                    {
-                        id:"8bec10fd-15d1-4479-a44a-9552611925ad",
-                        name: "Jessica Biagioni, fotografía.", 
-                        description: "Profesional con una extensa experiencia para poder capturar tus mejores momentos.", 
-                        type_service: "fotografo",
-                    },
-                    {
-                        id:"6af2d75d-3e83-4206-87f3-235f8c7e6b05",
-                        name: "Barra de tragos.", 
-                        description: "Extensa variedad de bebidas y tragos preparados por nuestro barman, Matias (catálogo con bebias con y sin alcohol).", 
-                        type_service: "bar",
-                    },
-                    {
-                        id:"425bd235-0b25-4038-a703-616c206290cb",
-                        name: "Cotillón y disfraces.", 
-                        description: "Contamos con el mejor cotillón y disfraces para adultos y niños. ", 
-                        type_service: "disfraz_y_cotillon",
-                    },
-                    {
-                        name: "Traslado", 
-                        description: "Tenemos a tu dispocisión de media gama con un chofer matriculado para que puedas trasladarte hasta el lugar del evento.", 
-                        type_service: "servicio_de_traslado",
-                    },
-                    {
-                        name: "Mozos y guardia de seguridad.", 
-                        description: "La cantidad de mozos y de guardias de seguridad dependerá de la cantidad de invitados.", 
-                        type_service: "staff",
-                    },
+                    
                 ]
         },
         {
@@ -94,61 +31,6 @@ const getData = [
                     "birthday party",
             ],
             service:[
-                {
-                    name: "catering", 
-                    description: "Nuestros excelente servicio de catering a dispocisión de usted. Menúes completos y para todos los gustos (incluye Sin TAC-Vegetarianos y Veganos).", 
-                    type_service: "catering",
-                },
-                {
-                    name: "mesa dulce", 
-                    description: "Las mejores propuestas para armar una mesa dulce perfecta (incluye decoración y motivo)", 
-                    type_service: "catering",
-                },
-                {
-                    name: "arreglos florales", 
-                    description: "Catálogo completo con las mejores propuestas.", 
-                    type_service: "arreglos_florales",
-                },
-                {
-                    name: "Decoración a gusto del cliente.", 
-                    description: "Nuestros profesionales con amplio rango de todo tipo de eventos lograran la decoración de tus sueños.", 
-                    type_service: "decoracion",
-                },
-                {
-                    name: "Sonido 'Impacto'", 
-                    description: "Ofrece una excelente variedad para todo tipo de gustos, también cuenta con un animador para darle chispa a tu fiesta (remix a elección del cliente).", 
-                    type_service: "sonido",
-                },
-                {
-                    name: "La Quinta Casona, salón de eventos", 
-                    description: "Ubicado en Celso Barrios 3490, la belleza y perfección de un espectacular salón para que puedas disfrutar y divertirte.", 
-                    type_service: "salon_de_eventos",
-                },
-                {
-                    name: "Jessica Biagioni, fotografía.", 
-                    description: "Profesional con una extensa experiencia para poder capturar tus mejores momentos.", 
-                    type_service: "fotografo",
-                },
-                {
-                    name: "Barra de tragos.", 
-                    description: "Extensa variedad de bebidas y tragos preparados por nuestro barman, Matias (catálogo con bebias con y sin alcohol).", 
-                    type_service: "bar",
-                },
-                {
-                    name: "Cabina para fotos.", 
-                    description: "", 
-                    type_service: "decoracion",
-                },
-                {
-                    name: "Revelación de sexo", 
-                    description: "Tenemos las mejores opciones para que la revelación de sexo de tu hijo sea inolvidable.", 
-                    type_service: "show",
-                },
-                {
-                    name: "Mozos y guardia de seguridad.", 
-                    description: "La cantidad de mozos y de guardias de seguridad dependerá de la cantidad de invitados.", 
-                    type_service: "staff",
-                },
 
             ]
     }]
@@ -172,63 +54,7 @@ const getData = [
                     "birthday party",
                     "full party"
             ],
-            service:[
-                {
-                    name: "show de drones", 
-                    description: "show cuenta con 15 drones.", 
-                    type_service: "entretimiento_en_vivo",
-                },
-                {
-                    name: "catering", 
-                    description: "Trabajamos con los productos más fresco y te garantizamos un servicio de primera calidad.", 
-                    type_service: "catering",
-                },
-                {
-                    name: "arreglos florales", 
-                    description: "Nuestros diseñadores cuentan con un excelentísimo catálogo de flores de diferentes tipos y colores para que se adapten a la perfección a tu imaginación.", 
-                    type_service: "arreglos_florales",
-                },
-                {
-                    name: "catering vegano y apto para celiacos", 
-                    description: "También adaptamos las primeras necesidades de las personas a nuestro completo Menú. Ofrecemos variedad y calidad.", 
-                    type_service: "catering",
-                },
-                {
-                    name: "Dj Alex", 
-                    description: "El mejor dj para el mejor evento. Adapta su propuesta a los gustos del cliente.", 
-                    type_service: "dj",
-                },
-                {
-                    name: "Javu, salón de eventos", 
-                    description: "Ubicado en Av. Córdoba 4460, es el perfecto salón para desarrollar tu evento. Cuenta con el espacio suficiente para divertirte como nunca.", 
-                    type_service: "salon_de_eventos",
-                },
-                {
-                    name: "Alexis Gonzáles, fotografía.", 
-                    description: "Un profesional a la altura de cualquier evento", 
-                    type_service: "fotografo",
-                },
-                {
-                    name: "Bar", 
-                    description: "Nuesta barra cuenta con variedad de tragos y un bartender de lujo para darte todos tus gustos.", 
-                    type_service: "bar",
-                },
-                {
-                    name: "Cotillón.", 
-                    description: "Tenemos una divertida propuesta para que a la hora del baile, puedas divertirte con los más variados cotillones.", 
-                    type_service: "disfraz_y_cotillon",
-                },
-                {
-                    name: "Decoración.", 
-                    description: "Adaptamos todas tus elecciones a la mejor decoración. Excelente calidad (incluye luces, telas, velas, etc. A elección del cliente).", 
-                    type_service: "decoracion",
-                },
-                {
-                    name: "Mozos y guardia de seguridad.", 
-                    description: "La cantidad de mozos y de guardias de seguridad dependerá de la cantidad de invitados.", 
-                    type_service: "staff",
-                },
-            ]
+            services: []
     }]
 }
 ]
@@ -364,6 +190,6 @@ const getEvent = [
 
 
 
-module.exports = {
-    getEvent
-}
+// module.exports = {
+//     getEvent
+// }

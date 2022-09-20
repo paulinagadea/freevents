@@ -5,6 +5,7 @@ const Provider = require('./Provider')
 const Service = require('./Service.js');
 const Event = require('./Event.js');
 const Client = require('./Client.js')
+const Pack_service = require('./Pack_service')
 const router = Router();
 
 // Configurar los routers
@@ -14,6 +15,7 @@ router.use('/providers', Provider)
 router.use('/services', Service);
 router.use('/events', Event);
 router.use('/client', Client)
+router.use('/packs', Pack_service)
 
 // router.get('/admins/:id', (req, res, next) => { })
 
