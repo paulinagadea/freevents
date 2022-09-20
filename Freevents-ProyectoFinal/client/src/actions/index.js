@@ -127,3 +127,14 @@ export function orderByName(payload){
         payload
     }
 }; 
+
+export function createUser(payload) {
+    return async function () {
+        try {
+            const creado = await axios.post("http://localhost:3001/client", payload);
+            return creado;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }; 
+};
