@@ -10,7 +10,10 @@ export const actionTypes ={
     getNamesProviders:"getNamesProviders",
     orderByName:"orderByName",
     clearDetails:"clearDetails",
-    getPacks:"getPacks"
+    getPacks:"getPacks",
+    getNamesPacks:"getNamesPacks",
+    createUser:"createUser",
+    getDetailsPacks:"getDetailsPacks",
 
 };
 
@@ -80,6 +83,19 @@ export function createProvider(payload) {
     };
 };
 
+export function createUser(payload) {
+    return async function () {
+        console.log('que llega en payload', payload)
+        try {
+            const creado = await axios.post("http://localhost:3001/client", payload);
+            console.log(creado)
+            return creado;
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+};
+
 
 export function getDetails(id) {
     return async function (dispatch) {
@@ -87,6 +103,20 @@ export function getDetails(id) {
             var json = await axios.get(`http://localhost:3001/providers/${id}`);
             return dispatch({
                 type: actionTypes.getDetails,
+                payload: json.data,
+            });
+        } catch (error) {
+            return error.message;
+        }
+    };
+};
+
+export function getDetailsPacks(id) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get(`http://localhost:3001/packs/${id}`);
+            return dispatch({
+                type: actionTypes.getDetailsPacks,
                 payload: json.data,
             });
         } catch (error) {
@@ -128,6 +158,25 @@ export function orderByName(payload){
     }
 }; 
 
+<<<<<<< HEAD
+export function getNamesPacks(name) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get("http://localhost:3001/providers?name=" + name)
+            return dispatch({
+                type: actionTypes.getNamesPacks,
+                payload: json.data
+            })
+        } catch (error) {
+            return dispatch({
+                type: actionTypes.getNamesPacks,
+                payload: "ERROR"
+            })
+            
+            
+        }
+    }
+=======
 export function createUser(payload) {
     return async function () {
         try {
@@ -137,4 +186,5 @@ export function createUser(payload) {
             throw new Error(error);
         }
     }; 
+>>>>>>> 317cd71ca919da7234d34883282ffefecd21fdc3
 };

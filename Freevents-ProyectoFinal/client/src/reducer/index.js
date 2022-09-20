@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions";
+import { actionTypes, createUser } from "../actions";
 
 const initialState = {
     events: [],
@@ -81,7 +81,6 @@ function rootReducer(state = initialState, action) {
                     return 0
                 })
             }
-
             return {
                 ...state,
                 providers: sortedArr
@@ -89,7 +88,12 @@ function rootReducer(state = initialState, action) {
         };
         case actionTypes.createProvider: {
             return {
-                ...state
+                ...state,
+            }
+        }
+        case actionTypes.createUser: {
+            return {
+                ...state,
             }
         }
         case actionTypes.createUser:{
