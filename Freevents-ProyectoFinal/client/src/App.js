@@ -31,6 +31,7 @@ function App() {
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
             <Route exact path = '/login' element={<Login/>}/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
+            <Route exact path = '/customertype' element={<CustomerType/>}/>
 
       </Routes>
         </div>
