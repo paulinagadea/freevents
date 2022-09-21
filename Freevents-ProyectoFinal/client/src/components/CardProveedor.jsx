@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   root: {
@@ -34,13 +35,14 @@ const useStyles = makeStyles({
 const CardProveedor = ({ name, address, email, phone_number, background_image, createdInDb, event }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  const allEvent = useSelector((state) => state.events)
 
   return (
 
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
-          
+
           className={classes.media}
           image={background_image}
           title="Contemplative Reptile"
@@ -56,12 +58,14 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
           Info:
          </Typography> */}
           <Typography variant="body2" component="p">
-          ★★★
-            {/* email: {email}
+            ★★★
+            email: {email}
             <br />
             Dirección: {address}
             <br />
-            Número de telefono: {phone_number} */}
+            Número de telefono: {phone_number}
+            <br/>
+            Eventos: {allEvent.map(e=>e.name)}
             {/* <br />
             Eventos: {event?.length === 0 && "Desconocido" } {createdInDb? event?.map(el=>el.name):event.map(el=>el)} */}
           </Typography>
