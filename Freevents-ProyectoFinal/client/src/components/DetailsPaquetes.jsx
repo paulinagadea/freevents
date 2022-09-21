@@ -21,6 +21,15 @@ const DetailsPaquetes = () =>{
        <div>
             <NavbarNuevo/>
             <h1>{detalle?.name}</h1>
+            <p>{detalle?.description}</p>
+            <h3>{detalle?.price}</h3>
+            <h3>{detalle?.events?.map(el=>el?.name)}</h3>
+            <h4>{detalle?.services.map(el=>el)}</h4>
+            <img src={detalle?.galery_image} alt={detalle?.name} />
+            <Link to={'/paquetes'}>
+                <button key={id}>Volver</button>
+            </Link>
+
             
 
        </div>
