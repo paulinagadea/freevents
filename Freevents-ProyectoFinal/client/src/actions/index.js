@@ -15,8 +15,17 @@ export const actionTypes ={
     createUser:"createUser",
     getDetailsPacks:"getDetailsPacks",
     orderByNamePack:"orderByNamePack",
+    filterPacksByService:"filterPacksByService",
 
 };
+
+export const filterPacksByService = (payload) =>{
+    console.log(payload, "payload filter service")
+    return{
+        type: actionTypes.filterPacksByService,
+        payload
+    }
+}
 
 export const getEvents = () => {
     return async function (dispatch) {

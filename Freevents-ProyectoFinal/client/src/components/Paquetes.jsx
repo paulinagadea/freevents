@@ -6,21 +6,16 @@ import footer2 from "../imagenes/foterfoto.png";
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 
 
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
-
-  useEffect(() => {
-    dispatch(getPacks())
-    dispatch(getServices())
-  }, [dispatch])
+  const allServicesP = useSelector((state) => state.services)
 
   const [order, setOrder] = useState('')
-  const allServicesP = useSelector((state) => state.services)
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
   const [packsPerPage] = useState(5)// cantidad de cards x pagina
 
@@ -32,6 +27,19 @@ const Paquetes = () => {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
+  useEffect(() => {
+    dispatch(getPacks())
+    dispatch(getServices())
+  }, [dispatch])
+
+
+
+
+  const handleFilterService = (e)=>{
+    dispatch(filterPacksByService(e.target.value))
+    console.log(dispatch(filterPacksByService(e.target.value)), "holis")
+
+}
   function handleSort(e) {
     e.preventDefault()
     console.log(e.target.value, "Soy el target")
@@ -63,11 +71,20 @@ const Paquetes = () => {
             <option value='descendenteW'>Max-Min precio</option> */}
           </select>
           
-          <select>
-            <option selected disabled>Servicios</option>
-            {allServicesP.map((t) =>
-              <option> {t.name} </option>)}
+          <select onChange={e => handleFilterService(e)}>
+            <option selected disabled value = 'All'>Servicio</option>
+            {allServicesP?.map(el => <option key = {el.id} value = {el.name}> {el.name} </option>)}
           </select>
+
+
+          {/* <select onChange={e => { handlePrice(e) }}>
+            <option selected disabled>Rango precio</option>
+            {allServicesP.map((t) =>
+              <option> {t.price} </option>)}
+          </select> */}
+          
+
+
 
         </div>
       </div>

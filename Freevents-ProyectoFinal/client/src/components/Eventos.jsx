@@ -142,7 +142,7 @@ export default function ButtonBases() {
     <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[0].width,
           }}
@@ -172,7 +172,7 @@ export default function ButtonBases() {
     <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[7].width,
           }}
@@ -202,7 +202,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[1].width,
           }}
@@ -232,7 +232,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[2].width,
           }}
@@ -262,7 +262,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[3].width,
           }}
@@ -292,7 +292,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[4].width,
           }}
@@ -322,7 +322,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[5].width,
           }}
@@ -352,7 +352,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/proveedores"  // ojo cambiar por filtro de evento
+          href="/paquetes"  // ojo cambiar por filtro de evento
           style={{
             width: images[6].width,
           }}
