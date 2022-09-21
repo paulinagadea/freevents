@@ -53,3 +53,24 @@ box-shadow: 0 9px 15px rgba(46, 47, 68, 0.505);
      align-items: center;
      margin-top: 2.94%;
 }
+
+.opciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.opciones2{
+    margin-left: 1.5%;
+    transition: 0.5s;
+    transition-delay: 0.1s;
+
+}
+/* .opciones2 :hover {
+    width: 600px;
+    height: 400px;
+    transition: 0.5s;
+    transition-delay: 0.1s;
+
+} */
