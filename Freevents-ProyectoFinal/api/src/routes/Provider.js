@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllProviders, updateProvider, deleteProvider } = require('../controllers/getAllProviders')
+const { getAllProviders } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
@@ -72,37 +72,37 @@ router.post("/", async (req, res) => {
     }
 });
 
+
 router.put("/:id", async (req, res) => {
 
-    try {
-        const { id } = req.params
-        const updateProviderId = await updateProvider(id)
+    try{
+        
+       await Provider.update(req.body, {
+                   where: { id: req.params.id }
+               });
+               res.status(200).json({ succes: 'Update Provider' })
+   
+   } catch(error) {
 
-        console.log('updateProvider', updateProviderId)
+       res.status(500).json({ message: 'Error', error })
 
-        res.status(200).json(updateProviderId)
-
-    } catch (error) {
-        res.status(500).json({ message: 'Error', error })
-    }
+   }
+   
 })
+
 
 router.delete("/admin/:id", async (req, res) => {
 
     try {
-        const { id } = req.params
-        const deleteProviderId = await deleteProvider(id)
-
-        console.log('deleteProvider', deleteProviderId)
-
-        res.status(200).json(deleteProviderId)
+        await Provider.destroy({
+                    where: { id: req.params.id }
+                });
+                res.status(200).json({ success: 'Delete Provider' })
 
     } catch (error) {
         res.status(500).json({ message: 'Error', error })
     }
-    
 })
-
 
 
 

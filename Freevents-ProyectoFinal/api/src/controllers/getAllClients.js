@@ -18,23 +18,9 @@ const getClientById = async (id) => {
         where: { id: id }
     })
     console.log('✍', clientId)
-    return clientId ? clientId : "not found"
+    return clientId ? clientId : "Not found"
 }
 
-const updateClient = async (id) => {
-    const clientPutId = await Client.update({
-        where: { id: id }
-    })
-    console.log('Actualizado', clientPutId)
-    return clientPutId ? clientPutId : "No actualizado"
-}
 
-const deleteClient = async (id) => {
-    const deleteClientId = await Client.destroy({
-        where: { id: id }
-    })
-    console.log('Delete', deleteClientId)
-    return deleteClientId ? deleteClientId : "Not Delete"
-}
 
-module.exports = { getAllClients, getClientByName, getClientById, updateClient, deleteClient };
+module.exports = { getAllClients, getClientByName, getClientById };
