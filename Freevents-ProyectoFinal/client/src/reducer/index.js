@@ -8,7 +8,7 @@ const initialState = {
     detail: [],
     services: [],
     packs: [],
-    allPacks:[],
+    allPacks: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -30,7 +30,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 packs: action.payload,
-                allPacks:action.payload,
+                allPacks: action.payload,
             }
         }
         case actionTypes.getServices: {
@@ -96,12 +96,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         }
-        case actionTypes.createUser:{
-            return{
+        case actionTypes.createUser: {
+            return {
                 ...state
             }
         }
-         
+
         default:
             return state;
     }
