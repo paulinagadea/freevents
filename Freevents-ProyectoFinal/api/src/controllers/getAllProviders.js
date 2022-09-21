@@ -22,4 +22,13 @@ const updateProvider = async (id) => {
     return updateProvider ? updateProvider : "Not updateProvider"
 }
 
-module.exports = { getAllProviders, updateProvider }
+const deleteProvider = async (id) => {
+
+    const deleteProvider = await Provider.destroy({
+        where: { id: id }
+    })
+    console.log('deleteProvider', deleteProvider)
+    return deleteProvider ? deleteProvider : "Not deleteProvider"
+}
+
+module.exports = { getAllProviders, updateProvider, deleteProvider }

@@ -78,9 +78,35 @@ const updatePack = async (id) => {
 }
 
 
+const deletePack = async (id) => {
+    
+    const totalPacks = await Pack_services.destroy({
+        where: { id: id},
+        include: [
+            {
+                model: Event,
+                attributes: ['name'], 
+                through: {
+                    attributes: [],
+                }
+            },
+            {
+                model: Service,
+                attributes: ['name', 'image'], 
+                through: {
+                    attributes: [],
+                }
+            },
+        ]
+    })
+    return totalPacks ? totalPacks : "No delete pack" 
+}
+
+
 module.exports = {
     getAllPackServices, 
     getPacksByName, 
     getPacksById,
-    updatePack
+    updatePack,
+    deletePack
 }

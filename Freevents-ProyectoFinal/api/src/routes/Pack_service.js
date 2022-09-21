@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllPackServices, getPacksByName, getPacksById, updatePack } = require('../controllers/getAllPackServices'); 
+const { getAllPackServices, getPacksByName, getPacksById, updatePack, deletePack } = require('../controllers/getAllPackServices'); 
 const { Pack_services, Event, Service } = require('../db'); 
 const router = Router(); 
 
@@ -77,6 +77,20 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    
+    try {
+        const { id } = req.params
+        const deletePackId = await deletePack(id)
+
+        console.log('deletePack', deletePackId)
+
+        res.status(200).json(deletePackId)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+})
 
 
 module.exports = router;

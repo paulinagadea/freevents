@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllProviders, updateProvider } = require('../controllers/getAllProviders')
+const { getAllProviders, updateProvider, deleteProvider } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
@@ -86,6 +86,23 @@ router.put("/:id", async (req, res) => {
         res.status(500).json({ message: 'Error', error })
     }
 })
+
+router.delete("/admin/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params
+        const deleteProviderId = await deleteProvider(id)
+
+        console.log('deleteProvider', deleteProviderId)
+
+        res.status(200).json(deleteProviderId)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+    
+})
+
 
 
 
