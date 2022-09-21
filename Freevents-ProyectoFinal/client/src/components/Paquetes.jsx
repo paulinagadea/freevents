@@ -53,11 +53,11 @@ const Paquetes = () => {
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
-      <Paginado
+      {/* <Paginado
       packsPerPage={packsPerPage}
       allPacks={allPacks.length}
       paginado={paginado}
-      />
+      /> */}
       <div>
         <div className="row">
         <select onChange={e => handleSort(e)}>
