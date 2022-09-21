@@ -47,9 +47,9 @@ const CardPaquetes = ({name, price, gallery_image, events, services}) => {
         <CardContent>
           
         <Typography variant="h5" component="h2">
-            <Link style={{textDecoration:"none"}} to= '/proveedores'>
+            {/* <Link style={{textDecoration:"none"}} to= '/proveedores'> */}
             <h3>{name}</h3>
-            </Link>
+            {/* </Link> */}
         </Typography>
         <Typography variant="body2" component="p">
             Servicios que incluye: {services}

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllProviders } = require('../controllers/getAllProviders')
+const { getAllProviders, updateProvider, deleteProvider } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
 const router = Router();
@@ -67,10 +67,43 @@ router.post("/", async (req, res) => {
 
         res.status(200).json(actCreated);
     } catch (error) {
-        console.log("perritos errores", error)
+        console.log("perritos errores :/", error)
         res.status(500).json({ msg: 'Error', error })
     }
 });
+
+router.put("/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params
+        const updateProviderId = await updateProvider(id)
+
+        console.log('updateProvider', updateProviderId)
+
+        res.status(200).json(updateProviderId)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+})
+
+router.delete("/admin/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params
+        const deleteProviderId = await deleteProvider(id)
+
+        console.log('deleteProvider', deleteProviderId)
+
+        res.status(200).json(deleteProviderId)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+    
+})
+
+
 
 
 module.exports = router;

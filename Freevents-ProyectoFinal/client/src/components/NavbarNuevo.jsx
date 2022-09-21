@@ -20,11 +20,12 @@ function Navbar() {
         <Link className="link" to="/home">Freevents</Link>
           <SearchBar/>
         <div className="containerbar">
-          <Button onClick={handleClick} href="/home">Home</Button>
-          <Button onClick={handleClick} href="/proveedores">Proveedores</Button>
-          <Button onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button onClick={handleClick} href="/userregister">Registrate</Button>
-          <Button onClick={handleClick} href="/eventos">Crea tu evento</Button>
+          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+          <Button size="small" onClick={handleClick} href="/home">Home</Button>
+          <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button>
         </div>
       
       </NavContainer>
@@ -35,17 +36,17 @@ function Navbar() {
   export default Navbar
 
   const NavContainer= styled.nav`
-.link{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 50px;
- margin-left: 5%;
- font-family: 'Epilogue', sans-serif;
-}
+  .link{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    margin-left: 5%;
+    font-family: 'Epilogue', sans-serif;
+  }
 
 
  .containerbar{
     margin-right: 5%;
- }
+  }
 
 
     h2{
