@@ -11,6 +11,7 @@ import FormProvider from "./components/FormProvider";
 import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
 import { ThemeProvider } from '@material-ui/core';
+import DetailsPaquetes from './components/DetailsPaquetes'
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
             <Route exact path = '/login' element={<Login/>}/>
-            
+            <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
+
       </Routes>
         </div>
       </div>

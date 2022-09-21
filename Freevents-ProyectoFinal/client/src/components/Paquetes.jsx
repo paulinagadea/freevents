@@ -3,19 +3,49 @@ import NavbarNuevo from "./NavbarNuevo";
 import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
+import Paginado from './PaginadoPacks';
+import { Link } from "react-router-dom";
+
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks } from "../actions";
+import { getPacks, orderByNamePack } from "../actions";
 
 
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
+  console.log(allPacks, "TODOS LOS PACKS")
+  const [ setOrder] = useState('')
+
+  const [currentPage, setCurrentPage ] = useState(1) //pagina uno
+  const [packsPerPage] = useState(5)// cantidad de cards x pagina
+
+  const indexOfLastPack = currentPage * packsPerPage //8
+  const indexOfFirstPack = indexOfLastPack - packsPerPage //0
+  const currentPacks = allPacks.slice(indexOfFirstPack, indexOfLastPack)
+  console.log(currentPacks, "PACKS ACTUALES")
+
+  const paginado = (pageNumber) =>{
+    setCurrentPage(pageNumber)
+  }
 
   useEffect(() => {
     dispatch(getPacks())
   }, [dispatch])
+
+  console.log(setOrder,"order 1")
+  function handleSort(e){
+    e.preventDefault()
+    console.log(e.target.value,"Soy el target")
+    dispatch(orderByNamePack(e.target.value))
+    setCurrentPage(1)
+    console.log(e.target.value, "TARGET VALUE")
+    setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
+    //ESTADO
+  }
+  console.log(setOrder, "order2")
+  console.log(Paginado, "PAGINADO PACKS")
 
   return (
     <div>
@@ -23,39 +53,33 @@ const Paquetes = () => {
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
+      <Paginado
+      packsPerPage={packsPerPage}
+      allPacks={allPacks.length}
+      paginado={paginado}
+      />
       <div>
         <div className="row">
-          <select >
+        <select onChange={e => handleSort(e)}>
             <option selected disabled>Ordenamiento</option>
             <option value='ascendente'>A-Z</option>
             <option value='descendente'>Z-A</option>
-            <option value='ascendenteW'>Min-Max precio</option>
-            <option value='descendenteW'>Max-Min precio</option>
+            
           </select>
 
           <select>
             <option selected disabled>Servicios</option>
-            {/* {allServices.map((ser, index) => (
-              <option key={index} value={ser}>
-                {ser}
-              </option>
-            ))} */}
-
-            {/* <option>Arreglos florales</option>
-            <option>Dj</option>
-            <option>Streaper</option>
-            <option>Multimedia</option>
-            <option>Transporte</option>
-            <option>Catering</option> */}
+         
           </select>
 
         </div>
       </div>
       <div>
-        {allPacks?.map((packs)=>{
+        {currentPacks?.map((packs)=>{
           console.log(packs.services)
           return (
             <div> 
+            <Link style={{textDecoration:"none"}} to= {`/detailPaquete/${packs.id}`}>
               <CardPaquetes 
               name={packs.name}
               price={packs.price}
@@ -63,6 +87,7 @@ const Paquetes = () => {
               events={packs.events.map(e=>e.name)}
               services={packs.services?.map(s=>s.name)}
               />
+              </Link>
             </div>
           )
         })}

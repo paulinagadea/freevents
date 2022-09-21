@@ -13,4 +13,13 @@ const getAllProviders = async () => {
     return provedores.length ? provedores : "not found"
 }
 
-module.exports = { getAllProviders }
+const updateProvider = async (id) => {
+
+    const updateProvider = await Provider.update({
+        where: { id: id }
+    })
+    console.log('updateProvider', updateProvider)
+    return updateProvider ? updateProvider : "Not updateProvider"
+}
+
+module.exports = { getAllProviders, updateProvider }

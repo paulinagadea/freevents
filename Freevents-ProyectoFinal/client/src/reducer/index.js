@@ -52,12 +52,52 @@ function rootReducer(state = initialState, action) {
                 detail: action.payload,
             }
         }
+        case actionTypes.getDetailsPacks: {
+            return {
+                ...state,
+                detail: action.payload,
+            }
+        }
         case actionTypes.getNamesProviders: {
             return {
                 ...state,
                 providers: action.payload
             }
         }
+        case actionTypes.getNamesPacks: {
+            return {
+                ...state,
+                packs: action.payload
+            }
+        }
+        case actionTypes.orderByNamePack: {
+            let sortedix;
+            if (action.payload === 'ascendente') {
+                sortedix = state.packs.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return 1;
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            } else if (action.payload === "descendente") {
+                sortedix = state.packs.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return -1
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return 1
+                    }
+                    return 0
+                })
+            }
+            return {
+                ...state,
+                packs: sortedix
+            }
+        };
         case actionTypes.orderByName: {
             let sortedArr;
             if (action.payload === 'ascendente') {
@@ -96,11 +136,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         }
-        case actionTypes.createUser:{
-            return{
-                ...state
-            }
-        }
+        
          
         default:
             return state;
