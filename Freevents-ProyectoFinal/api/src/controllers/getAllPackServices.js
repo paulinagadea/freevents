@@ -53,9 +53,34 @@ const getPacksById = async (id) => {
     return totalPacks ? totalPacks : "Not found." 
 }
 
+const updatePack = async (id) => {
+    
+    const totalPacks = await Pack_services.update({
+        where: { id: id},
+        include: [
+            {
+                model: Event,
+                attributes: ['name'], 
+                through: {
+                    attributes: [],
+                }
+            },
+            {
+                model: Service,
+                attributes: ['name', 'image'], 
+                through: {
+                    attributes: [],
+                }
+            },
+        ]
+    })
+    return totalPacks ? totalPacks : "No actualizado" 
+}
+
 
 module.exports = {
     getAllPackServices, 
     getPacksByName, 
-    getPacksById
+    getPacksById,
+    updatePack
 }
