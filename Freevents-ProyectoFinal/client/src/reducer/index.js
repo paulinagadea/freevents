@@ -52,6 +52,12 @@ function rootReducer(state = initialState, action) {
                 detail: action.payload,
             }
         }
+        case actionTypes.getDetailsPacks: {
+            return {
+                ...state,
+                detail: action.payload,
+            }
+        }
         case actionTypes.getNamesProviders: {
             return {
                 ...state,

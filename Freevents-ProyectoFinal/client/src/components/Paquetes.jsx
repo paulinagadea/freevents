@@ -4,6 +4,7 @@ import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
 import Paginado from './PaginadoPacks';
+import { Link } from "react-router-dom";
 
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
@@ -54,7 +55,7 @@ const Paquetes = () => {
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
       <Paginado
       packsPerPage={packsPerPage}
-      allProviders={allPacks.length}
+      allPacks={allPacks.length}
       paginado={paginado}
       />
       <div>
@@ -78,6 +79,7 @@ const Paquetes = () => {
           console.log(packs.services)
           return (
             <div> 
+            <Link style={{textDecoration:"none"}} to= {`/detailPaquete/${packs.id}`}>
               <CardPaquetes 
               name={packs.name}
               price={packs.price}
@@ -85,6 +87,7 @@ const Paquetes = () => {
               events={packs.events.map(e=>e.name)}
               services={packs.services?.map(s=>s.name)}
               />
+              </Link>
             </div>
           )
         })}
