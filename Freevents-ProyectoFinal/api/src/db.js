@@ -43,14 +43,8 @@ const { Event, Service, Provider, Order, Review, Client, Favorite, Pack_services
 
 //Uno a Muchos User
 
-Client.hasMany(Event);
-Event.belongsTo(Client);
-
 Client.hasMany(Provider);
 Provider.belongsTo(Client);
-
-Client.hasMany(Service);
-Service.belongsTo(Client);
 
 Client.hasMany(Order);
 Order.belongsTo(Client);
@@ -93,6 +87,9 @@ Service.belongsToMany(Pack_services, {through: 'pack_service_service'});
 
 Pack_services.belongsToMany(Event, {through: 'pack_service_event'});
 Event.belongsToMany(Pack_services, {through: 'pack_service_event'})
+
+Pack_services.belongsToMany(Provider, {through: 'pack_service_provider'});
+Provider.belongsToMany(Pack_services, {through: 'pack_service_provider'})
 
 
 
