@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllPackServices, getPacksByName, getPacksById } = require('../controllers/getAllPackServices'); 
+const { getAllPackServices, getPacksByName, getPacksById, updatePack } = require('../controllers/getAllPackServices'); 
 const { Pack_services, Event, Service } = require('../db'); 
 const router = Router(); 
 
@@ -62,4 +62,21 @@ router.post('/', async(req, res) => {
         res.status(400).send('Bad request.')
     }
 })
+
+router.put('/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const updatePackId = await updatePack(id)
+
+        console.log('updatePack', updatePackId)
+
+        res.status(200).json(updatePackId)
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error', error })
+    }
+})
+
+
+
 module.exports = router;
