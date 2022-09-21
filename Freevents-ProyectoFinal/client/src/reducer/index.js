@@ -126,6 +126,20 @@ function rootReducer(state = initialState, action) {
                 providers: sortedArr
             }
         };
+        case actionTypes.filterPacksByService:{
+
+            // console.log(action.payload, "PAYLOAD TEMP")
+            const allPackss = state.allPacks
+            // console.log(state.allPacks)
+            // console.log(allPackss, "EL ALL PACKS")
+            const serviceFiltered = action.payload === 'All' ? allPackss : allPackss.filter(el=>el.services.map( el=> el.name.includes(action.payload)))
+            console.log(serviceFiltered, "TEMP FILTRADO")
+            
+            return{
+                ...state,
+                packs: serviceFiltered,
+            }
+        }
         case actionTypes.createProvider: {
             return {
                 ...state,
@@ -142,4 +156,5 @@ function rootReducer(state = initialState, action) {
 }
 
 export default rootReducer;
+
 
