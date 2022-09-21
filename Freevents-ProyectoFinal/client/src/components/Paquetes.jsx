@@ -31,17 +31,17 @@ const Paquetes = () => {
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
-
-    function handleSort(e) {
-      e.preventDefault()
-      console.log(e.target.value, "Soy el target")
-      dispatch(orderByNamePack(e.target.value))
-      setCurrentPage(1)
-      console.log(e.target.value, "TARGET VALUE")
-      setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
-      //ESTADO
-    }
   }
+  function handleSort(e) {
+    e.preventDefault()
+    console.log(e.target.value, "Soy el target")
+    dispatch(orderByNamePack(e.target.value))
+    setCurrentPage(1)
+    console.log(e.target.value, "TARGET VALUE")
+    setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
+    //ESTADO
+  }
+
   return (
     <div>
       <NavbarNuevo />
@@ -55,18 +55,18 @@ const Paquetes = () => {
       />
       <div>
         <div className="row">
-          <select >
+          <select onChange={e => { handleSort(e) }}>
             <option selected disabled>Ordenamiento</option>
             <option value='ascendente'>A-Z</option>
             <option value='descendente'>Z-A</option>
-            <option value='ascendenteW'>Min-Max precio</option>
-            <option value='descendenteW'>Max-Min precio</option>
+            {/* <option value='ascendenteW'>Min-Max precio</option>
+            <option value='descendenteW'>Max-Min precio</option> */}
           </select>
-
+          
           <select>
             <option selected disabled>Servicios</option>
             {allServicesP.map((t) =>
-                            <option> {t.name} </option>)}
+              <option> {t.name} </option>)}
           </select>
 
         </div>

@@ -88,15 +88,6 @@ export default function Formulario(){
                         name="password"
                         onChange={(e)=>handleChange(e)}/>
                     </div>
-                    
-                    <div>
-                        <label>Gnero:</label>
-                        <input type="text"
-                        value={input.gender} 
-                        name="gender"
-                        onChange={(e)=>handleChange(e)}/>
-                    </div>
-                    
                     <div>
                         <label>DNI:</label>
                         <input type="text" 
