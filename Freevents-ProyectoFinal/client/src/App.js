@@ -15,7 +15,11 @@ import DetailsPaquetes from './components/DetailsPaquetes'
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Carrito from './componentes/Carrito'
+=======
+import Carrito from './components/Carrito'
+>>>>>>> 0125256c7b952b9ae65514fac052a55aca048e52
 =======
 import Carrito from './components/Carrito'
 >>>>>>> 0125256c7b952b9ae65514fac052a55aca048e52
@@ -42,6 +46,10 @@ function App() {
             <Route exact path = '/customertype' element={<CustomerType/>}/>
             <Route exact path = '/carrito' element={<Carrito/>}/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0125256c7b952b9ae65514fac052a55aca048e52
 =======
 
 >>>>>>> 0125256c7b952b9ae65514fac052a55aca048e52
