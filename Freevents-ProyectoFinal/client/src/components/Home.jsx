@@ -21,6 +21,8 @@ import Boximg from "./Boxing";
 
 
 
+
+
 const Home = () => {
     const dispatch = useDispatch();
     const allProviders = useSelector((state) => state.providers)
