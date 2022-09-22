@@ -16,6 +16,10 @@ export const actionTypes ={
     getDetailsPacks:"getDetailsPacks",
     orderByNamePack:"orderByNamePack",
     filterPacksByService:"filterPacksByService",
+    addToCart: "addToCart",
+    removeOneFromCart:"removeOneFromCart",
+    removeAllFromCart: "removeAllFromCart",
+    clearCart:"clearCart",
 
 };
 
@@ -193,3 +197,4 @@ export function getNamesPacks(name) {
         }
     }
 };
+

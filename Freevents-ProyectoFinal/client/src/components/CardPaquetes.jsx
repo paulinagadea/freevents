@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     },
   });
 
-const CardPaquetes = ({name, price, gallery_image, events, services}) => {
+const CardPaquetes = ({name, price, gallery_image, events, services, id}) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
     return (
