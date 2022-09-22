@@ -20,10 +20,9 @@ export const actionTypes ={
 };
 
 export const filterPacksByService = (payload) =>{
-    console.log(payload, "payload filter service")
     return{
         type: actionTypes.filterPacksByService,
-        payload
+        payload: payload,
     }
 }
 

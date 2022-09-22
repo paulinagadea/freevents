@@ -37,7 +37,7 @@ const Paquetes = () => {
 
   const handleFilterService = (e)=>{
     dispatch(filterPacksByService(e.target.value))
-    console.log(dispatch(filterPacksByService(e.target.value)), "holis")
+    setCurrentPage(1)
 
 }
   function handleSort(e) {
@@ -71,7 +71,7 @@ const Paquetes = () => {
             <option value='descendenteW'>Max-Min precio</option> */}
           </select>
           
-          <select onChange={e => handleFilterService(e)}>
+          <select onChange={e => {handleFilterService(e)}}>
             <option selected disabled value = 'All'>Servicio</option>
             {allServicesP?.map(el => <option key = {el.id} value = {el.name}> {el.name} </option>)}
           </select>
@@ -83,9 +83,6 @@ const Paquetes = () => {
               <option> {t.price} </option>)}
           </select> */}
           
-
-
-
         </div>
       </div>
       <div>

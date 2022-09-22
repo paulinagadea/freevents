@@ -127,17 +127,14 @@ function rootReducer(state = initialState, action) {
             }
         };
         case actionTypes.filterPacksByService:{
-
-            // console.log(action.payload, "PAYLOAD TEMP")
-            const allPackss = state.allPacks
-            // console.log(state.allPacks)
-            // console.log(allPackss, "EL ALL PACKS")
-            const serviceFiltered = action.payload === 'All' ? allPackss : allPackss.filter(el=>el.services.map( el=> el.name.includes(action.payload)))
-            console.log(serviceFiltered, "TEMP FILTRADO")
+            // const allPackss = state.allPacks
+            // const serviceFiltered = action.payload === 'All' ? allPackss : allPackss.filter(el=>el.services.map( el=> el.name.includes(action.payload)))
+            // console.log(serviceFiltered, "TEMP FILTRADO")
             
             return{
                 ...state,
-                packs: serviceFiltered,
+                packs: state.allPacks.filter((s)=>
+                s.services.map(se=> se.name).includes(action.payload)),
             }
         }
         case actionTypes.createProvider: {
