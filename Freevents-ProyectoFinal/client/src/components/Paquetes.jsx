@@ -96,6 +96,7 @@ const Paquetes = () => {
                 gallery_image={packs.gallery_image ? packs.gallery_image : <img src="https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg" alt="img not found" />}
                 events={packs.events.map(e => e.name)}
                 services={packs.services?.map(s => s.name)}
+                id={packs.id}
               />
             </div>
           )
