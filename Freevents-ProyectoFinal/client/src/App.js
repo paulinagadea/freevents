@@ -12,7 +12,8 @@ import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
 import { ThemeProvider } from '@material-ui/core';
 import DetailsPaquetes from './components/DetailsPaquetes'
-
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
     <BrowserRouter>
     <div>
       <div className="App">
-      <Routes>
+      <AuthProvider>
+        <Routes>
             <Route exact path = '/' element= { <LandingPage/> }/>
             <Route exact path = '/home' element= { <Home/> }/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
@@ -29,11 +31,21 @@ function App() {
             <Route exact path = '/providerregister' element= { <FormProvider/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
-            <Route exact path = '/login' element={<Login/>}/>
+            <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
+            <Route exact path = '/login' element={<Login/>}/>
             <Route exact path = '/customertype' element={<CustomerType/>}/>
+            <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                {/* aca van todas las rutas que quiero proteger */}
 
-      </Routes>
+              </ProtectedRoute> 
+            }
+          />
+        </Routes>
+      </AuthProvider>
         </div>
       </div>
     </BrowserRouter>
