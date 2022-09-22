@@ -26,11 +26,11 @@
 
 .imgdetail{
     box-shadow: 0 9px 15px rgba(46, 47, 68, 0.194);
-    width: 200vh;
+    width: 170vh;
     height: 40vh;
     background-size: cover;
     margin-top: 45px;
-    margin-left: 3%;
+    margin-left: 1%;
     
 }
 
