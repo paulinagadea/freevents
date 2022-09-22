@@ -36,9 +36,10 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   const allEvent = useSelector((state) => state.events)
+  
 
   return (
-
+    
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -51,7 +52,7 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
           {/* <Typography variant="h5" component="h2">
             Free Events
             </Typography> */}
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" display ="block" noWrap= "false" >
             {name}
           </Typography>
           {/* <Typography className={classes.pos} color="textSecondary">
@@ -59,13 +60,14 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
          </Typography> */}
           <Typography variant="body2" component="p">
             ★★★
-            email: {email}
+            {/* email: {email}
             <br />
             Dirección: {address}
             <br />
             Número de telefono: {phone_number}
-            <br/>
+            <br/> */}
             Eventos: {allEvent.map(e=>e.name)}
+
             {/* <br />
             Eventos: {event?.length === 0 && "Desconocido" } {createdInDb? event?.map(el=>el.name):event.map(el=>el)} */}
           </Typography>
