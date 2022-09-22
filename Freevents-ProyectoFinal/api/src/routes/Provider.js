@@ -55,15 +55,14 @@ router.post("/", async (req, res) => {
             phone_number,
             logotype,
             background_image,
-            aux1,
+            galery_image,
         })
         console.log('acá');
-        for (let e of aux2){
-            let eventsDb = await Event.findOne({
-                where : {name: e}
+            let eventsDb = await Event.findAll({
+                where : {name: events}
             }) 
             actCreated.addEvent(eventsDb); 
-        }
+
 
         res.status(200).json(actCreated);
     } catch (error) {
