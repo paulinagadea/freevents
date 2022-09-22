@@ -43,14 +43,15 @@
 .imgdetail2{
 border-radius: 50%;
 transform: translate(-280%, -70%);
-
+background-size: cover;
 box-shadow: 0 9px 15px rgba(46, 47, 68, 0.505);
 
 }
 .imgdetail1{
     display: flex;
+    flex-direction: column;
     margin-left: -450px;
-    margin-right: 13px;
+    margin-right: 20px;
     margin-top: 50px;
 
     
@@ -129,12 +130,14 @@ margin-left: 75px;
     display: flex;
     width: 40vh;
     height: 100vh;
+    margin-top: 30px;
+    margin-left: 70px;
     flex-direction: row ;
     justify-content: flex-start;
     
 }
 .grid3{
-    margin-right: -80px;
+    margin-right: -70px;
 }
 
   

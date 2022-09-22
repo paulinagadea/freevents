@@ -84,8 +84,8 @@ const Details = () => {
                                             <img className="imgdetail3" 
                                             src={i} 
                                             alt={myservice.nombre} 
-                                            width="150px" 
-                                            height="150px" 
+                                            width="80px" 
+                                            height="80px" 
                                             >
                                             </img>
                                         </div>
@@ -93,7 +93,7 @@ const Details = () => {
                                     })}
                                 </div>
                             <div className='grid3'>
-                            <img src={myservice.galery_image[0]} height="300px"></img>
+                            <img src={myservice.galery_image[0]} width="500px" height="300px"></img>
                             </div>
                             {/* </div> */}
                             </div>
