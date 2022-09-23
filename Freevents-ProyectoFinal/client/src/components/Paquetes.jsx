@@ -1,3 +1,4 @@
+
 import React from "react";
 // import NavbarNuevo from "./NavbarNuevo";
 import NavBarPaquetes from './NavBarPaquetes'
@@ -7,7 +8,7 @@ import footer2 from "../imagenes/foterfoto.png";
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack, filterPacksByService } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 
 
@@ -18,7 +19,7 @@ const Paquetes = () => {
 
   const [order, setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
-  const [packsPerPage] = useState(5)// cantidad de cards x pagina
+  const [packsPerPage] = useState(2)// cantidad de cards x pagina
 
   const indexOfLastPack = currentPage * packsPerPage //8
   const indexOfFirstPack = indexOfLastPack - packsPerPage //0
@@ -50,6 +51,15 @@ const Paquetes = () => {
     setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
     //ESTADO
   }
+  function handleSortPrice(e) {
+    e.preventDefault()
+    console.log(e.target.value, "Soy el target")
+    dispatch(orderByPrice(e.target.value))
+    setCurrentPage(1)
+    console.log(e.target.value, "TARGET VALUE")
+    setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
+    //ESTADO
+  }
 
   return (
     <div>
@@ -65,11 +75,16 @@ const Paquetes = () => {
       <div>
         <div className="row">
           <select onChange={e => { handleSort(e) }}>
-            <option selected disabled>Ordenamiento</option>
+            <option selected disabled>Ordenamiento </option>
             <option value='ascendente'>A-Z</option>
             <option value='descendente'>Z-A</option>
             {/* <option value='ascendenteW'>Min-Max precio</option>
             <option value='descendenteW'>Max-Min precio</option> */}
+          </select>
+          <select onChange={e => { handleSortPrice(e) }}>
+          <option selected disabled>Precios</option>
+          <option value='ascendente'>menor a mayor precio</option>
+            <option value='descendente'>mayor a menor precio</option>
           </select>
           
           <select onChange={e => {handleFilterService(e)}}>
