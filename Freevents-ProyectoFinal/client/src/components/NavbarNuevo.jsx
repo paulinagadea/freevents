@@ -61,7 +61,7 @@ function Navbar() {
     display: flex;
     margin-bottom:-6.3vh;
     height: 10vh;
-    width: 202vh;
+    width: 211.1vh;
     align-items: center;
     margin-bottom: -45.1px;
     

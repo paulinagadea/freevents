@@ -27,7 +27,9 @@ const getPacksByName = async (name) => {
     if(name){
         const packsNAme = allPacks.filter(el => el.name.toLowerCase().includes(name.toLowerCase())); 
         return packsNAme; 
-    }; 
+    } else {
+        "not found"
+    }
 }; 
 
 const getPacksById = async (id) => {

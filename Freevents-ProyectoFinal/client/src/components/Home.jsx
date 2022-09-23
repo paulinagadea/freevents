@@ -7,7 +7,7 @@ import { brown } from '@material-ui/core/colors';
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 import fotogeneral from '../imagenes/FOTOGENERAL.png';
 import image13 from "../imagenes/13.jpeg";
-import footer from "../imagenes/footer.jpg";
+import footer from "../imagenes/footer10.jpg";
 import "./Home.css"
 import Button from "@material-ui/core/Button"
 import NavbarNuevo  from "./NavbarNuevo.jsx"
@@ -42,7 +42,7 @@ const Home = () => {
                 
                 {/* <img src={fotogeneral} className="fotogeneral_home" alt="" /> */}
             </div>
-            <Container fixed>
+            <div className="barra">
             <Box color = "primary.main" component="span" b= {4}>
                 <Button href="/paquetes" style={{ color: brown[400] }}>ANIVERSARIOS</Button>
                 <Button href="/paquetes" style={{ color: brown[400] }}>CUMPLEAÑOS</Button>
@@ -53,7 +53,9 @@ const Home = () => {
                 <Button href="/paquetes" style={{ color: brown[400] }}>FULL PARTY</Button>
                 <Button href="/paquetes" style={{ color: brown[400] }}>MATRIMONIO</Button>
             </Box>
-            <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
+            </div>
+            <Container fixed>
+            <h1 className="titulo-home">QUE EVENTO DESEAS FESTEJAR?</h1>
             {/* <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button> */}
             <Eventos/>
 
@@ -77,14 +79,15 @@ const Home = () => {
                         </h1>
                 </div>
             </div>
-            <h1 className="titulo">CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
+            <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MAS TALENTOSOS </h1>
             <div className="boxing">
                 <Boximg/>
             </div>
     
 
-            <div>
-                <h1 className="titulo-home"> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
+            </Container>
+            <div className="barra1">
+                <h1 className="titulo-home1"> QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
                 <Button style={{ color: brown[500] }} 
                         href="/providerregister" 
                         variant="contained"
@@ -93,9 +96,9 @@ const Home = () => {
                 </Button>
 
             </div>
-            </Container>
                 <div className="container-footer">
                     <div className="footer-completo">
+                        {/* <img src={footer}></img> */}
                         <div className="botones">
                         <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
                         <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
