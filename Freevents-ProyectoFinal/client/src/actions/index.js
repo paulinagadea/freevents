@@ -20,7 +20,7 @@ export const actionTypes ={
     removeOneFromCart:"removeOneFromCart",
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
-    getNamesPaquetes:"getNamesPaquetes"
+    // getNamesPaquetes:"getNamesPaquetes"
 
 };
 
@@ -166,17 +166,35 @@ export function getNamesProviders(name) {
 };
 
 
-export function getNamesPaquetes(name) {
+// export function getNamesPaquetes(name) {
+//     return async function (dispatch) {
+//         try {
+//             var json = await axios.get("http://localhost:3001/packs?name=" + name)
+//             return dispatch({
+//                 type: actionTypes.getNamesPaquetes,
+//                 payload: json.data
+//             })
+//         } catch (error) {
+//             return dispatch({
+//                 type: actionTypes.getNamesPaquetes,
+//                 payload: "ERROR"
+//             })
+            
+            
+//         }
+//     }
+// };
+export function getNamesPacks(name) {
     return async function (dispatch) {
         try {
             var json = await axios.get("http://localhost:3001/packs?name=" + name)
             return dispatch({
-                type: actionTypes.getNamesPaquetes,
+                type: actionTypes.getNamesPacks,
                 payload: json.data
             })
         } catch (error) {
             return dispatch({
-                type: actionTypes.getNamesPaquetes,
+                type: actionTypes.getNamesPacks,
                 payload: "ERROR"
             })
             
@@ -200,22 +218,4 @@ export function orderByNamePack(payload){
     }
 }; 
 
-export function getNamesPacks(name) {
-    return async function (dispatch) {
-        try {
-            var json = await axios.get("http://localhost:3001/providers?name=" + name)
-            return dispatch({
-                type: actionTypes.getNamesPacks,
-                payload: json.data
-            })
-        } catch (error) {
-            return dispatch({
-                type: actionTypes.getNamesPacks,
-                payload: "ERROR"
-            })
-            
-            
-        }
-    }
-};
 

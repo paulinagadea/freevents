@@ -65,12 +65,12 @@ function rootReducer(state = initialState, action) {
                 providers: action.payload
             }
         }
-        case actionTypes.getNamesPaquetes: {
-            return {
-                ...state,
-                packs: action.payload
-            }
-        }
+        // case actionTypes.getNamesPaquetes: {
+        //     return {
+        //         ...state,
+        //         packs: action.payload
+        //     }
+        // }
         
         case actionTypes.getNamesPacks: {
             return {
