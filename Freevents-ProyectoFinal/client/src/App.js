@@ -16,6 +16,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Carrito from './components/Carrito'
 
+
 function App() {
   return (
     <ThemeProvider>

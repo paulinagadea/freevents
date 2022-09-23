@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBarPaquetes from "./SearchBarPaquetes";
 
 
 function Navbar() {
@@ -18,7 +18,7 @@ function Navbar() {
       <div>
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
-          <SearchBar/>
+          <SearchBarPaquetes/>
         <div className="containerbar">
           <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
@@ -61,7 +61,7 @@ function Navbar() {
     display: flex;
     margin-bottom:-6.3vh;
     height: 10vh;
-    width: 211.1vh;
+    width: 202vh;
     align-items: center;
     margin-bottom: -45.1px;
     

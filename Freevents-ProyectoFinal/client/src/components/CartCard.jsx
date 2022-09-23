@@ -1,4 +1,9 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+
 const CartItem = ({ data, delFromCart }) => {
+  const dataPack = useSelector((state)=>state.packs)
     let { id, name, price, quantity } = data;
   
     return (

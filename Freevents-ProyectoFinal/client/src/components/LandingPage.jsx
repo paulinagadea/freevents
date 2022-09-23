@@ -1,7 +1,7 @@
 import React from "react";
 import "./LandingPage.css"
 import {Link} from "react-router-dom";
-import FOTOGENERAL from "../imagenes/FOTOGENERAL.png"
+import FOTOGENERAL from "../imagenes/foto-junta.jpg"
 import cabeza from "../imagenes/20.jpg";
 import f9 from "../imagenes/9.jpg";
 import f15 from "../imagenes/15.jpg";
