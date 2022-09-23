@@ -42,58 +42,85 @@ const Details = () => {
                 <div>
 
                 <NavbarNuevo/>
-                <div className="conteinerd">
-                    <div key={myservice.id}>
-                        
-                            <div className='imgdetail'>
-                                <img 
-                                src={myservice.background_image} 
-                                alt={myservice.nombre} 
-                                width="100%" 
-                                height="100%" 
-                                >
-                                </img>
-
-                            </div>
-                                <img className="imgdetail2" 
+                <div className='imgdetail'>
+                    <img 
+                    src={myservice.background_image} 
+                    className="cover"
+                    alt={myservice.nombre} 
+                    width="100%" 
+                    height="100%" 
+                    >
+                    </img>
+                </div>
+                <img className="imgdetail2" 
                                 src={myservice.logotype} 
                                 alt={myservice.nombre} 
                                 width="200px" 
                                 height="200px" 
                                 >
                                 </img>
+                <Container fixed>
+                <div className='grit'>
+                
+                        <div className='grid4 '>
+                            <div className='grid1 '>
+                                
+                        <div className="stats">
+                                <h3 className="statstext">Direccion: {myservice.address}</h3>
+                                <h3 className="statstext">CUIT: {myservice.cuit}</h3>
+                                <h3 className="statstext">E-mail: {myservice.email}</h3>
+                                <h3 className="statstext">elefono: {myservice.phone_number}</h3>
+                                <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
+                                {/* <h5>Temperamento: {myDog.temperament?.length === 0 && "Desconocido" }{myDog.createdInDb? myDog.temperament.map(el=>el.name + ' '): myDog.temperament?.join(' ')}</h5> */}
+                               
+                            </div>
+                            </div>
+                            {/* <div className='grid8'> */}
+                            <div className='grid2 '>
+                                <div className='imgdetail1'>
+                                    {myservice.galery_image.map((i)=>{
+                                        return(
+                                            <div>
+                                            <img className="imgdetail3" 
+                                            src={i} 
+                                            alt={myservice.nombre} 
+                                            width="80px" 
+                                            height="80px" 
+                                            >
+                                            </img>
+                                        </div>
+                                        )
+                                    })}
+                                </div>
+                            <div className='grid3'>
+                            <img src={myservice.galery_image[0]} width="500px" height="300px"></img>
+                            </div>
+                            {/* </div> */}
+                            </div>
+                        </div >
+                   
+                    
+                </div>
+                </Container>
+
+
+
+
+                <div className="conteinerd">
+                    <div key={myservice.id}>
+                        
+                            
+                                
                             <div className='container-detail'>
                         
-                                <div className='imgdetail1'>
-                                {myservice.galery_image.map((i)=>{
-                                    return(
-                                        <div>
-                                        <img className="imgdetail3" 
-                                        src={i} 
-                                        alt={myservice.nombre} 
-                                        width="150px" 
-                                        height="150px" 
-                                        >
-                                        </img>
-                                    </div>
-                                    )
-                                })}
-                                </div>
+                                
 
 
                             <div className="titulo">
                                 <h1>{myservice.nombre}</h1>
                             </div>
 
-                            <div className="stats">
-                                <h3 className="statstext">Nombre: {myservice.address}</h3>
-                                <h3 className="statstext">CUIT: {myservice.cuit}</h3>
-                                <h3 className="statstext">e-mail: {myservice.email}</h3>
-                                <h3 className="statstext">Numero de telefono: {myservice.phone_number}</h3>
-                                <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
-                                {/* <h5>Temperamento: {myDog.temperament?.length === 0 && "Desconocido" }{myDog.createdInDb? myDog.temperament.map(el=>el.name + ' '): myDog.temperament?.join(' ')}</h5> */}
-                               
-                            </div>
+                            
                         </div>
                         <div>
                                 </div>

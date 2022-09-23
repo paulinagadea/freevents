@@ -27,7 +27,9 @@ const getPacksByName = async (name) => {
     if(name){
         const packsNAme = allPacks.filter(el => el.name.toLowerCase().includes(name.toLowerCase())); 
         return packsNAme; 
-    }; 
+    } else {
+        "not found"
+    }
 }; 
 
 const getPacksById = async (id) => {
@@ -53,60 +55,11 @@ const getPacksById = async (id) => {
     return totalPacks ? totalPacks : "Not found." 
 }
 
-const updatePack = async (id) => {
-    
-    const totalPacks = await Pack_services.update({
-        where: { id: id},
-        include: [
-            {
-                model: Event,
-                attributes: ['name'], 
-                through: {
-                    attributes: [],
-                }
-            },
-            {
-                model: Service,
-                attributes: ['name', 'image'], 
-                through: {
-                    attributes: [],
-                }
-            },
-        ]
-    })
-    return totalPacks ? totalPacks : "No actualizado" 
-}
-
-
-const deletePack = async (id) => {
-    
-    const totalPacks = await Pack_services.destroy({
-        where: { id: id},
-        include: [
-            {
-                model: Event,
-                attributes: ['name'], 
-                through: {
-                    attributes: [],
-                }
-            },
-            {
-                model: Service,
-                attributes: ['name', 'image'], 
-                through: {
-                    attributes: [],
-                }
-            },
-        ]
-    })
-    return totalPacks ? totalPacks : "No delete pack" 
-}
 
 
 module.exports = {
     getAllPackServices, 
     getPacksByName, 
-    getPacksById,
-    updatePack,
-    deletePack
+    getPacksById
+  
 }

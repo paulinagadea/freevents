@@ -229,6 +229,7 @@ export default function Register() {
 //                         onChange={(e)=>handleChange(e)}/>
 //                     </div>
                     
+
 //                     <div>
 //                         <label>Contraseña:</label>
 //                         <input type="text"
@@ -252,6 +253,22 @@ export default function Register() {
 //                         name="dni"
 //                         onChange={(e)=>handleChange(e)}/>
 //                     </div>
+
+//                    <div>
+ //                      <label>Contraseña:</label>
+//                        <input type="text"
+//                        value={input.password} 
+//                        name="password"
+ //                      onChange={(e)=>handleChange(e)}/>
+ //                   </div>
+  //                  <div>
+ //                       <label>DNI:</label>
+ //                       <input type="text" 
+ //                       value={input.dni} 
+ //                       name="dni"
+ //                       onChange={(e)=>handleChange(e)}/>
+ //                   </div>
+
                     
 //                     <div>
 //                         <label>Email:</label>

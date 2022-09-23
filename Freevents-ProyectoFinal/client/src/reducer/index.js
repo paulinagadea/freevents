@@ -1,4 +1,4 @@
-import { actionTypes} from "../actions";
+import { actionTypes } from "../actions";
 
 const initialState = {
     events: [],
@@ -9,6 +9,7 @@ const initialState = {
     services: [],
     packs: [],
     allPacks: [],
+    cart: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -64,6 +65,13 @@ function rootReducer(state = initialState, action) {
                 providers: action.payload
             }
         }
+        case actionTypes.getNamesPaquetes: {
+            return {
+                ...state,
+                packs: action.payload
+            }
+        }
+        
         case actionTypes.getNamesPacks: {
             return {
                 ...state,
@@ -126,6 +134,17 @@ function rootReducer(state = initialState, action) {
                 providers: sortedArr
             }
         };
+        case actionTypes.filterPacksByService: {
+            // const allPackss = state.allPacks
+            // const serviceFiltered = action.payload === 'All' ? allPackss : allPackss.filter(el=>el.services.map( el=> el.name.includes(action.payload)))
+            // console.log(serviceFiltered, "TEMP FILTRADO")
+
+            return {
+                ...state,
+                packs: state.allPacks.filter((s) =>
+                    s.services.map(se => se.name).includes(action.payload)),
+            }
+        }
         case actionTypes.createProvider: {
             return {
                 ...state,
@@ -136,10 +155,58 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         }
+        case actionTypes.addToCart: {
+            let newPack = state.packs.find(
+                (p) => p.id === action.payload
+            );
+            let packInCart = state.cart.find((pack) => pack.id === newPack.id)
+
+            return packInCart
+                ? {
+                    ...state,
+                    cart: state.cart.map((pack) =>
+                        pack.id === newPack.id
+                            ? { ...pack, quantity: pack.quantity + 1 }
+                            : pack
+                    ),
+                }
+                : {
+                    ...state,
+                    cart: [...state.cart, { ...newPack, quantity: 1 }],
+                };
+        } case actionTypes.removeOneFromCart: {
+            let packToDelete = state.cart.find((pack) => pack.id === action.payload);
+
+            return packToDelete.quantity > 1
+                ? {
+                    ...state,
+                    cart: state.cart.map((pack) =>
+                        pack.id === action.payload
+                            ? { ...pack, quantity: pack.quantity - 1 }
+                            : pack
+                    ),
+                }
+                : {
+                    ...state,
+                    cart: state.cart.filter((pack) => pack.id !== action.payload),
+                };
+        } case actionTypes.removeAllFromCart: {
+            return {
+                ...state,
+                cart: state.cart.filter((pack) => pack.id !== action.payload),
+            };
+        }
+        case actionTypes.clearCart: {
+            return {
+                ...state,
+                cart: [],
+            }
+        }
         default:
             return state;
     }
 }
 
 export default rootReducer;
+
 

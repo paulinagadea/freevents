@@ -1,26 +1,22 @@
 import React from "react";
-import NavbarNuevo from "./NavbarNuevo";
+// import NavbarNuevo from "./NavbarNuevo";
+import NavBarPaquetes from './NavBarPaquetes'
 import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
 //import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 
 
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
-
-  useEffect(() => {
-    dispatch(getPacks())
-    dispatch(getServices())
-  }, [dispatch])
+  const allServicesP = useSelector((state) => state.services)
 
   const [order, setOrder] = useState('')
-  const allServicesP = useSelector((state) => state.services)
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
   const [packsPerPage] = useState(5)// cantidad de cards x pagina
 
@@ -31,20 +27,33 @@ const Paquetes = () => {
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
-
-    function handleSort(e) {
-      e.preventDefault()
-      console.log(e.target.value, "Soy el target")
-      dispatch(orderByNamePack(e.target.value))
-      setCurrentPage(1)
-      console.log(e.target.value, "TARGET VALUE")
-      setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
-      //ESTADO
-    }
   }
+  useEffect(() => {
+    dispatch(getPacks())
+    dispatch(getServices())
+  }, [dispatch])
+
+
+
+
+  const handleFilterService = (e)=>{
+    dispatch(filterPacksByService(e.target.value))
+    setCurrentPage(1)
+
+}
+  function handleSort(e) {
+    e.preventDefault()
+    console.log(e.target.value, "Soy el target")
+    dispatch(orderByNamePack(e.target.value))
+    setCurrentPage(1)
+    console.log(e.target.value, "TARGET VALUE")
+    setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
+    //ESTADO
+  }
+
   return (
     <div>
-      <NavbarNuevo />
+      <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
@@ -55,20 +64,26 @@ const Paquetes = () => {
       />
       <div>
         <div className="row">
-          <select >
+          <select onChange={e => { handleSort(e) }}>
             <option selected disabled>Ordenamiento</option>
             <option value='ascendente'>A-Z</option>
             <option value='descendente'>Z-A</option>
-            <option value='ascendenteW'>Min-Max precio</option>
-            <option value='descendenteW'>Max-Min precio</option>
+            {/* <option value='ascendenteW'>Min-Max precio</option>
+            <option value='descendenteW'>Max-Min precio</option> */}
+          </select>
+          
+          <select onChange={e => {handleFilterService(e)}}>
+            <option selected disabled value = 'All'>Servicio</option>
+            {allServicesP?.map(el => <option key = {el.id} value = {el.name}> {el.name} </option>)}
           </select>
 
-          <select>
-            <option selected disabled>Servicios</option>
+
+          {/* <select onChange={e => { handlePrice(e) }}>
+            <option selected disabled>Rango precio</option>
             {allServicesP.map((t) =>
-                            <option> {t.name} </option>)}
-          </select>
-
+              <option> {t.price} </option>)}
+          </select> */}
+          
         </div>
       </div>
       <div>
@@ -82,6 +97,7 @@ const Paquetes = () => {
                 gallery_image={packs.gallery_image ? packs.gallery_image : <img src="https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg" alt="img not found" />}
                 events={packs.events.map(e => e.name)}
                 services={packs.services?.map(s => s.name)}
+                id={packs.id}
               />
             </div>
           )

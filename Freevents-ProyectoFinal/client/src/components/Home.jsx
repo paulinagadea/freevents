@@ -21,6 +21,8 @@ import Boximg from "./Boxing";
 
 
 
+
+
 const Home = () => {
     const dispatch = useDispatch();
     const allProviders = useSelector((state) => state.providers)
@@ -42,14 +44,14 @@ const Home = () => {
             </div>
             <Container fixed>
             <Box color = "primary.main" component="span" b= {4}>
-                <Button href="/proveedores" style={{ color: brown[400] }}>ANIVERSARIOS</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>CUMPLEAÑOS</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>DESPEDIDAS</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>GRADUACIONES</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>BABY SHOWERS</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>15 AÑOS</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>FULL PARTY</Button>
-                <Button href="/proveedores" style={{ color: brown[400] }}>MATRIMONIO</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>ANIVERSARIOS</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>CUMPLEAÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>DESPEDIDAS</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>GRADUACIONES</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>BABY SHOWERS</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>15 AÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>FULL PARTY</Button>
+                <Button href="/paquetes" style={{ color: brown[400] }}>MATRIMONIO</Button>
             </Box>
             <h1>QUE EVENTO DESEAS FESTEJAR?</h1>
             {/* <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button> */}
@@ -95,16 +97,16 @@ const Home = () => {
                 <div className="container-footer">
                     <div className="footer-completo">
                         <div className="botones">
-                        <Button href="/proveedores" color="secondary">ANIVERSARIOS</Button>
-                        <Button href="/proveedores" color="secondary">CUMPLEAÑOS</Button>
-                        <Button href="/proveedores" color="secondary">DESPEDIDAS</Button>
-                        <Button href="/proveedores" color="secondary">GRADUACIONES</Button>
+                        <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
+                        <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
+                        <Button href="/paquetes" color="secondary">DESPEDIDAS</Button>
+                        <Button href="/paquetes" color="secondary">GRADUACIONES</Button>
                         </div>
                         <div  className="botones">
-                        <Button href="/proveedores" color="secondary">BABY SHOWERS</Button>
-                        <Button href="/proveedores" color="secondary">15 AÑOS</Button>
-                        <Button href="/proveedores" color="secondary">FULL PARTY</Button>
-                        <Button href="/proveedores" color="secondary">MATRIMONIO</Button>
+                        <Button href="/paquetes" color="secondary">BABY SHOWERS</Button>
+                        <Button href="/paquetes" color="secondary">15 AÑOS</Button>
+                        <Button href="/paquetes" color="secondary">FULL PARTY</Button>
+                        <Button href="/paquetes" color="secondary">MATRIMONIO</Button>
                         </div>
                     </div>
                 </div>

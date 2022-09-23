@@ -15,8 +15,21 @@ export const actionTypes ={
     createUser:"createUser",
     getDetailsPacks:"getDetailsPacks",
     orderByNamePack:"orderByNamePack",
+    filterPacksByService:"filterPacksByService",
+    addToCart: "addToCart",
+    removeOneFromCart:"removeOneFromCart",
+    removeAllFromCart: "removeAllFromCart",
+    clearCart:"clearCart",
+    getNamesPaquetes:"getNamesPaquetes"
 
 };
+
+export const filterPacksByService = (payload) =>{
+    return{
+        type: actionTypes.filterPacksByService,
+        payload: payload,
+    }
+}
 
 export const getEvents = () => {
     return async function (dispatch) {
@@ -152,6 +165,26 @@ export function getNamesProviders(name) {
     }
 };
 
+
+export function getNamesPaquetes(name) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get("http://localhost:3001/packs?name=" + name)
+            return dispatch({
+                type: actionTypes.getNamesPaquetes,
+                payload: json.data
+            })
+        } catch (error) {
+            return dispatch({
+                type: actionTypes.getNamesPaquetes,
+                payload: "ERROR"
+            })
+            
+            
+        }
+    }
+};
+
 export function orderByName(payload){
     console.log(payload, "soy el payload")
     return{
@@ -185,3 +218,4 @@ export function getNamesPacks(name) {
         }
     }
 };
+

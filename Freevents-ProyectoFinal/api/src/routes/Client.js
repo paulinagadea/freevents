@@ -48,6 +48,7 @@ router.post("/", async (req, res) => {
             name,
             lastname,
             password,
+            gender,
             dni,
             email,
             phone_number
@@ -62,28 +63,28 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
 
-    try {
-        const { id } = req.params
-        const updateClientId = await updateClient(id)
+         try{
+             
+            await Client.update(req.body, {
+                        where: { id: req.params.id }
+                    });
+                    res.status(200).json({ succes: 'Update Client' })
+        
+        } catch(error) {
 
-        console.log('updateClient', updateClientId)
+            res.status(500).json({ message: 'Error', error })
 
-        res.status(200).json(updateClientId)
-
-    } catch (error) {
-        res.status(500).json({ message: 'Error', error })
-    }
+        }
+        
 })
 
 router.delete("/admin/:id", async (req, res) => {
 
     try {
-        const { id } = req.params
-        const deleteClientId = await deleteClient(id)
-
-        console.log('deleteClient', deleteClientId)
-
-        res.status(200).json(deleteClientId)
+        await Client.destroy({
+                    where: { id: req.params.id }
+                });
+                res.status(200).json({ success: 'Delete Client' })
 
     } catch (error) {
         res.status(500).json({ message: 'Error', error })

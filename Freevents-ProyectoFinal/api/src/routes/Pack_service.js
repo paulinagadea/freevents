@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllPackServices, getPacksByName, getPacksById, updatePack, deletePack } = require('../controllers/getAllPackServices'); 
+const { getAllPackServices, getPacksByName, getPacksById } = require('../controllers/getAllPackServices'); 
 const { Pack_services, Event, Service } = require('../db'); 
 const router = Router(); 
 
@@ -7,7 +7,7 @@ router.get('/', async(req, res) => {
     try {
         const { name } = req.query; 
         const packs = await getAllPackServices(); 
-        const packsByName = await getPacksByName(); 
+        const packsByName = await getPacksByName(name); 
 
         name
         ? res.status(200).json(packsByName) 
@@ -63,29 +63,30 @@ router.post('/', async(req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
-    try {
-        const { id } = req.params
-        const updatePackId = await updatePack(id)
+router.put("/:id", async (req, res) => {
 
-        console.log('updatePack', updatePackId)
+    try{
+        
+       await Pack_services.update(req.body, {
+                   where: { id: req.params.id }
+               });
+               res.status(200).json({ succes: 'Update Pack' })
+   
+   } catch(error) {
 
-        res.status(200).json(updatePackId)
+       res.status(500).json({ message: 'Error', error })
 
-    } catch (error) {
-        res.status(500).json({ message: 'Error', error })
-    }
+   }
+   
 })
 
-router.delete('/:id', async (req, res) => {
-    
+router.delete("/:id", async (req, res) => {
+
     try {
-        const { id } = req.params
-        const deletePackId = await deletePack(id)
-
-        console.log('deletePack', deletePackId)
-
-        res.status(200).json(deletePackId)
+        await Pack_services.destroy({
+                    where: { id: req.params.id }
+                });
+                res.status(200).json({ success: 'Delete Pack' })
 
     } catch (error) {
         res.status(500).json({ message: 'Error', error })

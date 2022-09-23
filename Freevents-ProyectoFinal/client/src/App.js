@@ -14,6 +14,8 @@ import { ThemeProvider } from '@material-ui/core';
 import DetailsPaquetes from './components/DetailsPaquetes'
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
+import Carrito from './components/Carrito'
+
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
             <Route exact path = '/login' element={<Login/>}/>
             <Route exact path = '/customertype' element={<CustomerType/>}/>
+            <Route exact path = '/carrito' element={<Carrito/>}/>
+
             <Route
             path="/"
             element={
