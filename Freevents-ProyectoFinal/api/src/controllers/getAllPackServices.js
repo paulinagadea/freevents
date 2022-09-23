@@ -34,7 +34,7 @@ const getPacksByName = async (name) => {
 
 const getPacksById = async (id) => {
     const totalPacks = await Pack_services.findOne({
-        where: { id: id},
+        where: { id: id },
         include: [
             {
                 model: Event,
