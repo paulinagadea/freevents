@@ -12,6 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { addToCart } from "../actions";
 // import {Link} from "react-router-dom";
 // import image13 from "../imagenes/13.jpeg";
+import { useDispatch } from 'react-redux';
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
@@ -33,16 +34,30 @@ const useStyles = makeStyles({
     },
   });
 
-const CardPaquetes = ({name, price, gallery_image, events, services, id}) => {
+const CardPaquetes = ({name, price, galery_image, events, services, id, }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  
+  const dispatch = useDispatch()
+  console.log(galery_image)
+  // const gallery_image = gallery_image
+
+const product = {name, price, events, services, id, galery_image}
+
+
+  const handleAddToCart = () => {
+    console.log(product, "PRODUCTARDO")
+    dispatch(addToCart(product))
+  }
+
+
     return (
         <Card className={classes.root}>
         <CardActionArea>
         <CardMedia
           
           className={classes.media}
-          image={gallery_image}
+          image={galery_image}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -61,10 +76,10 @@ const CardPaquetes = ({name, price, gallery_image, events, services, id}) => {
         </Typography>
         </CardContent>
         <CardActions>
-        <Link style={{textDecoration:"none"}} to= '/carrito'>
-          <Button onClick={addToCart()} >Agregar al carrito</Button>
+        {/* <Link style={{textDecoration:"none"}} to= '/carrito'> */}
+          <Button onClick={handleAddToCart} >Agregar al carrito</Button>
+        {/* </Link> */}
         {/* <Button size="small"> + Info</Button> */}
-        </Link>
       </CardActions>
             </CardActionArea>
         </Card>
