@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import { addToCart } from "../actions";
 // import {Link} from "react-router-dom";
 // import image13 from "../imagenes/13.jpeg";
 const useStyles = makeStyles({
@@ -60,8 +61,9 @@ const CardPaquetes = ({name, price, gallery_image, events, services, id}) => {
         </Typography>
         </CardContent>
         <CardActions>
-        <Link style={{textDecoration:"none"}} to= '/proveedores'>
-        <Button size="small"> + Info</Button>
+        <Link style={{textDecoration:"none"}} to= '/carrito'>
+          <Button onClick={addToCart()} >Agregar al carrito</Button>
+        {/* <Button size="small"> + Info</Button> */}
         </Link>
       </CardActions>
             </CardActionArea>

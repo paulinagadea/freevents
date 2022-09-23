@@ -146,6 +146,12 @@ export const clearDetails = () => {
     }
 }
 
+export const addToCart=()=>{
+    return{
+        type:actionTypes
+    }
+}
+
 export function getNamesProviders(name) {
     return async function (dispatch) {
         try {
@@ -218,4 +224,6 @@ export function getNamesPacks(name) {
         }
     }
 };
+
+
 
