@@ -28,4 +28,35 @@
   
 }
 
+.boton-sign{
+margin-bottom: 30px;
+margin-right: 8px;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google{
+    display: flex;
+}
+
+.container-login{
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(120, 120, 120, 0.545);
+    border-radius: 5px;
+    display: inline-flex;
+    margin-right: 250px;
+    margin-top: 120px;
+}
+
+.container-todo{
+    display: flex;
+    justify-content: flex-end;
+}
+
 
