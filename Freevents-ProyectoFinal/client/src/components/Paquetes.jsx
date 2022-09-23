@@ -1,5 +1,6 @@
 import React from "react";
-import NavbarNuevo from "./NavbarNuevo";
+// import NavbarNuevo from "./NavbarNuevo";
+import NavBarPaquetes from './NavBarPaquetes'
 import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
@@ -52,7 +53,7 @@ const Paquetes = () => {
 
   return (
     <div>
-      <NavbarNuevo />
+      <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>

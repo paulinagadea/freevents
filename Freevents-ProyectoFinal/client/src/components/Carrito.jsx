@@ -1,10 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-
-const Carrito = () => {
-  return (
-    <div>Carrito</div>
-=======
 import { actionTypes } from '../actions/index.js'
 import CardPaquetes from './CardPaquetes'
 import { useState } from 'react';
@@ -63,7 +57,6 @@ const Carrito = () => {
         ))}
       </article>
     </div>
->>>>>>> 0125256c7b952b9ae65514fac052a55aca048e52
   )
 }
 
