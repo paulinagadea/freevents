@@ -20,6 +20,7 @@ export const actionTypes ={
     removeOneFromCart:"removeOneFromCart",
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
+    orderByPrice:"orderByPrice",
     // getNamesPaquetes:"getNamesPaquetes"
 
 };
@@ -50,6 +51,14 @@ export const getProviders = () => {
         });
     };
 };
+
+export function orderByPrice(payload){
+    console.log(payload, "soy el payload")
+    return{
+        type:actionTypes.orderByPrice,
+        payload
+    }
+}; 
 
 export const getPacks = () => {
     return async function (dispatch) {
