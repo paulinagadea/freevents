@@ -55,14 +55,11 @@ Favorite.belongsTo(Client);
 
 //Uno a Muchos Event, Provider, Service con Order
 
-Event.hasMany(Order);
-Order.belongsTo(Event);
+Pack_services.hasMany(Order);
+Order.belongsTo(Pack_services);
 
 Provider.hasMany(Order);
 Order.belongsTo(Provider);
-
-Service.hasMany(Order);
-Order.belongsTo(Service);
 
 //Uno a Muchos Provider
 

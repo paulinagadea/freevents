@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-        subtotal: {
-            type: DataTypes.INTEGER,
-            allowNull: false, 
-        },
         status:{
             type: DataTypes.ENUM("fulfilled", "pending", "canceled", "cart")
         },
@@ -25,9 +21,6 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        payment_method: {
-            type: DataTypes.ENUM("credit_card", "debit")
-        }
     })
 
 }
