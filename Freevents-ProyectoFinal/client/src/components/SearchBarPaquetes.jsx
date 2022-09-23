@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
-import { getNamesPaquetes } from "../actions";
+import { getNamesPacks } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
 import './SearchBar.css'
 
@@ -11,7 +11,7 @@ export default function SearchBar({setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
     const packss = useSelector((state) => state.packs)
-    console.log(packss, "soy el provider")
+    console.log(packss, "soy el paquete")
 
 
     function handleInputChange(e) {
@@ -23,11 +23,11 @@ export default function SearchBar({setCurrentPage}) {
         e.preventDefault()
         console.log(name)
         
-        if (!name) return alert("Busca un proveedor");
+        if (!name) return alert("Busca un paquete");
         
         if(packss.find(el=>el.name.toLowerCase().includes(name.toLowerCase())) ){
 
-            dispatch(getNamesPaquetes(name));
+            dispatch(getNamesPacks(name));
             setName("")
             setCurrentPage(1) 
         }else{
