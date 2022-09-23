@@ -1,12 +1,27 @@
 import React from 'react';
+import "./LandingPage.css"
 import Button from "@material-ui/core/Button"
-
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
+import Typography from '@material-ui/core/Typography';
+import google from "../imagenes/google.png"
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(3),
+      width: '25ch',
+      
+    },
+  },
+}));
 
 export default function Login() {
+  const classes = useStyles();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -51,74 +66,92 @@ export default function Login() {
   };
 
   return (
-    <div className="#">
+    <div className='container-todo'>
+
+    
+    <div className="container-login">
       {error && <Alert message={error} />}
 
-      <form
+      <form className={classes.root} noValidate autoComplete="off"
         onSubmit={handleSubmit}
-        className="#"
       >
+        <div classname="google-8" >
+          <div>
+            <img src={google} width="40px"></img>
+          </div>
+          <div>
+            <Button
+            onClick={handleGoogleSignin}
+            variant="contained"
+            color="primary"
+            size="large"
+            className={classes.button}
+            >
+            Google login
+            </Button>
+          </div>
+        </div>
+
         <div className="#">
-          <label
-            htmlFor="email"
-            className="#"
-          >
-            Email
-          </label>
-          <input
+          <TextField
+            required
+            label="Email"
             type="email"
             name="email"
-            id="email"
+            id="outlined-required"
             onChange={handleChange}
-            className="#"
+            variant="outlined"
             placeholder="youremail@company.tld"
           />
         </div>
-        <div className="#">
-          <label
-            htmlFor="password"
-            className="#"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-            className="#"
-            placeholder="*************"
-          />
-        </div>
+
 
         <div className="#">
-          <button
-            className="#"
+        <TextField
+            autoComplete="current-password"
+            htmlFor="password"
+            type="password"
+            name="password"
+            id="outlined-password-input"
+            label="Password"
+            variant="outlined"
+            onChange={handleChange}
+            
+          />
+        </div>
+        <Typography className={classes.root}>
+        <div className="boton">
+          <div className="boton-sign">
+          <Button
+            
+            variant="outlined" 
+            color="primary"
             type="submit"
           >
             Sign In
-          </button>
-          <a
+          </Button>
+          </div>
+          <div className="boton-sign">
+          <Link
             className="#"
             href="#!"
             onClick={handleResetPassword}
-          >
+            >
             Forgot Password?
-          </a>
+          </Link>
+          </div>
         </div>
-      </form>
-      <button
-        onClick={handleGoogleSignin}
-        className="#"
-      >
-        Google login
-      </button>
+      
       <p className="#">
         Don't have an account?
         <Link to="/userregister" className="#">
           Register
         </Link>
       </p>
+        </Typography>
+      </form>
+      
+    </div>
     </div>
   );
 }

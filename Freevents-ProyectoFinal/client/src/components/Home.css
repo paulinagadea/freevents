@@ -58,6 +58,7 @@ li{
 .parrafoc{
     text-align: justify;
     margin-top: 30px;
+    color: #735949;
     
 }
 .eventos Button{
@@ -79,13 +80,20 @@ li{
 }
 
 .Prove{
-    margin-top: 90px;
+    margin-top: 20px;
+    background-color: #d9c2ba;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-top: 1px;
+    
 }
 
 .titulo-home{
     font-size: 40px;
-    color: #D9C2BA;
+    color: #735949;
     margin-bottom: 2%;
+    margin-top: 2%;
 
 }
 .footer-completo{
@@ -107,9 +115,32 @@ li{
     display: flex;
     align-items: center;
     justify-content: end;
-    background: url(https://www.elblogdeunanovia.com/wp-content/uploads/2017/08/damas-de-honor-de-la-novia-.jpg);
+    background-image: url(../imagenes/footerpng.jpg);
     width: 100%;
     height: 300px;
     background-size:cover;
-    margin-top: 30px;
+    margin-top: 5px;
+}
+
+.barra{
+background-color: #D9C2BA;
+padding: 5px;
+margin-top: -12px;
+}
+.barra1{
+    background-color: #D9C2BA;
+    padding: 20px;
+    margin-top: 0px;
+
+    }
+
+.titulo{
+    color: #735949;
+}
+
+.titulo-home1{
+    font-size: 40px;
+    color: #735949;
+    margin-bottom: 1%;
+    margin-top: -1%;
 }
