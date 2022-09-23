@@ -20,6 +20,7 @@ export const actionTypes ={
     removeOneFromCart:"removeOneFromCart",
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
+    getNamesPaquetes:"getNamesPaquetes"
 
 };
 
@@ -156,6 +157,26 @@ export function getNamesProviders(name) {
         } catch (error) {
             return dispatch({
                 type: actionTypes.getNamesProviders,
+                payload: "ERROR"
+            })
+            
+            
+        }
+    }
+};
+
+
+export function getNamesPaquetes(name) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get("http://localhost:3001/packs?name=" + name)
+            return dispatch({
+                type: actionTypes.getNamesPaquetes,
+                payload: json.data
+            })
+        } catch (error) {
+            return dispatch({
+                type: actionTypes.getNamesPaquetes,
                 payload: "ERROR"
             })
             
