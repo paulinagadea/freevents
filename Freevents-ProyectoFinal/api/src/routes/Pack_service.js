@@ -7,7 +7,7 @@ router.get('/', async(req, res) => {
     try {
         const { name } = req.query; 
         const packs = await getAllPackServices(); 
-        const packsByName = await getPacksByName(); 
+        const packsByName = await getPacksByName(name); 
 
         name
         ? res.status(200).json(packsByName) 
