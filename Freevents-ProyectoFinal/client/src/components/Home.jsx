@@ -18,6 +18,10 @@ import { getProviders } from "../actions";
 import Eventos from "./Eventos"
 import { Box, Container, Grid } from "@material-ui/core";
 import Boximg from "./Boxing";
+import githud from "../imagenes/github.png";
+import facebook from "../imagenes/Facebook.png";
+import twitter from "../imagenes/twitter.png";
+import instagram from "../imagenes/instagram.png";
 
 
 
@@ -99,17 +103,22 @@ const Home = () => {
                 <div className="container-footer">
                     <div className="footer-completo">
                         {/* <img src={footer}></img> */}
+                        <a href={"https://github.com/paulinagadea/freevents"}>
+                        <img  src={githud} height="80px" on></img>
+                        </a>
+                        <a href={"https://www.facebook.com/"}>
+                        <img src={facebook} height="80px"></img>
+                        </a>
+                        <a href={"https://twitter.com"}>
+                        <img src={twitter} height="80px"></img>  
+                        </a>
+                        <a href={"https://www.instagram.com/"}>
+                        <img src={instagram} height="80px"></img>  
+                        </a>
                         <div className="botones">
-                        <Button href="/paquetes" color="secondary">ANIVERSARIOS</Button>
-                        <Button href="/paquetes" color="secondary">CUMPLEAÑOS</Button>
-                        <Button href="/paquetes" color="secondary">DESPEDIDAS</Button>
-                        <Button href="/paquetes" color="secondary">GRADUACIONES</Button>
+                        
                         </div>
                         <div  className="botones">
-                        <Button href="/paquetes" color="secondary">BABY SHOWERS</Button>
-                        <Button href="/paquetes" color="secondary">15 AÑOS</Button>
-                        <Button href="/paquetes" color="secondary">FULL PARTY</Button>
-                        <Button href="/paquetes" color="secondary">MATRIMONIO</Button>
                         </div>
                     </div>
                 </div>

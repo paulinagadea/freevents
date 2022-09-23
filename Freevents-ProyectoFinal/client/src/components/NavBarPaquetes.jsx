@@ -25,7 +25,7 @@ function Navbar() {
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
           <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button>
+          {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
       </NavContainer>
