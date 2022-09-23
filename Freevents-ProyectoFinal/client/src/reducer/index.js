@@ -12,6 +12,10 @@ const initialState = {
     cart: [],
 }
 
+if (localStorage.getItem('cart')){
+    initialState.cart = JSON.parse(localStorage.getItem('cart'));
+}else initialState.cart = []
+
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.getEvents: {
@@ -185,25 +189,34 @@ function rootReducer(state = initialState, action) {
             }
         }
         case actionTypes.addToCart: {
-            let newPack = state.packs.find(
-                (p) => p.id === action.payload
-            );
-            let packInCart = state.cart.find((pack) => pack.id === newPack.id)
+            return {
+                ...state,
+                cart: [...action.payload]
+            }
+        }
 
-            return packInCart
-                ? {
-                    ...state,
-                    cart: state.cart.map((pack) =>
-                        pack.id === newPack.id
-                            ? { ...pack, quantity: pack.quantity + 1 }
-                            : pack
-                    ),
-                }
-                : {
-                    ...state,
-                    cart: [...state.cart, { ...newPack, quantity: 1 }],
-                };
-        } case actionTypes.removeOneFromCart: {
+
+        // case actionTypes.addToCart: {
+        //     let newPack = state.packs.find(
+        //         (p) => p.id === action.payload
+        //     );
+        //     let packInCart = state.cart.find((pack) => pack.id === newPack.id)
+
+        //     return packInCart
+        //         ? {
+        //             ...state,
+        //             cart: state.cart.map((pack) =>
+        //                 pack.id === newPack.id
+        //                     ? { ...pack, quantity: pack.quantity + 1 }
+        //                     : pack
+        //             ),
+        //         }
+        //         : {
+        //             ...state,
+        //             cart: [...state.cart, { ...newPack, quantity: 1 }],
+        //         };
+        // } 
+        case actionTypes.removeOneFromCart: {
             let packToDelete = state.cart.find((pack) => pack.id === action.payload);
 
             return packToDelete.quantity > 1
@@ -237,5 +250,3 @@ function rootReducer(state = initialState, action) {
 }
 
 export default rootReducer;
-
-

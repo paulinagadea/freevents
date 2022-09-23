@@ -15,9 +15,26 @@ import DetailsPaquetes from './components/DetailsPaquetes'
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Carrito from './components/Carrito'
+import { useState, useEffect } from 'react';
 
 
 function App() {
+
+  //   const [log, setLog] = useState(null)
+//   const [userStatus, setUserStatus] = useState("guest")
+
+// useEffect (()=>{
+//   //cuando el usuario no esta logueado es un invitado
+//   if (log === null){
+//     setUserStatus ("guest") 
+//   }
+
+ //desp hacer los otros if
+//cuando un usuario va a ser un invitado?
+//cuando un usuario va a ser un proveedor?
+//cuando un usuario va a ser un cliente?
+//cuando un usuario va a ser un administrador?
+// },[log, userStatus])
   return (
     <ThemeProvider>
     <BrowserRouter>
@@ -36,6 +53,9 @@ function App() {
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
             <Route exact path = '/login' element={<Login/>}/>
+            {/* <Route exact path = '/login' element={<Login
+            setLog={setLog}
+            />}/> */}
             <Route exact path = '/customertype' element={<CustomerType/>}/>
             <Route exact path = '/carrito' element={<Carrito/>}/>
 

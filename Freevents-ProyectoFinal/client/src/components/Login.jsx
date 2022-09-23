@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
+  //export default function Login({setLog}) {
   const classes = useStyles();
   const [user, setUser] = useState({
     email: "",
@@ -35,6 +36,7 @@ export default function Login() {
     setError("");
     try {
       await login(user.email, user.password);
+       // setLog(user)
       navigate("/home");
     } catch (error) {
       setError(error.message);
@@ -47,6 +49,7 @@ export default function Login() {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
+      // setLog(user)
       navigate("/home");
     } catch (error) {
       setError(error.message);
