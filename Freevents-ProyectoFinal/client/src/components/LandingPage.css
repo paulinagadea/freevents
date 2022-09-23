@@ -47,16 +47,40 @@ margin-right: 8px;
     padding: 20px;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(120, 120, 120, 0.545);
+    border-color: #7359498a;
     border-radius: 5px;
     display: inline-flex;
     margin-right: 250px;
     margin-top: 120px;
+    margin-bottom: 163px;
+    background-color: rgb(249, 250, 252);
 }
 
 .container-todo{
     display: flex;
     justify-content: flex-end;
+    background-color: rgba(250, 235, 215, 0.645);
 }
 
+.botondeg{
+    display: flex;
+    
+}
+
+.hola1{
+margin-bottom: 15px;
+display: flex;
+background-color: rgb(247, 249, 249);
+border-style: solid;
+border-color: #303F9F;
+border-radius: 5px;
+border-width: 0px;
+width: 250px;
+}
+
+.hola1 img{
+    margin-right: 5px;
+    margin-left: 75px;
+
+}
 

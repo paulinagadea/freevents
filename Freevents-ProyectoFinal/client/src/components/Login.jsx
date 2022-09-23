@@ -9,16 +9,24 @@ import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
 import Typography from '@material-ui/core/Typography';
 import google from "../imagenes/google.png"
+import { red } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(3),
-      width: '25ch',
+      width: '36ch',
+      
       
     },
   },
+  root1:{
+    width: '30ch',
+  
+  }
 }));
+
+
 
 export default function Login() {
   const classes = useStyles();
@@ -70,26 +78,28 @@ export default function Login() {
 
     
     <div className="container-login">
-      {error && <Alert message={error} />}
 
       <form className={classes.root} noValidate autoComplete="off"
         onSubmit={handleSubmit}
-      >
-        <div classname="google-8" >
-          <div>
-            <img src={google} width="40px"></img>
+        >
+        <div classname="botondeg" >
+          <div className='hola'>
+            
           </div>
-          <div>
+          <div className='hola1'>
+          <img src={google} width="40px"></img>
             <Button
             onClick={handleGoogleSignin}
             variant="contained"
             color="primary"
-            size="large"
-            className={classes.button}
+            size="small"
+            disableElevation
+            className={classes.root1}
             >
-            Google login
+            Google login      
             </Button>
           </div>
+              {error && <Alert message={error} />}
         </div>
 
         <div className="#">
@@ -144,7 +154,7 @@ export default function Login() {
       
       <p className="#">
         Don't have an account?
-        <Link to="/userregister" className="#">
+        <Link to="/customertype" className="#">
           Register
         </Link>
       </p>

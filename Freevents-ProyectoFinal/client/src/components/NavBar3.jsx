@@ -43,7 +43,7 @@ export default function HideAppBar(props) {
                             </Grid>
                             <Grid item>
                                 <Stack direction="row" spacing = {2}>
-                                <Button href="/eventos" variant="outlined"  color= "inherit">Crea tu Evento</Button>
+                                {/* <Button href="/eventos" variant="outlined"  color= "inherit">Crea tu Evento</Button> */}
                                 <Button href="/userregister" color= "inherit" variant="contained">Registrarse</Button>
                                 </Stack>
                             </Grid>
