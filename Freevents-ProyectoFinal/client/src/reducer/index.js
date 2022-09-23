@@ -65,12 +65,12 @@ function rootReducer(state = initialState, action) {
                 providers: action.payload
             }
         }
-        case actionTypes.getNamesPaquetes: {
-            return {
-                ...state,
-                packs: action.payload
-            }
-        }
+        // case actionTypes.getNamesPaquetes: {
+        //     return {
+        //         ...state,
+        //         packs: action.payload
+        //     }
+        // }
         
         case actionTypes.getNamesPacks: {
             return {
@@ -150,6 +150,35 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         }
+        case actionTypes.orderByPrice: {
+            let sortedPrice;
+            if (action.payload === 'ascendente') {
+                sortedPrice = state.packs.sort(function (a, b) {
+                    if (a.price > b.price) {
+                        return 1;
+                    }
+                    if (b.price > a.price) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            } else if (action.payload === "descendente") {
+                sortedPrice = state.packs.sort(function (a, b) {
+                    if (a.price > b.price) {
+                        return -1
+                    }
+                    if (b.price > a.price) {
+                        return 1
+                    }
+                    return 0
+                })
+            }
+            return {
+                ...state,
+                packs: sortedPrice
+            }
+        };
+
         case actionTypes.createUser: {
             return {
                 ...state,

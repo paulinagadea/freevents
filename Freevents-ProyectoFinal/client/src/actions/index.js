@@ -20,7 +20,8 @@ export const actionTypes ={
     removeOneFromCart:"removeOneFromCart",
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
-    getNamesPaquetes:"getNamesPaquetes"
+    orderByPrice:"orderByPrice",
+    // getNamesPaquetes:"getNamesPaquetes"
 
 };
 
@@ -50,6 +51,14 @@ export const getProviders = () => {
         });
     };
 };
+
+export function orderByPrice(payload){
+    console.log(payload, "soy el payload")
+    return{
+        type:actionTypes.orderByPrice,
+        payload
+    }
+}; 
 
 export const getPacks = () => {
     return async function (dispatch) {
@@ -146,6 +155,12 @@ export const clearDetails = () => {
     }
 }
 
+export const addToCart=()=>{
+    return{
+        type:actionTypes
+    }
+}
+
 export function getNamesProviders(name) {
     return async function (dispatch) {
         try {
@@ -166,17 +181,35 @@ export function getNamesProviders(name) {
 };
 
 
-export function getNamesPaquetes(name) {
+// export function getNamesPaquetes(name) {
+//     return async function (dispatch) {
+//         try {
+//             var json = await axios.get("http://localhost:3001/packs?name=" + name)
+//             return dispatch({
+//                 type: actionTypes.getNamesPaquetes,
+//                 payload: json.data
+//             })
+//         } catch (error) {
+//             return dispatch({
+//                 type: actionTypes.getNamesPaquetes,
+//                 payload: "ERROR"
+//             })
+            
+            
+//         }
+//     }
+// };
+export function getNamesPacks(name) {
     return async function (dispatch) {
         try {
             var json = await axios.get("/packs?name=" + name)
             return dispatch({
-                type: actionTypes.getNamesPaquetes,
+                type: actionTypes.getNamesPacks,
                 payload: json.data
             })
         } catch (error) {
             return dispatch({
-                type: actionTypes.getNamesPaquetes,
+                type: actionTypes.getNamesPacks,
                 payload: "ERROR"
             })
             
@@ -200,22 +233,7 @@ export function orderByNamePack(payload){
     }
 }; 
 
-export function getNamesPacks(name) {
-    return async function (dispatch) {
-        try {
-            var json = await axios.get("/providers?name=" + name)
-            return dispatch({
-                type: actionTypes.getNamesPacks,
-                payload: json.data
-            })
-        } catch (error) {
-            return dispatch({
-                type: actionTypes.getNamesPacks,
-                payload: "ERROR"
-            })
-            
-            
-        }
-    }
-};
+
+
+
 

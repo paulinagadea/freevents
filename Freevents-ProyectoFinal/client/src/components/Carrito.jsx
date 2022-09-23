@@ -1,9 +1,10 @@
 import React from 'react'
 import { actionTypes } from '../actions/index.js'
 import CardPaquetes from './CardPaquetes'
-import { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useState, useContext } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import CartCard from './CartCard'
+//import { useAuth0 } from "@auth0/auth0-react";
 
 //   import CartItem from "./CartItem";
 //   import ProductItem from "./ProductItem";
@@ -11,9 +12,14 @@ import CartCard from './CartCard'
 
 const Carrito = () => {
 
+  //const { user } = useAuth0();
+  //window.localStorage()
+  //setItem // getItem 
   const [carrite, setCarrite] = useState([]);
+  //const { stringLocalStorage } = useContext()
 
   const dispatch = useDispatch()
+  const packsP = useSelector((state) => state.packs)
 
   const { packs, cart } = carrite;
 
@@ -21,7 +27,7 @@ const Carrito = () => {
     //console.log(id);
     dispatch({ type: actionTypes.addToCart, payload: id });
   };
-  
+
 
   const delFromCart = (id, all = false) => {
     //console.log(id, all);
@@ -35,7 +41,6 @@ const Carrito = () => {
   const clearCart = () => {
     dispatch({ type: actionTypes.clearCart });
   };
-  
 
 
   return (
@@ -43,16 +48,20 @@ const Carrito = () => {
       <h2>Carrito de Compras</h2>
       <h3>Paquetes</h3>
       <article className="box grid-responsive">
-        {packs.map((pack) => (
+        {packsP.map((pack) => (
+          <CartCard key={pack.id} data={pack} addToCart={addToCart}
+          />
+        ))
+        }
+        {packsP.map((pack) => (
           <CardPaquetes key={pack.id} data={pack} addToCart={addToCart}
           />
         ))
         }
       </article>
-      <h3>Carrito</h3>
       <article className="box">
         <button onClick={clearCart}>Limpiar Carrito</button>
-        {carrite.map((item, index) => (
+        {packsP.map((item, index) => (
           <CartCard key={index} data={item} delFromCart={delFromCart} />
         ))}
       </article>
