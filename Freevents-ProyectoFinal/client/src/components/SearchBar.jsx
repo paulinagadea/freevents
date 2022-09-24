@@ -1,9 +1,11 @@
-import React from "react";
+
 import { useState } from "react";
 import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
 import { getNamesProviders } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
+import * as React from 'react';
+import Alert from '@mui/material/Alert';
 import './SearchBar.css'
 
 
@@ -31,7 +33,7 @@ export default function SearchBar({setCurrentPage}) {
             setName("")
             setCurrentPage(1) 
         }else{
-            alert ("No se encontró el proveedor")
+            <Alert severity="error">No existe ese proveedor</Alert>
         }
         
     }
