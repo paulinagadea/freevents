@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from 'react';
+import Alert from '@mui/material/Alert';
 import { useState } from "react";
 import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
@@ -31,7 +32,7 @@ export default function SearchBar({setCurrentPage}) {
             setName("")
             setCurrentPage(1) 
         }else{
-            alert ("No se encontró el paquete")
+            <Alert severity="error">No existe ese proveedor</Alert>
         }
         
     }
