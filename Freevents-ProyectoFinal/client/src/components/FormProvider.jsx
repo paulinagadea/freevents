@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
-import './FormUser.css'
+import './FormProvider.css'
 import foto from '../imagenes/FOTOCONFREEVENTS.jpg'
 // import { ThemeProvider } from '@material-ui/core/styles'; //estilos de material ui
 import TextField from '@mui/material/TextField';
@@ -17,6 +17,9 @@ import { useDispatch } from "react-redux";
 
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
+
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function FormUser(){
     const [ formularioEnviado, setFormularioEnviado ] = useState(false)
@@ -43,7 +46,8 @@ export default function FormUser(){
                     logotype: '',
                     background_image: '',
                     galery_image: [],
-                    events: []
+                    events: [],
+                    
                 }}
                 validate={(valores)=>{
                     let errores = {};
@@ -89,13 +93,15 @@ export default function FormUser(){
                     }
                     return errores
                 }} 
-                onSubmit={(values, {resetForm})=>{
+                onSubmit={async (values, {resetForm})=>{
                     console.log(values, 'valores')
                     dispatch(createProvider(values));
                     console.log(createProvider, 'action')
                     resetForm({values : ''}) // para limpiar el formulario
                     console.log("formulario enviado")
                     setFormularioEnviado(true);
+                    await sleep(500);
+                    alert(JSON.stringify(values, null, 2));
                     setTimeout(()=>setFormularioEnviado(false), 5000)
                     
                 }}
@@ -112,6 +118,12 @@ export default function FormUser(){
                         }}
                         sx={{ }}
                     >
+                        {/* <label>
+                    <Field type="checkbox" name="event" />
+                     {`${[values.event]}`}
+                        </label> */}
+          
+
                         {/* {console.log(errors)} */}
                         <div className='inputs'>
                             <TextField
@@ -250,7 +262,7 @@ export default function FormUser(){
                             />
                         </div>
                         
-                        <div className='inputs'>
+                        {/* <div className='inputs'>
                             <TextField
                                 color="secondary"
                                 label="Eventos"
@@ -260,7 +272,59 @@ export default function FormUser(){
                                 onBlur={handleBlur}
                                 autoComplete="off"
                             />
-                        </div>
+                        </div> */}
+
+<div className='check' role="group" aria-labelledby="checkbox-group">
+             <div>
+            <label>
+              <Field type="checkbox" name="events" value="bachelor_party" />
+              bachelor_party
+            </label>
+                </div>               
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="wedding" />
+              wedding
+            </label>
+                </div>
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="anniversary" />
+              anniversary
+            </label>
+                </div>
+            <div>
+                </div>
+              <Field type="checkbox" name="events" value="full_party" />
+              full_party
+            <label>
+            </label>
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="baby_shower" />
+              baby_shower
+            </label>
+                </div>
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="15_birthday_party" />
+              15_birthday_party
+            </label>
+                </div>
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="graduation" />
+              graduation
+            </label>
+                </div>
+            <div>
+            <label>
+              <Field type="checkbox" name="events" value="birthday_party" />
+              birthday_party
+            </label>
+                </div>
+          </div>
+                        
 
                         <div className='boton_form'>
                             <Button color= "secondary" type="submit" variant="outlined">Enviar</Button>
@@ -271,12 +335,12 @@ export default function FormUser(){
                                 // <p>Formulario enviado con exito</p>
                                 <Stack 
                                 sx={{
-                                    borderRadius: 2,
+                                    borderRadius: 5,
                                     fontSize: '0.875rem',
                                     fontWeight: '700',
                                     position: 'absolute',
-                                    top: 100,
-                                    left: '40%',
+                                    top: 20,
+                                    left: '20%',
                                     zIndex: 'tooltip',
                                   }}
                                     
@@ -300,7 +364,10 @@ export default function FormUser(){
             } 
             </Formik>
             <div className='imagenForm'>
-                <img src={foto} style={{margin: 80, width: 800}} alt="" />
+
+                <img src={foto} style={{margin: 30, width: 900}} alt="" />
+
+
             </div>
         </div>
     )

@@ -146,7 +146,7 @@ export default function Login() {
           </div>
           <div className="boton-sign">
           <Link
-            className="#"
+            className="acount"
             href="#!"
             onClick={handleResetPassword}
             >
@@ -155,7 +155,7 @@ export default function Login() {
           </div>
         </div>
       
-      <p className="#">
+      <p className="acount">
         Don't have an account?
         <Link to="/customertype" className="#">
           Register

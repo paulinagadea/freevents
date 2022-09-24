@@ -21,3 +21,9 @@
     left: 2000px;
     background-color: aqua;
 }
+
+.check{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}
