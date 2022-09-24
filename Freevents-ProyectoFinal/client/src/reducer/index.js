@@ -10,11 +10,12 @@ const initialState = {
     packs: [],
     allPacks: [],
     cart: [],
+    order: [],
 }
 
-if (localStorage.getItem('cart')){
+if (localStorage.getItem('cart')) {
     initialState.cart = JSON.parse(localStorage.getItem('cart'));
-}else initialState.cart = []
+} else initialState.cart = []
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -42,6 +43,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 services: action.payload,
+            }
+        } case actionTypes.getOrder: {
+            return {
+                ...state,
+                order: action.payload,
             }
         }
         case actionTypes.clearDetails: {
@@ -75,7 +81,7 @@ function rootReducer(state = initialState, action) {
         //         packs: action.payload
         //     }
         // }
-        
+
         case actionTypes.getNamesPacks: {
             return {
                 ...state,
