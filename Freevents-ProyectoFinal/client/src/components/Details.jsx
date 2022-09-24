@@ -9,7 +9,7 @@ import image from '../imagenes/bluefoxx.png'
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDetails, clearDetails } from "../actions"
+import { getDetails, clearDetails, getEvents } from "../actions"
 import { useEffect } from 'react'
 import { Container } from '@material-ui/core';
 
@@ -20,10 +20,12 @@ const Details = () => {
     let { id } = useParams()
     //const navigate = useNavigate()
     const myservice = useSelector((state)=>state.detail)
+    const evente = useSelector((state)=>state.events)
     console.log(myservice)
 
 
     useEffect(()=>{
+        dispatch(getEvents())
         dispatch(getDetails(id));
         return ()=>{dispatch(clearDetails())} 
     },[dispatch, id])
@@ -69,10 +71,10 @@ const Details = () => {
                                 <h3 className="statstext">Direccion: {myservice.address}</h3>
                                 <h3 className="statstext">CUIT: {myservice.cuit}</h3>
                                 <h3 className="statstext">E-mail: {myservice.email}</h3>
-                                <h3 className="statstext">elefono: {myservice.phone_number}</h3>
+                                <h3 className="statstext">Telefono: {myservice.phone_number}</h3>
                                 <h3 className="statstext">Codigo postal: {myservice.postal_code}</h3>
                                 {/* <h5>Temperamento: {myDog.temperament?.length === 0 && "Desconocido" }{myDog.createdInDb? myDog.temperament.map(el=>el.name + ' '): myDog.temperament?.join(' ')}</h5> */}
-                               
+                                {evente.map((e)=>{ return (e.name)})}
                             </div>
                             </div>
                             {/* <div className='grid8'> */}
@@ -93,12 +95,11 @@ const Details = () => {
                                     })}
                                 </div>
                             <div className='grid3'>
-                            <img src={myservice.galery_image[0]} width="500px" height="300px"></img>
+                            <img src={myservice.galery_image[0]} width="500px" height="300px" alt=""></img>
                             </div>
                             {/* </div> */}
                             </div>
                         </div >
-                   
                     
                 </div>
                 </Container>
