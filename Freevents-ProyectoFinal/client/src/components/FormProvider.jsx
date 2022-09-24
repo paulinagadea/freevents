@@ -121,6 +121,7 @@ export default function FormUser(){
                                 value={values.name}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.name && errors.name && <div className='error'>{errors.name}</div>}
                         </div>
@@ -133,6 +134,7 @@ export default function FormUser(){
                                 value={values.address}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.address && errors.address && <div className='error'>{errors.address}</div>}
                         </div>
@@ -145,6 +147,7 @@ export default function FormUser(){
                                 value={values.location}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.location && errors.location && <div className='error'>{errors.location}</div>}
                         </div>
@@ -157,6 +160,7 @@ export default function FormUser(){
                                 value={values.postal_code}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.postal_code && errors.postal_code && <div className='error'>{errors.postal_code}</div>}
                         </div>
@@ -169,6 +173,7 @@ export default function FormUser(){
                                 value={values.cuit}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.cuit && errors.cuit && <div className='error'>{errors.cuit}</div>}
                         </div>
@@ -182,6 +187,7 @@ export default function FormUser(){
                                 value={values.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                             {touched.email && errors.email && <div className='error'>{errors.email}</div>}
                         </div>
@@ -194,6 +200,7 @@ export default function FormUser(){
                                 value={values.phone_number}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -215,6 +222,7 @@ export default function FormUser(){
                                 value={values.logotype}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -226,6 +234,7 @@ export default function FormUser(){
                                 value={values.background_image}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -237,6 +246,7 @@ export default function FormUser(){
                                 value={values.galery_image}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                         </div>
                         
@@ -248,6 +258,7 @@ export default function FormUser(){
                                 value={[values.events]}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
+                                autoComplete="off"
                             />
                         </div>
 
@@ -289,7 +300,7 @@ export default function FormUser(){
             } 
             </Formik>
             <div className='imagenForm'>
-                <img src={foto} style={{margin: 80, width: 900}} alt="" />
+                <img src={foto} style={{margin: 80, width: 800}} alt="" />
             </div>
         </div>
     )
