@@ -16,6 +16,8 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Carrito from './components/Carrito'
 import { useState, useEffect } from 'react';
+import Orden from './components/Orden';
+import PerfilUser from "./components/PerfilUser"
 
 
 function App() {
@@ -53,6 +55,9 @@ function App() {
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
             <Route exact path = '/login' element={<Login/>}/>
+            <Route exact path = '/orden' element={<Orden/>}/>
+            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
+
             {/* <Route exact path = '/login' element={<Login
             setLog={setLog}
             />}/> */}

@@ -4,6 +4,13 @@ import CardPaquetes from './CardPaquetes'
 import { useState, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import CartCard from './CartCard'
+
+//import FavoriteBorder from '@material-ui/core/FavoriteBorder'
+//import BookmarkBorderIcon from '@material-ui/core/FavoriteBorder'
+
+
+
+
 //import { useAuth0 } from "@auth0/auth0-react";
 
 //   import CartItem from "./CartItem";
@@ -44,7 +51,10 @@ const Carrito = () => {
 
 
   return (
+
+
     <div>
+  
       <h2>Carrito de Compras</h2>
       <h3>Paquetes</h3>
       <article className="box grid-responsive">

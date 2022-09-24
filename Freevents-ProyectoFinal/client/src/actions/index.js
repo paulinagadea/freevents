@@ -21,8 +21,32 @@ export const actionTypes ={
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
     orderByPrice:"orderByPrice",
-    // getNamesPaquetes:"getNamesPaquetes"
+    getOrder:"getOrder",
+    postOrder:"postOrder",
+    getNamesPaquetes:"getNamesPaquetes",
 
+};
+
+export const getOrder = () => {
+    return async function (dispatch) {
+        var json = await axios.get(`/order`);
+        return dispatch({
+            type: actionTypes.getOrder,
+            payload: json.data,
+        });
+    };
+};
+export function postOrder(payload) {
+    return async function () {
+        console.log('que llega en payload', payload)
+        try {
+            const creado = await axios.post("/order", payload);
+            console.log(creado)
+            return creado;
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
 };
 
 export const filterPacksByService = (payload) =>{
@@ -41,6 +65,8 @@ export const getEvents = () => {
         });
     };
 };
+
+
 
 export const getProviders = () => {
     return async function (dispatch) {
