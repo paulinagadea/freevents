@@ -69,8 +69,8 @@ Review.belongsTo(Provider);
 Provider.hasMany(Favorite);
 Favorite.belongsTo(Provider);
 
-Provider.hasMany(Pack_services);  
-Pack_services.belongsTo(Provider);
+// Provider.hasMany(Pack_services);  
+// Pack_services.belongsTo(Provider);
 
 //Muchos a Muchos
 
