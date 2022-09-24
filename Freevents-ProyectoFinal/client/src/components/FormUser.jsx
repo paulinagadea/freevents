@@ -1,10 +1,30 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import Button from "@material-ui/core/Button"
 import { Alert } from "./Alert";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import './FormUser.css'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '36ch',
+      
+      
+    },
+  },
+  root1:{
+    width: '30ch',
+  
+  }
+}));
 
 export default function Register() {
   const { signup } = useAuth();
+  const classes = useStyles();
 
   const [user, setUser] = useState({
     name: '',
@@ -14,7 +34,6 @@ export default function Register() {
     dni: '',
     phone_number: '',
     email: '',
-    password: ''
   });
 
   const [error, setError] = useState("");
@@ -35,106 +54,92 @@ export default function Register() {
     <div className="#">
       {error && <Alert message={error} />}
         <h1> Regístrate</h1>
-      <form
+      <form className={classes.root} noValidate autoComplete="off"
         onSubmit={handleSubmit}
-        className="#"
       >
         <div className="#">
-          <label
-            htmlFor="name"
-            className="#"
-          >
-            Nombre
-          </label>
-          <input
-            type="text"
+          
+          <TextField
+          label="Nombre"
+            type="nombre"
             onChange={(e) => setUser({ ...user, name: e.target.value })}
-            className="#"
+            variant="outlined"
             placeholder="Coloca tu nombre"
           />
         </div>
 
         <div className="#">
-          <label
-            htmlFor="lastname"
-            className="#"
-          >
-            Apellido
-          </label>
-          <input
-            type="text"
+          
+          <TextField
+            label="Apellido"
+            type="apellido"
             onChange={(e) => setUser({ ...user, lastname: e.target.value })}
-            className="#"
+            variant="outlined"
             placeholder="Coloca tu apellido"
           />
         </div>
 
         <div className="#">
-          <label
-            htmlFor="dni"
-            className="#"
-          >
-            DNI
-          </label>
-          <input
-            type="text"
+          
+          <TextField
+            label="DNI"
+            type="dni"
             onChange={(e) => setUser({ ...user, dni: e.target.value })}
-            className="#"
-            placeholder="Coloca tu dni"
+            variant="outlined"
+            placeholder="Ingresa un documento de identidad"
           />
         </div>
 
 
         <div className="#">
-          <label
-            htmlFor="phone_number"
-            className="#"
-          >
-            Número telefónico
-          </label>
-          <input
-            type="text"
+          
+          <TextField
+            label="Teléfono"
+            type="teléfono"
             onChange={(e) => setUser({ ...user, phone_number: e.target.value })}
             className="#"
-            placeholder="Coloca tu número telefónico"
+            variant="outlined"
+            placeholder="Ingresa un número telefónico"
           />
         </div>
 
         <div className="#">
-          <label
-            htmlFor="email"
-            className="#"
-          >
-            Email
-          </label>
-          <input
+          
+          <TextField
+          required
+          label="Email"
             type="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
-            className="#"
+            variant="outlined"
             placeholder="youremail@company.tld"
           />
         </div>
 
         <div className="#">
-          <label
+          
+          <TextField
+            autoComplete="current-password"
             htmlFor="password"
-            className="#"
-          >
-            Password
-          </label>
-          <input
             type="password"
+            name="password"
+            id="outlined-password-input"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
-            className="#"
+            label="Password"
+            variant="outlined"
             placeholder="*************"
           />
         </div>
 
-        <button className="#">
+        <Button
+            disableElevation
+            variant="contained" 
+            color="primary"
+            type="submit"
+          >
           Register
-        </button>
+        </Button>
       </form>
-      <p className="#">
+      <p className="acount">
         Already have an Account?
         <Link to="/login" className="#">
           Login
