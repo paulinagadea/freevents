@@ -9,6 +9,7 @@ import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPr
 import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
+import { Link } from "react-router-dom";
 
 const Paquetes = () => {
   const dispatch = useDispatch();
@@ -98,6 +99,7 @@ const Paquetes = () => {
           console.log(packs.services)
           return (
             <div className='item'>
+              <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}>
               <CardPaquetes
                 name={packs.name}
                 price={packs.price}
@@ -106,6 +108,7 @@ const Paquetes = () => {
                 services={packs.services?.map(s => s.name)}
                 id={packs.id}
               />
+              </Link>
             </div>
           )
         })}

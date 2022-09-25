@@ -100,7 +100,6 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../imagenes/footerpng.jpg);
     width: 100%;
     height: 200px;
     background-size: cover;
@@ -109,13 +108,13 @@ li {
 }
 
 .barra {
-    background-color: #D9C2BA;
+    background-color: #ffffff;
     padding: 5px;
     margin-top: -12px;
 }
 
 .barra1 {
-    background-color: #D9C2BA;
+    background-color: #fefeff;
     padding: 20px;
     margin-top: 0px;
 }
