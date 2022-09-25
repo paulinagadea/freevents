@@ -10,7 +10,8 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   dialect: 'postgres',
   protocol: 'postgres',
   dialectOptions: {
-    ssl: {}}
+    ssl: {}
+  }
 });
 const basename = path.basename(__filename);
 
@@ -77,14 +78,14 @@ Favorite.belongsTo(Provider);
 Provider.belongsToMany(Event, { through: 'providers_events' });
 Event.belongsToMany(Provider, { through: 'providers_events' });
 
-Pack_services.belongsToMany(Service, {through: 'pack_service_service'});
-Service.belongsToMany(Pack_services, {through: 'pack_service_service'});
+Pack_services.belongsToMany(Service, { through: 'pack_service_service' });
+Service.belongsToMany(Pack_services, { through: 'pack_service_service' });
 
-Pack_services.belongsToMany(Event, {through: 'pack_service_event'});
-Event.belongsToMany(Pack_services, {through: 'pack_service_event'})
+Pack_services.belongsToMany(Event, { through: 'pack_service_event' });
+Event.belongsToMany(Pack_services, { through: 'pack_service_event' })
 
-Pack_services.belongsToMany(Provider, {through: 'pack_service_provider'});
-Provider.belongsToMany(Pack_services, {through: 'pack_service_provider'})
+Pack_services.belongsToMany(Provider, { through: 'pack_service_provider' });
+Provider.belongsToMany(Pack_services, { through: 'pack_service_provider' })
 
 
 

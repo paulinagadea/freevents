@@ -1,12 +1,12 @@
-const { Router } = require('express');
+const Prov = require('express').Router();
+const bcrypt = require('bcrypt')
 const { getAllProviders } = require('../controllers/getAllProviders')
 const { getAllProviderByName } = require('../controllers/getProviderByName')
 const { getProviderById } = require('../controllers/getProviderById')
-const router = Router();
 const { Provider } = require('../db')
 const { Event } = require("../db")
 
-router.get('/', async (req, res) => {
+Prov.get('/', async (req, res) => {
     try {
         const { name } = req.query
         const provedores = await getAllProviders()
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 //
-router.get('/:id', async (req, res) => {
+Prov.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const provedorById = await getProviderById(id)
@@ -39,64 +39,70 @@ router.get('/:id', async (req, res) => {
 })
 
 
-router.post("/", async (req, res) => {
-    const { name, address, location, postal_code, cuit, email, phone_number, logotype, background_image, galery_image, events } = req.body;
-    console.log('estamos aqui', req.body)
-    const aux1 = [galery_image]
-    const aux2 = [events]
+Prov.post("/", async (req, res) => {
+    const { name, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image, events } = req.body;
+
     try {
-        const actCreated = await Provider.create({
+        const saltRounds = 10 // nivel de hasheo
+        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+
+        const newProvider = await Provider.create({
             name,
             address,
             location,
             postal_code,
             cuit,
             email,
+            passwordHash,
             phone_number,
             logotype,
             background_image,
             galery_image,
         })
-        console.log('acá');
-            let eventsDb = await Event.findAll({
-                where : {name: events}
-            }) 
-            actCreated.addEvent(eventsDb); 
+
+        const savedUser = await newProvider.save()
 
 
-        res.status(200).json(actCreated);
+        //anexamos la lista de eventos al proveedor
+        let eventsDb = await Event.findAll({
+            where: { name: events }
+        })
+        savedUser.addEvent(eventsDb);
+
+        res.status(200).json(savedUser);
+
     } catch (error) {
-        console.log("perritos errores :/", error)
+        console.log("error post provider", error)
         res.status(500).json({ msg: 'Error', error })
     }
 });
 
 
-router.put("/:id", async (req, res) => {
+Prov.put("/:id", async (req, res) => {
 
-    try{
-        
-       await Provider.update(req.body, {
-                   where: { id: req.params.id }
-               });
-               res.status(200).json({ succes: 'Update Provider' })
-   
-   } catch(error) {
+    try {
 
-       res.status(500).json({ message: 'Error', error })
+        await Provider.update(req.body, {
+            where: { id: req.params.id }
+        });
+        res.status(200).json({ succes: 'Update Provider' })
 
-   }
-   
+    } catch (error) {
+
+        res.status(500).json({ message: 'Error', error })
+
+    }
+
 })
 
 
-router.delete("/admin/:id", async (req, res) => {
+Prov.delete("/admin/:id", async (req, res) => {
 
     try {
         await Provider.destroy({
-                    where: { id: req.params.id }
-                });
-                res.status(200).json({ success: 'Delete Provider' })
+            where: { id: req.params.id }
+        });
+        res.status(200).json({ success: 'Delete Provider' })
 
     } catch (error) {
         res.status(500).json({ message: 'Error', error })
@@ -105,4 +111,4 @@ router.delete("/admin/:id", async (req, res) => {
 
 
 
-module.exports = router;
+module.exports = Prov;
