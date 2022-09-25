@@ -2,6 +2,7 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const Provider = require('./Provider')
+const ProviderLogin = require('./ProviderLogin')
 const Service = require('./Service.js');
 const Event = require('./Event.js');
 const Client = require('./Client.js')
@@ -15,6 +16,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use('/providers', Provider)
+router.use('/loginprovider', ProviderLogin)
 router.use('/services', Service);
 router.use('/events', Event);
 router.use('/client', Client);

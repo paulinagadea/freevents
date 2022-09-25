@@ -10,30 +10,33 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        address:{
+        address: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
         },
-        location:{
-            type: DataTypes.STRING, 
-            allowNull: false, 
+        location: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         postal_code: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
         },
-        cuit: { 
-            type: DataTypes.TEXT, 
+        cuit: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
+        },
+        passwordHash: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         phone_number: {
             type: DataTypes.TEXT,
@@ -53,8 +56,11 @@ module.exports = (sequelize) => {
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: true,
         }
-    });
+    },
+        {
+            freezeTableName: true
+        });
 };

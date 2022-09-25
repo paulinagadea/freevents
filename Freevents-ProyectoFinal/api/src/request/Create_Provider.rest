@@ -1,0 +1,17 @@
+POST http://localhost:3001/providers
+Content-Type: application/json
+
+{
+  "name": "PruebaProvider3",
+  "address": "MyAdress",
+  "location": "MyLocation",
+  "postal_code": "MyPostal_code",
+  "cuit": "987654321",
+  "email": "email@test.com",
+  "phone_number": "123456789",
+  "logotype": "logotype",
+  "background_image": "background_image",
+  "galery_image": ["galery_image", "galery_image"],
+  "events":["events"],
+  "password": "abc1234"
+}
