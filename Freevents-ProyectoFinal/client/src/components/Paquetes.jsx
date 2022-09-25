@@ -59,7 +59,7 @@ const Paquetes = () => {
       <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={footer2} alt="" />
-      <h1 className="Titulo-proveedores"> Paquetes de servicios </h1>
+      <h1 className="Titulo-proveedores"> PAQUETES DE SERVICIO </h1>
       <PaginadoPacks
         packsPerPage={packsPerPage}
         allPacks={allPacks.length}
@@ -80,7 +80,7 @@ const Paquetes = () => {
             <option value='descendente'>mayor a menor precio</option>
           </select>
 
-          <input  type="range" id="points" name="points" min="0" max="25000"></input>
+          {/* <input  type="range" id="points" name="points" min="0" max="25000"></input> */}
           
           <select onChange={e => {handleFilterService(e)}}>
             <option selected disabled value = 'All'>Servicio</option>
@@ -101,7 +101,7 @@ const Paquetes = () => {
           console.log(packs.services)
           return (
             <div className='item'>
-              {/* <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}> */}
+              <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}>
               <CardPaquetes
                 name={packs.name}
                 price={packs.price}
@@ -110,7 +110,7 @@ const Paquetes = () => {
                 services={packs.services?.map(s => s.name)}
                 id={packs.id}
               />
-              {/* </Link> */}
+              </Link>
             </div>
           )
         })}
