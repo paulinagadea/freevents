@@ -1,5 +1,6 @@
 import React from "react";
-// import { Link }  from 'react-router-dom'
+import { Link}  from 'react-router-dom'
+import { getData } from '../dataJSON';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
 
 const CardPaquetes = ({name, price, galery_image, events, services, id, }) => {
   const classes = useStyles();
-  // const bull = <span className={classes.bullet}>•</span>;
+  const bull = <span className={classes.bullet}>•</span>;
   
   const dispatch = useDispatch()
   console.log(galery_image)
@@ -43,10 +44,12 @@ const CardPaquetes = ({name, price, galery_image, events, services, id, }) => {
 
 const product = {name, price, events, services, id, galery_image}
 
+
   const handleAddToCart = () => {
     console.log(product, "PRODUCTARDO")
     dispatch(addToCart(product))
   }
+
 
     return (
         <Card className={classes.root}>
