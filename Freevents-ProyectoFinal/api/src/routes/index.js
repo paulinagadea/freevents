@@ -7,6 +7,8 @@ const Event = require('./Event.js');
 const Client = require('./Client.js')
 const Pack_service = require('./Pack_service')
 const Order = require('./Order')
+const Favorite = require('./Favorite');
+const Review = require('./Review');
 const router = Router();
 
 // Configurar los routers
@@ -15,9 +17,11 @@ const router = Router();
 router.use('/providers', Provider)
 router.use('/services', Service);
 router.use('/events', Event);
-router.use('/client', Client)
-router.use('/packs', Pack_service)
-router.use('/order', Order)
+router.use('/client', Client);
+router.use('/packs', Pack_service);
+router.use('/order', Order);
+router.use('/favorites', Favorite);
+router.use('/reviews', Review);
 
 // router.get('/admins/:id', (req, res, next) => { })
 
