@@ -16,7 +16,7 @@ export const actionTypes ={
     getDetailsPacks:"getDetailsPacks",
     orderByNamePack:"orderByNamePack",
     filterPacksByService:"filterPacksByService",
-    addToCart: "addToCart",
+    addToFavs: "addToFavs",
     removeOneFromCart:"removeOneFromCart",
     removeAllFromCart: "removeAllFromCart",
     clearCart:"clearCart",
@@ -188,14 +188,14 @@ export const clearDetails = () => {
 // }
 
 
-export const addToCart = product => async dispatch => {
+export const addToFavs = product => async dispatch => {
 	// if cart already exists in local storage, use it, otherwise set to empty array
-	const cart = localStorage.getItem('cart')//SI EL ITEM EXISISTE
-		? JSON.parse(localStorage.getItem('cart'))
+	const favs = localStorage.getItem('favs')//SI EL ITEM EXISISTE
+		? JSON.parse(localStorage.getItem('favs'))
 		: [];
 
 	// check if duplicates
-	const duplicates = cart.filter(cartItem => cartItem.id === product.id);
+	const duplicates = favs.filter(favsItem => favsItem.id === product.id);
 	// if no duplicates, proceed
     // console.log(duplicates, "DUPLICADOS")
     // console.log(cart, "CART")
@@ -206,7 +206,7 @@ export const addToCart = product => async dispatch => {
 			...product,
 			// count: 1,
 		}
-        cart.push(productToAdd);
+        favs.push(productToAdd);
     }
     // console.log(productToAdd, "PRODUCT TO ADD")
         ;
@@ -225,12 +225,12 @@ export const addToCart = product => async dispatch => {
         //       return value;
         //     };
         //   };
-		localStorage.setItem('cart', JSON.stringify(cart));
+		localStorage.setItem('favs', JSON.stringify(favs));
 
 		// add cart to redux
 		dispatch({
-			type: actionTypes.addToCart,
-			payload: cart,
+			type: actionTypes.addToFavs,
+			payload: favs,
 		});
 	
 };

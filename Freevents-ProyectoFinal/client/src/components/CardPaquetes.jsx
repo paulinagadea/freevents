@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
-import { addToCart } from "../actions";
+import { addToFavs } from "../actions";
 // import {Link} from "react-router-dom";
 // import image13 from "../imagenes/13.jpeg";
 import { useDispatch } from 'react-redux';
@@ -45,9 +45,9 @@ const CardPaquetes = ({name, price, galery_image, events, services, id, }) => {
 const product = {name, price, events, services, id, galery_image}
 
 
-  const handleAddToCart = () => {
+  const handleAddToFavs = () => {
     console.log(product, "PRODUCTARDO")
-    dispatch(addToCart(product))
+    dispatch(addToFavs(product))
   }
 
 
@@ -77,7 +77,7 @@ const product = {name, price, events, services, id, galery_image}
         </CardContent>
         <CardActions>
         {/* <Link style={{textDecoration:"none"}} to= '/carrito'> */}
-          <Button onClick={handleAddToCart} >Agregar al carrito</Button>
+          <Button onClick={handleAddToFavs} >🧡 Añadir a favoritos</Button>
         {/* </Link> */}
         {/* <Button size="small"> + Info</Button> */}
       </CardActions>
