@@ -17,7 +17,7 @@ const Paquetes = () => {
   const allServicesP = useSelector((state) => state.services)
   const [order, setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
-  const [packsPerPage] = useState(2)// cantidad de cards x pagina
+  const [packsPerPage] = useState(4)// cantidad de cards x pagina
   const indexOfLastPack = currentPage * packsPerPage //8
   const indexOfFirstPack = indexOfLastPack - packsPerPage //0
   const currentPacks = allPacks.slice(indexOfFirstPack, indexOfLastPack)
@@ -79,6 +79,8 @@ const Paquetes = () => {
           <option value='ascendente'>menor a mayor precio</option>
             <option value='descendente'>mayor a menor precio</option>
           </select>
+
+          <input  type="range" id="points" name="points" min="0" max="25000"></input>
           
           <select onChange={e => {handleFilterService(e)}}>
             <option selected disabled value = 'All'>Servicio</option>
