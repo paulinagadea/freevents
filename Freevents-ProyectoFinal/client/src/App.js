@@ -14,7 +14,6 @@ import { ThemeProvider } from '@material-ui/core';
 import DetailsPaquetes from './components/DetailsPaquetes'
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-import Carrito from './components/Carrito'
 import { useState, useEffect } from 'react';
 import Orden from './components/Orden';
 import PerfilUser from "./components/PerfilUser"
@@ -62,8 +61,6 @@ function App() {
             setLog={setLog}
             />}/> */}
             <Route exact path = '/customertype' element={<CustomerType/>}/>
-            <Route exact path = '/carrito' element={<Carrito/>}/>
-
             <Route
             path="/"
             element={

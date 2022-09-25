@@ -38,7 +38,6 @@ export const getOrder = () => {
 };
 export function postOrder(payload) {
     return async function () {
-        console.log('que llega en payload', payload)
         try {
             const creado = await axios.post("/order", payload);
             console.log(creado)
@@ -121,7 +120,6 @@ export function createService(payload) {
 
 export function createProvider(payload) {
     return async function () {
-        console.log('que llega en payload', payload)
         try {
             const creado = await axios.post("/providers", payload);
             console.log(creado)
@@ -134,7 +132,6 @@ export function createProvider(payload) {
 
 export function createUser(payload) {
     return async function () {
-        console.log('que llega en payload', payload)
         try {
             const creado = await axios.post("/client", payload);
             console.log(creado)
@@ -181,25 +178,15 @@ export const clearDetails = () => {
     }
 }
 
-// export const addToCart=()=>{
-//     return{
-//         type:actionTypes
-//     }
-// }
-
 
 export const addToFavs = product => async dispatch => {
 	// if cart already exists in local storage, use it, otherwise set to empty array
 	const favs = localStorage.getItem('favs')//SI EL ITEM EXISISTE
 		? JSON.parse(localStorage.getItem('favs'))
 		: [];
-
 	// check if duplicates
 	const duplicates = favs.filter(favsItem => favsItem.id === product.id);
 	// if no duplicates, proceed
-    // console.log(duplicates, "DUPLICADOS")
-    // console.log(cart, "CART")
-    // console.log(product, "PRODUCT")
 	if (duplicates.length === 0) {
 		// prep product data
 		const productToAdd = {
@@ -208,25 +195,7 @@ export const addToFavs = product => async dispatch => {
 		}
         favs.push(productToAdd);
     }
-    // console.log(productToAdd, "PRODUCT TO ADD")
-        ;
-		// add product data to cart
-
-		// add cart to local storage
-        // const getCircularReplacer = () => {
-        //     const seen = new WeakSet();
-        //     return (key, value) => {
-        //       if (typeof value === 'object' && value !== null) {
-        //         if (seen.has(value)) {
-        //           return;
-        //         }
-        //         seen.add(value);
-        //       }
-        //       return value;
-        //     };
-        //   };
 		localStorage.setItem('favs', JSON.stringify(favs));
-
 		// add cart to redux
 		dispatch({
 			type: actionTypes.addToFavs,
@@ -255,25 +224,6 @@ export function getNamesProviders(name) {
     }
 };
 
-
-// export function getNamesPaquetes(name) {
-//     return async function (dispatch) {
-//         try {
-//             var json = await axios.get("http://localhost:3001/packs?name=" + name)
-//             return dispatch({
-//                 type: actionTypes.getNamesPaquetes,
-//                 payload: json.data
-//             })
-//         } catch (error) {
-//             return dispatch({
-//                 type: actionTypes.getNamesPaquetes,
-//                 payload: "ERROR"
-//             })
-            
-            
-//         }
-//     }
-// };
 export function getNamesPacks(name) {
     return async function (dispatch) {
         try {
@@ -294,14 +244,13 @@ export function getNamesPacks(name) {
 };
 
 export function orderByName(payload){
-    console.log(payload, "soy el payload")
     return{
         type:actionTypes.orderByName,
         payload
     }
 }; 
+
 export function orderByNamePack(payload){
-    console.log(payload, "soy el payload")
     return{
         type:actionTypes.orderByNamePack,
         payload

@@ -1,35 +1,50 @@
 import React from 'react'
-import { Link, /*useNavigate,*/ useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDetailsPacks } from "../actions"
+import { clearDetails, getDetailsPacks } from "../actions"
 import { useEffect } from 'react'
 import NavbarHome from "./NavbarHome.jsx";
 
-const DetailsPaquetes = () =>{
-    let {id} = useParams()
-    // const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const detalle = useSelector((state) => state.detail)
 
-    useEffect(()=>{
+const DetailsPaquetes = () => {
+    const dispatch = useDispatch()
+    let { id } = useParams()
+    const detalleP = useSelector((state) => state.detailPack)
+
+    useEffect(() => {
         dispatch(getDetailsPacks(id));
-    },[dispatch, id])
+        return () => { dispatch(clearDetails()) }
+    }, [dispatch, id])
 
     return (
-       <div>
-            <NavbarHome/>
-            <h1>{detalle?.name}</h1>
-            <p>{detalle?.description}</p>
-            <h3>{detalle?.price}</h3>
-            <h3>{detalle?.events?.map(el=>el?.name)}</h3>
-            <h4>{detalle?.services.map(el=>el)}</h4>
-            <img src={detalle?.galery_image} alt={detalle?.name} />
-            <Link to={'/paquetes'}>
-                <button key={id}>Volver</button>
-            </Link>
+        detalleP && detalleP.id
+            ? (
+                <div>
 
-       </div>
+                    <NavbarHome />
+                    {/* <div>
+                        <img src={detalleP.galery_image} alt={detalleP.name} />
+                    </div> */}
+                    <div>
+                        <h3>{detalleP.name}</h3>
+                        {/* <p>{detalleP.description}</p>
+                        <h3>{detalleP.price}</h3>
+                        <h4>{detalleP.services.map(el => el)}</h4> */}
+                    </div>
+                    <Link to={'/paquetes'}>
+                        <button key={id}>Volver</button>
+                    </Link>
+                </div>
+            ) :
+            <div>
+                <p>Loading...</p>
+                <img
+                    className="imgloading"
+                    alt="img not found"
+                    src="https://pa1.narvii.com/6707/510b0daee67fbc091f14b9d8ef40aeb6c0d4dc7d_hq.gif"
+                />
+            </div>
     )
 }
 export default DetailsPaquetes
-//<Link style={{textDecoration:"none"}} to= {`/detail/${provider.id}`}>
+
