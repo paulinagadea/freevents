@@ -9,13 +9,13 @@ const initialState = {
     services: [],
     packs: [],
     allPacks: [],
-    cart: [],
+    favs: [],
     order: [],
 }
 
-if (localStorage.getItem('cart')) {
-    initialState.cart = JSON.parse(localStorage.getItem('cart'));
-} else initialState.cart = []
+if (localStorage.getItem('favs')) {
+    initialState.favs = JSON.parse(localStorage.getItem('favs'));
+} else initialState.favs = []
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -194,10 +194,10 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         }
-        case actionTypes.addToCart: {
+        case actionTypes.addToFavs: {
             return {
                 ...state,
-                cart: [...action.payload]
+                favs: [...action.payload]
             }
         }
 
