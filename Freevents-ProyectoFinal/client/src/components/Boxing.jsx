@@ -50,9 +50,6 @@ export default function SingleLineImageList() {
           <CardProveedor
             background_image={provider.background_image}
             name={provider.name}
-            // address={provider.address}
-            // email={provider.email}
-            // phone_number={provider.phone_number}
           />
         )
       })}

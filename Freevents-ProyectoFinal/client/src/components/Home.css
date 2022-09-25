@@ -1,70 +1,70 @@
-ul{
+ul {
     list-style-type: none;
 }
 
-li{
+li {
     float: left;
     text-align: center;
-    width: 10em; 
+    width: 10em;
     color: rgb(209, 18, 177);
 }
 
-.imghome{
+.imghome {
     width: 100%;
 }
 
-.fotogeneral_home{
+.fotogeneral_home {
     position: absolute;
 }
 
-.texto-encima{
+.texto-encima {
     position: absolute;
     margin: 50px auto;
     top: 350px;
-    left: 550px; 
+    left: 550px;
     color: aliceblue;
     font-size: 120px;
 }
 
-.centrado{
+.centrado {
     position: relative;
     top: 50px;
 }
 
-.fotocate{
+.fotocate {
     height: 10%;
 }
 
-.parrafo{
+.parrafo {
     font-size: large;
 }
 
-.parrafoc{
+.parrafoc {
     text-align: justify;
     margin-top: 30px;
     color: #735949;
 }
 
-.eventos Button{
+.eventos Button {
     display: flex;
     justify-content: space-around;
-    align-items:center ;
+    align-items: center;
 }
 
-.grid-Home{
+.grid-Home {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0,8fr));
+    grid-template-columns: repeat(3, minmax(0, 8fr));
     gap: 20px 10px;
     margin-top: 20px;
     margin-bottom: 100px;
 }
 
-.boxing{
+.boxing {
     margin-top: 30px;
     margin-bottom: 50px;
 }
 
-.Prove{
+.Prove {
     margin-top: 20px;
     background-color: #d9c2ba;
     padding-left: 40px;
@@ -73,60 +73,61 @@ li{
     padding-top: 1px;
 }
 
-.titulo-home{
+.titulo-home {
     font-size: 40px;
     color: #735949;
     margin-bottom: 2%;
     margin-top: 2%;
 }
 
-.footer-completo{
+.footer-completo {
     position: absolute;
     display: flex;
     flex-direction: row-reverse;
 }
 
-.footer{
+.footer {
     width: 100%;
 }
 
-.botones{
+.botones {
     display: flex;
     flex-direction: column;
-    margin-right: 110%; 
+    margin-right: 110%;
 }
 
-.container-footer{
+.container-footer {
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url(../imagenes/footerpng.jpg);
     width: 100%;
     height: 200px;
-    background-size:cover;
+    background-size: cover;
     margin-top: 5px;
     flex-direction: column;
 }
 
-.barra{
+.barra {
     background-color: #D9C2BA;
     padding: 5px;
     margin-top: -12px;
 }
 
-.barra1{
+.barra1 {
     background-color: #D9C2BA;
     padding: 20px;
     margin-top: 0px;
 }
 
-.titulo{
+.titulo {
     color: #735949;
 }
 
-.titulo-home1{
+.titulo-home1 {
     font-size: 40px;
     color: #735949;
     margin-bottom: 1%;
     margin-top: -1%;
 }
+

@@ -6,6 +6,7 @@ const initialState = {
     providers: [],
     allProviders: [],
     detail: [],
+    detailPack:[],
     services: [],
     packs: [],
     allPacks: [],
@@ -54,6 +55,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 detail: [],
+                detailPack:[],
                 providers: [],
             }
         }
@@ -66,7 +68,7 @@ function rootReducer(state = initialState, action) {
         case actionTypes.getDetailsPacks: {
             return {
                 ...state,
-                detail: action.payload,
+                detailPack: action.payload,
             }
         }
         case actionTypes.getNamesProviders: {
@@ -75,13 +77,6 @@ function rootReducer(state = initialState, action) {
                 providers: action.payload
             }
         }
-        // case actionTypes.getNamesPaquetes: {
-        //     return {
-        //         ...state,
-        //         packs: action.payload
-        //     }
-        // }
-
         case actionTypes.getNamesPacks: {
             return {
                 ...state,
@@ -145,10 +140,6 @@ function rootReducer(state = initialState, action) {
             }
         };
         case actionTypes.filterPacksByService: {
-            // const allPackss = state.allPacks
-            // const serviceFiltered = action.payload === 'All' ? allPackss : allPackss.filter(el=>el.services.map( el=> el.name.includes(action.payload)))
-            // console.log(serviceFiltered, "TEMP FILTRADO")
-
             return {
                 ...state,
                 packs: state.allPacks.filter((s) =>
@@ -200,31 +191,8 @@ function rootReducer(state = initialState, action) {
                 favs: [...action.payload]
             }
         }
-
-
-        // case actionTypes.addToCart: {
-        //     let newPack = state.packs.find(
-        //         (p) => p.id === action.payload
-        //     );
-        //     let packInCart = state.cart.find((pack) => pack.id === newPack.id)
-
-        //     return packInCart
-        //         ? {
-        //             ...state,
-        //             cart: state.cart.map((pack) =>
-        //                 pack.id === newPack.id
-        //                     ? { ...pack, quantity: pack.quantity + 1 }
-        //                     : pack
-        //             ),
-        //         }
-        //         : {
-        //             ...state,
-        //             cart: [...state.cart, { ...newPack, quantity: 1 }],
-        //         };
-        // } 
         case actionTypes.removeOneFromCart: {
             let packToDelete = state.cart.find((pack) => pack.id === action.payload);
-
             return packToDelete.quantity > 1
                 ? {
                     ...state,
