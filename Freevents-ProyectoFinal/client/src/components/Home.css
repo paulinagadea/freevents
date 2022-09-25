@@ -1,6 +1,5 @@
 ul{
     list-style-type: none;
-    
 }
 
 li{
@@ -12,15 +11,6 @@ li{
 
 .imghome{
     width: 100%;
-    
-}
-
-.contiene{
-    margin-top: 2.9%;
-    /* position: relative;
-    display: inline-block;
-    text-align: center; */
-    /* width: 100%; */
 }
 
 .fotogeneral_home{
@@ -41,12 +31,6 @@ li{
     top: 50px;
 }
 
-.slider{
-    margin-top: 200px;
-}
-
-
-
 .fotocate{
     height: 10%;
 }
@@ -59,13 +43,14 @@ li{
     text-align: justify;
     margin-top: 30px;
     color: #735949;
-    
 }
+
 .eventos Button{
     display: flex;
     justify-content: space-around;
     align-items:center ;
 }
+
 .grid-Home{
     display: grid;
     grid-template-columns: repeat(3, minmax(0,8fr));
@@ -86,7 +71,6 @@ li{
     padding-right: 40px;
     padding-bottom: 40px;
     padding-top: 1px;
-    
 }
 
 .titulo-home{
@@ -94,23 +78,24 @@ li{
     color: #735949;
     margin-bottom: 2%;
     margin-top: 2%;
-
 }
+
 .footer-completo{
     position: absolute;
     display: flex;
     flex-direction: row-reverse;
 }
+
 .footer{
-    
     width: 100%;
 }
+
 .botones{
     display: flex;
     flex-direction: column;
-    margin-right: 110%;
-    
+    margin-right: 110%; 
 }
+
 .container-footer{
     display: flex;
     align-items: center;
@@ -124,16 +109,16 @@ li{
 }
 
 .barra{
-background-color: #D9C2BA;
-padding: 5px;
-margin-top: -12px;
+    background-color: #D9C2BA;
+    padding: 5px;
+    margin-top: -12px;
 }
+
 .barra1{
     background-color: #D9C2BA;
     padding: 20px;
     margin-top: 0px;
-
-    }
+}
 
 .titulo{
     color: #735949;

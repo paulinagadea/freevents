@@ -1,30 +1,25 @@
-
 import React from "react";
-// import NavbarNuevo from "./NavbarNuevo";
 import NavBarPaquetes from './NavBarPaquetes'
 import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
-//import Container from '@mui/material/Container'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
-
+//import Container from '@mui/material/Container'
+// import NavbarNuevo from "./NavbarNuevo";
 
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
-
   const [order, setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
   const [packsPerPage] = useState(2)// cantidad de cards x pagina
-
   const indexOfLastPack = currentPage * packsPerPage //8
   const indexOfFirstPack = indexOfLastPack - packsPerPage //0
   const currentPacks = allPacks.slice(indexOfFirstPack, indexOfLastPack)
-
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -33,9 +28,6 @@ const Paquetes = () => {
     dispatch(getPacks())
     dispatch(getServices())
   }, [dispatch])
-
-
-
 
   const handleFilterService = (e)=>{
     dispatch(filterPacksByService(e.target.value))

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
@@ -8,13 +7,11 @@ import * as React from 'react';
 import Alert from '@mui/material/Alert';
 import './SearchBar.css'
 
-
 export default function SearchBar({setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
     const provider = useSelector((state) => state.providers)
     console.log(provider, "soy el provider")
-
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -35,7 +32,6 @@ export default function SearchBar({setCurrentPage}) {
         }else{
             <Alert severity="error">No existe ese proveedor</Alert>
         }
-        
     }
 
     return (
@@ -52,7 +48,7 @@ export default function SearchBar({setCurrentPage}) {
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
             >
-                <SearchIcon fontSize="large" style={{ color: grey[100] }}/>
+                <SearchIcon fontSize="large" style={{ color: grey[100], cursor: 'pointer' }}/>
             </path>
         </div>
     )

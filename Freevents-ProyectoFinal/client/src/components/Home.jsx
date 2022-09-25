@@ -3,11 +3,6 @@ import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
 import image10 from "../imagenes/10.jpg";
 import { brown } from '@material-ui/core/colors';
-// import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
-// import { Link } from "react-router-dom";
-// import fotogeneral from '../imagenes/FOTOGENERAL.png';
-// import footer from "../imagenes/footer10.jpg";
-// import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";
 import "./Home.css"
 import Button from "@material-ui/core/Button"
@@ -22,6 +17,11 @@ import githud from "../imagenes/github.png";
 import facebook from "../imagenes/Facebook.png";
 import twitter from "../imagenes/twitter.png";
 import instagram from "../imagenes/instagram.png";
+// import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
+// import { Link } from "react-router-dom";
+// import fotogeneral from '../imagenes/FOTOGENERAL.png';
+// import footer from "../imagenes/footer10.jpg";
+// import CardProveedor from "./CardProveedor";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Home = () => {
         <div>
                 <NavbarHome />
                 {/* <img className="imghome" src={image20} alt="" /> */}
-            <div className="contiene">
+            <div>
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <Slider/>
                 <h1 className="texto-encima">Freevents</h1>

@@ -6,11 +6,11 @@ import NavbarHome from "./NavbarHome.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
-// import image13 from "../imagenes/13.jpeg";
 import footer2 from "../imagenes/foterfoto.png";
+import { Link } from "react-router-dom";
+// import image13 from "../imagenes/13.jpeg";
 // import imagenf from "../imagenes/HOME6f.png"
 // import png from "../imagenes/footer.jpg";
-import { Link } from "react-router-dom";
 // import SearchBar from "./SearchBar";
 
 const Proveedores = () => {
