@@ -22,14 +22,17 @@ const DetailsPaquetes = () => {
                 <div>
 
                     <NavbarHome />
-                    {/* <div>
-                        <img src={detalleP.galery_image} alt={detalleP.name} />
-                    </div> */}
                     <div>
-                        <h3>{detalleP.name}</h3>
-                        {/* <p>{detalleP.description}</p>
-                        <h3>{detalleP.price}</h3>
-                        <h4>{detalleP.services.map(el => el)}</h4> */}
+                        <img src={detalleP.galery_image} alt={detalleP.name} />
+                    </div>
+                    <div>
+                        <h1>{detalleP.name}</h1>
+                        <p>{detalleP.description}</p>
+                        <h1>${detalleP.price}</h1>
+                        <h1>Servicios que incluye:</h1>
+                        <h4>{detalleP.services.map(el => el.name + ",")}</h4>
+                        <h1>Eventos:</h1>
+                        <h4>{detalleP.events.map(el => el.name)}</h4>
                     </div>
                     <Link to={'/paquetes'}>
                         <button key={id}>Volver</button>

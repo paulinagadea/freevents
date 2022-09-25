@@ -1,8 +1,6 @@
 import React from "react";
 import Slider from "./Slider";
-import image7 from "../imagenes/7.jpg";
 import { brown } from '@material-ui/core/colors';
-import image13 from "../imagenes/13.jpeg";
 import "./Home.css"
 import Button from "@material-ui/core/Button"
 import NavbarHome from "./NavbarHome.jsx"
@@ -17,6 +15,7 @@ import facebook from "../imagenes/Facebook.png";
 import twitter from "../imagenes/twitter.png";
 import instagram from "../imagenes/instagram.png";
 import SliderProveedores from "./SliderProveedores";
+import { Link } from "react-router-dom";
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -70,8 +69,15 @@ const Home = () => {
                     </Grid>
                 </Grid> */}
                 <div className="parrafoc">
-                    <h1 className="parrafo">Con nuestros proveedores de servicios podrás conseguir que tu evento soñado sea una realidad. Adaptarás todas tus necesidades con los paquetes personalizados para cada tipo de evento. Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero éxito.
+                    <h1 className="parrafo">Con nuestros proveedores de servicios podrás conseguir que tu evento soñado 
+                    sea una realidad. Adaptarás todas tus necesidades con los paquetes personalizados para cada tipo de evento. 
+                    Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero 
+                    éxito. Somos el catalogo mas grande de proveedores y servicios en la web, comienza a armar tu evento.
                         </h1>
+                        <Link to="/proveedores"
+                        >
+                        <h1> CONOCELOS AQUÍ  </h1>
+                        </Link>
                 </div>
             </div>
             <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
@@ -87,21 +93,20 @@ const Home = () => {
                         disableElevation
                         >REGISTRATE AQUÍ
                 </Button>
-
             </div>
                 <div className="container-footer">
                     <div className="footer-completo">
                         <a href={"https://github.com/paulinagadea/freevents"}>
-                        <img src={githud} alt="not found" height="80px" on></img>
+                        <img src={githud} alt="not found" height="40px" on></img>
                         </a>
                         <a href={"https://www.facebook.com/"}>
-                        <img src={facebook} alt="not found" height="80px"></img>
+                        <img src={facebook} alt="not found" height="40px"></img>
                         </a>
                         <a href={"https://twitter.com"}>
-                        <img src={twitter} alt="not found" height="80px"></img>  
+                        <img src={twitter} alt="not found" height="40px"></img>  
                         </a>
                         <a href={"https://www.instagram.com/"}>
-                        <img src={instagram} alt="not found" height="80px"></img>  
+                        <img src={instagram} alt="not found" height="40px"></img>  
                         </a>
                         <div className="botones">
                         </div>
