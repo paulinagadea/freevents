@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import React, { useState } from 'react'
-
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-
-function Navbar() {
+export default function NavbarHome() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
-  
     //cuando esta true lo pasa a false y vice versa
     setClicked(!clicked)
   }
@@ -33,8 +30,6 @@ function Navbar() {
     )
   }
   
-  export default Navbar
-
   const NavContainer= styled.nav`
   .link{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,7 +56,7 @@ function Navbar() {
     display: flex;
     margin-bottom:-6.3vh;
     height: 10vh;
-    width: 211.1vh;
+    width: auto;
     align-items: center;
     margin-bottom: -45.1px;
     
@@ -120,21 +115,21 @@ function Navbar() {
       }
     }
   `
-const BgDiv = styled.div`
-background-color: #222;
-position: absolute;
-top: -1000px;
-left: -1000px;
-width: 100%;
-height: 100%;
-z-index: -1;
-transition: all .6s ease ;
+// const BgDiv = styled.div`
+// background-color: #222;
+// position: absolute;
+// top: -1000px;
+// left: -1000px;
+// width: 100%;
+// height: 100%;
+// z-index: -1;
+// transition: all .6s ease ;
 
-&.active{
-  border-radius: 0 0 80% 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-`
+// &.active{
+//   border-radius: 0 0 80% 0;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+// `
