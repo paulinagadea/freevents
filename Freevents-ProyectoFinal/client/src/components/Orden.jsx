@@ -23,8 +23,7 @@ const Orden = () => {
 
     useEffect(() => {
         dispatch(getOrder())
-        dispatch(getDetailsPacks(id))
-    }, [dispatch, id])
+    }, [dispatch])
 
     return clientis ? (
         <div>
