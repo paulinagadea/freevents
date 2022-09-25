@@ -101,11 +101,11 @@ const Paquetes = () => {
           
         </div>
       </div>
-      <div>
+      <div className="grid">
         {currentPacks?.map((packs) => {
           console.log(packs.services)
           return (
-            <div>
+            <div className='item'>
               <CardPaquetes
                 name={packs.name}
                 price={packs.price}
