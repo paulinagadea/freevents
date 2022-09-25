@@ -55,7 +55,7 @@ const Proveedores = () => {
 
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={footer2} alt="" />
-      <h1 className="Titulo-proveedores"> Proveedores </h1>
+      <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
       <button onClick={e => { handleClick(e) }}> ⇦</button>
       <Paginado
         providersPerPage={providersPerPage}
