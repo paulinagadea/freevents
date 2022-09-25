@@ -190,26 +190,27 @@ export const clearDetails = () => {
 
 export const addToCart = product => async dispatch => {
 	// if cart already exists in local storage, use it, otherwise set to empty array
-	const cart = localStorage.getItem('cart')
+	const cart = localStorage.getItem('cart')//SI EL ITEM EXISISTE
 		? JSON.parse(localStorage.getItem('cart'))
 		: [];
 
 	// check if duplicates
 	const duplicates = cart.filter(cartItem => cartItem.id === product.id);
-
 	// if no duplicates, proceed
-    console.log(duplicates, "DUPLICADOS")
-    console.log(cart, "CART")
-    console.log(product, "PRODUCT")
+    // console.log(duplicates, "DUPLICADOS")
+    // console.log(cart, "CART")
+    // console.log(product, "PRODUCT")
 	if (duplicates.length === 0) {
 		// prep product data
 		const productToAdd = {
 			...product,
-			count: 1,
-		};
- console.log(productToAdd, "PRODUCT TO ADD")
+			// count: 1,
+		}
+        cart.push(productToAdd);
+    }
+    // console.log(productToAdd, "PRODUCT TO ADD")
+        ;
 		// add product data to cart
-		cart.push(productToAdd);
 
 		// add cart to local storage
         // const getCircularReplacer = () => {
@@ -231,7 +232,7 @@ export const addToCart = product => async dispatch => {
 			type: actionTypes.addToCart,
 			payload: cart,
 		});
-	}
+	
 };
 
 
