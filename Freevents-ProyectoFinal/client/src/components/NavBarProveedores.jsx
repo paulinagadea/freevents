@@ -8,8 +8,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-
-
 function HideOnScroll(props) {
     const { children, window } = props;
     const trigger = useScrollTrigger({ target: window ? window() : undefined });

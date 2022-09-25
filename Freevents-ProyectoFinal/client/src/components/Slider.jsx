@@ -1,19 +1,15 @@
 import React, {useRef, useEffect} from "react";
-
 import styled from 'styled-components';
-
 import HOME1 from "../imagenes/HOME1.jpeg";
 import HOME2 from "../imagenes/HOME2.jpeg";
 import HOME5 from "../imagenes/HOME5.jpeg";
 import HOME6 from "../imagenes/HOME6.jpeg";
 import HOME7 from "../imagenes/HOME7.jpeg";
-
 import "./Slider.css"
-
-// let images = [image6,image4,image15,image16,image8,image5,image28]
-
 import FlechaIzquierda from '../imagenes/iconmonstr-angel-left-thin-240.png'
 import FlechaDerecha from '../imagenes/iconmonstr-angel-right-thin-240.png'
+// let images = [image6,image4,image15,image16,image8,image5,image28]
+
 
 const Slider = () => {
     // return (

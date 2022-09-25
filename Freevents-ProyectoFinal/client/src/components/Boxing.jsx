@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+// import ImageListItem from '@material-ui/core/ImageListItem';
+// import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+// import IconButton from '@material-ui/core/IconButton';
+// import StarBorderIcon from '@material-ui/icons/StarBorder';
 import CardProveedor from './CardProveedor';
-import { useState, useEffect } from "react";
+import { /*useState,*/ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
 
@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
-
-
-  
-
 
 export default function SingleLineImageList() {
   const classes = useStyles();

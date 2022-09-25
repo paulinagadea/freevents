@@ -1,8 +1,10 @@
 import React from "react";
 import "./LandingPage.css"
-// import {Link} from "react-router-dom";
 import FOTOGENERAL from "../imagenes/foto-junta.jpg"
-import cabeza from "../imagenes/20.jpg";
+import NavBarLanding from "./NavBarLanding.jsx"
+import { /*Button,*/ Container } from "@mui/material";
+// import {Link} from "react-router-dom";
+// import cabeza from "../imagenes/20.jpg";
 // import f9 from "../imagenes/9.jpg";
 // import f15 from "../imagenes/15.jpg";
 // import f6 from "../imagenes/5.jpg";
@@ -12,14 +14,12 @@ import cabeza from "../imagenes/20.jpg";
 // import f4 from "../imagenes/4.jpg";
 // import f14 from "../imagenes/14.jpg";
 // import theme from '../temaConfig'
-import NavBarLanding from "./NavBarLanding.jsx"
-import { /*Button,*/ Container } from "@mui/material";
 
 export default function LandingPage(){
     return(
                 <div className="encabezado">
                     <NavBarLanding/>
-                    <Container sx={{mt:5.7}} /*maxWidth="xl"*/></Container>
+                    <Container /*sx={{mt:5.7}} maxWidth="xl"*/></Container>
                     <img className="cabeza" src={FOTOGENERAL} alt="img not found" /*width="1300px" height="800px"*/></img>
                     {/* <img className="cabeza" src={cabeza} alt="img not found" /*width="1300px" height="800px"></img> */}
                 <div>

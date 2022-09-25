@@ -38,11 +38,9 @@ export default function NavbarHome() {
     font-family: 'Epilogue', sans-serif;
   }
 
-
  .containerbar{
     margin-right: 5%;
   }
-
 
     h2{
       color: white;
@@ -54,17 +52,13 @@ export default function NavbarHome() {
     padding: .4rem;
     background-color: #736A68;
     display: flex;
-    margin-bottom:-6.3vh;
     height: 10vh;
     width: auto;
     align-items: center;
-    margin-bottom: -45.1px;
-    
     justify-content: space-between;
 
     a{
       color:white;
-      
       text-decoration:none;
       margin-right: 1rem;
     }
