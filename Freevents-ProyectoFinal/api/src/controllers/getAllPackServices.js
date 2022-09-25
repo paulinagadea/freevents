@@ -19,7 +19,7 @@ const getAllPackServices = async () => {
             }, 
         ]
     }); 
-    return allPacks; 
+    return allPacks;
 }; 
 
 const getPacksByName = async (name) => {
@@ -62,4 +62,4 @@ module.exports = {
     getPacksByName, 
     getPacksById
   
-}
+}; 

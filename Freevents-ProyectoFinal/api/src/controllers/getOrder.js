@@ -1,4 +1,9 @@
 const { Pack_services, Provider, Client, Order } = require('../db')
+const mercadopago = require("mercadopago");
+
+mercadopago.configure({
+    access_token: "APP_USR-2751540276278194-092303-5231919cc7d44319e47e4774ac04ff2f-1202990518",
+  });
 
 //----> GET-ALL-ORDER
 const getAllOrder = async (req, res) => {
@@ -7,7 +12,7 @@ const getAllOrder = async (req, res) => {
             include: [
                 {
                     model: Pack_services,
-                    attributes: ['name'], 
+                    attributes: ['name', 'price'], 
                     // through: {
                     //     attributes: [],
                     // }
@@ -81,7 +86,7 @@ const getOrderById = async (req, res) => {
 const postOrder = async (req, res) => {
     const { clientId, providerId, packServiceId, status, event_date, event_address } = req.body; 
     console.log("perritossssss", req.body)
-    try { 
+    try {
         const orderCreate = await Order.create({
            status, 
            event_date, 
@@ -91,7 +96,6 @@ const postOrder = async (req, res) => {
         let clientDb = await Client.findOne({
             where : { id : clientId }
         });
-
         await orderCreate.setClient(clientDb.id);
 
         let providerDb = await Provider.findOne({
@@ -113,22 +117,79 @@ const postOrder = async (req, res) => {
 }; 
 
 //----> DELETE-ORDER
-const deleteOrder = async (req, res) => {
+const canceledOrder = async (req, res) => {
     try { 
-        await Order.destroy({
-            where : { id : req.params.id }
-        })
-        res.status(200).send('Order removed.')
+        await Order.update(
+            {status: "canceled"},
+            {where : { id : req.params.id }},
+        )
+        res.status(200).send('Order canceled.')
     }
     catch(error) { 
-        console.log(error); 
+        console.log('ERROR DE PATCH', error); 
         res.status(400).send('Bad request.'); 
     }; 
 }; 
+
+
+//----> POST-MERCADO PAGO.
+const postMP = async (req, res) => {
+    try {
+    const id = req.params.id; 
+    const orderMP = await Order.findOne({
+        where : { id : id },
+        include: {
+            model: Pack_services, 
+            attributes: ['price']
+        }
+    })
+
+    let preference = {
+        items: [
+          {
+            title: orderMP.name,
+            unit_price: orderMP.pack_service.price,
+            quantity: 1,
+          },
+        ],
+        external_reference: `${orderMP.id}`,
+        back_urls: {
+            success: "https://freevents-backend-render.onrender.com/order/payment-confirm",
+            failure: "https://freevents-backend-render.onrender.com/order/payment-confirm",
+            pending: "https://freevents-backend-render.onrender.com/order/payment-confirm"
+        },
+        auto_return: "approved",
+      };
+      const response = await mercadopago.preferences.create(preference);
+      const preferenceId = response.body.id; 
+
+      res.send({ preferenceId });
+    }
+    catch(error) {
+        res.status(404).send(error);
+    }
+};
+
+const patchOrder = async (req, res) => {
+    const external_reference = req.query.external_reference; 
+    try {
+        await Order.update(
+            { status : "fulfilled" },
+            { where : { id: parseInt(external_reference) }},
+        );
+        res.redirect("") //AGREGAR COMPONENTE QUE CONTENGA EL PERFIL DEL CLIENTE.
+    }
+    catch(error) {
+        res.status(400).send(error); 
+    };
+};
+
+
 module.exports = {
     getAllOrder,
     getOrderById,
     postOrder,
-    deleteOrder 
-    
-}
+    canceledOrder,
+    postMP,
+    patchOrder
+};

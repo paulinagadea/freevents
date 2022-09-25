@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
         status:{
-            type: DataTypes.ENUM("fulfilled", "pending", "canceled", "cart")
+            type: DataTypes.ENUM("fulfilled", "pending", "canceled")
         },
         event_date: {
             type: DataTypes.STRING,
