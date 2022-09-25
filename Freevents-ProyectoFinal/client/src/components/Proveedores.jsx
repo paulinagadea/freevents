@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders, getEvents, orderByName } from "../actions";
-import NavbarNuevo from "./NavbarNuevo";
+import NavbarHome from "./NavbarHome.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
@@ -11,8 +11,7 @@ import footer2 from "../imagenes/foterfoto.png";
 // import imagenf from "../imagenes/HOME6f.png"
 // import png from "../imagenes/footer.jpg";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
-
+// import SearchBar from "./SearchBar";
 
 const Proveedores = () => {
 
@@ -52,7 +51,7 @@ const Proveedores = () => {
 
   return (
     <div>
-      <NavbarNuevo />
+      <NavbarHome />
 
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={footer2} alt="" />

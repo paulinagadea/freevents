@@ -1,28 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Details.css'
-
 // import { Proveedores, Servicios } from './../data';
-import NavbarNuevo from "./NavbarNuevo";
-import { getData, getEvent } from '../dataJSON';
-import image from '../imagenes/bluefoxx.png'
-
-import { useNavigate, useParams } from 'react-router-dom'
+import NavbarHome from "./NavbarHome.jsx";
+// import { getData, getEvent } from '../dataJSON';
+// import image from '../imagenes/bluefoxx.png'
+import { /*useNavigate,*/ useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetails, clearDetails, getEvents } from "../actions"
 import { useEffect } from 'react'
 import { Container } from '@material-ui/core';
 
-
 const Details = () => {
-
     const dispatch = useDispatch()
     let { id } = useParams()
     //const navigate = useNavigate()
     const myservice = useSelector((state)=>state.detail)
     const evente = useSelector((state)=>state.events)
     console.log(myservice)
-
 
     useEffect(()=>{
         dispatch(getEvents())
@@ -43,7 +38,7 @@ const Details = () => {
             ? (
                 <div>
 
-                <NavbarNuevo/>
+                <NavbarHome/>
                 <div className='imgdetail'>
                     <img 
                     src={myservice.background_image} 

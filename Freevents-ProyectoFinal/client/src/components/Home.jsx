@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import Slider from "./Slider";
 import image7 from "../imagenes/7.jpg";
 import image10 from "../imagenes/10.jpg";
 import { brown } from '@material-ui/core/colors';
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
-import fotogeneral from '../imagenes/FOTOGENERAL.png';
+// import { Link } from "react-router-dom";
+// import fotogeneral from '../imagenes/FOTOGENERAL.png';
+// import footer from "../imagenes/footer10.jpg";
+// import CardProveedor from "./CardProveedor";
 import image13 from "../imagenes/13.jpeg";
-import footer from "../imagenes/footer10.jpg";
 import "./Home.css"
 import Button from "@material-ui/core/Button"
-import NavbarNuevo  from "./NavbarNuevo.jsx"
-import CardProveedor from "./CardProveedor";
-import { useState, useEffect } from "react";
+import NavbarHome from "./NavbarHome.jsx"
+import { /*useState,*/ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders } from "../actions";
 import Eventos from "./Eventos"
@@ -22,10 +22,6 @@ import githud from "../imagenes/github.png";
 import facebook from "../imagenes/Facebook.png";
 import twitter from "../imagenes/twitter.png";
 import instagram from "../imagenes/instagram.png";
-
-
-
-
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -37,7 +33,7 @@ const Home = () => {
 
     return (
         <div>
-                <NavbarNuevo />
+                <NavbarHome />
                 {/* <img className="imghome" src={image20} alt="" /> */}
             <div className="contiene">
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
@@ -104,16 +100,16 @@ const Home = () => {
                     <div className="footer-completo">
                         {/* <img src={footer}></img> */}
                         <a href={"https://github.com/paulinagadea/freevents"}>
-                        <img  src={githud} height="80px" on></img>
+                        <img src={githud} alt="not found" height="80px" on></img>
                         </a>
                         <a href={"https://www.facebook.com/"}>
-                        <img src={facebook} height="80px"></img>
+                        <img src={facebook} alt="not found" height="80px"></img>
                         </a>
                         <a href={"https://twitter.com"}>
-                        <img src={twitter} height="80px"></img>  
+                        <img src={twitter} alt="not found" height="80px"></img>  
                         </a>
                         <a href={"https://www.instagram.com/"}>
-                        <img src={instagram} height="80px"></img>  
+                        <img src={instagram} alt="not found" height="80px"></img>  
                         </a>
                         <div className="botones">
                         

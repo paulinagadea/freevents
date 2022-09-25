@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, /*useNavigate,*/ useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetailsPacks } from "../actions"
 import { useEffect } from 'react'
-import NavbarNuevo from "./NavbarNuevo";
+import NavbarHome from "./NavbarHome.jsx";
 
 const DetailsPaquetes = () =>{
     let {id} = useParams()
@@ -15,11 +15,9 @@ const DetailsPaquetes = () =>{
         dispatch(getDetailsPacks(id));
     },[dispatch, id])
 
-
-
     return (
        <div>
-            <NavbarNuevo/>
+            <NavbarHome/>
             <h1>{detalle?.name}</h1>
             <p>{detalle?.description}</p>
             <h3>{detalle?.price}</h3>
@@ -29,8 +27,6 @@ const DetailsPaquetes = () =>{
             <Link to={'/paquetes'}>
                 <button key={id}>Volver</button>
             </Link>
-
-            
 
        </div>
     )
