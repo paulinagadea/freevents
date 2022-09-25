@@ -101,7 +101,7 @@ const Paquetes = () => {
           console.log(packs.services)
           return (
             <div className='item'>
-              <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}>
+              {/* <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}> */}
               <CardPaquetes
                 name={packs.name}
                 price={packs.price}
@@ -110,7 +110,7 @@ const Paquetes = () => {
                 services={packs.services?.map(s => s.name)}
                 id={packs.id}
               />
-              </Link>
+              {/* </Link> */}
             </div>
           )
         })}

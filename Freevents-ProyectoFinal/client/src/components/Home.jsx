@@ -16,6 +16,7 @@ import twitter from "../imagenes/twitter.png";
 import instagram from "../imagenes/instagram.png";
 import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
+import SimpleCard from "./Comentarios";
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -80,6 +81,9 @@ const Home = () => {
                         </Link>
                 </div>
             </div>
+            <h1 className="titulo-home">RESEÑAS DE CLIENTES</h1>
+            <SimpleCard className="comentarios"/>
+            
             <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
             <div className="boxing">
                 <Boximg/>
