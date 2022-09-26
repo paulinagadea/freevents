@@ -5,12 +5,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Avatar } from '@mui/material';
+import './Comentarios.css'
 
 
 const useStyles = makeStyles({
     root: {
         minWidth: 300,
-        maxWidth: 500,
+        maxWidth: 1500,
     },
     bullet: {
         display: 'inline-block',
@@ -33,6 +34,7 @@ export default function SimpleCard() {
 
     return (
         <Card className={classes.root}>
+            <div className='cont-comentarios'>
             <div className='parent'>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -105,7 +107,7 @@ export default function SimpleCard() {
                     </Typography>
                     <Button size="small">★★★★★</Button>
                 </CardContent>
-                    
+                </div>      
             </div>
         </Card>
     );
