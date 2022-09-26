@@ -45,12 +45,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 services: action.payload,
             }
-        } case actionTypes.getOrder: {
-            return {
-                ...state,
-                order: action.payload,
-            }
-        }
+        } 
+        // case actionTypes.getOrder: {
+        //     return {
+        //         ...state,
+        //         order: action.payload,
+        //     }
+        // }
+
         case actionTypes.clearDetails: {
             return {
                 ...state,
@@ -191,6 +193,15 @@ function rootReducer(state = initialState, action) {
                 favs: [...action.payload]
             }
         }
+        case actionTypes.addToOrder: {
+            return {
+                ...state,
+                order: [...action.payload]
+            }
+        }
+        
+
+
         case actionTypes.removeOneFromCart: {
             let packToDelete = state.cart.find((pack) => pack.id === action.payload);
             return packToDelete.quantity > 1

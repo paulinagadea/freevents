@@ -20,14 +20,23 @@ const Orden = () => {
     const clientis = useSelector((state) => state.order)
     const detalles = useSelector((state) => state.detail)
 
+    let misDatos = JSON.parse( localStorage.getItem('order'));
+    console.log(misDatos, "MIS DATOS")
+    console.log(clientis, "CLIENTIS")
 
     useEffect(() => {
         dispatch(getOrder())
     }, [dispatch])
 
-    return clientis ? (
+    return  (
+        // return clientis ? (
         <div>
             <h1>Orden de Compra:</h1>
+            <h3>Paquete info</h3>
+            <div>
+                <h4>Nombre:{clientis.name}</h4>
+                <h4>Documento de Identidad: 36401767</h4>
+            </div>
             <h3>Informacion del Cliente:</h3>
             <div>
                 <h4>Nombre:</h4>
@@ -58,10 +67,10 @@ const Orden = () => {
                     <button key={id}>Volver</button>
                 </Link>
         </div>
-    ) : (
-        <div>
-            <h1>No Seleccionaste un paquete</h1>
-        </div>
+        //   ) : (
+        //     <div>
+        //         <h1>No Seleccionaste un paquete</h1>
+        //     </div>
     )
 }
 
