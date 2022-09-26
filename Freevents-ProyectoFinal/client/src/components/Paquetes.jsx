@@ -109,6 +109,8 @@ const Paquetes = () => {
                 events={packs.events.map(e => e.name)}
                 services={packs.services?.map(s => s.name)}
                 id={packs.id}
+
+
               />
               </Link>
             </div>

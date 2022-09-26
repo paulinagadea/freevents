@@ -76,7 +76,8 @@ const product = {name, price, events, services, id, galery_image}
         <CardActions>
           <Button onClick={handleAddToFavs} >🧡 Añadir a favoritos</Button>
         {/* <Link to={`/detail/${packs.id}`}>
-        <Button size="small"> + Info </Button>
+        
+       
         </Link> */}
       </CardActions>
             </CardActionArea>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearDetails, getDetailsPacks } from "../actions"
+import { clearDetails, getDetailsPacks, addToOrder } from "../actions"
 import { useEffect } from 'react'
 import NavbarHome from "./NavbarHome.jsx";
 
@@ -10,11 +10,20 @@ const DetailsPaquetes = () => {
     const dispatch = useDispatch()
     let { id } = useParams()
     const detalleP = useSelector((state) => state.detailPack)
+    console.log(detalleP, "DETAIL PACK")
+
+
+
 
     useEffect(() => {
         dispatch(getDetailsPacks(id));
         return () => { dispatch(clearDetails()) }
     }, [dispatch, id])
+
+    const handleAddOrder = () => {
+        console.log(detalleP, "detalle P")
+        dispatch(addToOrder(detalleP))
+      }
 
     return (
         detalleP && detalleP.id
@@ -33,6 +42,11 @@ const DetailsPaquetes = () => {
                         <h4>{detalleP.services.map(el => el.name + ",")}</h4>
                         <h1>Eventos:</h1>
                         <h4>{detalleP.events.map(el => el.name)}</h4>
+                        <Link to = {'/orden'}>
+                        <button onClick={handleAddOrder}>Adquirir producto</button>
+                        </Link>
+                        {/* <Button>Adquirit producto</Button> */}
+                        {/* onClick={handleAddOrder} */}
                     </div>
                     <Link to={'/paquetes'}>
                         <button key={id}>Volver</button>

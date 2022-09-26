@@ -24,6 +24,7 @@ export const actionTypes ={
     getOrder:"getOrder",
     postOrder:"postOrder",
     getNamesPaquetes:"getNamesPaquetes",
+    addToOrder:"addToOrder",
 
 };
 
@@ -47,6 +48,8 @@ export function postOrder(payload) {
         }
     };
 };
+
+
 
 export const filterPacksByService = (payload) =>{
     return{
@@ -177,6 +180,29 @@ export const clearDetails = () => {
         type: actionTypes.clearDetails
     }
 }
+export const addToOrder = detalleP => async dispatch => {
+    const order = localStorage.getItem('order')//SI EL ITEM EXISISTE
+		? JSON.parse(localStorage.getItem('order'))
+		: [];
+
+        const duplicates = order.filter(orderItem => orderItem.id === detalleP.id);
+	// if no duplicates, proceed
+	if (duplicates.length === 0) {
+		// prep product data
+		const detallePToAdd = {
+			...detalleP,
+			
+		}
+        order.push(detallePToAdd);
+    }
+		localStorage.setItem('order', JSON.stringify(order));
+		// add cart to redux
+		dispatch({
+			type: actionTypes.addToOrder,
+			payload: order,
+		});
+	
+};
 
 
 export const addToFavs = product => async dispatch => {
