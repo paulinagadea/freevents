@@ -1,4 +1,5 @@
-const { Pack_services, Event, Service } = require('../db')
+const { Pack_services, Event, Service, Provider } = require('../db');
+const providerLogin = require('../routes/ProviderLogin');
 
 const getAllPackServices = async () => {
     const allPacks = await Pack_services.findAll({
@@ -16,7 +17,11 @@ const getAllPackServices = async () => {
                 through: {
                     attributes: [],
                 }
-            }, 
+            },
+            {
+                model: Provider,
+                attributes: [ 'id' ],
+            }
         ]
     }); 
     return allPacks;

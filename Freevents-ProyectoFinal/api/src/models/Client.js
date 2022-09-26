@@ -19,10 +19,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        password: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        }, 
+        passwordHash_client: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         dni: {
             type: DataTypes.TEXT,
             allowNull: false
@@ -39,5 +39,14 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false, 
             defaultValue: true,
+        },
+        user_client: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+            defaultValue: "client",
         }
-})}
+},
+{
+    freezeTableName: true
+}
+)};

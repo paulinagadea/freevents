@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        passwordHash: {
+        passwordHash_provider: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -58,6 +58,11 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true,
+        },
+        user_provider: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+            defaultValue: "provider",
         }
     },
         {

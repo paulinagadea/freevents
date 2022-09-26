@@ -22,13 +22,17 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         
-        password: {
-            type: DataTypes.INTEGER,
+        passwordHash: {
+            type: DataTypes.STRING,
             allowNull: false,
-
         },
-       
-       
+        user_admin: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+            defaultValue: "admin",
+        }
+    },
+    {
+        freezeTableName: true
     })
-
-}
+};
