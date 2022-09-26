@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProviders, getEvents, orderByName } from "../actions";
-import NavbarHome from "./NavbarHome.jsx";
+import NavbarProveedores from "./NavBarProveedores.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
@@ -51,7 +51,7 @@ const Proveedores = () => {
 
   return (
     <div>
-      <NavbarHome />
+      <NavbarProveedores />
 
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={footer2} alt="" />
