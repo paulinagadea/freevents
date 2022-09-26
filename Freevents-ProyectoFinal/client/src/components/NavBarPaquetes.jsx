@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import SearchBarPaquetes from "./SearchBarPaquetes";
+//import SearchBarPaquetes from "./SearchBarPaquetes";
+import SearchBarFinal from "./SearchFinal";
 
 
 function Navbar() {
@@ -18,7 +19,7 @@ function Navbar() {
       <div>
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
-          <SearchBarPaquetes/>
+          {/* <SearchBarFinal/> */}
         <div className="containerbar">
           <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
