@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { auth } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 
 export default function NavbarHome() {
   const [clicked, setClicked] = useState(false)
@@ -10,6 +12,17 @@ export default function NavbarHome() {
     //cuando esta true lo pasa a false y vice versa
     setClicked(!clicked)
   }
+  const { logout, user } = useAuth();
+  console.log(user);
+  
+    // cerrar sesion
+    const handleLogout = async () => {
+      try {
+        await logout();
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
 
     return (
       <div>
@@ -17,11 +30,12 @@ export default function NavbarHome() {
         <Link className="link" to="/home">Freevents</Link>
           <SearchBar/>
         <div className="containerbar">
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          <Button size="small" onClick={handleLogout} href="/login">Salir</Button>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
