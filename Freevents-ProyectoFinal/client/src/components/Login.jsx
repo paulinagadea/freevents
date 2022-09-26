@@ -83,7 +83,7 @@ export default function Login() {
   return (
     
     <div className='container-todo'>
-
+      <Link to="/home"><button>Inicio</button></Link>
     
     <div className="container-login">
 
