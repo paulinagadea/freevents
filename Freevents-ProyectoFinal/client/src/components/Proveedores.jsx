@@ -52,7 +52,6 @@ const Proveedores = () => {
   return (
     <div>
       <NavbarHome />
-
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={footer2} alt="" />
       <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
@@ -70,6 +69,10 @@ const Proveedores = () => {
           <option value="descendente">Z-A</option>
         </select>
       </div>
+
+      <Link to="/creacionpaquetes"><button href="/home">agregar paquete</button></Link>
+      
+
       <div className="grid">
         {currentProviders?.map((provider) => {
           return (
