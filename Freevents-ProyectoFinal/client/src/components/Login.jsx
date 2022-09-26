@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
 import Typography from '@material-ui/core/Typography';
 import google from "../imagenes/google.png"
+
 import { red } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
@@ -81,9 +82,10 @@ export default function Login() {
   };
 
   return (
-    
+    <div>
+
     <div className='container-todo'>
-      <Link to="/home"><button>Inicio</button></Link>
+      <Button to="/home">Inicio</Button>
     
     <div className="container-login">
 
@@ -169,6 +171,7 @@ export default function Login() {
         </Typography>
       </form>
       
+    </div>
     </div>
     </div>
   );
