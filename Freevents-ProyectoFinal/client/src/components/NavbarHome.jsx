@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+//import SearchBar from "./SearchBar";
 
 export default function NavbarHome() {
   const [clicked, setClicked] = useState(false)
@@ -15,7 +15,7 @@ export default function NavbarHome() {
       <div>
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
-          <SearchBar/>
+          {/* <SearchBar/> */}
         <div className="containerbar">
           <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
