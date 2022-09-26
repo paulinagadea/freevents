@@ -13,6 +13,7 @@ const initialState = {
     favs: [],
     order: [],
     ordercita: [],
+    ordenGenerada:{},
 }
 
 if (localStorage.getItem('favs')) {
@@ -29,6 +30,14 @@ function rootReducer(state = initialState, action) {
                 allEvents: action.payload,
             };
         }
+        // case actionTypes.addLastOrder:{
+        //     console.log(state.ordercita, "estado ordercita")
+        //     return{
+        //         ...state,
+        //         ordenMomentanea: state.ordercita.pop()
+
+        //     }
+        // }
         case actionTypes.getProviders: {
             return {
                 ...state,
@@ -52,6 +61,13 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 ordercita: action.payload,
+            }
+        }
+        
+        case actionTypes.postOrder: {
+            return {
+                ...state,
+                ordenGenerada: action.payload,
             }
         }
 

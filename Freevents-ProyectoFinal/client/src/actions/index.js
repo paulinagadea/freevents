@@ -25,6 +25,7 @@ export const actionTypes ={
     postOrder:"postOrder",
     getNamesPaquetes:"getNamesPaquetes",
     addToOrder:"addToOrder",
+    addLastOrder:"addLastOrder",
 
 };
 
@@ -37,12 +38,31 @@ export const getOrder = () => {
         });
     };
 };
+
+// export function addLastOrder(payload){
+   
+//     return async function (){
+//         try {
+            
+//         const creado = await axios.post("/order", payload);
+//         console.log(creado, "CREADOOOOOO")
+//             return creado
+//     }catch(error){
+//         throw new Error(error)
+//     }
+// }}
+
 export function postOrder(payload) {
-    return async function () {
+    return async function (dispatch) {
         try {
+            // console.log(payload, "SOY EL PAYLOARDO")
             const creado = await axios.post("/order", payload);
             console.log(creado)
-            return creado;
+            return dispatch({
+                
+                type: actionTypes.postOrder,
+                payload: creado.data
+            })
         } catch (error) {
             throw new Error(error);
         }

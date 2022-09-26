@@ -18,6 +18,7 @@ import { useState, useEffect } from 'react';
 import Orden from './components/Orden';
 import PerfilUser from "./components/PerfilUser"
 import Comentarios from "./components/Comentarios"
+import Orden2 from './components/Orden2'
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
             <Route exact path = '/orden' element={<Orden/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
+            <Route exact path = '/orden2' element={<Orden2/>}/>
 
             {/* <Route exact path = '/login' element={<Login
             setLog={setLog}
