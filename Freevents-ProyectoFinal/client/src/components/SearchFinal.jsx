@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { grey } from '@material-ui/core/colors';
 import { useDispatch, useSelector } from "react-redux";
-import { getNamesProviders } from "../actions";
+import { getNamesPacks, getNamesProviders } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
-import * as React from 'react';
+import React from 'react';
 import Alert from '@mui/material/Alert';
 import './SearchBar.css'
 
-export default function SearchBar({ setCurrentPage }) {
+export default function SearchBarFinal({ setCurrentPage }) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
     const provider = useSelector((state) => state.providers)
+    const packss = useSelector((state) => state.packs)
     console.log(provider, "soy el provider")
 
     function handleInputChange(e) {
@@ -20,13 +21,12 @@ export default function SearchBar({ setCurrentPage }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(name)
+        
+        if (!name) return <Alert severity="error">No agregaste un valor a la busqueda</Alert>
 
-        if (!name) return alert("Busca un proveedor");
-
-        if (provider.find(el => el.name.toLowerCase().includes(name.toLowerCase()))) {
-
+        if (provider.find(el => el.name.toLowerCase().includes(name.toLowerCase())) || packss.find(el => el.name.toLowerCase().includes(name.toLowerCase()))) {
             dispatch(getNamesProviders(name));
+            dispatch(getNamesPacks(name))
             setName("")
             setCurrentPage(1)
         } else {
@@ -43,7 +43,6 @@ export default function SearchBar({ setCurrentPage }) {
                 placeholder="Buscar..."
                 onChange={(e) => handleInputChange(e)}
             />
-
             <path
                 type="submit"
                 onClick={(e) => handleSubmit(e)}

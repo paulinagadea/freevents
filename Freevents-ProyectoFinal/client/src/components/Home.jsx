@@ -75,9 +75,10 @@ const Home = () => {
                     Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero 
                     éxito. Somos el catalogo mas grande de proveedores y servicios en la web, comienza a armar tu evento.
                         </h1>
-                        <Link to="/proveedores"
+                        <Link 
+                        to="/proveedores"
                         >
-                        <h1> CONOCELOS AQUÍ  </h1>
+                        <h1 className="titulo-home"> CONOCELOS AQUÍ  </h1>
                         </Link>
                 </div>
             </div>
