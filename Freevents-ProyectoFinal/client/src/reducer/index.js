@@ -12,11 +12,13 @@ const initialState = {
     allPacks: [],
     favs: [],
     order: [],
+    ordercita: [],
 }
 
 if (localStorage.getItem('favs')) {
     initialState.favs = JSON.parse(localStorage.getItem('favs'));
 } else initialState.favs = []
+
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -46,12 +48,12 @@ function rootReducer(state = initialState, action) {
                 services: action.payload,
             }
         } 
-        // case actionTypes.getOrder: {
-        //     return {
-        //         ...state,
-        //         order: action.payload,
-        //     }
-        // }
+        case actionTypes.getOrder: {
+            return {
+                ...state,
+                ordercita: action.payload,
+            }
+        }
 
         case actionTypes.clearDetails: {
             return {
