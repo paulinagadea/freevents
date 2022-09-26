@@ -8,7 +8,7 @@ export default function Orden2() {
   return (
       <div>
       <h3>{orden.id}</h3>
-      Orden2
+      <button>Comprar</button>
       </div>
    
 
