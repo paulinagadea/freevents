@@ -1,31 +1,70 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import PersonAdd from '@mui/icons-material/PersonAdd';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
+import { useState } from "react";
 import styled from "styled-components";
-import React, { useState } from 'react'
-
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-//import SearchBarPaquetes from "./SearchBarPaquetes";
-import SearchBarFinal from "./SearchFinal";
+import Hidden from '@mui/material/Hidden';
+import SearchFinal from "./SearchFinal";
+import { auth } from "../firebase";
+import { useAuth } from "../context/AuthContext";
+import Salir from "./Salir"
 
 
-function Navbar() {
-  const [clicked, setClicked] = useState(false)
-  const handleClick = () => {
+export default function NavbarHome() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
   
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const [clicked, setClicked] = useState(false)
+  const handleClick = (event) => {
     //cuando esta true lo pasa a false y vice versa
+    setAnchorEl(event.currentTarget);
     setClicked(!clicked)
   }
 
+  const { logout, user } = useAuth();
+  console.log(user);
+  
+    // cerrar sesion
+    const handleLogout = async () => {
+      try {
+        await logout();
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+
     return (
       <div>
+
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
-          {/* <SearchBarFinal/> */}
+        <SearchFinal/>
         <div className="containerbar">
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
-          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          
+          
+          {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
+          <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Salir/>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
@@ -34,8 +73,6 @@ function Navbar() {
     )
   }
   
-  export default Navbar
-
   const NavContainer= styled.nav`
   .link{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,11 +81,9 @@ function Navbar() {
     font-family: 'Epilogue', sans-serif;
   }
 
-
  .containerbar{
     margin-right: 5%;
   }
-
 
     h2{
       color: white;
@@ -61,14 +96,12 @@ function Navbar() {
     background-color: #736A68;
     display: flex;
     height: 10vh;
-    width: 202vh;
+    width: auto;
     align-items: center;
-    
     justify-content: space-between;
 
     a{
       color:white;
-      
       text-decoration:none;
       margin-right: 1rem;
     }
@@ -119,21 +152,3 @@ function Navbar() {
       }
     }
   `
-const BgDiv = styled.div`
-background-color: #222;
-position: absolute;
-top: -1000px;
-left: -1000px;
-width: 100%;
-height: 100%;
-z-index: -1;
-transition: all .6s ease ;
-
-&.active{
-  border-radius: 0 0 80% 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-`
