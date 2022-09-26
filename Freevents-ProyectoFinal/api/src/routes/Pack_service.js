@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getAllPackServices, getPacksByName, getPacksById } = require('../controllers/getAllPackServices'); 
-const { Pack_services, Event, Service } = require('../db'); 
+const { Pack_services, Event, Service, Provider } = require('../db'); 
 const router = Router(); 
 
 router.get('/', async(req, res) => {
@@ -34,7 +34,7 @@ router.get('/:id', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    const { name, description, price, status_enable, galery_image, events, services } = req.body; 
+    const { name, description, price, status_enable, galery_image, events, services, providerId } = req.body; 
     try {
         const packCreate = await Pack_services.create({
             name, 
@@ -48,13 +48,18 @@ router.post('/', async(req, res) => {
                 where : {name: e}
             }) 
             packCreate.addEvent(eventsDb); 
-        }
+        };
         for (let s of services){
             let serviceDb = await Service.findOne({
                 where : {name: s}
             }) 
             packCreate.addService(serviceDb); 
-        }
+        };
+        let providerDb = await Provider.findOne({
+            where : { id : providerId}
+        }); 
+        await packCreate.setProvider(providerDb.id);
+
         res.status(201).send('Pack created successfully!')
     }
     catch(error) {
