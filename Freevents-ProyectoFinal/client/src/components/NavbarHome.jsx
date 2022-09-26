@@ -58,7 +58,7 @@ export default function NavbarHome() {
           {/* <SearchBar/> */}
         <div className="containerbar">
           <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/login">Ingresar</Button>
-          <Button size="small" onClick={handleClick} href="/home">Home</Button>
+          <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           
