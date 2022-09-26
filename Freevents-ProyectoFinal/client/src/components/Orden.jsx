@@ -34,7 +34,7 @@ const Orden = () => {
             <h1>Orden de Compra:</h1>
             <h3>Paquete info</h3>
             <div>
-                <h4>Nombre:{clientis.name}</h4>
+                <h4>Nombre:{clientis[0].name}</h4>
                 <h4>Documento de Identidad: 36401767</h4>
             </div>
             <h3>Informacion del Cliente:</h3>
