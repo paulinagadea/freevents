@@ -1,13 +1,13 @@
 .encabezado {
     justify-content:space-around ;
     position: relative;
-    height: 100vh;
+    height: 90vh;
 }
 
 .cabeza {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .container{
