@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrder, postOrder, getDetailsPacks } from "../actions";
+import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../actions";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 //necesito info de cliente (de donde la saco?)
@@ -21,11 +21,13 @@ const Orden = () => {
   // const detalles = useSelector((state) => state.detail)
 
   let misDatos = JSON.parse(localStorage.getItem("order"));
+  // const ordenMomentanea = useSelector((state) => state.ordenMomentanea)
   // console.log(misDatos, "MIS DATOS")
   // console.log(clientis, "CLIENTIS")
 
   useEffect(() => {
     dispatch(getOrder());
+    // dispatch(addLastOrder())
   }, [dispatch]);
 
   const [input, setInput] = useState({
@@ -39,21 +41,30 @@ const Orden = () => {
     
   });
 //   console.log(input, "input")
-  function handleSubmit(e) {
+   function handleSubmit(e) {
     e.preventDefault();
     // console.log(input)
     
-   setInput( {
+  //  setInput( {
         
-      ...input,
-      event_date: input.event_date,
+  //     ...input,
+  //     event_date: input.event_date,
 
-      event_address: input.event_address,
-    })
+  //     event_address: input.event_address,
+  //   })
     // console.log(input, "input")
     // console.log(formulardo,"formulardo")
-    dispatch(postOrder(input));
+   
+     dispatch(postOrder(input));
+    // console.log(aux, "EL AUX")
+    // console.log(aux.data.id)
+    // dispatch(addLastOrder())
     alert("Orden creada");
+    navigate("/orden2")
+    // <Redirect to = {{
+    //    pathname: '/order',
+    //    state: { aux.data.id}
+    // }}/>
     setInput({
       event_date: "",
       event_address: "",
