@@ -11,7 +11,9 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
         status:{
-            type: DataTypes.ENUM("fulfilled", "pending", "canceled")
+            
+            type: DataTypes.ENUM("fulfilled", "pending", "canceled"),
+            defaultValue: "pending"
         },
         event_date: {
             type: DataTypes.STRING,
