@@ -29,6 +29,11 @@ const Orden = () => {
   }, [dispatch]);
 
   const [input, setInput] = useState({
+    //<<<<QUITAR HARD>>>>
+    clientId: "611ed52e-1bba-4c95-b76b-1eb43ae469f7",
+    providerId: "a533aa44-67ed-4521-ad60-1c5d12fc927c",
+    packServiceId: "243a718b-62e5-419f-abbc-20b923110dab",
+    //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
     
@@ -38,15 +43,15 @@ const Orden = () => {
     e.preventDefault();
     // console.log(input)
     
-    let formulardo = {
+   setInput( {
         
       ...input,
       event_date: input.event_date,
 
       event_address: input.event_address,
-    };
-    console.log(input, "input")
-    console.log(formulardo,"formulardo")
+    })
+    // console.log(input, "input")
+    // console.log(formulardo,"formulardo")
     dispatch(postOrder(input));
     alert("Orden creada");
     setInput({
@@ -95,14 +100,14 @@ const Orden = () => {
             <input
               type="date"
               autoComplete="off"
-              
+              name="event_date"
               onChange={(e) => handleChange(e)}
 
             />
             <label>Dirección evento</label>
             <input 
             type="text" 
-         
+            name="event_address"
             onChange={(e) => handleChange(e)} />
           </div>
         </form>
