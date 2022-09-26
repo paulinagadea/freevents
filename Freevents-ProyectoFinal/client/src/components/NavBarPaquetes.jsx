@@ -60,11 +60,9 @@ function Navbar() {
     padding: .4rem;
     background-color: #736A68;
     display: flex;
-    margin-bottom:-6.3vh;
     height: 10vh;
     width: 202vh;
     align-items: center;
-    margin-bottom: -45.1px;
     
     justify-content: space-between;
 
