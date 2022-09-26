@@ -57,6 +57,10 @@ export default function Login() {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
+      // const usuario = await loginWithGoogle();
+      // setLog(user)
+      // console.log(usuario)
+      //usario.user guardar en el local storage
       // setLog(user)
       navigate("/home");
     } catch (error) {

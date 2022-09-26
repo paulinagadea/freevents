@@ -10,6 +10,7 @@ export default function NavbarHome() {
     //cuando esta true lo pasa a false y vice versa
     setClicked(!clicked)
   }
+  // const estadoUser = "user"
 
     return (
       <div>
@@ -20,6 +21,8 @@ export default function NavbarHome() {
           <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          
+          {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
           <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
