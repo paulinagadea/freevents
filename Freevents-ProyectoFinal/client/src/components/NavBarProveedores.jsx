@@ -1,17 +1,39 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import PersonAdd from '@mui/icons-material/PersonAdd';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
+import { useState } from "react";
 import styled from "styled-components";
-import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
+import Hidden from '@mui/material/Hidden';
 import SearchFinal from "./SearchFinal";
 import { auth } from "../firebase";
 import { useAuth } from "../context/AuthContext";
+import Salir from "./Salir"
 
 
 export default function NavbarHome() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const [clicked, setClicked] = useState(false)
-  const handleClick = () => {
+  const handleClick = (event) => {
     //cuando esta true lo pasa a false y vice versa
+    setAnchorEl(event.currentTarget);
     setClicked(!clicked)
   }
 
@@ -30,18 +52,19 @@ export default function NavbarHome() {
 
     return (
       <div>
+
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
           <SearchFinal/>
         <div className="containerbar">
           <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/login">Ingresar</Button>
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
-          <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          <Button size="small" onClick={handleLogout} href="/login">Salir</Button>
+          <Button  size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Salir/>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
