@@ -24,9 +24,7 @@ const PerfilUser = () => {
             <div className="titulo">
                 <h1>Bienvenido {data.displayName}</h1>
             </div>
-
             
-
             <div>
                 {favs?.map((f) => {
                     return (
