@@ -18,13 +18,19 @@ const PerfilUser = () => {
 
     return (
         <div>
-            <Chip avatar={<Avatar src="https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/7CGFXAZMJJGNFGQAFMABMXYBMU.png" alt="" />} />
+            <Chip avatar={<Avatar src={data.photoURL} alt="" />} />
             <div><h1 className="portada">Portada</h1></div>
 
             <div className="titulo">
                 <h1>Bienvenido {data.displayName}</h1>
             </div>
+ 
+            <div className="foto">
+                
+            </div>
+
             
+
             <div>
                 {favs?.map((f) => {
                     return (
@@ -39,7 +45,6 @@ const PerfilUser = () => {
             <Link to="/paquetes">
                 <button>Volver</button>
             </Link>
-
 
         </div>
     )
