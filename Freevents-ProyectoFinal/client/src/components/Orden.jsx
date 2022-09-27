@@ -41,7 +41,7 @@ const Orden = () => {
     
   });
 //   console.log(input, "input")
-   function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     // console.log(input)
     
@@ -54,8 +54,8 @@ const Orden = () => {
   //   })
     // console.log(input, "input")
     // console.log(formulardo,"formulardo")
-   
-     dispatch(postOrder(input));
+  
+    dispatch(postOrder(input));
     // console.log(aux, "EL AUX")
     // console.log(aux.data.id)
     // dispatch(addLastOrder())
