@@ -46,7 +46,10 @@ export default function Login() {
     try {
       await login(user.email, user.password);
        // setLog(user)
-      navigate("/home");
+       if(window.location.href === "http://localhost:3000/home"){
+        navigate("/home");
+      }else if(window.location.href !== "http://localhost:3000/home")
+      navigate("/orden");
     } catch (error) {
       setError(error.message);
     }
@@ -63,7 +66,11 @@ export default function Login() {
       // console.log(usuario)
       //usario.user guardar en el local storage
       // setLog(user)
-      navigate("/home");
+      if(window.location.href === "http://localhost:3000/home"){
+        navigate("/home");
+      }else if(window.location.href !== "http://localhost:3000/home")
+      navigate("/orden");
+      
     } catch (error) {
       setError(error.message);
     }

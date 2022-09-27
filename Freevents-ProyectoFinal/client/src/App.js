@@ -60,7 +60,7 @@ function App() {
 
             {/* <Route exact path = '/login' element={<Login
             setLog={setLog}
-            />}/> */}
+          />}/> */}
             <Route exact path = '/customertype' element={<CustomerType/>}/>
             <Route
             path="/orden"
