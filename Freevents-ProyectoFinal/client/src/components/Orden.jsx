@@ -89,11 +89,11 @@ const Orden = () => {
     // return clientis ? (
 
     <div>
-      <h1>Orden de Compra:</h1>
-      <h3>Paquete info</h3>
+      <h2>Solo unos detalles más:</h2>
+      {/* <h3>Paquete info</h3> */}
       <div>
         <h4>Nombre:{misDatos[0].name}</h4>
-        <h4>Precio: {misDatos[0].price}</h4>
+        {/* <h4>Precio: {misDatos[0].price}</h4> */}
       </div>
       {/* <h3>Informacion del Cliente:</h3>
             <div>
@@ -107,7 +107,8 @@ const Orden = () => {
         {/* <h1>Direccion y fecha de evento</h1> */}
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <label htmlFor="released">Fecha del evento: </label>
+          <div>
+            <label htmlFor="released">Elige la fecha del evento a realizar: </label>
             <input
               type="date"
               autoComplete="off"
@@ -115,11 +116,14 @@ const Orden = () => {
               onChange={(e) => handleChange(e)}
 
             />
-            <label>Dirección evento</label>
+            </div>
+            <div>
+            <label>Elige la dirección del evento a realizar</label>
             <input 
             type="text" 
             name="event_address"
             onChange={(e) => handleChange(e)} />
+            </div>
           </div>
         </form>
       </div>
@@ -128,7 +132,7 @@ const Orden = () => {
       {/* ACA GET ITEM DPS DE HACER LA LOGICA DE LOCALSTORAGE */}
 
       {/* </div> */}
-      <button onClick={(e) => handleSubmit(e)}>Generar orden</button>
+      <button onClick={(e) => handleSubmit(e)}>Confirmar</button>
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
                 </Link> */}
