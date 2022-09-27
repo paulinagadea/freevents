@@ -10,6 +10,8 @@ const Pack_service = require('./Pack_service')
 const Order = require('./Order')
 const Favorite = require('./Favorite');
 const Review = require('./Review');
+const Admin = require('./Admin');
+const AdminLogin = require('./AdminLogin');
 const router = Router();
 
 // Configurar los routers
@@ -24,6 +26,8 @@ router.use('/packs', Pack_service);
 router.use('/order', Order);
 router.use('/favorites', Favorite);
 router.use('/reviews', Review);
+router.use('/admins', Admin);
+router.use('/adminlogin', AdminLogin);
 
 // router.get('/admins/:id', (req, res, next) => { })
 

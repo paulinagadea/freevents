@@ -57,23 +57,23 @@ function App() {
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
             <Route exact path = '/login' element={<Login/>}/>
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
-            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
-            <Route exact path = '/orden' element={<Orden/>}/>
-            <Route exact path = '/orden2' element={<Orden2/>}/>
 
             {/* <Route exact path = '/login' element={<Login
             setLog={setLog}
           />}/> */}
             <Route exact path = '/customertype' element={<CustomerType/>}/>
             <Route
-            path="/"
+            path="/orden"
             element={
               <ProtectedRoute>
                 {/* aca van todas las rutas que quiero proteger */}
-
+               <Orden/>
               </ProtectedRoute> 
             }
-          />
+            />  
+            <Route path="/orden2" element={<ProtectedRoute><Orden2/></ProtectedRoute>}/>
+            <Route path="/PerfilUser" element={<ProtectedRoute><PerfilUser/></ProtectedRoute>}/>  
+  
         </Routes>
       </AuthProvider>
         </div>
