@@ -40,16 +40,18 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await login(user.email, user.password);
-       // setLog(user)
+      //  setLog(user)
        if(window.location.href === "http://localhost:3000/home"){
         navigate("/home");
       }else if(window.location.href !== "http://localhost:3000/home")
-      navigate("/orden");
+              navigate("/home");
+
     } catch (error) {
       setError(error.message);
     }
@@ -63,14 +65,9 @@ export default function Login() {
       await loginWithGoogle();
       // const usuario = await loginWithGoogle();
       // setLog(user)
-      // console.log(usuario)
-      //usario.user guardar en el local storage
-      // setLog(user)
-      if(window.location.href === "http://localhost:3000/home"){
-        navigate("/home");
-      }else if(window.location.href !== "http://localhost:3000/home")
-      navigate("/orden");
-      
+
+      window.history.back()
+  
     } catch (error) {
       setError(error.message);
     }
