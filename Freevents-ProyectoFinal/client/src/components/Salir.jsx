@@ -64,7 +64,7 @@ export default function Salir() {
 
     return(
 <React.Fragment>
-          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          
           {/* <Button size="small" onClick={handleLogout} href="/login">Salir</Button> */}
           
             {auth.currentUser!==null?
