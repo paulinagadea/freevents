@@ -134,8 +134,10 @@ const canceledOrder = async (req, res) => {
 
 //----> POST-MERCADO PAGO.
 const postMP = async (req, res) => {
+    console.log('Here!');
     try {
-    const id = req.params.id; 
+    const { id } = req.body; 
+    console.log({ id });
     const orderMP = await Order.findOne({
         where : { id : id },
         include: {
@@ -143,25 +145,27 @@ const postMP = async (req, res) => {
             attributes: ['price']
         }
     })
+    console.log({ orderMP });
 
     let preference = {
         items: [
           {
-            title: orderMP.name,
+            title: orderMP.id,
             unit_price: orderMP.pack_service.price,
             quantity: 1,
           },
         ],
         external_reference: `${orderMP.id}`,
         back_urls: {
-            success: "https://freevents-backend-render.onrender.com/order/payment-confirm",
-            failure: "https://freevents-backend-render.onrender.com/order/payment-confirm",
-            pending: "https://freevents-backend-render.onrender.com/order/payment-confirm"
+            success: "http://localhost:3001/order/payment-confirm",
+            failure: "http://localhost:3001/order/payment-confirm",
+            pending: "http://localhost:3001/order/payment-confirm"
         },
         auto_return: "approved",
       };
       const response = await mercadopago.preferences.create(preference);
       const preferenceId = response.body.id; 
+      console.log('preference en back', preferenceId)
 
       res.send({ preferenceId });
     }
@@ -177,7 +181,7 @@ const patchOrder = async (req, res) => {
             { status : "fulfilled" },
             { where : { id: parseInt(external_reference) }},
         );
-        res.redirect("") //AGREGAR COMPONENTE QUE CONTENGA EL PERFIL DEL CLIENTE.
+        res.redirect("http://localhost:3000/home") //AGREGAR COMPONENTE QUE CONTENGA EL PERFIL DEL CLIENTE.
     }
     catch(error) {
         res.status(400).send(error); 
