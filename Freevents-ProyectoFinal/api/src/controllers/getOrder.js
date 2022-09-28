@@ -122,7 +122,7 @@ const postOrder = async (req, res) => {
     }; 
 }; 
 
-//----> DELETE-ORDER
+//----> CANCELED-ORDER
 const canceledOrder = async (req, res) => {
     try { 
         await Order.update(

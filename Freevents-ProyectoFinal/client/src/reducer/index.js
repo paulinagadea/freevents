@@ -14,6 +14,9 @@ const initialState = {
     order: [],
     ordercita: [],
     ordenGenerada:{},
+    clients: [],
+    allClient:[],
+    idClient:[],
 }
 
 if (localStorage.getItem('favs')) {
@@ -30,6 +33,32 @@ function rootReducer(state = initialState, action) {
                 allEvents: action.payload,
             };
         }
+        case actionTypes.getAllClients: {
+            return {
+                ...state,
+                clients: action.payload,
+                allClients: action.payload,
+            };
+        }
+        case actionTypes.getIdClient:{
+            return {
+                ...state,
+                idClient: action.payload,
+            };
+        }
+        case actionTypes.deleteClient: {
+            return {
+                ...state,
+                clients: action.payload,
+            };
+        }
+        case actionTypes.updateClient: {
+            return {
+                ...state,
+                clients: action.payload,
+            };
+        }
+
         // case actionTypes.addLastOrder:{
         //     console.log(state.ordercita, "estado ordercita")
         //     return{
@@ -68,6 +97,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 ordenGenerada: action.payload,
+            }
+        }
+        case actionTypes.postClient: {
+            return {
+                ...state,
+                clients: action.payload,
             }
         }
 

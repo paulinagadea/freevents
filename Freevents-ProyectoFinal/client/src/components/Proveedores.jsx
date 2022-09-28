@@ -6,12 +6,7 @@ import NavbarProveedores from "./NavBarProveedores.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
-import footer2 from "../imagenes/foterfoto.png";
 import { Link } from "react-router-dom";
-// import image13 from "../imagenes/13.jpeg";
-// import imagenf from "../imagenes/HOME6f.png"
-// import png from "../imagenes/footer.jpg";
-// import SearchBar from "./SearchBar";
 
 const Proveedores = () => {
 
@@ -54,7 +49,7 @@ const Proveedores = () => {
       <NavbarProveedores />
 
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
-      <img className="png" src={footer2} alt="" />
+      <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
       <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
       <button onClick={e => { handleClick(e) }}> ⇦</button>
       <Paginado

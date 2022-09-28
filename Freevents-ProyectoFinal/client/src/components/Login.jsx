@@ -62,7 +62,8 @@ export default function Login() {
 
   const handleGoogleSignin = async () => {
     try {
-      await loginWithGoogle();
+      const holi = await loginWithGoogle();
+      console.log(holi, "ACA ESTA EL HOLI")
       // const usuario = await loginWithGoogle();
       // setLog(user)
 
@@ -101,7 +102,7 @@ export default function Login() {
             
           </div>
           <div className='hola1'>
-          <img src={google} width="40px"></img>
+          <img src={'https://res.cloudinary.com/freevents/image/upload/v1664339283/Imagens/google_knkumr.png'} width="40px"></img>
             <Button
             onClick={handleGoogleSignin}
             variant="contained"

@@ -365,7 +365,7 @@ export default function FormUser(){
             </Formik>
             <div className='imagenForm'>
 
-                <img src={foto} style={{margin: 30, width: 900}} alt="" />
+                <img src={'https://res.cloudinary.com/freevents/image/upload/v1664339795/Imagens/HOME5_sltssh.png'} style={{margin: 20, width: 800}} alt="" />
 
 
             </div>
