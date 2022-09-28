@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const { getAllClients, getClientByName, getClientById } = require('../controllers/getAllClients.js');
 const { Client } = require('../db')
 
-Clien.get('/admin', async (req, res) => {
+Clien.get('/', async (req, res) => {
     
     const { name } = req.query;
     // Si no recibo un nombre por query muestro todos los servicios.
