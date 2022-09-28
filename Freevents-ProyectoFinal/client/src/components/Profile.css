@@ -1,0 +1,12 @@
+.portada{
+    width: 90%;
+    height: 200px;
+    background-color: rgb(116, 116, 116);
+    margin: auto;
+}
+
+.foto-perfil{
+    float: left;
+    border-radius: 150px;
+    margin-left: 5%;
+}
