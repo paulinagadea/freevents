@@ -10,6 +10,7 @@ import FormUser from "./components/FormUser";
 import FormProvider from "./components/FormProvider";
 import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
+import CreatePack from './components/CreatePack';
 import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
 import DetailsPaquetes from './components/DetailsPaquetes'
@@ -17,10 +18,12 @@ import DetailsPaquetes from './components/DetailsPaquetes'
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
 import { useState, useEffect } from 'react';
+
 import Orden from './components/Orden';
 import PerfilUser from "./components/PerfilUser"
 import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
+import Dashboard from './components/DashBoard';
 
 
 
@@ -67,6 +70,14 @@ function App() {
             <Route exact path = "/orden" element={<Orden/>}/>
             
            
+
+
+            <Route exact path = '/createpack' element={<CreatePack />}/>
+
+            <Route exact path = '/orden2' element={<Orden2/>}/>
+            <Route exact path = '/Dashboard' element={<Dashboard/>}/>
+
+
 
 
             {/* <Route exact path = '/login' element={<Login

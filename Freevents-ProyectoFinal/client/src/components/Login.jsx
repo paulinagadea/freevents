@@ -102,7 +102,7 @@ export default function Login() {
             
           </div>
           <div className='hola1'>
-          <img src={google} width="40px"></img>
+          <img src={'https://res.cloudinary.com/freevents/image/upload/v1664339283/Imagens/google_knkumr.png'} width="40px"></img>
             <Button
             onClick={handleGoogleSignin}
             variant="contained"

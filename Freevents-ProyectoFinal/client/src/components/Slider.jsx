@@ -1,13 +1,6 @@
 import React, {useRef, useEffect} from "react";
 import styled from 'styled-components';
-import HOME1 from "../imagenes/HOME1.jpeg";
-import HOME2 from "../imagenes/HOME2.jpeg";
-import HOME5 from "../imagenes/HOME5.jpeg";
-import HOME6 from "../imagenes/HOME6.jpeg";
-import HOME7 from "../imagenes/HOME7.jpeg";
 import "./Slider.css"
-import FlechaIzquierda from '../imagenes/iconmonstr-angel-left-thin-240.png'
-import FlechaDerecha from '../imagenes/iconmonstr-angel-right-thin-240.png'
 // let images = [image6,image4,image15,image16,image8,image5,image28]
 
 
@@ -88,27 +81,27 @@ const Slider = () => {
         <ContenedorPrincipal>
             <ContenedorSlide ref={contSlide}>
                 <Slide>
-                    <img src={HOME1} alt="" />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336905/Imagens/HOME1_vvrsfd.jpg"} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={HOME2} alt="" />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336907/Imagens/HOME2_cpmbck.jpg"} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={HOME5} alt="" />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336910/Imagens/HOME5_zh8ztf.jpg"} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={HOME6} alt="" />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/HOME6_xwhkcb.jpg"} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={HOME7} alt="" />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/HOME7_h0hy6e.jpg"} alt="" />
                 </Slide>
             </ContenedorSlide>
             <Controles>
                 <Boton onClick={anterior}>
-                    <img src={FlechaIzquierda} alt="" width='50px' height='50px' />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-left-thin-240_t4yb4m.png"} alt="" width='50px' height='50px' />
                 </Boton>
                 <Boton derecho onClick={siguiente}>
-                    <img src={FlechaDerecha} alt="" width='50px' height='50px' />
+                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-right-thin-240_kujdpu.png"} alt="" width='50px' height='50px' />
                 </Boton>
             </Controles>
         </ContenedorPrincipal>

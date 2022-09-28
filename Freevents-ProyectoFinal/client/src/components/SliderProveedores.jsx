@@ -1,17 +1,6 @@
 import React, {useRef, useEffect} from "react";
 import styled from 'styled-components';
-import image13 from "../imagenes/13.jpeg";
-import PRO2 from "../imagenes/PRO2.jpeg";
-import PRO1 from "../imagenes/PRO1.jpeg";
-import PRO3 from "../imagenes/PRO3.jpeg";
-import PRO7 from "../imagenes/PRO7.jpeg";
-import PRO5 from "../imagenes/PRO5.jpeg";
-import PRO6 from "../imagenes/PRO6.jpeg";
 import "./Slider.css"
-import FlechaIzquierda from '../imagenes/iconmonstr-angel-left-thin-240.png'
-import FlechaDerecha from '../imagenes/iconmonstr-angel-right-thin-240.png'
-
-
 
 const SliderProveedores = () => {
 
@@ -82,33 +71,33 @@ const SliderProveedores = () => {
         <ContenedorPrincipal>
             <ContenedorSlide ref={contSlide}>
                 <Slide>
-                    <img src={image13} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/13_gevubc.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO7} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/PRO7_odwkdh.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO2} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/PRO2_uskkpw.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO1} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/PRO1_yfltlo.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO3} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/PRO3_yozrkn.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO5} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/PRO5_stqcj9.jpg'} alt="" />
                 </Slide>
                 <Slide>
-                    <img src={PRO6} alt="" />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/PRO6_x6l73o.jpg'} alt="" />
                 </Slide>
             </ContenedorSlide>
             <Controles>
                 <Boton onClick={anterior}>
-                    <img src={FlechaIzquierda} alt="" width='50px' height='50px' />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-left-thin-240_t4yb4m.png'} alt="" width='50px' height='50px' />
                 </Boton>
                 <Boton derecho onClick={siguiente}>
-                    <img src={FlechaDerecha} alt="" width='50px' height='50px' />
+                    <img src={'https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-right-thin-240_kujdpu.png'} alt="" width='50px' height='50px' />
                 </Boton>
             </Controles>
         </ContenedorPrincipal>

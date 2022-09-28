@@ -1,0 +1,29 @@
+.titulo{
+    font-size: 40px;
+    color: black;
+}
+.inputs{
+    margin: 20px;
+}
+.error{
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+.boton_inicio{
+    float: left;
+}
+.mensaje_alerta{
+    position: absolute;
+    top: 1000px;
+}
+.formulario{
+    right: 2000px;
+    background-color: aqua;
+}
+
+.check{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}

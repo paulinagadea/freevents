@@ -201,6 +201,13 @@ function rootReducer(state = initialState, action) {
                     s.services.map(se => se.name).includes(action.payload)),
             }
         }
+
+        case actionTypes.createPack: {
+            return {
+                ...state,
+            }
+        }
+
         case actionTypes.createProvider: {
             return {
                 ...state,

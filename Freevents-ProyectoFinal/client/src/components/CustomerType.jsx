@@ -12,12 +12,12 @@ import './Details.css'
 
 const images = [
     {
-      img: f4,
+      img: 'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/30_j9u3yp.jpg',
       title: 'Necesito un Servicio',
       width: '100%',
     },
     {
-      img: f14,
+      img: 'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/13_gevubc.jpg',
       title: 'Quiero prestar un Servicio',
       width: '100%',
     },
