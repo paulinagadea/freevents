@@ -4,54 +4,46 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import f9 from "../imagenes/9.jpg";
-import f15 from "../imagenes/15.jpg";
-import f6 from "../imagenes/5.jpg";
-import f7 from "../imagenes/6.jpg";
-import f16 from "../imagenes/16.jpg";
-import f8 from "../imagenes/HOME5.jpeg";
-import f4 from "../imagenes/4.jpg";
-import f14 from "../imagenes/14.jpg";
 import { Grid } from "@material-ui/core";
 
 const images = [
     {
-      img: f4,
+      img: 'https://res.cloudinary.com/freevents/image/upload/v1664336833/Imagens/4_zvrbh4.jpg',
       title: 'Full Party',
       width: '100%',
     },
     {
-      img: f14,
+      img: 'https://res.cloudinary.com/freevents/image/upload/v1664337849/Imagens/centros-de-mesa-para-15-anos-5-1280x720_eq0ck0.jpg',
       title: '15 Años',
       width: '100%',
     },
     {
-      img: f15,
+      img: 'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/15_dauxrj.jpg',
       title: 'Egresos',
       width: '100%',
     },
     {
-        img: f9,
+        img: "https://res.cloudinary.com/freevents/image/upload/v1664338129/Imagens/existe-la-edad-adecuada-para-casarse-la-ciencia-responde-cuando-es-mejor-contraer-matrimonio_ru4qmp.jpg",
         title: 'Matrimonios',
         width: '100%',
       },
       {
-        img: f6,
+        img: 'https://res.cloudinary.com/freevents/image/upload/v1664336834/Imagens/5_tf4uaz.jpg',
         title: 'Despedida de Solter@s',
         width: '100%',
       },
       {
-        img: f7,
+        img: 'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/HOME6_xwhkcb.jpg',
         title: 'Cumpleaños',
         width: '100%',
       },
       {
-        img: f16,
+        img: 'https://res.cloudinary.com/freevents/image/upload/v1664338320/Imagens/juegos-baby-shower-1-1280x720_jutfkw.jpg',
         title: 'Baby Showers',
         width: '100%',
       },
       {
-        img: f8,
+        img: 'https://res.cloudinary.com/freevents/image/upload/v1664337985/Imagens/9668_1579698582_ideas-bodas-de-oro_cythau.jpg',
         title: 'Aniversarios',
         width: '100%',
       },
