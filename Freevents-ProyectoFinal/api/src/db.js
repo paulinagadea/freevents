@@ -70,8 +70,8 @@ Review.belongsTo(Provider);
 Provider.hasMany(Favorite);
 Favorite.belongsTo(Provider);
 
-// Provider.hasMany(Pack_services);  
-// Pack_services.belongsTo(Provider);
+Provider.hasMany(Pack_services);  
+Pack_services.belongsTo(Provider);
 
 //Muchos a Muchos
 
@@ -84,8 +84,8 @@ Service.belongsToMany(Pack_services, { through: 'pack_service_service' });
 Pack_services.belongsToMany(Event, { through: 'pack_service_event' });
 Event.belongsToMany(Pack_services, { through: 'pack_service_event' })
 
-Pack_services.belongsToMany(Provider, { through: 'pack_service_provider' });
-Provider.belongsToMany(Pack_services, { through: 'pack_service_provider' })
+// Pack_services.belongsToMany(Provider, { through: 'pack_service_provider' });
+// Provider.belongsToMany(Pack_services, { through: 'pack_service_provider' })
 
 
 

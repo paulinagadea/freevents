@@ -58,7 +58,7 @@ router.post('/', async(req, res) => {
         let providerDb = await Provider.findOne({
             where : { id : providerId}
         }); 
-        await packCreate.setProvider(providerDb.id);
+        await packCreate.setProvider(providerDb);
 
         res.status(201).send('Pack created successfully!')
     }
