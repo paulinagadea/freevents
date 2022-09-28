@@ -57,13 +57,18 @@ export default function NavbarHome() {
         <Link className="link" to="/home">Freevents</Link>
           <SearchFinal/>
         <div className="containerbar">
-          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/login">Ingresar</Button>
+        {
+          auth.currentUser === null && <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+          }
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button  size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          {
+            auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          }
           <Salir/>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
