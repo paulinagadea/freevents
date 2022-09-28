@@ -89,6 +89,19 @@ export default function NavbarHome() {
     margin-right: 5%;
   }
 
+  .containerbar .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.containerbar .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #fff;
+    background-size: 100% 2px;
+}
+
     h2{
       color: white;
       font-weight: 400;
