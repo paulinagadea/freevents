@@ -21,7 +21,7 @@ const SliderProveedores = () => {
     const siguiente = () =>{
         
 		if(contSlide.current.children.length > 0){
-            console.log('Siguiente')
+            
 
             // Obtenemos el primer elemento del contSlide.
 			const primerElemento = contSlide.current.children[0];

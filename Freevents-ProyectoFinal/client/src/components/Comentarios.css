@@ -1,4 +1,21 @@
 .cont-comentarios{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    padding: 10px;
+    background-color: #d9c2ba;
+}
+
+.parent {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.user {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3px 3px;
+    margin: 10px;
 }

@@ -1,32 +1,65 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { useDispatch,} from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+const mercadopago = require("mercadopago"); 
 
 export default function Orden2() {
-    const dispatch = useDispatch()
+    // useEffect (() => {
+      
+    // })
     const orden = useSelector(state=>(state.ordenGenerada))
 
-    let misDatos = JSON.parse(localStorage.getItem("order"));
-    console.log(misDatos,"MIS DATOS 2")
+    function handleSubmit(e) {
+      e.preventDefault();
+      handlePayment();
+    }
+
+    async function handlePayment() {
+      try {
+        const preference = await (
+          await fetch("http://localhost:3001/order/payment", {
+            method: "post",
+            body: JSON.stringify(orden),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+        ).json();
+      console.log('imprimimos preference', preference)
+  
+        var script = document.createElement("script");
+        console.log("estamos aquí", script)
+  
+        script.src =
+          "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
+        script.type = "text/javascript";
+        script.dataset.preferenceId = preference.preferenceId;
+        console.log("estamos aquí", script)
+  
+        script.setAttribute("data-button-label", "Pagar con Mercado Pago");
+        
+        const element = document.getElementById("mercado").innerHTML = "";
+  
+        const elementTwo = document.querySelector("#mercado")
+        
+        
+        elementTwo.appendChild(script);
+
+      }
+      catch(error) {
+        console.log(error);
+      }};
+
 
   return (
       <div>
-      <h1>ORDEN DE COMPRA</h1>
-      <h3>{misDatos[0].name}</h3>
-      {/* <h3>{misDatos[0].galery_image.map(el=>el)}</h3> */}
-      <h3>Descripción: {misDatos[0].description}</h3>
-      <h3>Precio: {misDatos[0].price}</h3>
-      <Link to = "/paquetes" >
-      <button>Volver</button>
-      </Link>
-    
-      
-      
-
-      <button>Comprar</button>
+      <h3>{orden.id}</h3>
+      Orden2
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <button type="submit" className="btn-mp">COMPRAR</button>
+      </form>
+      <div id="mercado" className="mercado"></div>
       </div>
    
-
   )
-}
+  }

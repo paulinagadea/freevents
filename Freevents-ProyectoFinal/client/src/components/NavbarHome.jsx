@@ -63,9 +63,11 @@ export default function NavbarHome() {
           <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           
-          
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          {
+            auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          }
           <Salir/>
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
@@ -86,6 +88,19 @@ export default function NavbarHome() {
  .containerbar{
     margin-right: 5%;
   }
+
+  .containerbar .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.containerbar .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #fff;
+    background-size: 100% 2px;
+}
 
     h2{
       color: white;
