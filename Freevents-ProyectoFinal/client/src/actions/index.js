@@ -4,6 +4,7 @@ export const actionTypes ={
     getEvents:"getEvents",
     getProviders:"getProviders",
     getServices:"getServices",
+    createPack: "createPack",
     createService:"createService",
     createProvider:"createProvider",
     getDetails:"getDetails",
@@ -139,6 +140,17 @@ export const getServices = () => {
     };
 };
 
+export function createPack(payload) {
+    return async function () {
+        try {
+            const creado = await axios.post("/packs", payload);
+            console.log(creado)
+            return creado;
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+};
 
 export function createService(payload) {
     return async function () {
