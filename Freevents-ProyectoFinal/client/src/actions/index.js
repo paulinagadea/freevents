@@ -26,6 +26,7 @@ export const actionTypes ={
     getNamesPaquetes:"getNamesPaquetes",
     addToOrder:"addToOrder",
     addLastOrder:"addLastOrder",
+    mpPayment:"mpPayment",
 
 };
 
@@ -38,6 +39,16 @@ export const getOrder = () => {
         });
     };
 };
+// export const mpPayment = () => {
+//     return async function (dispatch) {
+//         var json = await axios.get(`/order`);
+//         return dispatch({
+//             type: actionTypes.getOrder,
+//             payload: json.data,
+//         });
+//     };
+// };
+
 
 // export function addLastOrder(payload){
    

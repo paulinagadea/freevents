@@ -11,23 +11,36 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
 //import SearchBar from "./SearchBar";
-import { auth } from "../firebase";
+import { auth  } from "../firebase";
 import { useAuth } from "../context/AuthContext";
+
 
 
 export default function Salir() {
     const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const currentUser = useAuth();
+  const [photoURL, setPhotoURL]= useState("https://cdn-icons-png.flaticon.com/512/149/149071.png")
+  
   
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
+  useEffect(()=> {
+    if(currentUser?.photoURL){
+        setPhotoURL(currentUser.photoURL);
+    }
+  },[currentUser])
+
+
 
   const [clicked, setClicked] = useState(false)
   const handleClick = (event) => {
@@ -41,8 +54,10 @@ export default function Salir() {
   
     // cerrar sesion
     const handleLogout = async () => {
+        
       try {
-        await logout();
+        await logout();      
+        auth.currentUser = null
       } catch (error) {
         console.error(error.message);
       }
@@ -50,7 +65,7 @@ export default function Salir() {
 
     return(
 <React.Fragment>
-          <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          
           {/* <Button size="small" onClick={handleLogout} href="/login">Salir</Button> */}
           
             {auth.currentUser!==null?
@@ -65,13 +80,13 @@ export default function Salir() {
             aria-expanded={open ? 'true' : undefined}
             >
             
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }} src={photoURL} ></Avatar>
           </IconButton>
         </Tooltip>
         
           : false
           }
-     
+
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -112,12 +127,12 @@ export default function Salir() {
         </MenuItem>
         <Divider />
         
-        <MenuItem>
+        <MenuItem >
 
           Mis Ordenes
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleLogout} href="/login">
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

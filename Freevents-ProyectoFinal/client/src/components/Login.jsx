@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
 import Typography from '@material-ui/core/Typography';
 import google from "../imagenes/google.png"
+
 import { red } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,13 +40,18 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await login(user.email, user.password);
-       // setLog(user)
-      navigate("/home");
+      //  setLog(user)
+       if(window.location.href === "http://localhost:3000/home"){
+        navigate("/home");
+      }else if(window.location.href !== "http://localhost:3000/home")
+              navigate("/home");
+
     } catch (error) {
       setError(error.message);
     }
@@ -59,10 +65,9 @@ export default function Login() {
       await loginWithGoogle();
       // const usuario = await loginWithGoogle();
       // setLog(user)
-      // console.log(usuario)
-      //usario.user guardar en el local storage
-      // setLog(user)
-      navigate("/home");
+
+      window.history.back()
+  
     } catch (error) {
       setError(error.message);
     }
@@ -81,9 +86,10 @@ export default function Login() {
   };
 
   return (
-    
+    <div>
+
     <div className='container-todo'>
-      <Link to="/home"><button>Inicio</button></Link>
+      <Button to="/home">Inicio</Button>
     
     <div className="container-login">
 
@@ -169,6 +175,7 @@ export default function Login() {
         </Typography>
       </form>
       
+    </div>
     </div>
     </div>
   );

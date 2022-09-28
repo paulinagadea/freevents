@@ -75,8 +75,8 @@ const Home = () => {
                     Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero 
                     éxito. Somos el catalogo mas grande de proveedores y servicios en la web, comienza a armar tu evento.
                         </h1>
-                        <Link 
-                        to="/proveedores"
+                        <Link style={{textDecoration:"none"}} 
+                        to ="/proveedores"
                         >
                         <h1 className="titulo-home"> CONOCELOS AQUÍ  </h1>
                         </Link>
@@ -91,7 +91,7 @@ const Home = () => {
             </div>
             </Container>
             <div className="barra1">
-                <h1 className="titulo-home1"> ¿QUIERES FORMAR PARTE DE NUESTRO EQUIPO?</h1>
+                <h1 className="titulo-home"> ¿QUIERES OFRECER TUS SERVICIOS?</h1>
                 <Button style={{ color: brown[500] }} 
                         href="/providerregister" 
                         variant="contained"

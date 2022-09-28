@@ -58,7 +58,8 @@ margin-right: 8px;
 
 .container-todo{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(250, 235, 215, 0.645);
 }
 
