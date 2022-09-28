@@ -28,7 +28,68 @@ export const actionTypes ={
     addToOrder:"addToOrder",
     addLastOrder:"addLastOrder",
     mpPayment:"mpPayment",
+    postClient:"postClient",
+    getAllClients:"getAllClients",
+    deleteClient:"deleteClient",
+    updateClient:"updateClient",
+};
 
+export function postClient(payload) { 
+    return async function (dispatch) {
+        try {
+            const creado = await axios.post("/client", payload);
+            return dispatch({
+                type: actionTypes.postClient,
+                payload: creado.data
+            })
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+};
+
+export const getAllClients= () => {
+    return async function (dispatch) {
+        var json = await axios.get(`/client`);
+        return dispatch({
+            type: actionTypes.getAllClients,
+            payload: json.data,
+        });
+    };
+};
+export const updateClient = (id) => {
+    return async function (dispatch) {
+        var json = await axios.patch(`/client/${id}`);
+        return dispatch({
+            type: actionTypes.updateClient,
+            payload: json.data,
+        });
+    };
+};
+
+export function getIdClient(id) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get(`/client/${id}`);
+            return dispatch({
+                type: actionTypes.getIdClient,
+                payload: json.data,
+            });
+        } catch (error) {
+            return error.message;
+        }
+    };
+};
+
+export function deleteClient(id) {
+    return async function () {
+        try {
+            const eliminado = await axios.delete(`client/delete/${id}`)
+            return eliminado;
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 };
 
 export const getOrder = () => {

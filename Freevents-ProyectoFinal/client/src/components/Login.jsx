@@ -62,7 +62,8 @@ export default function Login() {
 
   const handleGoogleSignin = async () => {
     try {
-      await loginWithGoogle();
+      const holi = await loginWithGoogle();
+      console.log(holi, "ACA ESTA EL HOLI")
       // const usuario = await loginWithGoogle();
       // setLog(user)
 
