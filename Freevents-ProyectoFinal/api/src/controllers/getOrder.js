@@ -89,6 +89,7 @@ const postOrder = async (req, res) => {
     try {
         const orderCreate = await Order.create({
            status, 
+        //    price, 
            event_date, 
            event_address 
         });
@@ -116,7 +117,7 @@ const postOrder = async (req, res) => {
     }; 
 }; 
 
-//----> DELETE-ORDER
+//----> CANCELED-ORDER
 const canceledOrder = async (req, res) => {
     try { 
         await Order.update(
@@ -173,7 +174,7 @@ const postMP = async (req, res) => {
         res.status(404).send(error);
     }
 };
-
+//----> PUT-ORDER-POST-MP
 const patchOrder = async (req, res) => {
     const external_reference = req.query.external_reference; 
     try {

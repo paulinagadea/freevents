@@ -39,8 +39,14 @@ Clien.get('/:id', async (req, res) => {
     }
 })
 
-
+//crear cliente 
 Clien.post("/", async (req, res) => {
+    
+//primero busco al cliente con los datos que me mandaron Where: findOne(email === email.dataBase)
+//if cliente (existe) => regresa "el cliente ya existe"
+//else (no existe), frontend ponerle a llenar el componente formulario 
+
+
     const { name, lastname, passwordHash_client, dni, email, phone_number } = req.body;
     console.log('llega?', req.query)
     try {

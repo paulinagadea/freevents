@@ -6,8 +6,6 @@ const { Client } = require('../db')
 clientLogin.post('/', async (req, res) => {
     const { email, password } = req.body
     try {
-
-
         const cliente = await Client.findOne({ where: { email: email } })
         console.log('esto es proveedor:', proveedor)
         const passwordCorrect = await bcrypt.compare(password, cliente.passwordHash)

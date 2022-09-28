@@ -21,7 +21,7 @@ router.use('/providers', Provider)
 router.use('/loginprovider', ProviderLogin)
 router.use('/services', Service);
 router.use('/events', Event);
-router.use('/client', Client);
+router.use('/client', Client); 
 router.use('/packs', Pack_service);
 router.use('/order', Order);
 router.use('/favorites', Favorite);

@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 import Eventos from "./components/Eventos";
 import Home from "./components/Home";
 import CustomerType from "./components/CustomerType";
@@ -11,14 +11,17 @@ import FormProvider from "./components/FormProvider";
 import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
 import { ThemeProvider } from '@material-ui/core';
+import LoginAu from './components/Auth0'
 import DetailsPaquetes from './components/DetailsPaquetes'
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { AuthProvider } from "./context/AuthContext";
+
+// import { ProtectedRoute } from "./components/ProtectedRoute";
+// import { AuthProvider } from "./context/AuthContext";
 import { useState, useEffect } from 'react';
 import Orden from './components/Orden';
 import PerfilUser from "./components/PerfilUser"
 import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
+
 
 
 function App() {
@@ -43,7 +46,7 @@ function App() {
     <BrowserRouter>
     <div>
       <div className="App">
-      <AuthProvider>
+      {/* <AuthProvider> */}
         <Routes>
             <Route exact path = '/' element= { <LandingPage/> }/>
             <Route exact path = '/home' element= { <Home/> }/>
@@ -55,27 +58,35 @@ function App() {
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
-            <Route exact path = '/login' element={<Login/>}/>
+            <Route exact path = '/login' element={<LoginAu/>}/>
+            {/* <Route exact path = '/login' element={<Login/>}/> */}
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
+            <Route exact path = '/orden2' element={<Orden2/>}/>
+            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
+            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
+            <Route exact path = "/orden" element={<Orden/>}/>
+            
+           
+
 
             {/* <Route exact path = '/login' element={<Login
             setLog={setLog}
           />}/> */}
             <Route exact path = '/customertype' element={<CustomerType/>}/>
-            <Route
+            {/* <Route
             path="/orden"
             element={
               <ProtectedRoute>
                 {/* aca van todas las rutas que quiero proteger */}
-               <Orden/>
-              </ProtectedRoute> 
-            }
-            />  
-            <Route path="/orden2" element={<ProtectedRoute><Orden2/></ProtectedRoute>}/>
-            <Route path="/PerfilUser" element={<ProtectedRoute><PerfilUser/></ProtectedRoute>}/>  
+               {/* <Orden/>
+              </ProtectedRoute>  */}
+            {/* } */}
+            {/* />   */}
+            {/* <Route path="/orden2" element={<ProtectedRoute><Orden2/></ProtectedRoute>}/> */}
+            {/* <Route path="/PerfilUser" element={<ProtectedRoute><PerfilUser/></ProtectedRoute>}/>   */} 
   
         </Routes>
-      </AuthProvider>
+      {/* </AuthProvider> */}
         </div>
       </div>
     </BrowserRouter>
