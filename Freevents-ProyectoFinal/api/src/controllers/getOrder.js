@@ -87,27 +87,32 @@ const postOrder = async (req, res) => {
     const { clientId, providerId, packServiceId, status, event_date, event_address } = req.body; 
     console.log("perritossssss", req.body)
     try {
-        const orderCreate = await Order.create({
-           status, 
-        //    price, 
-           event_date, 
-           event_address 
-        });
-
         let clientDb = await Client.findOne({
             where : { id : clientId }
         });
-        await orderCreate.setClient(clientDb.id);
-
+        console.log("client", clientDb)
         let providerDb = await Provider.findOne({
             where : { id : providerId }
         });
-        await orderCreate.setProvider(providerDb.id); 
+        console.log("provider", providerDb)
 
         let packServiceDb = await Pack_services.findOne({
             where : { id : packServiceId}
         }); 
+        console.log('pack service', packServiceDb)
+        
+        const orderCreate = await Order.create({
+            status, 
+            event_date, 
+            event_address,
+            price: packServiceDb.price
+        });
+
+        await orderCreate.setProvider(providerDb.id); 
+        await orderCreate.setClient(clientDb.id);
         await orderCreate.setPack_service(packServiceDb.id); 
+        
+
 
         res.status(201).json(orderCreate); 
     }
@@ -131,7 +136,6 @@ const canceledOrder = async (req, res) => {
         res.status(400).send('Bad request.'); 
     }; 
 }; 
-
 
 //----> POST-MERCADO PAGO.
 const postMP = async (req, res) => {
@@ -174,7 +178,8 @@ const postMP = async (req, res) => {
         res.status(404).send(error);
     }
 };
-//----> PUT-ORDER-POST-MP
+
+//----> UPDATE-ORDER-POST-MP
 const patchOrder = async (req, res) => {
     const external_reference = req.query.external_reference; 
     try {
@@ -189,6 +194,21 @@ const patchOrder = async (req, res) => {
     };
 };
 
+// ----> ORDER-BY_CLIENT-ID
+const orderByClientId = async (req, res) => {
+    try { 
+        const id = req.params.id
+        const orderDB = await Order.findAll({
+            where : { clientId : id },
+        })
+
+        res.status(200).send(orderDB)
+    }
+    catch(error) {
+        console.log(error); 
+        res.status(404).send("NOT FOUND.")
+    }
+}
 
 module.exports = {
     getAllOrder,
@@ -196,5 +216,6 @@ module.exports = {
     postOrder,
     canceledOrder,
     postMP,
-    patchOrder
+    patchOrder,
+    orderByClientId
 };

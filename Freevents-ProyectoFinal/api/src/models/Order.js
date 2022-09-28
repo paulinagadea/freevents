@@ -11,7 +11,6 @@ module.exports = (sequelize) => {
             primaryKey: true,
         },
         status:{
-            
             type: DataTypes.ENUM("fulfilled", "pending", "canceled"),
             defaultValue: "pending"
         },
@@ -21,6 +20,10 @@ module.exports = (sequelize) => {
         },
         event_address: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        price: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
     })
