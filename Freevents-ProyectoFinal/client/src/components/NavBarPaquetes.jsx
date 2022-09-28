@@ -17,9 +17,9 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
 import SearchFinal from "./SearchFinal";
-import { auth } from "../firebase";
-import { useAuth } from "../context/AuthContext";
-import Salir from "./Salir"
+// import { auth } from "../firebase";
+// import { useAuth } from "../context/AuthContext";
+// import Salir from "./Salir"
 
 
 export default function NavbarHome() {
@@ -37,17 +37,17 @@ export default function NavbarHome() {
     setClicked(!clicked)
   }
 
-  const { logout, user } = useAuth();
-  console.log(user);
+  // const { logout, user } = useAuth();
+  // console.log(user);
   
     // cerrar sesion
-    const handleLogout = async () => {
-      try {
-        await logout();
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
+    // const handleLogout = async () => {
+    //   try {
+    //     await logout();
+    //   } catch (error) {
+    //     console.error(error.message);
+    //   }
+    // };
 
 
     return (
@@ -58,7 +58,7 @@ export default function NavbarHome() {
         <SearchFinal/>
         <div className="containerbar">
           {
-          auth.currentUser === null && <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+          // auth.currentUser === null && <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
           }
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
@@ -67,9 +67,9 @@ export default function NavbarHome() {
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
           {
-            auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+            // auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
           }
-          <Salir/>
+          {/* <Salir/> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
