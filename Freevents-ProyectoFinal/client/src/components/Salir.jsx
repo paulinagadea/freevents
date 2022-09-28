@@ -28,6 +28,7 @@ export default function Salir() {
   const currentUser = useAuth();
   const [photoURL, setPhotoURL]= useState("https://cdn-icons-png.flaticon.com/512/149/149071.png")
   
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
