@@ -41,7 +41,7 @@ li {
 
 .parrafoc {
     font-family: 'Roboto', sans-serif;
-    text-align: justify;
+    text-align: center;
     margin-top: 30px;
     color: #735949;
 }
@@ -78,8 +78,8 @@ li {
     font-size: 40px;
     font-family: 'Epilogue', sans-serif;
     color: #735949;
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin-bottom: 4%;
+    margin-top: 4%;
 }
 
 .footer-completo {
@@ -111,9 +111,22 @@ li {
 
 .barra {
     background-color: #ffffff;
-    padding: 5px;
+    padding: 10px;
     margin-top: -12px;
     font-family: 'Epilogue', sans-serif;
+}
+
+.barra .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.barra .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #735949;
+    background-size: 100% 2px;
 }
 
 .barra1 {
@@ -131,4 +144,16 @@ li {
     color: #735949;
     margin-bottom: 1%;
     margin-top: -1%;
+}
+
+.linea {
+    border-top: 1px solid #735949;
+    height: 2px;
+    padding: 0;
+    margin: 50px;
+}
+
+.titulo h1:hover {
+    color: #fff;
+    transition: .5s;
 }

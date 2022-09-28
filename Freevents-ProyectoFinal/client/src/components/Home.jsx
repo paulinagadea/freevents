@@ -58,6 +58,7 @@ const Home = () => {
             <h1 className="titulo-home">¿QUE EVENTO DESEAS FESTEJAR?</h1>
             {/* <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button> */}
             <Eventos/>
+            <div className="linea"></div>
             <div className="Prove">
             <h1 className="titulo-home">PROVEEDORES DE SERVICIOS</h1>
             <SliderProveedores/>
@@ -74,17 +75,21 @@ const Home = () => {
                     sea una realidad. Adaptarás todas tus necesidades con los paquetes personalizados para cada tipo de evento. 
                     Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero 
                     éxito. Somos el catalogo mas grande de proveedores y servicios en la web, comienza a armar tu evento.
-                        </h1>
+                    </h1>
+                        <div className="titulo">
                         <Link style={{textDecoration:"none"}} 
                         to ="/proveedores"
                         >
                         <h1 className="titulo-home"> CONOCELOS AQUÍ  </h1>
                         </Link>
+                        </div>
                 </div>
             </div>
+            <div className="linea"></div>
             <h1 className="titulo-home">RESEÑAS DE CLIENTES</h1>
             <SimpleCard className="comentarios"/>
             
+            <div className="linea"></div>
             <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
             <div className="boxing">
                 <Boximg/>
