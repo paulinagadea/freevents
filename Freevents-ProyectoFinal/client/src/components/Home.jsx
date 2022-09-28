@@ -10,10 +10,6 @@ import { getProviders } from "../actions";
 import Eventos from "./Eventos"
 import { Box, Container, Grid } from "@material-ui/core";
 import Boximg from "./Boxing";
-import githud from "../imagenes/github.png";
-import facebook from "../imagenes/Facebook.png";
-import twitter from "../imagenes/twitter.png";
-import instagram from "../imagenes/instagram.png";
 import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
@@ -44,14 +40,14 @@ const Home = () => {
             </div>
             <div className="barra">
             <Box color = "primary.main" component="span" b= {4}>
-                <Button href="/paquetes" style={{ color: brown[400] }}>ANIVERSARIOS</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>CUMPLEAÑOS</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>DESPEDIDAS</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>GRADUACIONES</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>BABY SHOWERS</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>15 AÑOS</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>FULL PARTY</Button>
-                <Button href="/paquetes" style={{ color: brown[400] }}>MATRIMONIO</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>ANIVERSARIOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>CUMPLEAÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>DESPEDIDAS</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>GRADUACIONES</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>BABY SHOWERS</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>15 AÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>FULL PARTY</Button>
+                <Button href="/paquetes" style={{ color: brown[600] }}>MATRIMONIO</Button>
             </Box>
             </div>
             <Container fixed>
@@ -102,16 +98,16 @@ const Home = () => {
                 <div className="container-footer">
                     <div className="footer-completo">
                         <a href={"https://github.com/paulinagadea/freevents"}>
-                        <img src={githud} alt="not found" height="40px" on></img>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/github_zm2gn2.png'} alt="not found" height="40px" on></img>
                         </a>
                         <a href={"https://www.facebook.com/"}>
-                        <img src={facebook} alt="not found" height="40px"></img>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/Facebook_v7270n.png'} alt="not found" height="40px"></img>
                         </a>
                         <a href={"https://twitter.com"}>
-                        <img src={twitter} alt="not found" height="40px"></img>  
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/twitter_mqtqdf.png'} alt="not found" height="40px"></img>  
                         </a>
                         <a href={"https://www.instagram.com/"}>
-                        <img src={instagram} alt="not found" height="40px"></img>  
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/instagram_ed9xa5.png'} alt="not found" height="40px"></img>  
                         </a>
                         <div className="botones">
                         </div>

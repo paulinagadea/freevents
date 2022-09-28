@@ -58,7 +58,7 @@ const Paquetes = () => {
     <div>
       <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
-      <img className="png" src={footer2} alt="" />
+      <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
       <h1 className="Titulo-proveedores"> PAQUETES DE SERVICIO </h1>
       <PaginadoPacks
         packsPerPage={packsPerPage}
