@@ -20,6 +20,8 @@ import Hidden from '@mui/material/Hidden';
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 export default function NavbarHome() {
@@ -48,28 +50,28 @@ export default function NavbarHome() {
     //     console.error(error.message);
     //   }
     // };
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
 
     return (
       <div>
 
-        <NavContainer>
+        <NavContainer> 
         <Link className="link" to="/home">Freevents</Link>
           {/* <SearchBar/> */}
         <div className="containerbar">
+
           {/* {
             auth.currentUser === null &&  */}
           <Button size="small" onClick={handleClick} href="/queEres">Ingresar</Button> 
           {/* } */}
+
           <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          {/* {
-            auth.currentUser === null &&  */}
-            <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          {/* } */}
+          
           {/* <Salir/> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>

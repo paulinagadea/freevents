@@ -20,6 +20,7 @@ import SearchFinal from "./SearchFinal";
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function NavbarHome() {
@@ -49,6 +50,7 @@ export default function NavbarHome() {
     //   }
     // };
 
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
     return (
       <div>
@@ -57,9 +59,17 @@ export default function NavbarHome() {
         <Link className="link" to="/home">Freevents</Link>
         <SearchFinal/>
         <div className="containerbar">
+
           {
-          // auth.currentUser === null && <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
+            isAuthenticated === false && 
+          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button> 
           }
+
+          {
+            isAuthenticated === false && 
+            <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          } 
+
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           
