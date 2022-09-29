@@ -14,6 +14,7 @@ import Boximg from "./Boxing";
 import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
+import Footer from "./Footer";
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -102,6 +103,7 @@ const Home = () => {
                         >REGISTRATE AQUÍ
                 </Button>
             </div>
+            <Footer/>
                 <div className="container-footer">
                     <div className="footer-completo">
                         <a href={"https://github.com/paulinagadea/freevents"}>
@@ -122,6 +124,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+                
         </div>
     )
 }

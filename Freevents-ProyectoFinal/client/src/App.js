@@ -26,6 +26,7 @@ import PerfilUser from "./components/PerfilUser"
 import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
 import Dashboard from './components/DashBoard';
+import Footer from "./components/Footer"
 
 
 
@@ -69,11 +70,12 @@ function App() {
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
             <Route exact path = '/orden2' element={<Orden2/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
-            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
+            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/> 
             <Route exact path = "/orden" element={<Orden/>}/>
             <Route exact path = "/queEres" element={<QueEres/>}/>
+            <Route exact path = "/Footer" element={<Footer/>}/>
             
-           
+
 
 
             <Route exact path = '/createpack' element={<CreatePack />}/>
