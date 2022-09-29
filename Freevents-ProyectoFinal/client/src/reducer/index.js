@@ -23,6 +23,10 @@ if (localStorage.getItem('favs')) {
     initialState.favs = JSON.parse(localStorage.getItem('favs'));
 } else initialState.favs = []
 
+if (localStorage.getItem('order')) {
+    initialState.favs = JSON.parse(localStorage.getItem('order'));
+} else initialState.order = []
+
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
