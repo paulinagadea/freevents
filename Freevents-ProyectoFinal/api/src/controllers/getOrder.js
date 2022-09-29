@@ -1,5 +1,8 @@
 const { Pack_services, Provider, Client, Order } = require('../db')
 const mercadopago = require("mercadopago");
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
+const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
 mercadopago.configure({
     access_token: "APP_USR-2751540276278194-092303-5231919cc7d44319e47e4774ac04ff2f-1202990518",
@@ -84,11 +87,11 @@ const getOrderById = async (req, res) => {
 
 //----> POST-ORDER
 const postOrder = async (req, res) => {
-    const { clientId, providerId, packServiceId, status, event_date, event_address } = req.body; 
+    const { clientId, providerId, packServiceId, status, event_date, event_address, email } = req.body; 
     console.log("perritossssss", req.body)
     try {
         let clientDb = await Client.findOne({
-            where : { id : clientId }
+            where : { id : clientId, email: email }
         });
         console.log("client", clientDb)
         let providerDb = await Provider.findOne({
@@ -119,7 +122,54 @@ const postOrder = async (req, res) => {
     catch (error) {
         console.log(error); 
         res.status(400).send('Bad request.'); 
-    }; 
+    };
+    
+    const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+
+    oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
+
+    async function sendMail() {
+        try {
+
+            const accessToken = await oAuth2Client.getAccessToken()
+           
+            const transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    type: "OAuth2",
+                    user: "kristhianlizcano@gmail.com",
+                    clientId: CLIENT_ID,
+                    clientSecret: CLIENT_SECRET,
+                    refreshToken: REFRESH_TOKEN,
+                    accessToken: accessToken,
+
+
+                },
+            })
+            
+            const mailOptions = {
+                from: "Freevents <kristhianlizcano@gmail.com>",
+                to: email,
+                subject: "Freevents",
+                text: "COMPRA REALIZADA", 
+                
+      
+                
+            }; 
+
+           
+
+            const result = await transporter.sendMail(mailOptions);
+            return result;
+        }
+        catch(error) {
+            console.log(error);
+        }
+    } 
+
+    sendMail()
+    .then(result => res.status(200).send("Enviado"))
+    .catch(error => console.log(error));
 }; 
 
 //----> CANCELED-ORDER
