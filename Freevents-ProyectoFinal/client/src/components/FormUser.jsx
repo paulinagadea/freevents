@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Register() {
-  // const { signup } = useAuth();
+  const { signup } = useAuth();
   const classes = useStyles();
 
   const [user, setUser] = useState({
@@ -42,12 +42,12 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    // try {
-    //   await signup(user.email, user.password);
-    //   navigate("/home");
-    // } catch (error) {
-    //   setError(error.message);
-    // }
+    try {
+      await signup(user.email, user.password);
+      navigate("/home");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
