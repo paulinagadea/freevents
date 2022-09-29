@@ -1,15 +1,25 @@
-const { Provider, Event } = require('../db')
+const { Provider, Event, PAck } = require('../db')
 
 const getAllProviders = async () => {
     const provedores = await Provider.findAll({
-        include: {
+        include: [
+            {
             model: Event,
             attributes: ['name'], 
-            through: {
-                attributes: [],
+            // through: {
+            //     attributes: [],
+            // }
+            },
+            {
+            model: Pack_service,
+            attributes: ['name'], 
+            // through: {
+            //     attributes: [],
+            // }
             }
-        }
+        ]
     })
+
     return provedores.length ? provedores : "not found"
 }
 
