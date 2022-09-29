@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#d9c2ba',
+    height: '305px',
+    borderRadius: '5px',
   },
   imageList: {
     flexWrap: 'nowrap',
@@ -26,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     background:
     'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
+  img: {
+    margin: '3px',
+  }
 }));
 
 export default function SingleLineImageList() {
@@ -43,10 +48,12 @@ export default function SingleLineImageList() {
       <ImageList className={classes.imageList} cols={2.5}>
         {allProviders && allProviders.map((provider) => {
         return (
+          <div className={classes.img}>
           <CardProveedor
             background_image={provider.background_image}
             name={provider.name}
           />
+          </div>
         )
       })}
           </ImageList>
