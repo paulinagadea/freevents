@@ -68,7 +68,7 @@ export default function NavbarHome() {
           {
             isAuthenticated === false && 
             <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          }
+          } 
 
           <Button size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>

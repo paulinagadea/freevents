@@ -56,7 +56,7 @@ export default function NavbarHome() {
     return (
       <div>
 
-        <NavContainer>
+        <NavContainer> 
         <Link className="link" to="/home">Freevents</Link>
           {/* <SearchBar/> */}
         <div className="containerbar">

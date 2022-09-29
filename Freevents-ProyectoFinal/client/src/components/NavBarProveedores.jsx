@@ -54,7 +54,7 @@ export default function NavbarHome() {
 
     return (
       <div>
-
+ 
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
           <SearchFinal/>
