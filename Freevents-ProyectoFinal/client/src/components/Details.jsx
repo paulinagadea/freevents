@@ -4,7 +4,7 @@ import './Details.css'
 import NavbarHome from "./NavbarHome.jsx";
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDetails, clearDetails, getEvents } from "../actions"
+import { getDetails, clearDetails, getEvents, getDetailsPacks, getPacks } from "../actions"
 import { useEffect } from 'react'
 import { Container } from '@material-ui/core';
 
@@ -13,10 +13,19 @@ const Details = () => {
     let { id } = useParams()
     const myservice = useSelector((state) => state.detail)
     const evente = useSelector((state) => state.events)
+    console.log("🚀 ~ file: Details.jsx ~ line 16 ~ Details ~ evente", evente)
+    const detallePack = useSelector((state) => state.detailPack)
+    console.log("🚀 ~ file: Details.jsx ~ line 17 ~ Details ~ detallePack", detallePack)
+    const packs = useSelector((state) => state.packs)
+    console.log("🚀 ~ file: Details.jsx ~ line 19 ~ Details ~ packs", packs)
+    
+
 
     useEffect(() => {
         dispatch(getEvents())
         dispatch(getDetails(id));
+        dispatch(getDetailsPacks(id));
+        dispatch(getPacks(id));
         return () => { dispatch(clearDetails()) }
     }, [dispatch, id])
 
@@ -97,6 +106,14 @@ const Details = () => {
                                 </Link>
                             </div>
                         </div>
+                    </div>
+
+                    <div>
+                        {
+                            detallePack && detallePack.id ? (
+                                <div><h1>detalles</h1></div>
+                            ) : <h1>No hay nada </h1>            
+                        }
                     </div>
                 </div>
             )

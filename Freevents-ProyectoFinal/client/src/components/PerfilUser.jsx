@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { Chip } from "@material-ui/core";
 import { Avatar } from "@mui/material";
 import './PerfilUser.css'
-import { useAuth } from "../context/AuthContext";
-import { auth  } from "../firebase";
+// import { useAuth } from "../context/AuthContext";
+// import { auth  } from "../firebase";
 
 
 const PerfilUser = () => {
@@ -14,11 +14,11 @@ const PerfilUser = () => {
 
     // let y = JSON.parse(localStorage.getItem(favs));
     // let favsFromLocalStorage = y ? y : "No hay Favoritos"
-    const data = auth.currentUser.providerData[0];
+    // const data = auth.currentUser.providerData[0];
 
     return (
         <div>
-            <Chip avatar={<Avatar src={data.photoURL} alt="" />} />
+            {/* <Chip avatar={<Avatar src={data.photoURL} alt="" />} />
             <div><h1 className="portada">Portada</h1></div>
 
             <div className="titulo">
@@ -44,7 +44,7 @@ const PerfilUser = () => {
 
             <Link to="/paquetes">
                 <button>Volver</button>
-            </Link>
+            </Link> */}
 
         </div>
     )
