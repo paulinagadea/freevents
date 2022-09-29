@@ -40,7 +40,7 @@ Prov.get('/:id', async (req, res) => {
 
 
 Prov.post("/", async (req, res) => {
-    const { name, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image, events } = req.body;
+    const { name, sub, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image, events } = req.body;
 
     try {
         const saltRounds = 10 // nivel de hasheo
@@ -48,6 +48,7 @@ Prov.post("/", async (req, res) => {
 
         const newProvider = await Provider.create({
             name,
+            sub,
             address,
             location,
             postal_code,
