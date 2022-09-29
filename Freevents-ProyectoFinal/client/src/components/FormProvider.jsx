@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import './FormProvider.css'
 import foto from '../imagenes/FOTOCONFREEVENTS.jpg'
@@ -22,9 +23,19 @@ import { Formik, Form, Field } from 'formik';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function FormUser(){
+
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    // console.log(user.sub, "soy el id")
+  
     const [ formularioEnviado, setFormularioEnviado ] = useState(false)
     const dispatch = useDispatch();
+    console.log(user)
+    if (isLoading) {
+        return <div>Loading...</div>;
+      }
+      
     return(
+        isAuthenticated && (
         <div>
             <div className='boton_inicio'>
                 <Button href="/home" color= "secondary" variant="outlined" 
@@ -32,21 +43,23 @@ export default function FormUser(){
                     float:'left'
                 }}>Inicio</Button>
             </div>
-            <h1 className='titulo'>Formulario de proveedores</h1>
+            <h1 className='titulo'>Si tu información de contacto está llena tenes más posibilidades de vender</h1>
             <Formik
                 initialValues={{
                     // objeto con valores por defecto
-                    name: '',
+                    name: user.name,
                     address: '',
                     location: '',
                     postal_code: '',
                     cuit: '',
-                    email: '',
+                    email: user.email,
                     phone_number: '',
                     logotype: '',
                     background_image: '',
                     galery_image: [],
                     events: [],
+                    sub:user.sub
+
                     
                 }}
                 validate={(valores)=>{
@@ -126,16 +139,25 @@ export default function FormUser(){
 
                         {/* {console.log(errors)} */}
                         <div className='inputs'>
-                            <TextField
+                            {/* <TextField
                                 color="secondary"
                                 label="Nombre"
                                 name= "name"
                                 value={values.name}
+                                type="hidden"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 autoComplete="off"
+                            /> */}
+                            <input 
+                            label="Nombre"
+                            value={values.name}
+                            type="hidden"
+                            onChange={handleChange}
                             />
-                            {touched.name && errors.name && <div className='error'>{errors.name}</div>}
+                            {/* {touched.name && errors.name && < className='error'>{errors.name} */}
+                            
+                            
                         </div>
                         
                         <div className='inputs'>
@@ -189,9 +211,26 @@ export default function FormUser(){
                             />
                             {touched.cuit && errors.cuit && <div className='error'>{errors.cuit}</div>}
                         </div>
+                        <div className='inputs'>
+                            <input 
+                            label="id"
+                            value={values.sub}
+                            type="hidden"
+                            onChange={handleChange}
+                            />
+
+                        </div>
 
                         <div className='inputs'>
-                            <TextField
+
+
+                        <input 
+                            label="Email"
+                            value={values.email}
+                            type="hidden"
+                            onChange={handleChange}
+                            />
+                            {/* <TextField
                                 color="secondary"
                                 label="Email"
                                 type="email"
@@ -201,7 +240,7 @@ export default function FormUser(){
                                 onBlur={handleBlur}
                                 autoComplete="off"
                             />
-                            {touched.email && errors.email && <div className='error'>{errors.email}</div>}
+                            {touched.email && errors.email && <div className='error'>{errors.email}</div>} */}
                         </div>
 
                         <div className='inputs'>
@@ -370,5 +409,5 @@ export default function FormUser(){
 
             </div>
         </div>
-    )
+    ))
 }

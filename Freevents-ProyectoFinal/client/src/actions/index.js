@@ -32,6 +32,7 @@ export const actionTypes ={
     getAllClients:"getAllClients",
     deleteClient:"deleteClient",
     updateClient:"updateClient",
+    infoGoogle:"infoGoogle"
 };
 
 export function postClient(payload) { 
@@ -51,6 +52,7 @@ export function postClient(payload) {
 export const getAllClients= () => {
     return async function (dispatch) {
         var json = await axios.get(`/client`);
+        console.log(json.data, "yo soy el data client")
         return dispatch({
             type: actionTypes.getAllClients,
             payload: json.data,
@@ -307,6 +309,30 @@ export const addToOrder = detalleP => async dispatch => {
 		});
 	
 };
+
+// export const infoGoogle = detalleP => async dispatch => {
+//     const order = localStorage.getItem('order')//SI EL ITEM EXISISTE
+// 		? JSON.parse(localStorage.getItem('order'))
+// 		: [];
+
+//         const duplicates = order.filter(orderItem => orderItem.id === detalleP.id);
+// 	// if no duplicates, proceed
+// 	if (duplicates.length === 0) {
+// 		// prep product data
+// 		const detallePToAdd = {
+// 			...detalleP,
+			
+// 		}
+//         order.push(detallePToAdd);
+//     }
+// 		localStorage.setItem('order', JSON.stringify(order));
+// 		// add cart to redux
+// 		dispatch({
+// 			type: actionTypes.addToOrder,
+// 			payload: order,
+// 		});
+	
+// };
 
 
 export const addToFavs = product => async dispatch => {
