@@ -60,6 +60,6 @@ export default function Orden2() {
       </form>
       <div id="mercado" className="mercado"></div>
       </div>
-   
+  
   )
   }

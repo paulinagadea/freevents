@@ -16,14 +16,14 @@ const Orden = () => {
   // let { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const [errors, setErrors] = useState({})
   // const clientis = useSelector((state) => state.order)
   // const ordencita = useSelector((state)=>state.ordencita)
   // const detalles = useSelector((state) => state.detail)
 
   let misDatos = JSON.parse(localStorage.getItem("order"));
-  // const ordenMomentanea = useSelector((state) => state.ordenMomentanea)
-  // console.log(misDatos, "MIS DATOS")
-  // console.log(clientis, "CLIENTIS")
+
+
 
   useEffect(() => {
     dispatch(getOrder());
@@ -38,27 +38,22 @@ const Orden = () => {
     //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
-    
+
   });
-//   console.log(input, "input")
+  
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(input)
-    
-  //  setInput( {
-        
-  //     ...input,
-  //     event_date: input.event_date,
+    let validacion = (
+      validate(input)
+    );
+    setErrors(validacion)
 
-  //     event_address: input.event_address,
-  //   })
-    // console.log(input, "input")
-    // console.log(formulardo,"formulardo")
-  
+    if (Object.keys(validacion).length > 0) {
+      alert("Ingresa los valores requeridos");
+      return
+    }
+
     dispatch(postOrder(input));
-    // console.log(aux, "EL AUX")
-    // console.log(aux.data.id)
-    // dispatch(addLastOrder())
     alert("Orden creada");
     navigate("/orden2")
     // <Redirect to = {{
@@ -70,6 +65,17 @@ const Orden = () => {
       event_address: "",
     });
     // navigate('/PerfilUser')
+
+    function validate(input) {
+      let errors = {};
+      if (!input.date) {
+        errors.date = "Fecha requerida"
+      }
+      if (!input.direccion) {
+        errors.direccion = "¿Donde quieres festejar tu evento?"
+      }
+      return errors;
+    }
   }
 
   function handleChange(e) {
@@ -78,66 +84,76 @@ const Orden = () => {
       [e.target.name]: e.target.value,
     });
     console.log(input, "input")
-    // setErrors(validate({
-    //     ...input,
-    //     [e.target.name]:e.target.value
-    // }))
-    // console.log(input)
   }
 
-  return (  misDatos ? (
+
+  return (
+
 
     <div>
-      <h1>Orden de Compra:</h1>
-      <h3>Paquete info</h3>
+      <h1>Detalles de tu Pedido</h1>
+      <h3>Información de paquete</h3>
+      <img
+        className="cover"
+        src={misDatos.map(i => i.galery_image)}
+        alt=""
+        width="100%"
+        height="100%"
+      ></img>
       <div>
-        <h4>Nombre:{misDatos[0].name}</h4>
-        <h4>Precio: {misDatos[0].price}</h4>
+        <h1>{misDatos.map(n => n.name)}</h1>
+        <h1> $ {misDatos.map(p => p.price)}</h1>
       </div>
+      <div>
+      </div>
+      <h1> Detalles del Paquete</h1>
+      <h4> {misDatos.map(d => d.description)} </h4>
+
+
+      <h1>Servicios incluidos: </h1>
+      <h4> </h4>
+
+
       {/* <h3>Informacion del Cliente:</h3>
+    
             <div>
                 <h4>Nombre:</h4>
-                <h4>Documento de Identidad: 36401767</h4>
             </div>
             <div>
                 <h1>Proveedor:</h1>
             </div> */}
       <div>
-        {/* <h1>Direccion y fecha de evento</h1> */}
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <label htmlFor="released">Fecha del evento: </label>
             <input
               type="date"
+              defaultValue={input.date}
               autoComplete="off"
               name="event_date"
               onChange={(e) => handleChange(e)}
-
             />
+            {errors.date && <p>{errors.date}</p>}
             <label>Dirección evento</label>
-            <input 
-            type="text" 
-            name="event_address"
-            onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              defaultValue={input.direccion}
+              name="event_address"
+              onChange={(e) => handleChange(e)} />
+            {errors.direccion && <p>{errors.direccion}</p>}
+          </div>
+          <div>
           </div>
         </form>
       </div>
-      {/* <div>
-                <h1>Detalle:</h1> */}
-      {/* ACA GET ITEM DPS DE HACER LA LOGICA DE LOCALSTORAGE */}
 
-      {/* </div> */}
       <button onClick={(e) => handleSubmit(e)}>Generar orden</button>
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
                 </Link> */}
-    </div>
-
-      ) : (
-        <div>
-            <h1>No Seleccionaste un paquete</h1>
+  
         </div>
-  ))
+  )
 };
 
 export default Orden;
