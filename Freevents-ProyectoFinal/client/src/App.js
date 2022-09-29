@@ -13,6 +13,7 @@ import Proveedores from './components/Proveedores';
 import CreatePack from './components/CreatePack';
 import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
+import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
 import QueEres from './components/QueEres'
 
@@ -62,7 +63,8 @@ function App() {
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detailPaquete/:id' element={<DetailsPaquetes/>}/>
-            <Route exact path = '/login' element={<LoginAu/>}/>
+            <Route exact path = '/loginCliente' element={<LoginAu/>}/>
+            <Route exact path = '/loginProveedor' element={<LoginAu2/>}/>
             {/* <Route exact path = '/login' element={<Login/>}/> */}
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
             <Route exact path = '/orden2' element={<Orden2/>}/>
