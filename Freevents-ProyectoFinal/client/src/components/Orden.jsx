@@ -151,13 +151,9 @@ const Orden = () => {
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
                 </Link> */}
-    </div>
-
-      ) : (
-        <div>
-            <h1>No Seleccionaste un paquete</h1>
+  
         </div>
-  ))
+  )
 };
 
 export default Orden;
