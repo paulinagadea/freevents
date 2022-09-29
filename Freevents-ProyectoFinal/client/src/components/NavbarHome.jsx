@@ -60,15 +60,11 @@ export default function NavbarHome() {
         <Link className="link" to="/home">Freevents</Link>
           {/* <SearchBar/> */}
         <div className="containerbar">
-          {
-            isAuthenticated === false && 
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button> 
-          }
 
-          {
-            isAuthenticated === false && 
-            <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          }
+          {/* {
+            auth.currentUser === null &&  */}
+          <Button size="small" onClick={handleClick} href="/queEres">Ingresar</Button> 
+          {/* } */}
 
           <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>

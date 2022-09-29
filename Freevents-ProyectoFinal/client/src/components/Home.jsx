@@ -6,10 +6,11 @@ import Button from "@material-ui/core/Button"
 import NavbarHome from "./NavbarHome.jsx"
 import { /*useState,*/ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProviders } from "../actions";
+import { getProviders, getAllClients} from "../actions";
 import Eventos from "./Eventos"
 import { Box, Container, Grid } from "@material-ui/core";
 import Boximg from "./Boxing";
+
 import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
@@ -25,6 +26,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getProviders())
+        dispatch(getAllClients())
     }, [dispatch])
 
     return (

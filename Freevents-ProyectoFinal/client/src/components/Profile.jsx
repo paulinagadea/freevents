@@ -1,14 +1,24 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-// import './Profile.css';
+
+// import Navigate from 'react-router-dom'
+
 
 export const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  // const {email, name, }
     // console.log(first)
     console.log(useAuth0())
+    // const navigate = Navigate();
   if (isLoading) {
     return <div>Loading...</div>;
+
   }
+
+
+  // useEffect((
+  //   navigate("/home")
+  // )=>{},[navigate])
 
   return (
     isAuthenticated && (

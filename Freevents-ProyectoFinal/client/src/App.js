@@ -14,6 +14,7 @@ import CreatePack from './components/CreatePack';
 import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
 import DetailsPaquetes from './components/DetailsPaquetes'
+import QueEres from './components/QueEres'
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
@@ -68,6 +69,7 @@ function App() {
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
             <Route exact path = "/orden" element={<Orden/>}/>
+            <Route exact path = "/queEres" element={<QueEres/>}/>
             
            
 

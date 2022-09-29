@@ -1,5 +1,6 @@
 import React from "react";
 import "./LandingPage.css"
+import {Link} from 'react-router-dom'
 import NavBarLanding from "./NavBarLanding.jsx"
 import { /*Button,*/ Container } from "@mui/material";
 // import {Link} from "react-router-dom";
@@ -17,8 +18,11 @@ import { /*Button,*/ Container } from "@mui/material";
 export default function LandingPage(){
     return(
                 <div className="encabezado">
-                    <NavBarLanding/>
+                    {/* <NavBarLanding/> */}
                     <Container /*sx={{mt:5.7}} maxWidth="xl"*/></Container>
+                    <Link to= "/home" >
+                        <button>INGRESAR</button>
+                    </Link>
                     <img className="cabeza" src={"https://res.cloudinary.com/freevents/image/upload/v1664336907/Imagens/foto-junta_oebqnh.jpg"} alt="img not found" /*width="1300px" height="800px"*/></img>
                     
                 <div>
