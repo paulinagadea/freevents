@@ -63,6 +63,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false, 
             defaultValue: "provider",
+        },
+        sub: {
+            type: DataTypes.STRING,
+            allowNull: true, 
         }
     },
         {

@@ -103,10 +103,12 @@ li {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-size: cover;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     flex-direction: column;
+    background-color: #d9c2ba;
+    position: absolute;
 }
 
 .barra {
@@ -118,6 +120,8 @@ li {
 
 .barra .MuiButton-label {
     text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
     background-repeat: no-repeat;

@@ -86,7 +86,9 @@ const Orden = () => {
     console.log(input, "input")
   }
 
+
   return (
+
 
     <div>
       <h1>Detalles de tu Pedido</h1>
@@ -151,11 +153,11 @@ const Orden = () => {
                 </Link> */}
     </div>
 
-    //   ) : (
-    //     <div>
-    //         <h1>No Seleccionaste un paquete</h1>
-    //     </div>
-  );
+      ) : (
+        <div>
+            <h1>No Seleccionaste un paquete</h1>
+        </div>
+  ))
 };
 
 export default Orden;
