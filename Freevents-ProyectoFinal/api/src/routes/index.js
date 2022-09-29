@@ -12,6 +12,7 @@ const Favorite = require('./Favorite');
 const Review = require('./Review');
 const Admin = require('./Admin');
 const AdminLogin = require('./AdminLogin');
+const NodeMailer = require('./NodeMailer');
 const router = Router();
 
 // Configurar los routers
@@ -28,6 +29,7 @@ router.use('/favorites', Favorite);
 router.use('/reviews', Review);
 router.use('/admins', Admin);
 router.use('/adminlogin', AdminLogin);
+router.use('/send-mail', NodeMailer);
 
 // router.get('/admins/:id', (req, res, next) => { })
 
