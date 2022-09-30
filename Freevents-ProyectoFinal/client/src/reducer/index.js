@@ -293,6 +293,12 @@ function rootReducer(state = initialState, action) {
                 cart: [],
             }
         }
+        case actionTypes.Test:{
+            return {
+                ...state
+            }
+        }
+
         default:
             return state;
     }

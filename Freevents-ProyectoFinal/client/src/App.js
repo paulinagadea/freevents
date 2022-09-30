@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 // import Login from "./components/Login";
 import Eventos from "./components/Eventos";
@@ -31,7 +31,9 @@ import Footer from "./components/Footer"
 
 
 function App() {
-
+  let queEres = JSON.parse(localStorage.getItem("user"));
+console.log(queEres, "VALOR DEL STORE")
+  
   //   const [log, setLog] = useState(null)
 //   const [userStatus, setUserStatus] = useState("guest")
 
@@ -58,8 +60,8 @@ function App() {
             <Route exact path = '/home' element= { <Home/> }/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detail/:id' element= { <Detail/> }/>
+            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/userregister"/>}/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
-            <Route exact path = '/providerregister' element= { <FormProvider/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>

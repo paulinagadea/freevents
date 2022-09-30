@@ -32,7 +32,9 @@ export const actionTypes ={
     getAllClients:"getAllClients",
     deleteClient:"deleteClient",
     updateClient:"updateClient",
-    infoGoogle:"infoGoogle"
+    infoGoogle:"infoGoogle",
+   soyElProviderUser:"soyElProviderUser",
+   Test:"Test"
 };
 
 export function postClient(payload) { 
@@ -48,6 +50,8 @@ export function postClient(payload) {
         }
     };
 };
+
+
 
 export const getAllClients= () => {
     return async function (dispatch) {
@@ -309,6 +313,33 @@ export const addToOrder = detalleP => async dispatch => {
 		});
 	
 };
+// export const soyElProviderUser = usardo =>() =>{
+//     const user = localStorage.getItem('user')
+//     ? JSON.parse(localStorage.getItem('user'))
+// 		: [];
+//         const duplicates = user.filter(userItem => userItem.id === detalleP.id);
+//         if (duplicates.length === 0) {
+//             // prep product data
+//             const detallePToAdd = {
+//                 ...detalleP,
+                
+//             }
+//             user.push(detallePToAdd);
+// }
+// localStorage.setItem('user', JSON.stringify(user));
+// dispatch({
+// 			type: actionTypes.soyElProviderUser,
+// 			payload: user,
+// 		})};
+
+// export const Test = () => {
+//     return(dispatch)=>{
+//         return dispatch({
+//             type: actionTypes.Test,
+//             payload: payload
+//         })
+//     }
+// }
 
 // export const infoGoogle = detalleP => async dispatch => {
 //     const order = localStorage.getItem('order')//SI EL ITEM EXISISTE
