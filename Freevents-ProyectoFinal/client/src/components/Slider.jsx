@@ -116,13 +116,13 @@ const ContenedorPrincipal = styled.div`
 const ContenedorSlide = styled.div`
 	display: flex;
 	flex-wrap: nowrap;
-`;
-const Slide = styled.div`
+	height: 100vh;
+	`;
+	const Slide = styled.div`
 	min-width: 100%;
 	overflow: hidden;
 	transition: .3s ease all;
 	z-index: 10;
-	max-height: 590px; 
 	position: relative;
 	img {
 		width: 100%;
