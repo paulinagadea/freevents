@@ -11,7 +11,9 @@ Content-Type: application/json
   "phone_number": "123456789",
   "logotype": "logotype",
   "background_image": "background_image",
-  "galery_image": ["galery_image", "galery_image"],
-  "events":["events"],
-  "password": "abc1234"
+  # "galery_image": ["galery_image", "galery_image"],
+ 
+  "password": "abc1234",
+  "sub":"holiiii"
+  
 }

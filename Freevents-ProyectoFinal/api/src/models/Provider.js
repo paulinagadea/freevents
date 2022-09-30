@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
         },
         passwordHash_provider: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: true, 
         },
         phone_number: {
             type: DataTypes.TEXT,
