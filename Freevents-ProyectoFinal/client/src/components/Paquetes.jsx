@@ -5,11 +5,13 @@ import CardPaquetes from './CardPaquetes'
 import footer2 from "../imagenes/foterfoto.png";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getReviews } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
 import { Link } from "react-router-dom";
+import CardReviews from "./CardReviews";
+
 
 const Paquetes = () => {
   const dispatch = useDispatch();
@@ -21,13 +23,15 @@ const Paquetes = () => {
   const indexOfLastPack = currentPage * packsPerPage //8
   const indexOfFirstPack = indexOfLastPack - packsPerPage //0
   const currentPacks = allPacks.slice(indexOfFirstPack, indexOfLastPack)
-
+  const allReviews = useSelector((state) => state.reviews)
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
+
   useEffect(() => {
     dispatch(getPacks())
     dispatch(getServices())
+    dispatch(getReviews())
   }, [dispatch])
 
   const handleFilterService = (e) => {
@@ -105,11 +109,21 @@ const Paquetes = () => {
                   events={packs.events.map(e => e.name)}
                   services={packs.services?.map(s => s.name)}
                   id={packs.id}
-
-
                 />
               </Link>
             </div>
+          )
+        })}
+      </div>
+      <div>
+        {allReviews?.map((reviews) => {
+          return (
+            <CardReviews
+              comments={reviews.comments}
+              rating={reviews.rating}
+              events={reviews.events}
+              name={reviews.name}
+            />
           )
         })}
       </div>

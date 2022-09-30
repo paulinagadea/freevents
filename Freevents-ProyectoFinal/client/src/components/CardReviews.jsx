@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 });
 
 
-const CardReviews = ({ clientId, providerId, name, celebracion, comentario, rating, proveedor }) => {
+const CardReviews = ({ clientId, providerId, comments, events, name }) => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -51,22 +51,20 @@ const CardReviews = ({ clientId, providerId, name, celebracion, comentario, rati
                             Reseña
                         </Typography>
                         <div className='user'>
-                            <Avatar alt="Remy Sharp" src="https://thumbs.dreamstime.com/b/retrato-de-un-adolescente-de-a%C3%B1os-89599983.jpg" />
+                            <Avatar alt="Remy Sharp" src="https://img.freepik.com/vector-premium/perfil-hombre-dibujos-animados_18591-58484.jpg" />
                             <Typography variant="h5" component="h2">
                                 {name}
                             </Typography>
                         </div>
                         <Typography className={classes.pos} color="textSecondary">
-                            {celebracion}
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                            {proveedor}
+                            {events}
                         </Typography>
                         <Typography variant="body2" component="p">
-                            {comentario}
+                            {comments}
                         </Typography>
                     </CardContent>
-                    <Button size="small">{rating}</Button>
+                    <Button size="small">★★★★★</Button>
+                    
                 </div>
             </div>
         </Card>

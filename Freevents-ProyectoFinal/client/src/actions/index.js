@@ -36,14 +36,14 @@ export const actionTypes = {
     soyElProviderUser: "soyElProviderUser",
     Test: "Test",
     getReviews: "getReviews",
-    postReviews:"postReviews",
-    getDetailsReviews:"getDetailsReviews",
+    postReviews: "postReviews",
+    getDetailsReviews: "getDetailsReviews",
 };
 
 
 export const getReviews = () => {
     return async function (dispatch) {
-        var json = await axios.get(`/reviews`);
+        var json = await axios.get(`/reviews/provider`);
         return dispatch({
             type: actionTypes.getReviews,
             payload: json.data,
@@ -64,6 +64,24 @@ export function postReviews(payload) {
         }
     };
 };
+
+// export const postReviews = (reviews) => {
+//     return async (dispatch) => {
+//         try {
+//             const  tuvieja  = await axios.post(
+//                 "/reviews",
+//                 reviews
+//             );
+//             console.log(tuvieja, "TUVIEJAAAA")
+//             return dispatch({
+//                 type: actionTypes.postReviews,
+//                 payload: tuvieja.data,
+//             });
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     };
+// };
 
 export function getDetailsReviews(id) {
     return async function (dispatch) {

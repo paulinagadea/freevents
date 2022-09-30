@@ -1,18 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProviders, getEvents, orderByName } from "../actions";
+import { getProviders, getEvents, orderByName, getReviews } from "../actions";
 import NavbarProveedores from "./NavBarProveedores.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
 import { Link } from "react-router-dom";
+import CardReviews from "./CardReviews";
 
 const Proveedores = () => {
 
   const dispatch = useDispatch();
   const allProviders = useSelector((state) => state.providers)
   const allEve = useSelector((state) => state.events)
+  const allReviews = useSelector((state) => state.reviews)
   const [orden, setOrder] = useState('')
   // const eventos = useSelector((state) => state.events)
 
@@ -30,6 +32,7 @@ const Proveedores = () => {
   useEffect(() => {
     dispatch(getProviders())
     dispatch(getEvents())
+    dispatch(getReviews())
   }, [dispatch])
 
   function handleSort(e) {
@@ -78,8 +81,21 @@ const Proveedores = () => {
             </div>
           )
         })}
-
       </div>
+      <div>
+        {allReviews?.map((reviews) => {
+          return (
+              <CardReviews
+                comments={reviews.comments}
+                rating={reviews.rating}
+                events={reviews.events}
+                name={reviews.name}
+              /> 
+          )
+        })}
+      </div>
+
+
       <Paginado
         providersPerPage={providersPerPage}
         allProviders={allProviders.length}
