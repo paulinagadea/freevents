@@ -1,12 +1,32 @@
 .portada{
     width: 90%;
     height: 200px;
-    background-color: rgb(116, 116, 116);
+    background-color: rgb(220, 217, 217) ;
     margin: auto;
 }
 
 .foto-perfil{
     float: left;
     border-radius: 150px;
-    margin-left: 5%;
+    margin-left: 6%;
+    margin-top: -50px;
+    width: 150px;
+
 }
+
+.titulo{
+    margin: auto;
+}
+.cont-info{
+    border: 1px solid red;
+    margin: auto;
+    margin-top: 100px;
+    width: 90%;
+    display: flex;
+}
+
+.info{
+    border: 1px solid black;
+    width: 700px;
+}
+
