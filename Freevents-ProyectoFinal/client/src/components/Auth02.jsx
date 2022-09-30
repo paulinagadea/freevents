@@ -1,7 +1,7 @@
 import React from 'react'
 // import {LoginButton} from './LoginButton'
 import { LogoutButton } from './LogoutButton'
-import {Profile} from './Profile'
+import {IngresarAuth0} from './IngresarAuth0'
 import { useAuth0 } from "@auth0/auth0-react";
 // import {Test} from '../actions/index'
 // import { useDispatch } from 'react-redux'
@@ -33,7 +33,7 @@ import { useAuth0 } from "@auth0/auth0-react";
         {/* <LoginButton/> */}
         
         <LogoutButton/>
-        <Profile/>
+        <IngresarAuth0/>
     </div>
     
   )
