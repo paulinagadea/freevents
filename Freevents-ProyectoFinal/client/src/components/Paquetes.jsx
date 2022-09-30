@@ -10,7 +10,7 @@ import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
 import { Link } from "react-router-dom";
-import CardReviews from "./CardReviews";
+
 
 
 const Paquetes = () => {
@@ -23,7 +23,6 @@ const Paquetes = () => {
   const indexOfLastPack = currentPage * packsPerPage //8
   const indexOfFirstPack = indexOfLastPack - packsPerPage //0
   const currentPacks = allPacks.slice(indexOfFirstPack, indexOfLastPack)
-  const allReviews = useSelector((state) => state.reviews)
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
@@ -112,18 +111,6 @@ const Paquetes = () => {
                 />
               </Link>
             </div>
-          )
-        })}
-      </div>
-      <div>
-        {allReviews?.map((reviews) => {
-          return (
-            <CardReviews
-              comments={reviews.comments}
-              rating={reviews.rating}
-              events={reviews.events}
-              name={reviews.name}
-            />
           )
         })}
       </div>
