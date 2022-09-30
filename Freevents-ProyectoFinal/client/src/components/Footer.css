@@ -1,0 +1,32 @@
+.container-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    flex-direction: column;
+    background-color: #d9c2ba;
+}
+
+.img {
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('../imagenes/erwan-hesry-WPTHZkA-M4I-unsplash.jpg');
+    display: flex;
+    align-items: center;
+}
+
+.img h1 {
+    font-family: 'Mollie Glaston';
+    font-size: 80px;
+    margin: 20px;
+    color: #fff;
+}
+
+.img h2 {
+    font-family: 'Nostalgia';
+    color: #fff;
+}
+
+.footer-completo {
+    margin: 10px;
+}

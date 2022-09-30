@@ -91,8 +91,9 @@ const Orden = () => {
 
 
     <div>
-      <h1>Detalles de tu Pedido</h1>
-      <h3>Información de paquete</h3>
+      <div>
+        <h1>Detalles de tu Pedido</h1>
+        <h3>Información de paquete</h3>
       <img
         className="cover"
         src={misDatos.map(i => i.galery_image)}
@@ -100,15 +101,14 @@ const Orden = () => {
         width="100%"
         height="100%"
       ></img>
-      <div>
+      {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
         <h1> $ {misDatos.map(p => p.price)}</h1>
-      </div>
-      <div>
-      </div>
+      {/* </div> */}
+      {/* <div>
+      </div> */}
       <h1> Detalles del Paquete</h1>
       <h4> {misDatos.map(d => d.description)} </h4>
-
 
       <h1>Servicios incluidos: </h1>
       <h4> </h4>
@@ -122,6 +122,7 @@ const Orden = () => {
             <div>
                 <h1>Proveedor:</h1>
             </div> */}
+        </div>
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>

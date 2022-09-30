@@ -1,16 +1,15 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import './Footer.css';
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary">
             {'Copyright © '}
             <Link color="inherit" href="">
-                freevents.app
+                Freevents
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -22,18 +21,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
-        marginTop: "10vh",
-    },
-    main: {
-        marginTop: theme.spacing(8),
-        marginBottom: theme.spacing(2),
-    },
-    footer: {
-        padding: theme.spacing(3, 2),
-        marginTop: 'auto',
-        backgroundColor:
-            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+        position: 'absolute',
+        width: '100%',
     },
 }));
 
@@ -42,25 +31,36 @@ export default function StickyFooter() {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
-            <Container component="main" className={classes.main} maxWidth="sm">
-                <Typography variant="h2" component="h1" gutterBottom>
+            <div className="img">
+                <div className="content">
+                <Typography variant="h2" component="h1">
                     Freevents
                 </Typography>
-                <Typography variant="h5" component="h2" gutterBottom>
-                    {'¿Qué esperas para vivir el evento de tus sueños?'}
-                    {'Casamientos, Egresos, Despedidas, Full party, Baby showers , 15 años, Cumpleaños, Aniversarios. Organiza tu evento en un simple "click!", '}
+                <Typography variant="h5" component="h2">
+                    {'¿Qué esperas para vivir el evento de tus sueños? '}
+                    {'Casamientos, egresos, despedidas, full party, baby showers, 15 años, cumpleaños, aniversarios. Organiza tu evento en un simple "click!"'}
                 </Typography>
-                <Typography variant="body1">Estás a un solo paso de vivirlo, Anímate!.</Typography>
-            </Container>
+                <Typography variant="h5" component="h2">Estás a un solo paso de vivirlo, ¡Anímate!</Typography>
+                </div>
+            </div>
             
-            <footer className={classes.footer}>
-                <Container maxWidth="sm">
+            <div className="container-footer">
+                    <div className="footer-completo">
+                        <a href={"https://github.com/paulinagadea/freevents"}>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/github_zm2gn2.png'} alt="not found" height="40px" on></img>
+                        </a>
+                        <a href={"https://www.facebook.com/"}>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/Facebook_v7270n.png'} alt="not found" height="40px"></img>
+                        </a>
+                        <a href={"https://twitter.com"}>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/twitter_mqtqdf.png'} alt="not found" height="40px"></img>  
+                        </a>
+                        <a href={"https://www.instagram.com/"}>
+                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/instagram_ed9xa5.png'} alt="not found" height="40px"></img>  
+                        </a>
+                    </div>
                     <Copyright />
-                    <Typography variant="body1">Síguenos en todas nuestras redes.</Typography>
-
-                </Container>
-            </footer>
+            </div>
         </div>
     );
 }

@@ -17,15 +17,6 @@ li {
     position: absolute;
 }
 
-/* .texto-encima {
-    position: absolute;
-    margin: 50px auto;
-    top: 350px;
-    left: 550px;
-    color: aliceblue;
-    font-size: 120px;
-} */
-
 .centrado {
     position: relative;
     top: 50px;
@@ -36,7 +27,9 @@ li {
 }
 
 .parrafo {
-    font-size: large;
+    font-size: 25px;
+    font-family: 'Nostalgia';
+    letter-spacing: 0.5px;
 }
 
 .parrafoc {
@@ -82,12 +75,6 @@ li {
     margin-top: 6%;
 }
 
-.footer-completo {
-    position: absolute;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
 .footer {
     width: 100%;
 }
@@ -96,19 +83,6 @@ li {
     display: flex;
     flex-direction: column;
     margin-right: 110%;
-}
-
-.container-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100px;
-    background-size: cover;
-    /* margin-top: 5px; */
-    flex-direction: column;
-    background-color: #d9c2ba;
-    position: absolute;
 }
 
 .barra {
@@ -134,13 +108,16 @@ li {
 }
 
 .barra1 {
-    background-color: #fefeff;
-    padding: 20px;
-    margin-top: 0px;
+    background-color: inherit;
+    margin-bottom: 50px;
 }
 
-.titulo {
+.titulo h1 {
     color: #735949;
+    border: 2px solid #735949; 
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
 }
 
 .titulo-home1 {
