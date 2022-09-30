@@ -1,7 +1,6 @@
 import React from "react";
 import "./LandingPage.css"
 import {Link} from 'react-router-dom'
-import NavBarLanding from "./NavBarLanding.jsx"
 import { /*Button,*/ Container } from "@mui/material";
 // import {Link} from "react-router-dom";
 // import cabeza from "../imagenes/20.jpg";

@@ -83,7 +83,7 @@ export default function NavbarHome() {
   const NavContainer= styled.nav`
   
   .link{
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 5%;
     font-family: 'Mollie Glaston';
   }
