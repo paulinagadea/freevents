@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getAllReviews, getReviewById } = require('../controllers/getAllReviews.js');
-const { Review, Client, Provider } = require('../db'); 
+const { Review, Client, Provider, Event } = require('../db'); 
 
 const router = Router();
 
@@ -31,23 +31,30 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {clientId, providerId, rating, comments} = req.body;
+    const {clientId, providerId, name, rating, comments, events} = req.body;
 
     try {
-        const reviewCreated = await Review.create({
-            rating,
-            comments,
-        })
         let clientDb = await Client.findOne({
             where : { id : clientId }
         });
-
-        await reviewCreated.setClient(clientDb.id);
-
+        
         let providerDb = await Provider.findOne({
             where : { id : providerId }
         });
+        
+        let eventsWea = await Event.findOne({
+                where : { name: events }
+        })
+        
+        const reviewCreated = await Review.create({
+            name: clientDb.name,
+            image, 
+            rating,
+            comments,
+        })
+        await reviewCreated.setEvent(eventsWea)
         await reviewCreated.setProvider(providerDb.id); 
+        await reviewCreated.setClient(clientDb.id);
 
         res.status(200).json(reviewCreated);
     }catch(error) {
