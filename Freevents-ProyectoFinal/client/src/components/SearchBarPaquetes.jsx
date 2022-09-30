@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNamesPacks } from "../actions";
 import SearchIcon from '@material-ui/icons/Search';
 import './SearchBar.css'
+import Swal from "sweetalert2";
 
 
 export default function SearchBar({setCurrentPage}) {
@@ -32,7 +33,15 @@ export default function SearchBar({setCurrentPage}) {
             setName("")
             setCurrentPage(1) 
         }else{
-            <Alert severity="error">No existe ese proveedor</Alert>
+            Swal.fire({
+                title: "Oops...😓",
+                text:"No se ha encontrado tu búsqueda, intenta de nuevo.",
+                confirmButtonText:"Intentar de nuevo",
+                confirmButtonColor: "#735949",
+                imageUrl: "https://i.pinimg.com/564x/dd/36/01/dd360137cc6e7d7d093e2df028864b34.jpg",
+                imageHeight: 100,
+                
+            })
         }
         
     }

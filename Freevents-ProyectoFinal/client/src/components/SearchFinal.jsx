@@ -6,6 +6,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 import Alert from '@mui/material/Alert';
 import './SearchBar.css'
+import Swal from "sweetalert2";
+
 
 export default function SearchBarFinal({ setCurrentPage }) {
     const dispatch = useDispatch();
@@ -30,7 +32,15 @@ export default function SearchBarFinal({ setCurrentPage }) {
             setName("")
             setCurrentPage(1)
         } else {
-            <Alert severity="error">No existe ese proveedor</Alert>
+            Swal.fire({
+                title: "Oops...😓",
+                text:"No se ha encontrado tu búsqueda, intenta de nuevo.",
+                confirmButtonText:"Intentar de nuevo",
+                confirmButtonColor: "#735949",
+                imageUrl: "https://i.pinimg.com/564x/dd/36/01/dd360137cc6e7d7d093e2df028864b34.jpg",
+                imageHeight: 100,
+                
+            })
         }
     }
 
