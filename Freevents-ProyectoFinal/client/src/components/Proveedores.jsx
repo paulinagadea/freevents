@@ -52,11 +52,7 @@ const Proveedores = () => {
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
       <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
       <button onClick={e => { handleClick(e) }}> ⇦</button>
-      <Paginado
-        providersPerPage={providersPerPage}
-        allProviders={allProviders.length}
-        paginado={paginado}
-      />
+
       <div className="row">
 
         <select onChange={e => handleSort(e)}>
@@ -75,8 +71,8 @@ const Proveedores = () => {
                   name={provider.name}
                   address={provider.address}
                   email={provider.email}
-                  phone_number={provider.phone_number} 
-                  eventos = {allEve.map(e => { return (e.name) })}
+                  phone_number={provider.phone_number}
+                  eventos={allEve.map(e => { return (e.name) })}
                 />
               </Link>
             </div>
@@ -84,6 +80,11 @@ const Proveedores = () => {
         })}
 
       </div>
+      <Paginado
+        providersPerPage={providersPerPage}
+        allProviders={allProviders.length}
+        paginado={paginado}
+      />
     </div>
   );
 };

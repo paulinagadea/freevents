@@ -27,6 +27,9 @@ import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
 import Dashboard from './components/DashBoard';
 import Footer from "./components/Footer"
+import Reviews from './components/Reviews';
+import AlertSuscribe from "./components/AlertSuscribe";
+import CardReviews from './components/CardReviews';
 
 
 
@@ -76,6 +79,9 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = "/orden" element={<Orden/>}/>
             <Route exact path = "/queEres" element={<QueEres/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>
+            {/* <Route exact path = "/AlertSuscribe" element={<AlertSuscribe/>}/> */}
+            <Route exact path = "/Reviews" element={<Reviews/>}/>
+            <Route exact path = "/CardReviews" element={<CardReviews/>}/>
             
 
 
