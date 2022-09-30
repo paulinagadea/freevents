@@ -15,7 +15,7 @@ import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
 import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
-import QueEres from './components/QueEres'
+
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
@@ -77,7 +77,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/> 
             <Route exact path = "/orden" element={<Orden/>}/>
-            <Route exact path = "/queEres" element={<QueEres/>}/>
+            <Route exact path = "/customertype" element={<CustomerType/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>
             {/* <Route exact path = "/AlertSuscribe" element={<AlertSuscribe/>}/> */}
             <Route exact path = "/Reviews" element={<Reviews/>}/>
