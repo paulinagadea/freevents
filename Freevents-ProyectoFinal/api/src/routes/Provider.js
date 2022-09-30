@@ -40,11 +40,27 @@ Prov.get('/:id', async (req, res) => {
 
 
 Prov.post("/", async (req, res) => {
-    const { name, sub, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image, events } = req.body;
+    const { 
+        name, 
+        sub, 
+        address, 
+        location, 
+        postal_code, 
+        cuit, email,
+        password, 
+        phone_number, 
+        logotype, 
+        background_image,
+        galery_image,
 
+         } = req.body;
+
+    
     try {
         const saltRounds = 10 // nivel de hasheo
-        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        const passwordHash_provider = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+
+        
 
         const newProvider = await Provider.create({
             name,
@@ -54,7 +70,7 @@ Prov.post("/", async (req, res) => {
             postal_code,
             cuit,
             email,
-            passwordHash,
+            passwordHash_provider,
             phone_number,
             logotype,
             background_image,
@@ -63,14 +79,14 @@ Prov.post("/", async (req, res) => {
 
         const savedUser = await newProvider.save()
 
+        res.status(200).json(savedUser);
 
         //anexamos la lista de eventos al proveedor
-        let eventsDb = await Event.findAll({
-            where: { name: events }
-        })
-        savedUser.addEvent(eventsDb);
+        // let eventsDb = await Event.findAll({
+        //     where: { name: events }
+        // })
+        // savedUser.addEvent(eventsDb);
 
-        res.status(200).json(savedUser);
 
     } catch (error) {
         console.log("error post provider", error)

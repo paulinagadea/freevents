@@ -294,7 +294,7 @@ export function createService(payload) {
 export function createProvider(payload) {
     return async function (dispatch) {
         try {
-            const creado = await axios.post("/providers", payload);
+            const creado = await axios.post("http://localhost:3001/providers", payload);
             console.log(creado.data, "create provier actions")
 
             return dispatch({
@@ -303,7 +303,7 @@ export function createProvider(payload) {
             });
 
         } catch (error) {
-            throw new Error(error);
+        return error
         }
     };
 };
