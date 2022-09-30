@@ -30,11 +30,11 @@ const Paquetes = () => {
     dispatch(getServices())
   }, [dispatch])
 
-  const handleFilterService = (e)=>{
+  const handleFilterService = (e) => {
     dispatch(filterPacksByService(e.target.value))
     setCurrentPage(1)
 
-}
+  }
   function handleSort(e) {
     e.preventDefault()
     console.log(e.target.value, "Soy el target")
@@ -60,11 +60,7 @@ const Paquetes = () => {
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
       <h1 className="Titulo-proveedores"> PAQUETES DE SERVICIO </h1>
-      <PaginadoPacks
-        packsPerPage={packsPerPage}
-        allPacks={allPacks.length}
-        paginado={paginado}
-      />
+
       <div>
         <div className="row">
           <select onChange={e => { handleSort(e) }}>
@@ -75,16 +71,16 @@ const Paquetes = () => {
             <option value='descendenteW'>Max-Min precio</option> */}
           </select>
           <select onChange={e => { handleSortPrice(e) }}>
-          <option selected disabled>Precios</option>
-          <option value='ascendente'>menor a mayor precio</option>
+            <option selected disabled>Precios</option>
+            <option value='ascendente'>menor a mayor precio</option>
             <option value='descendente'>mayor a menor precio</option>
           </select>
 
           {/* <input  type="range" id="points" name="points" min="0" max="25000"></input> */}
-          
-          <select onChange={e => {handleFilterService(e)}}>
-            <option selected disabled value = 'All'>Servicio</option>
-            {allServicesP?.map(el => <option key = {el.id} value = {el.name}> {el.name} </option>)}
+
+          <select onChange={e => { handleFilterService(e) }}>
+            <option selected disabled value='All'>Servicio</option>
+            {allServicesP?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
           </select>
 
 
@@ -93,7 +89,7 @@ const Paquetes = () => {
             {allServicesP.map((t) =>
               <option> {t.price} </option>)}
           </select> */}
-          
+
         </div>
       </div>
       <div className="grid">
@@ -102,21 +98,26 @@ const Paquetes = () => {
           return (
             <div className='item'>
               <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}>
-              <CardPaquetes
-                name={packs.name}
-                price={packs.price}
-                galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg" }
-                events={packs.events.map(e => e.name)}
-                services={packs.services?.map(s => s.name)}
-                id={packs.id}
+                <CardPaquetes
+                  name={packs.name}
+                  price={packs.price}
+                  galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg"}
+                  events={packs.events.map(e => e.name)}
+                  services={packs.services?.map(s => s.name)}
+                  id={packs.id}
 
 
-              />
+                />
               </Link>
             </div>
           )
         })}
       </div>
+      <PaginadoPacks
+        packsPerPage={packsPerPage}
+        allPacks={allPacks.length}
+        paginado={paginado}
+      />
     </div>
   )
 }

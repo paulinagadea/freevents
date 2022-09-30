@@ -6,17 +6,19 @@ const initialState = {
     providers: [],
     allProviders: [],
     detail: [],
-    detailPack:[],
+    detailPack: [],
     services: [],
     packs: [],
     allPacks: [],
     favs: [],
     order: [],
     ordercita: [],
-    ordenGenerada:{},
+    ordenGenerada: {},
     clients: [],
-    allClient:[],
-    idClient:[],
+    allClient: [],
+    idClient: [],
+    reviews: [],
+    allReviews:[],
 }
 
 if (localStorage.getItem('favs')) {
@@ -44,7 +46,7 @@ function rootReducer(state = initialState, action) {
                 allClients: action.payload,
             };
         }
-        case actionTypes.getIdClient:{
+        case actionTypes.getIdClient: {
             return {
                 ...state,
                 idClient: action.payload,
@@ -89,14 +91,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 services: action.payload,
             }
-        } 
+        }
         case actionTypes.getOrder: {
             return {
                 ...state,
                 ordercita: action.payload,
             }
         }
-        
+
         case actionTypes.postOrder: {
             return {
                 ...state,
@@ -114,7 +116,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 detail: [],
-                detailPack:[],
+                detailPack: [],
                 providers: [],
             }
         }
@@ -263,9 +265,6 @@ function rootReducer(state = initialState, action) {
                 order: [...action.payload]
             }
         }
-        
-
-
         case actionTypes.removeOneFromCart: {
             let packToDelete = state.cart.find((pack) => pack.id === action.payload);
             return packToDelete.quantity > 1
@@ -293,9 +292,22 @@ function rootReducer(state = initialState, action) {
                 cart: [],
             }
         }
-        case actionTypes.Test:{
+        case actionTypes.Test: {
             return {
                 ...state
+            }
+        }
+        case actionTypes.getReviews: {
+            return {
+                ...state,
+                reviews: action.payload,
+                allReviews: action.payload,
+            };
+        }
+        case actionTypes.postReviews: {
+            return {
+                ...state,
+                reviews: action.payload,
             }
         }
 
