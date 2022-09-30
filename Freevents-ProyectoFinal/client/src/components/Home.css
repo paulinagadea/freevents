@@ -17,14 +17,14 @@ li {
     position: absolute;
 }
 
-.texto-encima {
+/* .texto-encima {
     position: absolute;
     margin: 50px auto;
     top: 350px;
     left: 550px;
     color: aliceblue;
     font-size: 120px;
-}
+} */
 
 .centrado {
     position: relative;
@@ -75,11 +75,11 @@ li {
 }
 
 .titulo-home {
-    font-size: 40px;
-    font-family: 'Epilogue', sans-serif;
+    font-size: 50px;
+    font-family: 'Mollie Glaston';
     color: #735949;
-    margin-bottom: 4%;
-    margin-top: 4%;
+    margin-bottom: 6%;
+    margin-top: 6%;
 }
 
 .footer-completo {
