@@ -9,9 +9,10 @@ import './SearchBar.css'
 import Swal from "sweetalert2";
 
 
-export default function SearchBarFinal({ setCurrentPage }) {
+export default function SearchBarFinal() {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
+    const [currentPage, setCurrentPage] = useState(1)
     const provider = useSelector((state) => state.providers)
     const packss = useSelector((state) => state.packs)
     console.log(provider, "soy el provider")
