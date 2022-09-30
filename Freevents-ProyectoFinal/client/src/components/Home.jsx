@@ -43,7 +43,7 @@ const Home = () => {
             <div>
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <Slider/>
-                <h1 className="texto-encima">Freevents</h1>
+                {/* <h1 className="texto-encima">Freevents</h1> */}
                 
                 {/* <img src={fotogeneral} className="fotogeneral_home" alt="" /> */}
             </div>
