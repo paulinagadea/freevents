@@ -232,11 +232,16 @@ export function createService(payload) {
 
 
 export function createProvider(payload) {
-    return async function () {
+    return async function (dispatch) {
         try {
             const creado = await axios.post("/providers", payload);
-            console.log(creado)
-            return creado;
+            console.log(creado.data, "create provier actions")
+           
+            return dispatch({
+                type: actionTypes.createProvider,
+                payload: creado.data,
+            });
+            
         } catch (error) {
             throw new Error(error);
         }

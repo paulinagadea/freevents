@@ -29,7 +29,7 @@ export default function FormUser(){
   
     const [ formularioEnviado, setFormularioEnviado ] = useState(false)
     const dispatch = useDispatch();
-    console.log(user)
+    console.log(user, "SOY EL USER DEL FORM PROVIDER")
     if (isLoading) {
         return <div>Loading...</div>;
       }
@@ -109,7 +109,7 @@ export default function FormUser(){
                 onSubmit={async (values, {resetForm})=>{
                     console.log(values, 'valores')
                     dispatch(createProvider(values));
-                    console.log(createProvider, 'action')
+                   
                     resetForm({values : ''}) // para limpiar el formulario
                     console.log("formulario enviado")
                     setFormularioEnviado(true);

@@ -15,6 +15,7 @@ import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
 import Footer from "./Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -24,14 +25,19 @@ import Footer from "./Footer";
 const Home = () => {
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
-
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    
     useEffect(() => {
         dispatch(getProviders())
         dispatch(getAllClients())
     }, [dispatch])
+    
+    console.log(user, "SOY EL USER EN EL HOME")
+   
 
     return (
-        <div>
+       
+            <div>
                 <NavbarHome />
                 {/* <img className="imghome" src={image20} alt="" /> */}
             <div>
@@ -126,6 +132,8 @@ const Home = () => {
                 </div>
                 
         </div>
-    )
+        )
+    
+    
 }
 export default Home;
