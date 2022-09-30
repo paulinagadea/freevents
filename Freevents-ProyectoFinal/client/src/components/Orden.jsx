@@ -38,6 +38,7 @@ const Orden = () => {
     //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
+    price:misDatos[0].price
 
   });
   
@@ -63,6 +64,7 @@ const Orden = () => {
     setInput({
       event_date: "",
       event_address: "",
+      price:""
     });
     // navigate('/PerfilUser')
 
@@ -103,7 +105,7 @@ const Orden = () => {
       ></img>
       {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
-        <h1> $ {misDatos.map(p => p.price)}</h1>
+        {/* <h1> $ {misDatos.map(p => p.price)}</h1> */}
       {/* </div> */}
       {/* <div>
       </div> */}
@@ -142,6 +144,13 @@ const Orden = () => {
               name="event_address"
               onChange={(e) => handleChange(e)} />
             {errors.direccion && <p>{errors.direccion}</p>}
+            <label>Precio</label>
+            <input
+              type="text"
+              defaultValue={input.price}
+              // name="event_address"
+              onChange={(e) => handleChange(e)} />
+            {/* {errors.direccion && <p>{errors.direccion}</p>} */}
           </div>
           <div>
           </div>
