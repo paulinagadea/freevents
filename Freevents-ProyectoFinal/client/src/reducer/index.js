@@ -307,9 +307,8 @@ function rootReducer(state = initialState, action) {
         case actionTypes.postReviews: {
             return {
                 ...state,
-                reviews: action.payload,
             }
-        }
+        } 
 
         default:
             return state;
