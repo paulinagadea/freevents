@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import CustomerType from "./components/CustomerType";
 import Detail from './components/Details';
 import FormUser from "./components/FormUser";
-import FormProvider from "./components/FormProvider";
+import FormProvider from "./components/FormularioProveedor";
 import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
 import CreatePack from './components/CreatePack';
@@ -60,7 +60,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/home' element= { <Home/> }/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detail/:id' element= { <Detail/> }/>
-            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/userregister"/>}/>
+            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/home"/>}/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
