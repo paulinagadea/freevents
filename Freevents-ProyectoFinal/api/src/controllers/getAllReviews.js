@@ -2,7 +2,14 @@ const { Review } = require('../db')
 
 
 const getAllReviews = async () => {
-        const reviews = await Review.findAll();
+        const reviews = await Review.findAll({
+            include:[
+            {
+                model: Provider, 
+                attributes: [ "id", "name" ],
+            },
+            ]
+        });
         return reviews;
 
 };

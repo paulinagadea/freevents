@@ -31,34 +31,35 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {clientId, providerId, name, rating, comments, events} = req.body;
-
+    const {clientId, providerId, rating, comments, events} = req.body;
+    console.log('body', events)
     try {
-        let clientDb = await Client.findOne({
-            where : { id : clientId }
-        });
-        
-        let providerDb = await Provider.findOne({
-            where : { id : providerId }
-        });
-        
-        let eventsWea = await Event.findOne({
-                where : { name: events }
-        })
+        // let clientDb = await Client.findOne({
+        //     where : { id : clientId }
+        // });
+        // console.log('clientes', )
+        // let providerDb = await Provider.findOne({
+        //     where : { id : providerId }
+        // });
+        // console.log('proveedores', providerDb)
         
         const reviewCreated = await Review.create({
-            name: clientDb.name,
-            image, 
+            // name: clientDb.name,
+            // image, 
             rating,
             comments,
         })
-        await reviewCreated.setEvent(eventsWea)
-        await reviewCreated.setProvider(providerDb.id); 
-        await reviewCreated.setClient(clientDb.id);
+        let eventsWea = await Event.findOne({
+                where : { name: events }
+        })
+        console.log("anteojos", eventsWea)
+        await reviewCreated.setEvent(eventsWea.id)
+        // await reviewCreated.setProvider(providerDb.id); 
+        // await reviewCreated.setClient(clientDb.id);
 
         res.status(200).json(reviewCreated);
     }catch(error) {
-
+        console.log(error)
        res.status(500).json({ message: 'Error', error })
     }
  
@@ -74,8 +75,8 @@ router.put("/:id", async (req, res) => {
                res.status(200).json({ succes: 'Update Review' })
    
    } catch(error) {
-
-       res.status(500).json({ message: 'Error', error })
+    
+    res.status(500).json({ message: 'Error', error })
 
    }
    
