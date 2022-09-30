@@ -1,153 +1,165 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import Button from "@material-ui/core/Button"
-import { Alert } from "./Alert";
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import './FormUser.css'
+import React from 'react'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '36ch',
-      
-      
-    },
-  },
-  root1:{
-    width: '30ch',
-  
-  }
-}));
-
-export default function Register() {
-  const { signup } = useAuth();
-  const classes = useStyles();
-
-  const [user, setUser] = useState({
-    name: '',
-    lastname: '',
-    password: '',
-    gender: '',
-    dni: '',
-    phone_number: '',
-    email: '',
-  });
-
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      await signup(user.email, user.password);
-      navigate("/home");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
+export default  function Register  () {
   return (
-    <div className="#">
-      {error && <Alert message={error} />}
-        <h1> Regístrate</h1>
-      <form className={classes.root} noValidate autoComplete="off"
-        onSubmit={handleSubmit}
-      >
-        <div className="#">
-          
-          <TextField
-          label="Nombre"
-            type="nombre"
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
-            variant="outlined"
-            placeholder="Coloca tu nombre"
-          />
-        </div>
-
-        <div className="#">
-          
-          <TextField
-            label="Apellido"
-            type="apellido"
-            onChange={(e) => setUser({ ...user, lastname: e.target.value })}
-            variant="outlined"
-            placeholder="Coloca tu apellido"
-          />
-        </div>
-
-        <div className="#">
-          
-          <TextField
-            label="DNI"
-            type="dni"
-            onChange={(e) => setUser({ ...user, dni: e.target.value })}
-            variant="outlined"
-            placeholder="Ingresa un documento de identidad"
-          />
-        </div>
-
-
-        <div className="#">
-          
-          <TextField
-            label="Teléfono"
-            type="teléfono"
-            onChange={(e) => setUser({ ...user, phone_number: e.target.value })}
-            className="#"
-            variant="outlined"
-            placeholder="Ingresa un número telefónico"
-          />
-        </div>
-
-        <div className="#">
-          
-          <TextField
-          required
-          label="Email"
-            type="email"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-            variant="outlined"
-            placeholder="youremail@company.tld"
-          />
-        </div>
-
-        <div className="#">
-          
-          <TextField
-            autoComplete="current-password"
-            htmlFor="password"
-            type="password"
-            name="password"
-            id="outlined-password-input"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-            label="Password"
-            variant="outlined"
-            placeholder="*************"
-          />
-        </div>
-
-        <Button
-            disableElevation
-            variant="contained" 
-            color="primary"
-            type="submit"
-          >
-          Register
-        </Button>
-      </form>
-      <p className="acount">
-        Already have an Account?
-        <Link to="/login" className="#">
-          Login
-        </Link>
-      </p>
-    </div>
-  );
+    <div>
+    <h1>Soy el componente client</h1>
+   </div>
+  )
 }
+
+
+
+// import { useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
+// import Button from "@material-ui/core/Button"
+// import { Alert } from "./Alert";
+// import { makeStyles } from '@material-ui/core/styles';
+// import TextField from '@material-ui/core/TextField';
+// import './FormUser.css'
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& .MuiTextField-root': {
+//       margin: theme.spacing(1),
+//       width: '36ch',
+      
+      
+//     },
+//   },
+//   root1:{
+//     width: '30ch',
+  
+//   }
+// }));
+
+// export default function Register() {
+//   const { signup } = useAuth();
+//   const classes = useStyles();
+
+//   const [user, setUser] = useState({
+//     name: '',
+//     lastname: '',
+//     password: '',
+//     gender: '',
+//     dni: '',
+//     phone_number: '',
+//     email: '',
+//   });
+
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setError("");
+//     try {
+//       await signup(user.email, user.password);
+//       navigate("/home");
+//     } catch (error) {
+//       setError(error.message);
+//     }
+//   };
+
+//   return (
+//     <div className="#">
+//       {error && <Alert message={error} />}
+//         <h1> Regístrate</h1>
+//       <form className={classes.root} noValidate autoComplete="off"
+//         onSubmit={handleSubmit}
+//       >
+//         <div className="#">
+          
+//           <TextField
+//           label="Nombre"
+//             type="nombre"
+//             onChange={(e) => setUser({ ...user, name: e.target.value })}
+//             variant="outlined"
+//             placeholder="Coloca tu nombre"
+//           />
+//         </div>
+
+//         <div className="#">
+          
+//           <TextField
+//             label="Apellido"
+//             type="apellido"
+//             onChange={(e) => setUser({ ...user, lastname: e.target.value })}
+//             variant="outlined"
+//             placeholder="Coloca tu apellido"
+//           />
+//         </div>
+
+//         <div className="#">
+          
+//           <TextField
+//             label="DNI"
+//             type="dni"
+//             onChange={(e) => setUser({ ...user, dni: e.target.value })}
+//             variant="outlined"
+//             placeholder="Ingresa un documento de identidad"
+//           />
+//         </div>
+
+
+//         <div className="#">
+          
+//           <TextField
+//             label="Teléfono"
+//             type="teléfono"
+//             onChange={(e) => setUser({ ...user, phone_number: e.target.value })}
+//             className="#"
+//             variant="outlined"
+//             placeholder="Ingresa un número telefónico"
+//           />
+//         </div>
+
+//         <div className="#">
+          
+//           <TextField
+//           required
+//           label="Email"
+//             type="email"
+//             onChange={(e) => setUser({ ...user, email: e.target.value })}
+//             variant="outlined"
+//             placeholder="youremail@company.tld"
+//           />
+//         </div>
+
+//         <div className="#">
+          
+//           <TextField
+//             autoComplete="current-password"
+//             htmlFor="password"
+//             type="password"
+//             name="password"
+//             id="outlined-password-input"
+//             onChange={(e) => setUser({ ...user, password: e.target.value })}
+//             label="Password"
+//             variant="outlined"
+//             placeholder="*************"
+//           />
+//         </div>
+
+//         <Button
+//             disableElevation
+//             variant="contained" 
+//             color="primary"
+//             type="submit"
+//           >
+//           Register
+//         </Button>
+//       </form>
+//       <p className="acount">
+//         Already have an Account?
+//         <Link to="/login" className="#">
+//           Login
+//         </Link>
+//       </p>
+//     </div>
+//   );
+// }
 
 
 //---------------------------------------------------------------
