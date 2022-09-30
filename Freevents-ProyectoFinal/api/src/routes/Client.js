@@ -101,11 +101,9 @@ Clien.post("/", async (req, res) => {
                 from: "Freevents <kristhianlizcano@gmail.com>",
                 to: email,
                 subject: "Freevents",
-                text: "BIENVENIDO A FREEVENTS", 
+                html:`<div align="center"><a href="https://ibb.co/C2bKxpx"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></a></div>`, 
                 
-      
-                
-            }; 
+        }; 
 
             const result = await transporter.sendMail(mailOptions);
             return result;
