@@ -8,6 +8,7 @@ import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
 import { Link } from "react-router-dom";
 import CardReviews from "./CardReviews";
+import './Comentarios.css'
 
 const Proveedores = () => {
 
@@ -82,6 +83,7 @@ const Proveedores = () => {
           )
         })}
       </div>
+      <h1>COMENTARIOS DE NUESTROS CLIENTES:</h1>
       <div>
         {allReviews?.map((reviews) => {
           return (

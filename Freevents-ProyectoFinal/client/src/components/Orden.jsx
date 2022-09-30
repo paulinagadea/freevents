@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../actions";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
+import  handlePayment from './Orden2'
 // import { useParams } from "react-router-dom";
 
 //necesito info de cliente (de donde la saco?)
@@ -49,14 +50,16 @@ const Orden = () => {
     );
     setErrors(validacion)
 
-    if (Object.keys(validacion).length > 0) {
+    // if (Object.keys(validacion).length > 0) {
       alert("Ingresa los valores requeridos");
-      return
-    }
+    //   return
+    // }
 
     dispatch(postOrder(input));
-    alert("Orden creada");
-    navigate("/orden2")
+
+    // alert("Orden creada");
+    handlePayment()
+    // navigate("/orden2")
     // <Redirect to = {{
     //    pathname: '/order',
     //    state: { aux.data.id}
