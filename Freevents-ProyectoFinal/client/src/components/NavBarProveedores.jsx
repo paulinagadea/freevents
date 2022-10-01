@@ -88,10 +88,15 @@ export default function NavbarHome() {
   }
   
   const NavContainer= styled.nav`
+  @font-face {
+    font-family: "Mollie";
+    src: "../../public/Mollie-Glaston.ttf";
+  }
+  
   .link{
     font-size: 60px;
     margin-left: 5%;
-    font-family: 'Mollie Glaston';
+    font-family: 'Mollie';
   }
 
  .containerbar{

@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Mollie";
+    src: url(../assets/fonts/Mollie-Glaston.otf);
+    font-weight: 700;
+    font-display: swap;
+  }
+
 .Titulo {
     color: black;
     font-family: Hahmlet;
@@ -7,10 +14,37 @@
 
 .row {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    /* justify-items: center; */
-    /* justify-self: center; */
+    margin: 30px;
+    height: 30px;
+}
+
+select {
+    user-select: none;
+    outline: none;
+    width: 150px;
+    border: 1px solid #D9C2BA;
+    padding-left: 8px;
+    font-family: "Segoe UI";
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    font-size: 20px;
+    background-color: #D9C2BA;
+}
+
+.button:hover {
+    color: #fff;
+    transition: 0.3s;
 }
 
 .png{
@@ -25,13 +59,30 @@
 
 .Titulo-proveedores {
     color: #fff;
-    font-family: 'Mollie Glaston';
+    font-family: 'Mollie';
     font-size: 35px;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0,8fr));
-    gap: 0px 20px;
-    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 15px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.titulo {
+    color: #d9c2ba;
+    font-family: 'Mollie';
+    padding: 50px;
+}
+
+.linea1 {
+    border-top: 1px solid #735949;
+    height: 2px;
+    padding: 0;
+    margin-top: 50px;
 }

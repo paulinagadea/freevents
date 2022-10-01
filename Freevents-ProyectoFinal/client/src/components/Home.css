@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Mollie";
+    src: "../../public/Mollie-Glaston.ttf";
+}
+
 ul {
     list-style-type: none;
 }
@@ -69,7 +74,7 @@ li {
 
 .titulo-home {
     font-size: 50px;
-    font-family: 'Mollie Glaston';
+    font-family: "Mollie";
     color: #735949;
     margin-bottom: 6%;
     margin-top: 6%;
