@@ -46,12 +46,14 @@ const Orden = () => {
   
   async function handleSubmit(e) {
     e.preventDefault();
-    let validacion = (
-      validate(input)
-    );
-    setErrors(validacion)
+    
+    // let validacion = (
+    //   validate(input)
+    // );
+    // setErrors(validacion)
     const aux = await dispatch(postOrder(input));
-    console.log('que trae dispatch?', aux)
+    
+    // console.log('que trae dispatch?', aux)
     handlePayment(aux)
     // navigate("/orden2")
     // <Redirect to = {{
@@ -65,16 +67,16 @@ const Orden = () => {
     });
     // navigate('/PerfilUser')
 
-    function validate(input) {
-      let errors = {};
-      if (!input.date) {
-        errors.date = "Fecha requerida"
-      }
-      if (!input.direccion) {
-        errors.direccion = "¿Donde quieres festejar tu evento?"
-      }
-      return errors;
-    }
+    // function validate(input) {
+    //   let errors = {};
+    //   if (!input.date) {
+    //     errors.date = "Fecha requerida"
+    //   }
+    //   // if (!input.direccion) {
+    //   //   errors.direccion = "¿Donde quieres festejar tu evento?"
+    //   // }
+    //   return errors;
+    // }
   }
 
   async function handlePayment(aux) {
@@ -169,14 +171,14 @@ const Orden = () => {
               name="event_date"
               onChange={(e) => handleChange(e)}
             />
-            {errors.date && <p>{errors.date}</p>}
+            {/* {errors.date && <p>{errors.date}</p>} */}
             <label>Dirección evento</label>
             <input
               type="text"
               defaultValue={input.direccion}
               name="event_address"
               onChange={(e) => handleChange(e)} />
-            {errors.direccion && <p>{errors.direccion}</p>}
+            {/* {errors.direccion && <p>{errors.direccion}</p>} */}
             <label>Precio</label>
             <input
               type="text"
