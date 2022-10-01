@@ -51,7 +51,7 @@ const Orden = () => {
     setErrors(validacion)
 
     // if (Object.keys(validacion).length > 0) {
-      alert("Ingresa los valores requeridos");
+      // alert("Ingresa los valores requeridos");
     //   return
     // }
 
