@@ -64,6 +64,13 @@ router.post('/', async (req, res) => {
         await reviewCreated.setEvent(eventsDb)
 
 
+        let eventsDb = await Event.findOne({
+            where: { id : eventsId }
+        })
+        console.log("Donatta", eventsDb)
+        await reviewCreated.setEvent(eventsDb)
+
+
         res.status(200).json(reviewCreated);
     }catch(error) {
         console.log(error)

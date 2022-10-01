@@ -3,13 +3,13 @@ const { Review, Provider, Client, Event } = require('../db')
 
 const getAllReviews = async () => {
         const reviews = await Review.findAll({
-<<<<<<< HEAD
+
             include:[
             {
                 model: Provider, 
                 attributes: [ "id", "name" ],
             },
-=======
+
             include: [
                 {
                     model: Provider,
@@ -23,7 +23,7 @@ const getAllReviews = async () => {
                 model: Event, 
                 attributes: [ "name" ]
                 }
->>>>>>> 972971a618e4fb4fb2a81962939775c79c654aaa
+
             ]
         });
         return reviews;

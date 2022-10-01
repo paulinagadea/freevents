@@ -73,11 +73,12 @@ Favorite.belongsTo(Provider);
 Provider.hasMany(Pack_services);  
 Pack_services.belongsTo(Provider);
 
-<<<<<<< HEAD
 Event.hasMany(Review); 
-=======
+
 Event.hasMany(Review);
->>>>>>> 972971a618e4fb4fb2a81962939775c79c654aaa
+
+Event.hasMany(Review);
+
 Review.belongsTo(Event); 
 
 //Muchos a Muchos
