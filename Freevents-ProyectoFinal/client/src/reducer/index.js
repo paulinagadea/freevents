@@ -69,9 +69,11 @@ function rootReducer(state = initialState, action) {
             case actionTypes.buscarSiExisteCliente:{
                 const allProviders = state.allProviders //aqui estan todos los proveedores
                 console.log(action.payload,"Soy el action payload reducer")
-                const buscarProveedor = allProviders.find(action.payload) // false o true
+                const buscarProveedor = allProviders.includes(action.payload) // false o true
+                console.log(buscarProveedor, "BUSCRAR PROV REDUCER")
                 
                 const respuesta = buscarProveedor ? true : false
+                console.log(respuesta, "BUSCRAR PROV REDUCER")
                 return{
                     ...state,
                 clienteActual: respuesta,

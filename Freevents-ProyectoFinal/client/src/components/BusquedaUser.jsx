@@ -19,6 +19,8 @@ import { useState, useEffect } from "react";
     const dispatch = useDispatch();
   
     const clienteActual = useSelector((state) => state.clienteActual)
+    const stateProviders = useSelector((state)=>state.allProviders)
+
   //aqui ponemos lo que enviamos
 // const storageUser = (localStorage.setItem('userAuth0Provider', JSON.stringify(user)));
 
@@ -32,13 +34,14 @@ const  mifuncionQueBusca  = async () => {
 
   
 
-
-  useEffect (() => {
-    // getProviders()
+useEffect(() => {
+        
+    dispatch(getProviders())
     mifuncionQueBusca()
-    }, [dispatch])
+
+}, [dispatch ])
     
-    
+    console.log(clienteActual, "HAY ALGO AQUI?")
     
     // if (isLoading) {
     //     return <div>Loading...</div>;
@@ -54,7 +57,7 @@ const  mifuncionQueBusca  = async () => {
     <div>
     WEA
     {
-      clienteActual ? <h1>si existo</h1> : <h1>No existo</h1>
+      clienteActual === true ? <h1>si existo</h1> : <h1>No existo</h1>
     }
     </div>
     
