@@ -31,8 +31,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {clientId, providerId, rating, comments, events} = req.body;
-    console.log('body', events)
+    const {clientId, providerId, rating, comments, eventsId} = req.body;
     try {
         // let clientDb = await Client.findOne({
         //     where : { id : clientId }
@@ -49,11 +48,6 @@ router.post('/', async (req, res) => {
             rating,
             comments,
         })
-        let eventsWea = await Event.findOne({
-                where : { name: events }
-        })
-        console.log("anteojos", eventsWea)
-        await reviewCreated.setEvent(eventsWea.id)
         // await reviewCreated.setProvider(providerDb.id); 
         // await reviewCreated.setClient(clientDb.id);
 
@@ -62,14 +56,6 @@ router.post('/', async (req, res) => {
         })
         console.log("Donatta", eventsDb)
         await reviewCreated.setEvent(eventsDb)
-
-
-        let eventsDb = await Event.findOne({
-            where: { id : eventsId }
-        })
-        console.log("Donatta", eventsDb)
-        await reviewCreated.setEvent(eventsDb)
-
 
         res.status(200).json(reviewCreated);
     }catch(error) {
