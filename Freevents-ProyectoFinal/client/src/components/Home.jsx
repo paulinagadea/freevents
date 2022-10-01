@@ -22,15 +22,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 // import footer from "../imagenes/footer10.jpg";
 // import CardProveedor from "./CardProveedor";
 
+
+
 const Home = () => {
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
     const { user, isAuthenticated, isLoading } = useAuth0();
     
     useEffect(() => {
+        
         dispatch(getProviders())
         dispatch(getAllClients())
-    }, [dispatch])
+
+    }, [dispatch ])
     
     console.log(user, "SOY EL USER EN EL HOME")
    
