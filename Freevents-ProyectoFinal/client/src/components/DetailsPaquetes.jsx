@@ -52,9 +52,9 @@ const DetailsPaquetes = () => {
                         {/* <Button>Adquirit producto</Button> */}
                         {/* onClick={handleAddOrder} */}
                     </div>
-                    <Link to={'/paquetes'}>
+                    {/* <Link to={'/paquetes'}>
                         <button key={id}>Volver</button>
-                    </Link>
+                    </Link> */}
                 </div>
             ) :
             <div>
