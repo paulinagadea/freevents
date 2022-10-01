@@ -15,6 +15,7 @@ import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
 import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
+import BusquedaUser from './components/BusquedaUser'
 
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -63,7 +64,8 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/home' element= { <Home/> }/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detail/:id' element= { <Detail/> }/>
-            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/home"/>}/>
+            {/* <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/home"/>}/> */}
+            <Route exact path = '/busquedaUser' element= { queEres === "provider" ? <BusquedaUser/>  : <Navigate to = "/home"/>}/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>

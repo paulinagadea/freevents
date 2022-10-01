@@ -38,6 +38,7 @@ export const actionTypes = {
     getReviews: "getReviews",
     postReviews: "postReviews",
     getDetailsReviews: "getDetailsReviews",
+    buscarSiExisteCliente:"buscarSiExisteCliente"
 };
 
 
@@ -308,6 +309,22 @@ export function createProvider(payload) {
     };
 };
 
+
+    export function buscarSiExisteCliente(payload) {
+        console.log(payload, "PAYLOAD ACTION BUSCAR CLIENT")
+        return async (dispatch) => {
+                try{
+                return await dispatch({
+                    type: actionTypes.buscarSiExisteCliente,
+                    payload: payload
+                })
+            }catch(error){
+                return error
+            }
+        }
+    }
+
+
 export function createUser(payload) {
     return async function () {
         try {
@@ -355,6 +372,8 @@ export const clearDetails = () => {
         type: actionTypes.clearDetails
     }
 }
+
+
 export const addToOrder = detalleP => async dispatch => {
     const order = localStorage.getItem('order')//SI EL ITEM EXISISTE
         ? JSON.parse(localStorage.getItem('order'))
@@ -378,6 +397,10 @@ export const addToOrder = detalleP => async dispatch => {
     });
 
 };
+
+
+
+
 // export const soyElProviderUser = usardo =>() =>{
 //     const user = localStorage.getItem('user')
 //     ? JSON.parse(localStorage.getItem('user'))

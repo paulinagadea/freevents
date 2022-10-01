@@ -19,6 +19,7 @@ const initialState = {
     idClient: [],
     reviews: [],
     allReviews:[],
+    clienteActual:[],
 }
 
 if (localStorage.getItem('favs')) {
@@ -62,20 +63,21 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 clients: action.payload,
-            };}
+            };
+        }
 
-        //     case actionTypes.buscarsiExisteCliente:{
-        //         const allProviders = state.allProviders //aqui estan todos los proveedores
-        //         const buscarProveedor = allProviders.find(action.payload) // false o true
+            case actionTypes.buscarSiExisteCliente:{
+                const allProviders = state.allProviders //aqui estan todos los proveedores
+                console.log(action.payload,"Soy el action payload reducer")
+                const buscarProveedor = allProviders.find(action.payload) // false o true
                 
-        //         const respuesta = buscarProveedor ? "dbCliente" : "NewProvider"
-
-        //         return{
-        //             ...state,
-        //         clienteActual: respuesta,
-        //         }
-        //     }
-        // }
+                const respuesta = buscarProveedor ? true : false
+                return{
+                    ...state,
+                clienteActual: respuesta,
+                }
+            }
+        
 
         // case actionTypes.addLastOrder:{
         //     console.log(state.ordercita, "estado ordercita")
