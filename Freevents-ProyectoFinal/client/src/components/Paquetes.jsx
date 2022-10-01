@@ -2,7 +2,6 @@ import React from "react";
 import NavBarPaquetes from './NavBarPaquetes'
 import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
-import footer2 from "../imagenes/foterfoto.png";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getReviews } from "../actions";

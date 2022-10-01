@@ -3,7 +3,6 @@
     font-family: Hahmlet;
     background-color: #EBEBF2;
     margin-top: 20%;
-
 }
 
 .row {
@@ -19,12 +18,15 @@
     height: 300px;
 }
 
-.Titulo-proveedores {
-    color: black;
-    font-family: Hahmlet;
+.barra {
     background-color: #D9C2BA;
-    width: 100%;
-    margin-top: 0%;
+    position: relative;
+}
+
+.Titulo-proveedores {
+    color: #fff;
+    font-family: 'Mollie Glaston';
+    font-size: 35px;
 }
 
 .grid {

@@ -86,7 +86,9 @@ const Proveedores = () => {
 
       {/* <SearchBar setCurrentPage={setCurrentPage}/> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
-      <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
+      <div className="barra">
+        <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
+      </div>
       <button onClick={e => { handleClick(e) }}> ⇦</button>
 
       <div className="row">
