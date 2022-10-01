@@ -22,7 +22,7 @@ import BusquedaUser from './components/BusquedaUser'
 // import { AuthProvider } from "./context/AuthContext";
 import { useState, useEffect } from 'react';
 
-import Orden from './components/Orden';
+import Orden from './components/Orden/Orden';
 import PerfilUser from "./components/PerfilUser"
 import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'

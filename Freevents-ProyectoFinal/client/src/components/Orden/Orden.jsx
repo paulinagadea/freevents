@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../actions";
+import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../../actions";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
-import  handlePayment from './Orden2'
+import  handlePayment from '../Orden2'
+import styles from "../Orden/Orden.css"
 // import { useParams } from "react-router-dom";
 
 //necesito info de cliente (de donde la saco?)
@@ -43,22 +44,15 @@ const Orden = () => {
 
   });
   
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     let validacion = (
       validate(input)
     );
     setErrors(validacion)
-
-    // if (Object.keys(validacion).length > 0) {
-      // alert("Ingresa los valores requeridos");
-    //   return
-    // }
-
-    dispatch(postOrder(input));
-
-    // alert("Orden creada");
-    handlePayment()
+    const aux = await dispatch(postOrder(input));
+    console.log('que trae dispatch?', aux)
+    handlePayment(aux)
     // navigate("/orden2")
     // <Redirect to = {{
     //    pathname: '/order',
@@ -82,6 +76,42 @@ const Orden = () => {
       return errors;
     }
   }
+
+  async function handlePayment(aux) {
+    try {
+      const preference = await (
+        await fetch("http://localhost:3001/order/payment", {
+          method: "post",
+          body: JSON.stringify(aux.payload),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+      ).json();
+    console.log('imprimimos preference', preference)
+
+      var script = document.createElement("script");
+      console.log("estamos aquí", script)
+
+      script.src =
+        "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
+      script.type = "text/javascript";
+      script.dataset.preferenceId = preference.preferenceId;
+      console.log("estamos aquí", script)
+
+      script.setAttribute("data-button-label", "Pagar con Mercado Pago");
+      
+      const element = document.getElementById("mercado").innerHTML = "";
+
+      const elementTwo = document.querySelector("#mercado")
+      
+      
+      elementTwo.appendChild(script);
+
+    }
+    catch(error) {
+      console.log(error);
+    }};
 
   function handleChange(e) {
     setInput({
@@ -161,6 +191,7 @@ const Orden = () => {
       </div>
 
       <button onClick={(e) => handleSubmit(e)}>Generar orden</button>
+      <div id="mercado" className="mercado"></div>
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
                 </Link> */}
