@@ -38,6 +38,7 @@ export const actionTypes = {
     getReviews: "getReviews",
     postReviews: "postReviews",
     getDetailsReviews: "getDetailsReviews",
+    buscarSiExisteCliente:"buscarSiExisteCliente"
 };
 
 
@@ -294,7 +295,7 @@ export function createService(payload) {
 export function createProvider(payload) {
     return async function (dispatch) {
         try {
-            const creado = await axios.post("/providers", payload);
+            const creado = await axios.post("http://localhost:3001/providers", payload);
             console.log(creado.data, "create provier actions")
 
             return dispatch({
@@ -303,10 +304,26 @@ export function createProvider(payload) {
             });
 
         } catch (error) {
-            throw new Error(error);
+        return error
         }
     };
 };
+
+
+    export function buscarSiExisteCliente(payload) {
+        console.log(payload, "PAYLOAD ACTION BUSCAR CLIENT")
+        return async (dispatch) => {
+                try{
+                return await dispatch({
+                    type: actionTypes.buscarSiExisteCliente,
+                    payload: payload
+                })
+            }catch(error){
+                return error
+            }
+        }
+    }
+
 
 export function createUser(payload) {
     return async function () {
@@ -355,6 +372,8 @@ export const clearDetails = () => {
         type: actionTypes.clearDetails
     }
 }
+
+
 export const addToOrder = detalleP => async dispatch => {
     const order = localStorage.getItem('order')//SI EL ITEM EXISISTE
         ? JSON.parse(localStorage.getItem('order'))
@@ -378,6 +397,10 @@ export const addToOrder = detalleP => async dispatch => {
     });
 
 };
+
+
+
+
 // export const soyElProviderUser = usardo =>() =>{
 //     const user = localStorage.getItem('user')
 //     ? JSON.parse(localStorage.getItem('user'))

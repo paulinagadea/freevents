@@ -1,69 +1,98 @@
-import React from 'react'
+// // import React from 'react'
 
-export default function FormularioProveedor () {
-  return (
-    <div>FormularioProveedor</div>
-  )
-}
+// // export default function FormularioProveedor () {
+// //   return (
+// //     <div>FormularioProveedor</div>
+// //   )
+// // }
 
 
-//hola
+// // // hola
 
 
 
 // import React, {useState} from 'react'
 // import { useAuth0 } from "@auth0/auth0-react";
-// import { createProvider } from '../actions';
+// import { createProvider, getAllClients } from '../actions';
 // import { useDispatch } from "react-redux";
 // // import { useNavigate } from 'react-router-dom'
+// import { useEffect } from 'react';
 
 // export default function FormularioProveedor() {
-//     const { user, isAuthenticated } = useAuth0();
+//   // console.log( "recien entro")
+
+
+//   const { user, isAuthenticated } = useAuth0();
+
+  
+//     // console.log(user.name, "traje el auth0")
 //     const dispatch = useDispatch();
 //     // const navigate = useNavigate()
 
+//     // console.log(user.name, "primer name")
+    
+    
+
 //     const [proveedor, setInputProveedor] = useState({
-//         name: user.name,
-//         address: '',
-//         location: '',
-//         postal_code: '',
-//         cuit: '',
-//         email: user.email,
-//         phone_number: '',
-//         logotype: '',
-//         background_image: '',
-//         galery_image: [],
-//         events: [],
-//         sub:user.sub
+//       name: "user.name",
+//       address: "",
+//       location: "",
+//       postal_code: "",
+//       cuit: "",
+//       email: "user.email",
+//       phone_number: "",
+//       logotype: "",
+//       background_image: "",
+//       galery_image: [],
+//       // events:[],
+//       password: "",
+//       sub:"user.sub",
 
 //     })
+//     // console.log(user.name, "segundo name")
+//     useEffect(()=>{
+//       if(user && user.name){
+//         setInputProveedor({
+//           ...proveedor,
+//           name:user.name,
+//           email: user.email,
+//           sub:user.sub,
+//         })
+//       }
 
+//     },[user])
+//       // dispatch(functionquepregunt(user.name))
 
 //     function handleChange(e) {
-//         e.preventDefault()
-//         setInputProveedor({
-//             ...proveedor,
-//             [e.target.name]: e.target.value,
-//         });
+//       e.preventDefault()
+//       setInputProveedor({
+//         ...proveedor,
+//         [e.target.name]: e.target.value,
+        
+//         // galery_image: [...proveedor.galery_image, e.target.value],
+//         // events:[...proveedor.galery_image, e.target.value]
+//       });
 //     };
     
 //     function handleSubmit(e){
 //         e.preventDefault();
 //         dispatch(createProvider(proveedor))
+//         console.log(proveedor)
 //         alert("Raza creada")
 //         setInputProveedor({
-//             name: '',
-//             address: '',
-//             location: '',
-//             postal_code: '',
-//             cuit: '',
-//             email: '',
-//             phone_number: '',
-//             logotype: '',
-//             background_image: '',
-//             galery_image: [],
-//             events: [],
-//             sub:''
+//           name: "",
+//           address: "",
+//           location: "",
+//           postal_code: "",
+//           cuit: "",
+//           email: "",
+//           phone_number: "",
+//           logotype: "",
+//           background_image: "",
+//           galery_image: [],
+//           // events:[],
+//           password: "",
+//           sub:"",
 //         })
         
 //     }
@@ -75,11 +104,11 @@ export default function FormularioProveedor () {
 //             <form onSubmit={(e)=>handleSubmit(e)}>
 //             <div>
 //                     <label>Nombre: </label>
-//                     <input
-                     
+//                     <input 
+//                     disabled
 //                         type= "text"
 //                         value= {proveedor.name}
-//                         // name="name"
+//                         name="name"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -90,10 +119,22 @@ export default function FormularioProveedor () {
 //                 <div>
 //                     <label>address: </label>
 //                     <input
-                     
 //                         type= "text"
 //                         value= {proveedor.address}
-//                         // name="name"
+//                         name="address"
+//                         onChange={(e)=>handleChange(e)}
+//                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
+
+//                     />
+                    
+//                 </div>
+//                 <div>
+//                     <label>password: </label>
+//                     <input
+                     
+//                         type= "text"
+//                         value= {proveedor.password}
+//                         name="password"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -107,7 +148,7 @@ export default function FormularioProveedor () {
                      
 //                         type= "text"
 //                         value= {proveedor.location}
-//                         // name="name"
+//                         name="location"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -121,7 +162,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.postal_code}
-//                         // name="name"
+//                         name="postal_code"
 //                         onChange={(e)=>handleChange(e)}
                         
 
@@ -135,7 +176,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.cuit}
-//                         // name="name"
+//                         name="cuit"
 //                         onChange={(e)=>handleChange(e)}
                         
 
@@ -149,7 +190,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.email}
-//                         // name="name"
+//                         name="email"
 //                         onChange={(e)=>handleChange(e)}
                         
 
@@ -163,7 +204,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.phone_number}
-//                         // name="name"
+//                         name="phone_number"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -177,7 +218,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.logotype}
-//                         // name="name"
+//                         name="logotype"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -190,7 +231,7 @@ export default function FormularioProveedor () {
 //                     <input
 //                         type= "text"
 //                         value= {proveedor.background_image}
-//                         // name="name"
+//                         name="background_image"
 //                         onChange={(e)=>handleChange(e)}
 //                     />
                     
@@ -202,7 +243,7 @@ export default function FormularioProveedor () {
                     
 //                         type= "text"
 //                         value= {proveedor.galery_image}
-//                         // name="name"
+//                         name="galery_image"
 //                         onChange={(e)=>handleChange(e)}
 //                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
 
@@ -210,28 +251,28 @@ export default function FormularioProveedor () {
                     
 //                 </div>
 
-//                 <div>
+//                 {/* <div>
 //                     <label>events: </label>
 //                     <input
 //                         type= "text"
 //                         value= {proveedor.events}
-//                         // name="name"
+//                         name="events"
 //                         onChange={(e)=>handleChange(e)}
 //                     />
                     
-//                 </div>
+//                 </div> */}
 
 //                 <div>
 //                     <label>sub: </label>
 //                     <input
 //                         type= "text"
 //                         value= {proveedor.sub}
-//                         // name="name"
+//                         name="sub"
 //                         onChange={(e)=>handleChange(e)}
 //                     />
                     
 //                 </div>
-
+              
 //                 <button  id='Button' type='submit'>Crear perfil</button>
 //             </form>
 //             </div>

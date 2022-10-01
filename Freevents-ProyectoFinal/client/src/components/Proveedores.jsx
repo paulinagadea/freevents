@@ -6,12 +6,44 @@ import NavbarProveedores from "./NavBarProveedores.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
+import { makeStyles } from '@material-ui/core/styles';
+import ImageList from '@material-ui/core/ImageList';
 import { Link } from "react-router-dom";
 import CardReviews from "./CardReviews";
 import './Comentarios.css'
 
-const Proveedores = () => {
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: '#d9c2ba',
+    height: '305px',
+    borderRadius: '5px',
+  },
+  imageList: {
+    flexWrap: 'nowrap',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
+  },
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+    'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+  img: {
+    margin: '3px',
+  }
+}));
+
+
+
+const Proveedores = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const allProviders = useSelector((state) => state.providers)
   const allEve = useSelector((state) => state.events)
@@ -84,16 +116,20 @@ const Proveedores = () => {
         })}
       </div>
       <h1>COMENTARIOS DE NUESTROS CLIENTES:</h1>
-      <div>
+      <div className={classes.root}>
+      <ImageList className={classes.imageList} cols={2.5}>
         {allReviews?.map((reviews) => {
           return (
+            <div className={classes.img}>
               <CardReviews
                 comments={reviews.comments}
                 rating={reviews.rating}
                 events={reviews.events}
               /> 
+              </div>
           )
         })}
+        </ImageList>
       </div>
 
 
