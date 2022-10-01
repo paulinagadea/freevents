@@ -20,7 +20,8 @@ const getAllPackServices = async () => {
             },
             {
                 model: Provider,
-                attributes: [ 'id', 'name' ],
+                attributes: [ 'id', "name" ],
+
             }
         ]
     }); 
