@@ -20,7 +20,7 @@ export default function paginado({ providersPerPage, allProviders, currentPage, 
     }
     
     return (
-        <nav className='pag'>
+        <div className='pag'>
             <ul className='pagination'>
             {/* <button onClick={(el)=>handleNext(el)}>Prev</button> */}
             {pageNumbers &&
@@ -31,6 +31,6 @@ export default function paginado({ providersPerPage, allProviders, currentPage, 
                 ))}
                 {/* <button onClick={(el)=>handleNext(el)}>Next</button> */}
             </ul>
-        </nav>
+        </div>
     )
 }
