@@ -27,7 +27,7 @@ export default function Reviews() {
         events: "",
         comments: "",
         rating: "",
-        image: "https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
+       // image: "https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
 
     })
 
@@ -37,12 +37,11 @@ export default function Reviews() {
         dispatch(postReviews(input))
         alert(`Gracias por tu comentario!`)
         setInput({
-            name: "",
-            events: "",
-            comments: "",
-            rating: "",
-            image: "https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
-
+            //name:"",
+            events:"",
+            comments:"",
+            rating:"",
+            //image:"https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
         });
 
         navigate("/home")
@@ -62,7 +61,7 @@ export default function Reviews() {
             <h1>Dejanos tu comentario!</h1>
 
             <form onSubmit={(e) => handleSubmit(e)} >
-                <div>
+                {/* <div>
                     <input
                         type="text"
                         placeholder="Tu nombre"
@@ -71,9 +70,17 @@ export default function Reviews() {
                             return handleFormChange(e)
                         }}
                     />
-                </div>
+                </div> */}
                 <div>
-                    <select onChange={(e) => handleFormChange(e)}>
+                <input
+                        type="text"
+                        placeholder="Evento"
+                        defaultValue={input.events}
+                        onChange={(e) => {
+                            return handleFormChange(e)
+                        }}
+                    />
+                    {/* <select onChange={(e) => handleFormChange(e)}>
                         <option selected disabled>
                             Selecciona un evento
                         </option>
@@ -82,7 +89,7 @@ export default function Reviews() {
                                 key={events}
                                 defaultValue={events}> {events.name} </option>
                         ))}
-                    </select>
+                    </select> */}
                 </div>
                 <div>
                     <textarea
@@ -93,7 +100,7 @@ export default function Reviews() {
                         type="text"
                         name="comments"
                         autoComplete="off"
-                        defaultValue={input.comentario}
+                        defaultValue={input.comments}
                         onChange={(e) => handleFormChange(e)}
                         required
                     />

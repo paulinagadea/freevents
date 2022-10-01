@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 });
 
 
-const CardReviews = ({ clientId, providerId, comments, events, name }) => {
+const CardReviews = ({ clientId, providerId, comments, events, rating }) => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -52,9 +52,9 @@ const CardReviews = ({ clientId, providerId, comments, events, name }) => {
                         </Typography>
                         <div className='user'>
                             <Avatar alt="Remy Sharp" src="https://img.freepik.com/vector-premium/perfil-hombre-dibujos-animados_18591-58484.jpg" />
-                            <Typography variant="h5" component="h2">
+                            {/* <Typography variant="h5" component="h2">
                                 {name}
-                            </Typography>
+                            </Typography> */}
                         </div>
                         <Typography className={classes.pos} color="textSecondary">
                             {events}
@@ -63,7 +63,7 @@ const CardReviews = ({ clientId, providerId, comments, events, name }) => {
                             {comments}
                         </Typography>
                     </CardContent>
-                    <Button size="small">★★★★★</Button>
+                    <Button size="small"> {rating} ★★★★★</Button>
                     
                 </div>
             </div>

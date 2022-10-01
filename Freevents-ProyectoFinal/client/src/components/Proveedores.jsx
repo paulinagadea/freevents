@@ -125,7 +125,6 @@ const Proveedores = () => {
                 comments={reviews.comments}
                 rating={reviews.rating}
                 events={reviews.events}
-                name={reviews.name}
               /> 
               </div>
           )
