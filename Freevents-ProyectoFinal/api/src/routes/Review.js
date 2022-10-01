@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getAllReviews, getReviewById } = require('../controllers/getAllReviews.js');
-const { Review, Client, Provider } = require('../db'); 
+const { Review, Client, Provider, Event } = require('../db'); 
 
 const router = Router();
 
@@ -31,13 +31,15 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {clientId, providerId, rating, comments} = req.body;
+    const {clientId, providerId, rating, comments, eventsId} = req.body;
 
     try {
         const reviewCreated = await Review.create({
             rating,
             comments,
         })
+        console.log("Molly", reviewCreated)
+
         let clientDb = await Client.findOne({
             where : { id : clientId }
         });
@@ -49,9 +51,16 @@ router.post('/', async (req, res) => {
         });
         await reviewCreated.setProvider(providerDb.id); 
 
+        let eventsDb = await Event.findOne({
+            where: { id : eventsId }
+        })
+        console.log("Donatta", eventsDb)
+        await reviewCreated.setEvent(eventsDb)
+
+
         res.status(200).json(reviewCreated);
     }catch(error) {
-
+        console.log(error)
        res.status(500).json({ message: 'Error', error })
     }
  

@@ -73,6 +73,9 @@ Favorite.belongsTo(Provider);
 Provider.hasMany(Pack_services);  
 Pack_services.belongsTo(Provider);
 
+Event.hasMany(Review);
+Review.belongsTo(Event); 
+
 //Muchos a Muchos
 
 Provider.belongsToMany(Event, { through: 'providers_events' });

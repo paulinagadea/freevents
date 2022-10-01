@@ -1,8 +1,23 @@
-const { Review } = require('../db')
+const { Review, Provider, Client, Event } = require('../db')
 
 
 const getAllReviews = async () => {
-        const reviews = await Review.findAll();
+        const reviews = await Review.findAll({
+            include: [
+                {
+                    model: Provider,
+                    attributes: [ "id", "name" ],
+                },
+                {
+                    model: Client,
+                    attributes: [ "id", "name" ]
+                },
+                {
+                model: Event, 
+                attributes: [ "name" ]
+                }
+            ]
+        });
         return reviews;
 
 };

@@ -27,6 +27,8 @@ import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
 import Dashboard from './components/DashBoard';
 import Footer from "./components/Footer"
+// import Admin from './components/Admin/Admin';
+// import AdminPanel from './components/Admin/AdminPanel';
 
 
 
@@ -76,6 +78,9 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = "/orden" element={<Orden/>}/>
             <Route exact path = "/queEres" element={<QueEres/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>
+            <Route exact path = "/admin" element={<Admin/>}/>
+            {/* <Route exact path = "/adminpanel" element={<AdminPanel/>}/> */}
+
             
 
 
