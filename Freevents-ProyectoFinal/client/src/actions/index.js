@@ -38,7 +38,8 @@ export const actionTypes = {
     getReviews: "getReviews",
     postReviews: "postReviews",
     getDetailsReviews: "getDetailsReviews",
-    buscarSiExisteCliente:"buscarSiExisteCliente"
+    buscarSiExisteCliente:"buscarSiExisteCliente",
+    filterPacksByEvents:"filterPacksByEvents"
 };
 
 
@@ -214,6 +215,13 @@ export function postOrder(payload) {
 export const filterPacksByService = (payload) => {
     return {
         type: actionTypes.filterPacksByService,
+        payload: payload,
+    }
+}
+
+export const filterPacksByEvents = (payload) => {
+    return {
+        type: actionTypes.filterPacksByEvents,
         payload: payload,
     }
 }

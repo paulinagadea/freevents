@@ -224,6 +224,14 @@ function rootReducer(state = initialState, action) {
             }
         }
 
+        case actionTypes.filterPacksByEvents: {
+            return {
+                ...state,
+                packs: state.allPacks.filter((s) =>
+                    s.events.map(se => se.name).includes(action.payload)),
+            }
+        }
+
         case actionTypes.createPack: {
             return {
                 ...state,
