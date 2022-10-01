@@ -31,25 +31,30 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     
-    const {clientId, providerId, rating, comments, eventsId} = req.body;
+    const {clientId, providerId, name, rating, comments, events} = req.body;
 
     try {
-        const reviewCreated = await Review.create({
-            rating,
-            comments,
-        })
-        console.log("Molly", reviewCreated)
-
         let clientDb = await Client.findOne({
             where : { id : clientId }
         });
-
-        await reviewCreated.setClient(clientDb.id);
-
+        
         let providerDb = await Provider.findOne({
             where : { id : providerId }
         });
+        
+        let eventsWea = await Event.findOne({
+                where : { name: events }
+        })
+        
+        const reviewCreated = await Review.create({
+            name: clientDb.name,
+            image, 
+            rating,
+            comments,
+        })
+        await reviewCreated.setEvent(eventsWea)
         await reviewCreated.setProvider(providerDb.id); 
+        await reviewCreated.setClient(clientDb.id);
 
         let eventsDb = await Event.findOne({
             where: { id : eventsId }

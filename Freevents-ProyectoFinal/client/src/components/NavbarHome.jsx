@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
@@ -21,8 +21,6 @@ import Hidden from '@mui/material/Hidden';
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
 import { useAuth0 } from "@auth0/auth0-react";
-
-
 
 export default function NavbarHome() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,13 +55,13 @@ export default function NavbarHome() {
       <div>
 
         <NavContainer> 
-        <Link className="link" to="/home">Freevents</Link>
+        <Link className='link' to="/home">Freevents</Link>
           {/* <SearchBar/> */}
         <div className="containerbar">
 
           {/* {
             auth.currentUser === null &&  */}
-          <Button size="small" onClick={handleClick} href="/queEres">Ingresar</Button> 
+          <Button size="small" onClick={handleClick} href="/customertype">Ingresar</Button> 
           {/* } */}
 
           <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
@@ -83,11 +81,11 @@ export default function NavbarHome() {
   }
   
   const NavContainer= styled.nav`
+  
   .link{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 5%;
-    font-family: 'Epilogue', sans-serif;
+    font-family: 'Mollie Glaston';
   }
 
  .containerbar{

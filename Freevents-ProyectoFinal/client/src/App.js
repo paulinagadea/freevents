@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import CustomerType from "./components/CustomerType";
 import Detail from './components/Details';
 import FormUser from "./components/FormUser";
-import FormProvider from "./components/FormProvider";
+import FormProvider from "./components/FormularioProveedor";
 import Paquetes from "./components/Paquetes";
 import Proveedores from './components/Proveedores';
 import CreatePack from './components/CreatePack';
@@ -15,7 +15,7 @@ import { ThemeProvider } from '@material-ui/core';
 import LoginAu from './components/Auth0'
 import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
-import QueEres from './components/QueEres'
+
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
@@ -27,8 +27,9 @@ import Comentarios from "./components/Comentarios"
 import Orden2 from './components/Orden2'
 import Dashboard from './components/DashBoard';
 import Footer from "./components/Footer"
-// import Admin from './components/Admin/Admin';
-// import AdminPanel from './components/Admin/AdminPanel';
+import Reviews from './components/Reviews';
+import AlertSuscribe from "./components/AlertSuscribe";
+import CardReviews from './components/CardReviews';
 
 
 
@@ -62,7 +63,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/home' element= { <Home/> }/>
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detail/:id' element= { <Detail/> }/>
-            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/userregister"/>}/>
+            <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/home"/>}/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
@@ -76,11 +77,11 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/> 
             <Route exact path = "/orden" element={<Orden/>}/>
-            <Route exact path = "/queEres" element={<QueEres/>}/>
+            <Route exact path = "/customertype" element={<CustomerType/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>
-            <Route exact path = "/admin" element={<Admin/>}/>
-            {/* <Route exact path = "/adminpanel" element={<AdminPanel/>}/> */}
-
+            {/* <Route exact path = "/AlertSuscribe" element={<AlertSuscribe/>}/> */}
+            <Route exact path = "/Reviews" element={<Reviews/>}/>
+            <Route exact path = "/CardReviews" element={<CardReviews/>}/>
             
 
 

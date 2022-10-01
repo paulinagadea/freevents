@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../actions";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
+import  handlePayment from './Orden2'
 // import { useParams } from "react-router-dom";
 
 //necesito info de cliente (de donde la saco?)
@@ -38,6 +39,7 @@ const Orden = () => {
     //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
+    price:misDatos[0].price
 
   });
   
@@ -48,14 +50,16 @@ const Orden = () => {
     );
     setErrors(validacion)
 
-    if (Object.keys(validacion).length > 0) {
+    // if (Object.keys(validacion).length > 0) {
       alert("Ingresa los valores requeridos");
-      return
-    }
+    //   return
+    // }
 
     dispatch(postOrder(input));
-    alert("Orden creada");
-    navigate("/orden2")
+
+    // alert("Orden creada");
+    handlePayment()
+    // navigate("/orden2")
     // <Redirect to = {{
     //    pathname: '/order',
     //    state: { aux.data.id}
@@ -63,6 +67,7 @@ const Orden = () => {
     setInput({
       event_date: "",
       event_address: "",
+      price:""
     });
     // navigate('/PerfilUser')
 
@@ -91,8 +96,9 @@ const Orden = () => {
 
 
     <div>
-      <h1>Detalles de tu Pedido</h1>
-      <h3>Información de paquete</h3>
+      <div>
+        <h1>Detalles de tu Pedido</h1>
+        <h3>Información de paquete</h3>
       <img
         className="cover"
         src={misDatos.map(i => i.galery_image)}
@@ -100,15 +106,14 @@ const Orden = () => {
         width="100%"
         height="100%"
       ></img>
-      <div>
+      {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
-        <h1> $ {misDatos.map(p => p.price)}</h1>
-      </div>
-      <div>
-      </div>
+        {/* <h1> $ {misDatos.map(p => p.price)}</h1> */}
+      {/* </div> */}
+      {/* <div>
+      </div> */}
       <h1> Detalles del Paquete</h1>
       <h4> {misDatos.map(d => d.description)} </h4>
-
 
       <h1>Servicios incluidos: </h1>
       <h4> </h4>
@@ -122,6 +127,7 @@ const Orden = () => {
             <div>
                 <h1>Proveedor:</h1>
             </div> */}
+        </div>
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
@@ -141,6 +147,13 @@ const Orden = () => {
               name="event_address"
               onChange={(e) => handleChange(e)} />
             {errors.direccion && <p>{errors.direccion}</p>}
+            <label>Precio</label>
+            <input
+              type="text"
+              defaultValue={input.price}
+              // name="event_address"
+              onChange={(e) => handleChange(e)} />
+            {/* {errors.direccion && <p>{errors.direccion}</p>} */}
           </div>
           <div>
           </div>

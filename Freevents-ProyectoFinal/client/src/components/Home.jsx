@@ -15,6 +15,7 @@ import SliderProveedores from "./SliderProveedores";
 import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
 import Footer from "./Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -24,20 +25,25 @@ import Footer from "./Footer";
 const Home = () => {
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
-
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    
     useEffect(() => {
         dispatch(getProviders())
         dispatch(getAllClients())
     }, [dispatch])
+    
+    console.log(user, "SOY EL USER EN EL HOME")
+   
 
     return (
-        <div>
+       
+            <div>
                 <NavbarHome />
                 {/* <img className="imghome" src={image20} alt="" /> */}
             <div>
                 {/* ACA CARRUSEL DE FOTOSS HOME (VER EN CARPETA DE IMAGENES) Y ARRIBA DE LAS IMAGENES EL PNG DE FREEVENTS */}
                 <Slider/>
-                <h1 className="texto-encima">Freevents</h1>
+                {/* <h1 className="texto-encima">Freevents</h1> */}
                 
                 {/* <img src={fotogeneral} className="fotogeneral_home" alt="" /> */}
             </div>
@@ -54,7 +60,7 @@ const Home = () => {
             </Box>
             </div>
             <Container fixed>
-            <h1 className="titulo-home">¿QUE EVENTO DESEAS FESTEJAR?</h1>
+            <h1 className="titulo-home">¿QUÉ EVENTO DESEAS FESTEJAR?</h1>
             {/* <Button color="secondary" variant="outlined" size="large" href="/eventos" className="centrado">CREA TU EVENTO</Button> */}
             <Eventos/>
             <div className="linea"></div>
@@ -70,11 +76,11 @@ const Home = () => {
                     </Grid>
                 </Grid> */}
                 <div className="parrafoc">
-                    <h1 className="parrafo">Con nuestros proveedores de servicios podrás conseguir que tu evento soñado 
+                    <h2 className="parrafo">Con nuestros proveedores de servicios podrás conseguir que tu evento soñado 
                     sea una realidad. Adaptarás todas tus necesidades con los paquetes personalizados para cada tipo de evento. 
                     Conseguirás los mejores precios, los mejores productos y el mejor personal para que tu fiesta sea un verdadero 
-                    éxito. Somos el catalogo mas grande de proveedores y servicios en la web, comienza a armar tu evento.
-                    </h1>
+                    éxito. Somos el catalogo más grande de proveedores y servicios en la web, comienza a armar tu evento.
+                    </h2>
                         <div className="titulo">
                         <Link style={{textDecoration:"none"}} 
                         to ="/proveedores"
@@ -93,6 +99,7 @@ const Home = () => {
             <div className="boxing">
                 <Boximg/>
             </div>
+            <div className="linea"></div>
             </Container>
             <div className="barra1">
                 <h1 className="titulo-home"> ¿QUIERES OFRECER TUS SERVICIOS?</h1>
@@ -104,28 +111,9 @@ const Home = () => {
                 </Button>
             </div>
             <Footer/>
-                <div className="container-footer">
-                    <div className="footer-completo">
-                        <a href={"https://github.com/paulinagadea/freevents"}>
-                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/github_zm2gn2.png'} alt="not found" height="40px" on></img>
-                        </a>
-                        <a href={"https://www.facebook.com/"}>
-                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/Facebook_v7270n.png'} alt="not found" height="40px"></img>
-                        </a>
-                        <a href={"https://twitter.com"}>
-                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336903/Imagens/twitter_mqtqdf.png'} alt="not found" height="40px"></img>  
-                        </a>
-                        <a href={"https://www.instagram.com/"}>
-                        <img src={'https://res.cloudinary.com/freevents/image/upload/v1664336902/Imagens/instagram_ed9xa5.png'} alt="not found" height="40px"></img>  
-                        </a>
-                        <div className="botones">
-                        </div>
-                        <div  className="botones">
-                        </div>
-                    </div>
-                </div>
-                
         </div>
-    )
+        )
+    
+    
 }
 export default Home;
