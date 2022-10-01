@@ -190,16 +190,11 @@ const canceledOrder = async (req, res) => {
 
 //----> POST-MERCADO PAGO.
 const postMP = async (req, res) => {
-    console.log('Here!');
     try {
     const { id } = req.body; 
     console.log({ id });
     const orderMP = await Order.findOne({
         where : { id : id },
-        include: {
-            model: Pack_services, 
-            attributes: ['price']
-        }
     })
     console.log({ orderMP });
 
@@ -207,10 +202,10 @@ const postMP = async (req, res) => {
         items: [
           {
             title: orderMP.id,
-            unit_price: orderMP.pack_service.price,
+            unit_price: orderMP.price,
             quantity: 1,
           },
-        ],
+         ],
         external_reference: `${orderMP.id}`,
         back_urls: {
             success: "http://localhost:3001/order/payment-confirm",
