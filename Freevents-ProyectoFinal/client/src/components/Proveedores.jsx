@@ -12,21 +12,19 @@ import { Link } from "react-router-dom";
 import CardReviews from "./CardReviews";
 import './Comentarios.css'
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: '#d9c2ba',
-    height: '305px',
+    height: '300px',
     borderRadius: '5px',
   },
   imageList: {
-    flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     color: theme.palette.primary.light,
@@ -39,8 +37,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '3px',
   }
 }));
-
-
 
 const Proveedores = () => {
   const classes = useStyles();
@@ -89,16 +85,16 @@ const Proveedores = () => {
       <div className="barra">
         <h1 className="Titulo-proveedores"> PROVEEDORES </h1>
       </div>
-      <button onClick={e => { handleClick(e) }}> ⇦</button>
 
       <div className="row">
-
+      <button className="button" onClick={e => { handleClick(e) }}> ⇦ </button>
         <select onChange={e => handleSort(e)}>
-          <option selected disabled>Ordenamiento</option>
-          <option value="ascendente">A-Z</option>
-          <option value="descendente">Z-A</option>
+          <option className="option" selected disabled>Ordenamiento</option>
+          <option className="option" value="ascendente">A - Z</option>
+          <option className="option" value="descendente">Z - A</option>
         </select>
       </div>
+
       <div className="grid">
         {currentProviders?.map((provider) => {
           return (
@@ -117,9 +113,12 @@ const Proveedores = () => {
           )
         })}
       </div>
-      <h1>COMENTARIOS DE NUESTROS CLIENTES:</h1>
+
+      <div className="linea1"></div>
+      <h1 className="titulo">COMENTARIOS DE NUESTROS CLIENTES</h1>
+
       <div className={classes.root}>
-      <ImageList className={classes.imageList} cols={2.5}>
+      <ImageList className={classes.imageList}>
         {allReviews?.map((reviews) => {
           return (
             <div className={classes.img}>
@@ -128,7 +127,7 @@ const Proveedores = () => {
                 rating={reviews.rating}
                 events={reviews.events}
               /> 
-              </div>
+            </div>
           )
         })}
         </ImageList>
