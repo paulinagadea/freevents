@@ -4,7 +4,7 @@ import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getReviews } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getReviews, getEvents,filterPacksByEvents } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 const Paquetes = () => {
   const dispatch = useDispatch();
+  const allEvents = useSelector((state)=>state.events)
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
   const [order, setOrder] = useState('')
@@ -27,6 +28,7 @@ const Paquetes = () => {
   }
 
   useEffect(() => {
+    dispatch(getEvents())
     dispatch(getPacks())
     dispatch(getServices())
     dispatch(getReviews())
@@ -37,6 +39,13 @@ const Paquetes = () => {
     setCurrentPage(1)
 
   }
+
+  const handlefilterPacksByEvents = (e) => {
+    // navigate("/paquetes")
+    dispatch(filterPacksByEvents(e.target.value))
+    setCurrentPage(1)
+  }
+
   function handleSort(e) {
     e.preventDefault()
     console.log(e.target.value, "Soy el target")
@@ -83,6 +92,11 @@ const Paquetes = () => {
           <select onChange={e => { handleFilterService(e) }}>
             <option selected disabled value='All'>Servicio</option>
             {allServicesP?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
+          </select>
+
+          <select onChange={e => { handlefilterPacksByEvents(e) }}>
+            <option selected disabled value='All'>Eventos</option>
+            {allEvents?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
           </select>
 
 

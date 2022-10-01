@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Eventos.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
+import {filterPacksByEvents} from '../actions'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
 
 const images = [
     {
@@ -125,6 +127,19 @@ const images = [
 
 export default function ButtonBases() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // useEffect(() => {
+  //   dispatch(filterPacksByEvents())
+  // }, [dispatch])
+
+  const handlefilterPacksByEvents = (e) => {
+    navigate("/paquetes")
+    dispatch(filterPacksByEvents(e.target.value))
+    setCurrentPage(1)
+  }
 
   return (
     <div className={classes.root}>
@@ -134,7 +149,9 @@ export default function ButtonBases() {
     <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          value= "15_birthday_party"
+          type= "image"
+          href="/paquetes" //onClick={(e)=>{handlefilterPacksByEvents(e)}}  // ojo cambiar por filtro de evento
           style={{
             width: images[0].width,
           }}
