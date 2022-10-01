@@ -61,12 +61,13 @@ const Proveedores = () => {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
+  
 
   useEffect(() => {
     dispatch(getProviders())
     dispatch(getEvents())
     dispatch(getReviews())
-  }, [dispatch])
+  }, [dispatch, allProviders])
 
   function handleSort(e) {
     e.preventDefault()

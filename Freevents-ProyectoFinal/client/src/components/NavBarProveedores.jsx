@@ -1,21 +1,21 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
+// import Box from '@mui/material/Box';
+// import Avatar from '@mui/material/Avatar';
+// import Menu from '@mui/material/Menu';
+// import MenuItem from '@mui/material/MenuItem';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import Divider from '@mui/material/Divider';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+// import Tooltip from '@mui/material/Tooltip';
+// import PersonAdd from '@mui/icons-material/PersonAdd';
+// import Settings from '@mui/icons-material/Settings';
+// import Logout from '@mui/icons-material/Logout';
 import { useState } from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Hidden from '@mui/material/Hidden';
+// import Hidden from '@mui/material/Hidden';
 import SearchFinal from "./SearchFinal";
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
@@ -89,15 +89,27 @@ export default function NavbarHome() {
   
   const NavContainer= styled.nav`
   .link{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 5%;
-    font-family: 'Epilogue', sans-serif;
+    font-family: 'Mollie Glaston';
   }
 
  .containerbar{
     margin-right: 5%;
   }
+
+  .containerbar .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.containerbar .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #fff;
+    background-size: 100% 2px;
+}
 
     h2{
       color: white;

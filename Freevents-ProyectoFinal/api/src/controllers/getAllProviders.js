@@ -1,4 +1,4 @@
-const { Provider, Event, Pack_service } = require('../db')
+const { Provider, Event, Pack_services } = require('../db')
 
 const getAllProviders = async () => {
     const provedores = await Provider.findAll(

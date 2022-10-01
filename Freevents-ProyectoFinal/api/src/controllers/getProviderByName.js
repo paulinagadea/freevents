@@ -12,7 +12,6 @@ const getAllProviderByName = async (name) => {
                 attributes: [],
             }}
     })
-    console.log('esto es el controller provider', provider)
     return provider.length ? provider : []
 }
 

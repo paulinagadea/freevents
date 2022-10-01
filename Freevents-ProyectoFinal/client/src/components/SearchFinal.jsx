@@ -15,7 +15,6 @@ export default function SearchBarFinal() {
     const [currentPage, setCurrentPage] = useState(1)
     const provider = useSelector((state) => state.providers)
     const packss = useSelector((state) => state.packs)
-    console.log(provider, "soy el provider")
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -25,7 +24,7 @@ export default function SearchBarFinal() {
     function handleSubmit(e) {
         e.preventDefault()
         
-        if (!name) return <Alert severity="error">No agregaste un valor a la busqueda</Alert>
+        if (!name) return <Alert severity="error">No agregaste un valor a la búsqueda</Alert>
 
         if (provider.find(el => el.name.toLowerCase().includes(name.toLowerCase())) || packss.find(el => el.name.toLowerCase().includes(name.toLowerCase()))) {
             dispatch(getNamesProviders(name));
