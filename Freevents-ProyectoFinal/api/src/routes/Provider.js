@@ -47,7 +47,7 @@ Prov.post("/", async (req, res) => {
     const { name, sub, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image } = req.body;
     try {
         const saltRounds = 10 // nivel de hasheo
-        const passwordHash_provider = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
 
         const newProvider = await Provider.create({
             name,
@@ -57,7 +57,7 @@ Prov.post("/", async (req, res) => {
             postal_code,
             cuit,
             email,
-            passwordHash_provider,
+            passwordHash,
             phone_number,
             logotype,
             background_image,
@@ -96,13 +96,11 @@ Prov.patch("/:id", async (req, res) => {
             res.status(400).json("Provider not found");
         }
 
+
     } catch (error) {
         console.log("error post provider", error)
         res.status(500).json({ msg: 'Error', error })
     }
-
-
-
 })
 
 
