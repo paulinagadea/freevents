@@ -92,7 +92,7 @@ const Orden = () => {
       ).json();
     console.log('imprimimos preference', preference)
 
-      var script = documentcreateElement("script");
+      var script = document.CreateElement("script");
       console.log("estamos .aquí", script)
 
       script.src =
