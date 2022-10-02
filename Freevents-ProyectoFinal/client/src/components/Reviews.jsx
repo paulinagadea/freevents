@@ -1,16 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { postReviews, getEvents } from "../actions";
 //import { Rating } from '@material-ui/lab';
 //import Typography from '@material-ui/core/Typography';
 //import Box from '@material-ui/core/Box';
+//import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Reviews() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { user } = useAuth0();
     //const allReviews = useSelector((state) => state.reviews);
     const allEvents = useSelector((state) => state.events)
     //const allProviders=useSelector((state)=>state.providers)
@@ -27,7 +28,7 @@ export default function Reviews() {
         events: "",
         comments: "",
         rating: "",
-       // image: "https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
+        // image: "https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
 
     })
 
@@ -35,16 +36,14 @@ export default function Reviews() {
         e.preventDefault()
         console.log(input)
         dispatch(postReviews(input))
-        alert(`Gracias por tu comentario!`)
         setInput({
-            //name:"",
-            events:"",
-            comments:"",
-            rating:"",
+            name: "",
+            events: "",
+            comments: "",
+            rating: "",
             //image:"https://perfil.napratica.org.br/assets/v2020/testepersonalidade-77d5e996bbe11f2e3429c0bd09753cb6d74d0c8fd29b4840653848a32c93c1da.png",
         });
 
-        navigate("/home")
         window.location.reload()
     }
 
@@ -55,13 +54,18 @@ export default function Reviews() {
         });
     };
 
+    // if (!user) {
+    //     alert("No estas logeado!", "Para realizar un comentario debes de estar logeado", "error");
+    //     return
+    // }
+
 
     return (
         <div>
             <h1>Dejanos tu comentario!</h1>
 
             <form onSubmit={(e) => handleSubmit(e)} >
-                {/* <div>
+                <div>
                     <input
                         type="text"
                         placeholder="Tu nombre"
@@ -70,26 +74,18 @@ export default function Reviews() {
                             return handleFormChange(e)
                         }}
                     />
-                </div> */}
+                </div>
                 <div>
-                <input
-                        type="text"
-                        placeholder="Evento"
-                        defaultValue={input.events}
-                        onChange={(e) => {
-                            return handleFormChange(e)
-                        }}
-                    />
-                    {/* <select onChange={(e) => handleFormChange(e)}>
+                    <select onChange={(e) => handleFormChange(e)}>
                         <option selected disabled>
-                            Selecciona un evento
+                            Evento
                         </option>
                         {allEvents.map((events) => (
                             <option
                                 key={events}
                                 defaultValue={events}> {events.name} </option>
                         ))}
-                    </select> */}
+                    </select>
                 </div>
                 <div>
                     <textarea
