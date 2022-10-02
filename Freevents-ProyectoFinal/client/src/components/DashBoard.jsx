@@ -19,6 +19,12 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { brown } from '@mui/material/colors';
+import PersonPinIcon from '@mui/icons-material/Person';
+import RedeemIcon from '@mui/icons-material/Redeem';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import RoomServiceIcon from '@mui/icons-material/RoomService';
+
+
 
 
 const drawerWidth = 240;
@@ -129,8 +135,33 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
+        <List >
+          {['Cliente'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }} >
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <PersonPinIcon
+                color= 'action'
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 4 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                />
+                  
+                
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Ordenes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -139,15 +170,16 @@ export default function MiniDrawer() {
                   px: 2.5,
                 }}
               >
-                <ListItemIcon
+                <RoomServiceIcon
+                color = "action"
                   sx={{
                     minWidth: 0,
-                    mr: open ? 3 : 'auto',
+                    mr: open ? 4 : 'auto',
                     justifyContent: 'center',
                   }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                />
+                  
+                
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
@@ -155,7 +187,7 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Proveedor'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -164,20 +196,48 @@ export default function MiniDrawer() {
                   px: 2.5,
                 }}
               >
-                <ListItemIcon
+                <WorkOutlineIcon
+                color = "action"
                   sx={{
                     minWidth: 0,
-                    mr: open ? 3 : 'auto',
+                    mr: open ? 4 : 'auto',
                     justifyContent: 'center',
                   }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                />
+                  
+                
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
+        <List>
+          {['Paquetes'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <RedeemIcon
+                color = "action"
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 4 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                />
+                  
+                
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        
+        
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
@@ -214,188 +274,4 @@ export default function MiniDrawer() {
 }
 
 
-// import React from 'react';
-// import clsx from 'clsx';
-// import { makeStyles } from '@material-ui/core/styles';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import Drawer from '@material-ui/core/Drawer';
-// import Box from '@material-ui/core/Box';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import List from '@material-ui/core/List';
-// import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
-// import IconButton from '@material-ui/core/IconButton';
-// import Badge from '@material-ui/core/Badge';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
-// import Paper from '@material-ui/core/Paper';
-// import Link from '@material-ui/core/Link';
-// import MenuIcon from '@material-ui/icons/Menu';
-// import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-// import NotificationsIcon from '@material-ui/icons/Notifications';
 
-
-
-// function Copyright() {
-//     return (
-//         <Typography variant="body2" color="textSecondary" align="center">
-//             {'Copyright © '}
-//             <Link color="inherit" href="https://mui.com/">
-//                 Your Website
-//             </Link>{' '}
-//             {new Date().getFullYear()}
-//             {'.'}
-//         </Typography>
-//     );
-// }
-
-// const drawerWidth = 240;
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         display: 'flex',
-//     },
-//     toolbar: {
-//         paddingRight: 24, // keep right padding when drawer closed
-//     },
-//     toolbarIcon: {
-//         display: 'flex',
-//         alignItems: 'center',
-//         justifyContent: 'flex-end',
-//         padding: '0 8px',
-//         ...theme.mixins.toolbar,
-//     },
-//     appBar: {
-//         zIndex: theme.zIndex.drawer + 1,
-//         transition: theme.transitions.create(['width', 'margin'], {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.leavingScreen,
-//         }),
-//     },
-//     appBarShift: {
-//         marginLeft: drawerWidth,
-//         width: `calc(100% - ${drawerWidth}px)`,
-//         transition: theme.transitions.create(['width', 'margin'], {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.enteringScreen,
-//         }),
-//     },
-//     menuButton: {
-//         marginRight: 36,
-//     },
-//     menuButtonHidden: {
-//         display: 'none',
-//     },
-//     title: {
-//         flexGrow: 1,
-//     },
-//     drawerPaper: {
-//         position: 'relative',
-//         whiteSpace: 'nowrap',
-//         width: drawerWidth,
-//         transition: theme.transitions.create('width', {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.enteringScreen,
-//         }),
-//     },
-//     drawerPaperClose: {
-//         overflowX: 'hidden',
-//         transition: theme.transitions.create('width', {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.leavingScreen,
-//         }),
-//         width: theme.spacing(7),
-//         [theme.breakpoints.up('sm')]: {
-//             width: theme.spacing(9),
-//         },
-//     },
-//     appBarSpacer: theme.mixins.toolbar,
-//     content: {
-//         flexGrow: 1,
-//         height: '100vh',
-//         overflow: 'auto',
-//     },
-//     container: {
-//         paddingTop: theme.spacing(4),
-//         paddingBottom: theme.spacing(4),
-//     },
-//     paper: {
-//         padding: theme.spacing(2),
-//         display: 'flex',
-//         overflow: 'auto',
-//         flexDirection: 'column',
-//     },
-//     fixedHeight: {
-//         height: 240,
-//     },
-// }));
-
-// export default function Dashboard() {
-//     const classes = useStyles();
-
-//     return (
-//         <div className={classes.root}>
-//             <CssBaseline />
-//             <AppBar position="absolute">
-//                 <Toolbar className={classes.toolbar}>
-//                     <IconButton
-//                         edge="start"
-//                         color="inherit"
-//                         aria-label="open drawer"
-//                     >
-//                         <MenuIcon />
-//                     </IconButton>
-//                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-//                         Dashboard
-//                     </Typography>
-//                     <IconButton color="inherit">
-//                         <Badge badgeContent={4} color="secondary">
-//                             <NotificationsIcon />
-//                         </Badge>
-//                     </IconButton>
-//                 </Toolbar>
-//             </AppBar>
-//             <Drawer    
-//             >
-//                 <div className={classes.toolbarIcon}>
-//                     <IconButton >
-//                         <ChevronLeftIcon />
-//                     </IconButton>
-//                 </div>
-//                 <Divider />
-//                 <List></List>
-//                 <Divider />
-//                 <List></List>
-//             </Drawer>
-//             <main className={classes.content}>
-//                 <div className={classes.appBarSpacer} />
-//                 <Container maxWidth="lg" className={classes.container}>
-//                     <Grid container spacing={3}>
-//                         {/* Chart */}
-//                         <Grid item xs={12} md={8} lg={9}>
-//                             <Paper >
-                                
-//                             </Paper>
-//                         </Grid>
-//                         {/* Recent Deposits */}
-//                         <Grid item xs={12} md={4} lg={3}>
-//                             <Paper>
-                        
-//                             </Paper>
-//                         </Grid>
-//                         {/* Recent Orders */}
-//                         <Grid item xs={12}>
-//                             <Paper className={classes.paper}>
-                            
-//                             </Paper>
-//                         </Grid>
-//                     </Grid>
-//                     <Box pt={4}>
-//                         <Copyright />
-//                     </Box>
-//                 </Container>
-//             </main>
-//         </div>
-//     );
-// }
