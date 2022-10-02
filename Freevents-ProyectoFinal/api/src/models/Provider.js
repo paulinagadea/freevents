@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        passwordHash_provider: {
+        passwordHash: {
             type: DataTypes.STRING,
             allowNull: true,
         },
@@ -69,8 +69,8 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         status: {
-            type: DataTypes.STRING,
-            defaultValue: "enable",
+            type: DataTypes.ENUM("disabled", "enabled"),
+            defaultValue: "enabled",
             allowNull: true
         }
     },
