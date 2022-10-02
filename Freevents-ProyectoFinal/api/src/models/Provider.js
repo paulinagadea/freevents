@@ -59,14 +59,19 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: true,
         },
-        user_provider: {
+        userType: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: "provider",
         },
         sub: {
             type: DataTypes.STRING,
-            allowNull: true, 
+            allowNull: true,
+        },
+        status: {
+            type: DataTypes.STRING,
+            defaultValue: "enable",
+            allowNull: true
         }
     },
         {

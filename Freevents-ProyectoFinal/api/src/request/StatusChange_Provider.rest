@@ -1,0 +1,8 @@
+PATCH  http://localhost:3001/providers
+Content-Type: application/json
+
+{
+  "id":  ,
+  "status": "enabled"
+  
+}
