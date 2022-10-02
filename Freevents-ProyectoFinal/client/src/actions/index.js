@@ -218,26 +218,34 @@ export const filterPacksByService = (payload) => {
 }
 
 export const getEvents = () => {
-    return async function (dispatch) {
-        var json = await axios.get(`/events`);
-        return dispatch({
-            type: actionTypes.getEvents,
-            payload: json.data,
-        });
+    return async (dispatch) => {
+        try {
+          const { data } = await axios.get('/events');
+          return dispatch({
+            type: "getEvents",
+            payload: data,
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
     };
-};
 
 
 
 export const getProviders = () => {
-    return async function (dispatch) {
-        var json = await axios.get(`/providers`);
-        return dispatch({
-            type: actionTypes.getProviders,
-            payload: json.data,
-        });
+    return async (dispatch) => {
+        try {
+          const { data } = await axios.get('/providers');
+          return dispatch({
+            type: "getProviders",
+            payload: data,
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
     };
-};
 
 export function orderByPrice(payload) {
     console.log(payload, "soy el payload")
@@ -258,26 +266,32 @@ export const getPacks = () => {
 };
 
 export const getServices = () => {
-    return async function (dispatch) {
-        var json = await axios.get(`/services`);
-        return dispatch({
-            type: actionTypes.getServices,
-            payload: json.data,
-        });
-    };
-};
-
-export function createPack(payload) {
-    return async function () {
+    return async (dispatch) => {
         try {
-            const creado = await axios.post("/packs", payload);
-            console.log(creado)
-            return creado;
-        } catch (error) {
-            throw new Error(error);
+          const { data } = await axios.get('/services');
+          return dispatch({
+            type: "getServices",
+            payload: data,
+          });
+        } catch (err) {
+          console.error(err);
         }
+      };
     };
-};
+
+export function createPack(packs) {
+    return async (dispatch) => {
+        try {
+          const { data } = await axios.post('/packs', packs );
+          return dispatch({
+            type: "createPack",
+            payload: data,
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
+    };
 
 export function createService(payload) {
     return async function () {

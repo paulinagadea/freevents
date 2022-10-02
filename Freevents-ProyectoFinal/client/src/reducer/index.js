@@ -37,6 +37,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 events: action.payload,
                 allEvents: action.payload,
+
             };
         }
         case actionTypes.getAllClients: {

@@ -1,202 +1,395 @@
-import * as React from 'react';
-import { Link } from "react-router-dom";
-import './CreatePack.css';
-import foto from '../imagenes/creatupaquete.jpg'
-// import { ThemeProvider } from '@material-ui/core/styles'; //estilos de material ui
+import React from "react";
+import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import Stack from '@mui/material/Stack';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-import { positions, width } from '@mui/system';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  createPack,
+  getEvents,
+  getProviders,
+  getServices,
+} from "../actions/index.js";
+import Styles from "../components/CreatePack.module.css";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
-import { createPack } from '../actions';
-import { useDispatch } from "react-redux";
+function validate(input) {
+  let errors = {};
 
-import { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+  if (!input.name) {
+    errors.name = "El nombre es requerido";
+  }
 
+  if (!input.price) {
+    errors.price = "El precio es requerido";
+  }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  if (
+    input.galery_image.length !== 0 &&
+    !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.galery_image)
+  ) {
+    errors.galery_image = "invalid URL";
+  }
 
-export default function FormUser(){
-    const [ PaqueteCreado, setPaqueteCreado ] = useState(false)
-    const dispatch = useDispatch();
-    return(
-        <div>
-            <div className='boton_inicio'>
-                <Button href="/home" color= "secondary" variant="outlined" 
-                style={{
-                    float:'left'
-                }}>Inicio</Button>
+  return errors;
+}
+
+export default function Create() {
+  const [input, setInput] = useState({
+    name: "",
+    description: "",
+    price: 0,
+    status_enable: "",
+    galery_image: [],
+    providers: [],
+    events: [],
+    services: [],
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const eventos = useSelector((state) => state.events);
+  const servicios = useSelector((state) => state.services);
+  const proveedores = useSelector((state) => state.providers);
+  const allNames = useSelector((state) => state.allPacks);
+
+  useEffect(() => {
+    dispatch(getEvents());
+    dispatch(getServices());
+    dispatch(getProviders());
+  }, [dispatch]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let noRepeat = allNames.filter((n) => n.name === input.name);
+    if (noRepeat.length !== 0) {
+      alert("Ya existe un pack con ese nombre, por favor elije otro");
+    } else {
+      let error = Object.keys(validate(input));
+
+      if (
+        error.length !== 0 ||
+        !input.events.length ||
+        !input.services.length ||
+        !input.providers.length
+      ) {
+        alert("Llene los campos correctamente");
+        return;
+      } else {
+        dispatch(createPack(input));
+        setInput({
+          name: "",
+          description: "",
+          price: 0,
+          status_enable: "",
+          galery_image: [],
+          providers: [],
+          events: [],
+          services: [],
+        });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Felicidades, el Pack fue creado exitosamente.',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+      navigate("/paquetes");
+    }
+  }
+
+  function handleChange(e) {
+    e.preventDefault();
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: [e.target.value],
+      })
+    );
+  }
+
+  function handleEvents(e) {
+    if (!input.events.includes(e.target.value)) {
+      setInput({
+        ...input,
+        events: [...input.events, e.target.value],
+      });
+    }
+  }
+
+  function handleServices(e) {
+    if (!input.services.includes(e.target.value)) {
+      setInput({
+        ...input,
+        services: [...input.services, e.target.value],
+      });
+    }
+  }
+
+  function handleProviders(e) {
+    if (!input.providers.includes(e.target.value)) {
+      setInput({
+        ...input,
+        providers: [...input.providers, e.target.value],
+      });
+    }
+  }
+
+  function handleDeleteE(e) {
+    setInput({
+      ...input,
+      events: input.events.filter((eve) => eve !== e),
+    });
+  }
+
+  function handleDeleteS(e) {
+    setInput({
+      ...input,
+      services: input.services.filter((ser) => ser !== e),
+    });
+  }
+
+  function handleDeleteP(e) {
+    setInput({
+      ...input,
+      providers: input.providers.filter((pro) => pro !== e),
+    });
+  }
+
+  return (
+    <>
+      <div>
+        <form onSubmit={(e) => handleSubmit(e)} className={Styles.box_form}>
+          <div className={Styles.form}>
+            <Typography variant="h3" color="info">CREA TÚ PACK</Typography>
+
+            <div className={Styles.grupo}>
+              <TextField
+                fullWidth
+                
+                type="text"
+                required
+                name="name"
+                value={input.name}
+                onChange={(e) => handleChange(e)}
+              />
+             
+              <Typography variant="h8" color="ligth">Nombre:</Typography>
+              {errors.name && <p className={Styles.danger}>{errors.name}</p>}
             </div>
-            <h1 className='titulo'>Crea Tú Paquete</h1>
-            <Formik
-                initialValues={{
-                    // objeto con valores por defecto
-                    name: '',
-                    description: '',
-                    price: '',
-                    status_enabled: 'disabled',
-                    galery_image: [],
-                    
-                }}
-                validate={(valores)=>{
-                    let errores = {};
-                    // expresion regular para validacion de letras
-                    let validacionLetras = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
-                    // expresion regular para validacion de correos
-                    // let validacionCorreo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-                    // expresion regular para validacion de contraseñas
-                    // let validacionContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
 
-                    // validacion nombre
-                    if(!valores.name){
-                        errores.name = 'Por favor ingresa un nombre';
-                    } else if(!validacionLetras.test(valores.name)){
-                        errores.name = 'El nombre solo puede contener letras'
-                    }
+            <div className={Styles.grupo}>
+              <TextField
+                fullWidth
+                required
+                type="number"
+                name="price"
+                value={input.price}
+                onChange={(e) => handleChange(e)}
+              >
+                
+              </TextField>
+              
+              <Typography variant="h8" color="ligth">Price: </Typography>
+              {errors.price && <p className={Styles.danger}>{errors.price}</p>}
+            </div>
 
-                    //validacion desciption
-                    if(!valores.description){
-                        errores.description = 'Este campo es obligatorio';
-                    } 
-
-                    //validacion price
-                    if(!valores.price){
-                        errores.price = 'Este campo es obligatorio';
-                    } 
-
-                    return errores
-                }} 
-                onSubmit={async (values, {resetForm})=>{
-                    console.log(values, 'valores')
-                    dispatch(createPack(values));
-                    console.log(createPack, 'action')
-                    resetForm({values : ''}) // para limpiar el formulario
-                    console.log("Pack Creado")
-                    setPaqueteCreado(true);
-                    await sleep(500);
-                    alert(JSON.stringify(values, null, 2));
-                    setTimeout(()=>setPaqueteCreado(false), 5000)
-                    
-                }}
-            >
+            <div className={Styles.grupo}>
             
-            {
-                // destructuro la propiedad handle submit
-                // propiedad values permite acceder a los valores del input
-                // handle blur -> cada vez que se hace click afuera del form, lo valida
-                ({values, handleChange, handleSubmit, handleBlur, errors, touched})=> (
-                    <form onSubmit={handleSubmit} style={{
-                            float:'left',
-                            margin: 50,
-                        }}
-                        sx={{ }}
-                    >
-                        {/* <label>
-                    <Field type="checkbox" name="event" />
-                     {`${[values.event]}`}
-                        </label> */}
-          
-
-                        {/* {console.log(errors)} */}
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Nombre"
-                                name= "name"
-                                value={values.name}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                autoComplete="off"
-                            />
-                            {touched.name && errors.name && <div className='error'>{errors.name}</div>}
-                        </div>
-                        
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Descripción"
-                                name= "description"
-                                value={values.description}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                autoComplete="off"
-                            />
-                            {touched.description && errors.description && <div className='error'>{errors.description}</div>}
-                        </div>
-
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Precio"
-                                name="price"
-                                value={values.price}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                autoComplete="off"
-                            />
-                            {touched.price && errors.price && <div className='error'>{errors.price}</div>}
-                        </div>
-  
-                        <div className='inputs'>
-                            <TextField
-                                color="secondary"
-                                label="Imagen"
-                                name= "galery_image"
-                                value={values.galery_image}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                autoComplete="off"
-                            />
-                        </div>
-                        
-                        <div className='boton_form'>
-                            <Button color= "secondary" type="submit" variant="outlined">Create</Button>
-                        </div>
-                        <div className='mensaje_alerta'>
-                            {
-                                PaqueteCreado && 
-                                // <p>Formulario enviado con exito</p>
-                                <Stack 
-                                sx={{
-                                    borderRadius: 5,
-                                    fontSize: '0.875rem',
-                                    fontWeight: '700',
-                                    position: 'absolute',
-                                    top: 20,
-                                    left: '20%',
-                                    zIndex: 'tooltip',
-                                  }}
-                                    
-                                >
-                                    <Alert severity="success" 
-                                        style={{
-                                            height: 200,
-                                            width: 500
-                                        }}
-                                    >
-                                        <AlertTitle style={{
-                                            fontSize: 50
-                                        }}>¡Se ha creado el paquete!</AlertTitle>
-                                        
-                                    </Alert>
-                                </Stack>
-                            }
-                        </div>
-                    </form>
-                )
-            } 
-            </Formik>
-            <div className='imagenForm'>
-
-                <img src={foto} style={{margin: 30, width: 900}} alt="" />
-
-
+              <Select 
+                fullWidth
+                required
+                value={input.status_enable}
+                onChange={(e) => handleChange(e)} 
+                name="status_enable"
+                >
+                <MenuItem value="10" >Disabled </MenuItem>
+                <MenuItem value="20" >Enabled </MenuItem>
+                </Select>
+                
+              <Typography variant="h8" color="ligth">Status: </Typography>
             </div>
-        </div>
-    )
+
+            <div className={Styles.grupo}>
+              <TextField
+                className={Styles.create_input}
+                type="text"
+                name="galery_image"
+                value={input.galery_image}
+                onChange={(e) => handleChange(e)}
+              />
+              
+              <Typography variant="h8" color="ligth">Imagen URL: </Typography>
+              {errors.galery_image && (
+                <p className={Styles.danger}>{errors.galery_image}</p>
+                )}
+            </div>
+
+            <div className={Styles.grupo}>
+              <select
+                fullWidth
+                className={Styles.select_create}
+                id="events"
+                defaultValue=""
+                onChange={(e) => handleEvents(e)}
+              >
+                <option
+                  className={Styles.option_create}
+                  value=""
+                  disabled
+                  hidden
+                >
+                </option>
+                {eventos?.map((t) => {
+                  return (
+                    <option
+                      key={t.id}
+                      value={t.name}
+                      className={Styles.option_create}
+                    >
+                      {t.name}
+                    </option>
+                  );
+                })}
+              </select>{" "}
+              <span className={Styles.barra}></span>
+              <Typography variant="h8" color="ligth">Eventos: </Typography>
+              {input.events.map((t) => (
+                <div className={Styles.box_opcion}>
+                  <div className={Styles.opcion_title}>{t}</div>
+                  <button
+                    className={Styles.btn_remove}
+                    onClick={() => handleDeleteE(t)}
+                    key={t}
+                    value={t}
+                  >
+                    <span className={Styles.x}>X</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className={Styles.grupo}>
+              <select
+                className={Styles.select_create}
+                id="services"
+                defaultValue=""
+                onChange={(e) => handleServices(e)}
+              >
+                <option
+                  className={Styles.option_create}
+                  value=""
+                  disabled
+                  hidden
+                >
+                </option>
+                {servicios?.map((s) => {
+                  return (
+                    <option className={Styles.option_create} value={s.name} key={s.id}>
+                      {s.name}
+                    </option>
+                  );
+                })}
+              </select>{" "}
+              <span className={Styles.barra}></span>
+              <Typography variant="h8" color="ligth">Servicios: </Typography>
+              {input.services.map((s) => (
+                <div className={Styles.box_opcion}>
+                  <div className={Styles.opcion_title}>{s}</div>
+                  <button
+                    className={Styles.btn_remove}
+                    onClick={() => handleDeleteS(s)}
+                    key={s}
+                    value={s}
+                  >
+                    <span className={Styles.x}>X</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className={Styles.grupo}>
+              <select
+                className={Styles.select_create}
+                id="providers"
+                defaultValue=""
+                onChange={(e) => handleProviders(e)}
+              >
+                <option
+                  className={Styles.option_create}
+                  value=""
+                  disabled
+                  hidden
+                >
+                </option>
+                {proveedores?.map((p) => {
+                  return (
+                    <option
+                      key={p.id}
+                      value={p.name}
+                      className={Styles.option_create}
+                    >
+                      {p.name}
+                    </option>
+                  );
+                })}
+              </select>{" "}
+              <span className={Styles.barra}></span>
+              <Typography variant="h8" color="ligth">Proveedor: </Typography>
+              {input.providers.map((p) => (
+                <div className={Styles.box_opcion}>
+                  <div className={Styles.opcion_title}>{p}</div>
+                  <button
+                    className={Styles.btn_remove}
+                    onClick={() => handleDeleteP(p)}
+                    key={p}
+                    value={p}
+                  >
+                    <span className={Styles.x}>X</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className={Styles.grupo}>
+              <TextField
+                id="outlined-multiline-static"
+                multiline
+                inputProps={{ style: { width: 500 } }}
+                rows={4}
+                required
+                onChange={(e) => handleChange(e)}
+              >
+                {" "}
+              </TextField>
+              <span className={Styles.barra}></span>
+              <Typography variant="h8" color="ligth">Descripción: </Typography>
+              
+            </div>
+
+          </div>
+          <div>
+            <button type="submit" className={Styles.btn_submit}>
+              CREAR PACK
+            </button>
+          </div>
+
+          <div>
+            <NavLink to={"/paquetes"} className={Styles.back_home}>
+              Cancelar
+            </NavLink>
+          </div>
+        </form>
+      </div>
+    </>
+  );
 }
