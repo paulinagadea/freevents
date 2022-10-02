@@ -21,14 +21,15 @@ import { useNavigate } from 'react-router-dom';
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
-
+    const userr = user.sub
+    // console.log(userr, )
   //aqui ponemos lo que enviamos
 // const storageUser = (localStorage.setItem('userAuth0Provider', JSON.stringify(user)));
 
 
 const  mifuncionQueBusca  = async () => {
-  const aux = await user
-  console.log(user, "soy el user en el componente busquedaUser")
+  const aux = await userr
+  console.log(aux, "soy el user en el componente busquedaUser")
   dispatch(buscarSiExisteCliente(aux))
   return 
 }

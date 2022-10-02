@@ -40,12 +40,12 @@ const DetailsPaquetes = () => {
                     </div>
                     <div>
                         <h1>{detalleP.name}</h1>
-                        <p>{detalleP.description}</p>
-                        <h1>${detalleP.price}</h1>
+                        <p>Detalles: {detalleP.description}</p>
+                        <h3>Precio: ${detalleP.price}</h3>
                         <h1>Servicios que incluye:</h1>
-                        <h4>{detalleP.services.map(el => el.name + ",")}</h4>
+                        <h4>{detalleP.services.map(el => el.name + ", ")}</h4>
                         <h1>Eventos:</h1>
-                        <h4>{detalleP.events.map(el => el.name)}</h4>
+                        <h4>{detalleP.events.map(el => el.name + " ")}</h4>
                         <Link to = {auth.currentUser == null ? "/login" : "/orden"}>
                         <Button onClick={handleAddOrder}>Adquirir producto</Button>
                         </Link>
