@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastname:{
+        lastname: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         email: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING,
             allowNull: false,
         },
         phone_number: {
@@ -37,16 +37,22 @@ module.exports = (sequelize) => {
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: true,
         },
-        user_client: {
+        userType: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: "client",
+        },
+        status: {
+            type: DataTypes.STRING,
+            defaultValue: "enable",
+            allowNull: true
         }
-},
-{
-    freezeTableName: true
-}
-)};
+    },
+        {
+            freezeTableName: true
+        }
+    )
+};
