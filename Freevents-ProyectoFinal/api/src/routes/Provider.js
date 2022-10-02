@@ -12,14 +12,11 @@ Prov.get('/', async (req, res) => {
         const provedores = await getAllProviders()
         const provedorByName = await getAllProviderByName(name)
 
-        console.log('esto es provedorByName', provedorByName)
-        if (provedores !== "not found" & provedorByName !== "not found") {
             name ?
                 res.status(200).json(provedorByName)
                 : res.status(200).json(provedores)
-        } else {
-            res.status(400).json("Provider not found");
-        }
+       
+        
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: 'Error', error })
