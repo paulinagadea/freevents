@@ -34,13 +34,13 @@ router.get('/:id', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    const { name, description, price, status_enable, galery_image, events, services, providerId } = req.body; 
+    const { name, description, price, status, galery_image, events, services, providerId } = req.body; 
     try {
         const packCreate = await Pack_services.create({
             name, 
             description, 
             price, 
-            status_enable, 
+            status, 
             galery_image
         })
         for (let e of events){
