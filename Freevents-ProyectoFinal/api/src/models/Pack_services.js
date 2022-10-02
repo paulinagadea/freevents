@@ -16,14 +16,14 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         description: {
-            type: DataTypes.TEXT, 
+            type: DataTypes.TEXT,
             allowNull: true,
         },
-        price:{
-            type: DataTypes.INTEGER, 
+        price: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
-        statusgit b:{
+        status: {
             type: DataTypes.ENUM("disabled", "enabled"),
             defaultValue: "enabled"
         },
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: true,
         }
     })

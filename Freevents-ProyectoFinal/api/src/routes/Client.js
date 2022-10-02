@@ -60,8 +60,6 @@ Cliente.post("/", async (req, res) => {
             phone_number,
             sub,
             status
-
-
         })
 
         const savedClient = await clientCreated.save();
