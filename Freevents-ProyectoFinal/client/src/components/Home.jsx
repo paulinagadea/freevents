@@ -34,10 +34,7 @@ const Home = () => {
         dispatch(getProviders())
         dispatch(getAllClients())
 
-    }, [dispatch ])
-    
-    console.log(user, "SOY EL USER EN EL HOME")
-   
+    }, [dispatch ])   
 
     return (
        
@@ -53,14 +50,14 @@ const Home = () => {
             </div>
             <div className="barra">
             <Box color = "primary.main" component="span" b= {4}>
-                <Button href="/paquetes" style={{ color: brown[600] }}>ANIVERSARIOS</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>CUMPLEAÑOS</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>DESPEDIDAS</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>GRADUACIONES</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>BABY SHOWERS</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>15 AÑOS</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>FULL PARTY</Button>
-                <Button href="/paquetes" style={{ color: brown[600] }}>MATRIMONIO</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>ANIVERSARIOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>CUMPLEAÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>DESPEDIDAS</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>GRADUACIONES</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>BABY SHOWERS</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>15 AÑOS</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>FULL PARTY</Button>
+                <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>MATRIMONIO</Button>
             </Box>
             </div>
             <Container fixed>
@@ -107,7 +104,7 @@ const Home = () => {
             </Container>
             <div className="barra1">
                 <h1 className="titulo-home"> ¿QUIERES OFRECER TUS SERVICIOS?</h1>
-                <Button style={{ color: brown[500] }} 
+                <Button style={{ color: brown[500], fontFamily: "Mollie", fontSize: "17px" }} 
                         href="/providerregister" 
                         variant="contained"
                         disableElevation

@@ -57,7 +57,7 @@ const images = [
       display: 'flex',
       flexWrap: 'wrap',
       minWidth: 300,
-      width: '100%',
+      width: '100%'
     },
     image: {
       position: 'relative',
@@ -113,6 +113,8 @@ const images = [
     imageTitle: {
       position: 'relative',
       padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+      fontFamily: "Mollie",
+      fontSize: "20px",
     },
     imageMarked: {
       height: 3,

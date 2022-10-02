@@ -33,7 +33,7 @@ li {
 
 .parrafo {
     font-size: 25px;
-    font-family: 'Nostalgia';
+    font-family: 'Mollie';
     letter-spacing: 0.5px;
 }
 
@@ -73,11 +73,11 @@ li {
 }
 
 .titulo-home {
-    font-size: 50px;
+    font-size: 55px;
     font-family: "Mollie";
     color: #735949;
-    margin-bottom: 6%;
-    margin-top: 6%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .footer {
