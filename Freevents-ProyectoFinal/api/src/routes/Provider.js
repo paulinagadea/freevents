@@ -13,9 +13,13 @@ Prov.get('/', async (req, res) => {
         const provedorByName = await getAllProviderByName(name)
 
         console.log('esto es provedorByName', provedorByName)
-        name ?
-            res.status(200).json(provedorByName)
-            : res.status(200).json(provedores)
+        if (provedores !== "not found" & provedorByName !== "not found") {
+            name ?
+                res.status(200).json(provedorByName)
+                : res.status(200).json(provedores)
+        } else {
+            res.status(400).json("Provider not found");
+        }
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: 'Error', error })
@@ -79,36 +83,24 @@ Prov.post("/", async (req, res) => {
 
 Prov.patch("/:id", async (req, res) => {
     const { id } = req.params
-    const { name, address, location, postal_code, cuit, password, phone_number, logotype, background_image, galery_image, status } = req.body
+    // const { status, phone_number } = req.body
 
     try {
-        const saltRounds = 10 // nivel de hasheo
-        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        const ProviderUpdated = await getProviderById(id)
+        // const saltRounds = 10 // nivel de hasheo
+        // const passwordHash_provider = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        if (ProviderUpdated !== "not found") {
+            await ProviderUpdated.update(req.body)
+            res.status(200).json(ProviderUpdated);
+        } else {
+            res.status(400).json("Provider not found");
+        }
 
-        await Provider.update({
-            name,
-            address,
-            location,
-            postal_code,
-            cuit,
-            passwordHash,
-            phone_number,
-            logotype,
-            background_image,
-            galery_image,
-            status
-        }, { where: { id: id } })
 
-        const ProviderUpdated = await Provider.findByPk(id)
-
-        res.status(200).json(ProviderUpdated);
     } catch (error) {
         console.log("error post provider", error)
         res.status(500).json({ msg: 'Error', error })
     }
-
-
-
 })
 
 

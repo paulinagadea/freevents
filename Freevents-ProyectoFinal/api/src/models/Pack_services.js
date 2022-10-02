@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         description: {
-            type: DataTypes.TEXT, 
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         price: {
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
-            allowNull: false, 
+            allowNull: false,
             defaultValue: true,
         }
     })

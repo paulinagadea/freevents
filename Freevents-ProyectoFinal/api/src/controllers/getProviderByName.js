@@ -7,13 +7,14 @@ const getAllProviderByName = async (name) => {
         where: { name: { [Op.iLike]: '%' + name + '%' } },
         include: {
             model: Event,
-            attributes: ['name'], 
+            attributes: ['name'],
             through: {
                 attributes: [],
-            }}
+            }
+        }
     })
     console.log('esto es el controller provider', provider)
-    return provider.length ? provider : []
+    return provider.length ? provider : "not found"
 }
 
 module.exports = { getAllProviderByName }

@@ -1,0 +1,2 @@
+GET   http://localhost:3001/providers/851f4460-22ae-4696-acc5-2878334b525f
+Content-Type: application/json
