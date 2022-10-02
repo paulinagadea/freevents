@@ -5,7 +5,7 @@ const { google } = require('googleapis');
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
 mercadopago.configure({
-    access_token: "APP_USR-2751540276278194-092303-5231919cc7d44319e47e4774ac04ff2f-1202990518",
+    access_token: "APP_USR-7757631994052842-092303-46b6e2177fc4a43fbe0a2a5a0aa9afaf-1203696408",
   });
 
 //----> GET-ALL-ORDER
@@ -215,6 +215,7 @@ const postMP = async (req, res) => {
         auto_return: "approved",
       };
       const response = await mercadopago.preferences.create(preference);
+      console.log("🚀 ~ file: getOrder.js ~ line 218 ~ postMP ~ response", response)
       const preferenceId = response.body.id; 
       console.log('preference en back', preferenceId)
 
@@ -224,6 +225,14 @@ const postMP = async (req, res) => {
         res.status(404).send(error);
     }
 };
+
+const urlPago = async (req, res) => {
+    
+    res.status(200).send("listo")
+
+}
+
+
 
 //----> UPDATE-ORDER-POST-MP
 const patchOrder = async (req, res) => {
@@ -263,6 +272,7 @@ module.exports = {
     postOrder,
     canceledOrder,
     postMP,
+    urlPago,
     patchOrder,
     orderByClientId
 };
