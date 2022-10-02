@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        passwordHash_client: {
+        passwordHash: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -46,9 +46,9 @@ module.exports = (sequelize) => {
             defaultValue: "client",
         },
         status: {
-            type: DataTypes.STRING,
-            defaultValue: "enable",
-            allowNull: true
+            type: DataTypes.ENUM("disabled", "enabled"),
+            defaultValue: "enabled",
+            allowNull: true,
         }
     },
         {

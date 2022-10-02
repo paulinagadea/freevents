@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         
-        passwordHash_admin: {
+        passwordHash: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_admin: {
+        userType: {
             type: DataTypes.STRING,
             allowNull: false, 
             defaultValue: "admin",
