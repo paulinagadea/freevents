@@ -96,14 +96,6 @@ const Slider = () => {
                     <img src={"https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/HOME7_h0hy6e.jpg"} alt="" />
                 </Slide>
             </ContenedorSlide>
-            <Controles>
-                <Boton onClick={anterior}>
-                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-left-thin-240_t4yb4m.png"} alt="" width='50px' height='50px' />
-                </Boton>
-                <Boton derecho onClick={siguiente}>
-                    <img src={"https://res.cloudinary.com/freevents/image/upload/v1664337413/Imagens/iconmonstr-angel-right-thin-240_kujdpu.png"} alt="" width='50px' height='50px' />
-                </Boton>
-            </Controles>
         </ContenedorPrincipal>
         </main>
     )

@@ -61,15 +61,15 @@ export default function NavbarHome() {
 
           {/* {
             auth.currentUser === null &&  */}
-          <Button size="small" onClick={handleClick} href="/customertype">Ingresar</Button> 
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/customertype">Ingresar</Button> 
           {/* } */}
 
-          <Button disabled={"/home" !== null ? true : false}size="small" onClick={handleClick} href="/home">Home</Button>
-          <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} disabled={"/home" !== null ? true : false} onClick={handleClick} href="/home">Home</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button size="small" onClick={handleClick} href="/devs">Nosotros</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/devs">Nosotros</Button>
           
           {/* <Salir/> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
@@ -87,7 +87,7 @@ export default function NavbarHome() {
   }
   
   .link{
-    font-size: 60px;
+    font-size: 70px;
     margin-left: 5%;
     font-family: "Mollie";
   }

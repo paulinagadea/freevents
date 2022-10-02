@@ -90,10 +90,9 @@ export default function NavbarHome() {
   
   const NavContainer= styled.nav`
   .link{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-family: "Mollie";
+    font-size: 70px;
     margin-left: 5%;
-    font-family: 'Epilogue', sans-serif;
   }
 
  .containerbar{
