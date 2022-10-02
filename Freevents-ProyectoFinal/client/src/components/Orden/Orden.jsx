@@ -92,8 +92,8 @@ const Orden = () => {
       ).json();
     console.log('imprimimos preference', preference)
 
-      var script = document.createElement("script");
-      console.log("estamos aquí", script)
+      var script = documentcreateElement("script");
+      console.log("estamos .aquí", script)
 
       script.src =
         "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
