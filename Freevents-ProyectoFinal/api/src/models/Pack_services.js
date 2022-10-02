@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
             type: DataTypes.ENUM("disabled", "enabled")
         },
         galery_image: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         createdInDb: {

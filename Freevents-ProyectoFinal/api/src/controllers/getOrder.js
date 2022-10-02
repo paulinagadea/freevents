@@ -5,7 +5,7 @@ const { google } = require('googleapis');
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
 mercadopago.configure({
-    access_token: "APP_USR-7757631994052842-092303-46b6e2177fc4a43fbe0a2a5a0aa9afaf-1203696408",
+    access_token: "TEST-6562319595568150-092201-ac18d360b44928343eb3254da5026c2b-174164644",
   });
 
 //----> GET-ALL-ORDER
@@ -80,7 +80,7 @@ const getOrderById = async (req, res) => {
     }
     catch(error) { 
         console.log(error);
-        res.send(404).status('Not found.')
+        res.status(404).send('Not found. veremos esta wea')
     }
         
 }; 
@@ -192,11 +192,10 @@ const canceledOrder = async (req, res) => {
 const postMP = async (req, res) => {
     try {
     const { id } = req.body; 
-    console.log({ id });
     const orderMP = await Order.findOne({
         where : { id : id },
     })
-    console.log({ orderMP });
+    console.log( "ORDER MP", orderMP );
 
     let preference = {
         items: [
@@ -208,16 +207,16 @@ const postMP = async (req, res) => {
          ],
         external_reference: `${orderMP.id}`,
         back_urls: {
-            success: "http://localhost:3001/order/payment-confirm",
-            failure: "http://localhost:3001/order/payment-confirm",
-            pending: "http://localhost:3001/order/payment-confirm"
+            success: `http://localhost:3001/order/payment-confirm`,
+            failure: `http://localhost:3001/order/payment-confirm`,
+            pending: `http://localhost:3001/order/payment-confirm`
         },
         auto_return: "approved",
       };
       const response = await mercadopago.preferences.create(preference);
-      console.log("🚀 ~ file: getOrder.js ~ line 218 ~ postMP ~ response", response)
+    //   console.log("🚀 ~ file: getOrder.js ~ line 218 ~ postMP ~ response", response)
       const preferenceId = response.body.id; 
-      console.log('preference en back', preferenceId)
+    //   console.log('preference en back', preferenceId)
 
       res.send({ preferenceId });
     }
@@ -242,15 +241,22 @@ const urlPago = async (req, res) => {
 
 //----> UPDATE-ORDER-POST-MP
 const patchOrder = async (req, res) => {
-    const external_reference = req.query.external_reference; 
+    const payment_id = req.query.payment_id;
+    const payment_status = req.query.status;
+    const external_reference = req.query.external_reference;
+    const merchant_order_id = req.query.merchant_order_id;
+
+    console.log('external_reference', external_reference)
     try {
         await Order.update(
             { status : "fulfilled" },
-            { where : { id: parseInt(external_reference) }},
+            { where : { id: external_reference }},
         );
+        
         res.redirect("http://localhost:3000/home") //AGREGAR COMPONENTE QUE CONTENGA EL PERFIL DEL CLIENTE.
     }
     catch(error) {
+        console.log(error)
         res.status(400).send(error); 
     };
 };

@@ -4,12 +4,12 @@ const { getAllOrder, getOrderById, postOrder, canceledOrder, postMP, patchOrder,
 const router = Router();
 
 router.get('/', getAllOrder); 
+router.get('/payment-confirm', patchOrder);
 router.get('/:id', getOrderById); 
 router.post('/', postOrder);
 router.patch('/:id', canceledOrder); 
 router.post('/payment', postMP);
-router.patch('/payment-confirm', patchOrder); 
 router.get('/myorder/:id', orderByClientId)
-router.post("/procesarpago", urlPago)
+// router.post("/procesarpago", urlPago)
 
 module.exports = router;
