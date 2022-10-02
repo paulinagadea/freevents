@@ -4,7 +4,7 @@ import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../../action
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
 import  handlePayment from '../Orden2'
-import styles from "../Orden/Orden.css"
+// import styles from "../Orden/Orden.css"
 // import { useParams } from "react-router-dom";
 
 //necesito info de cliente (de donde la saco?)
@@ -92,7 +92,7 @@ const Orden = () => {
       ).json();
     console.log('imprimimos preference', preference)
 
-      var script = document.CreateElement("script");
+      var script = document.createElement("script");
       console.log("estamos .aquí", script)
 
       script.src =
