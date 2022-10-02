@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER, 
             allowNull: false,
         },
-        statusgit b:{
+        status:{
             type: DataTypes.ENUM("disabled", "enabled"),
             defaultValue: "enabled"
         },
