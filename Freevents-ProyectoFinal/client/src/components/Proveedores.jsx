@@ -9,7 +9,7 @@ import Paginado from './Paginado'
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import { Link } from "react-router-dom";
-import CardReviews from "./CardReviews";
+//import CardReviews from "./CardReviews";
 import './Comentarios.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -115,7 +115,7 @@ const Proveedores = () => {
       </div>
 
       <div className="linea1"></div>
-      <h1 className="titulo">COMENTARIOS DE NUESTROS CLIENTES</h1>
+      {/* <h1 className="titulo">COMENTARIOS DE NUESTROS CLIENTES</h1>
 
       <div className={classes.root}>
       <ImageList className={classes.imageList}>
@@ -131,7 +131,7 @@ const Proveedores = () => {
           )
         })}
         </ImageList>
-      </div>
+      </div> */}
 
 
       <Paginado

@@ -4,7 +4,7 @@ import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getReviews, getEvents,filterPacksByEvents } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice,getEvents,filterPacksByEvents } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
@@ -31,7 +31,7 @@ const Paquetes = () => {
     dispatch(getEvents())
     dispatch(getPacks())
     dispatch(getServices())
-    dispatch(getReviews())
+    
   }, [dispatch])
 
   const handleFilterService = (e) => {
