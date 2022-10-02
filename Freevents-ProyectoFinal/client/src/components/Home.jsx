@@ -59,6 +59,7 @@ const Home = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const allReviews = useSelector((state) => state.reviews);
     const classes = useStyles();
+    const useActual = useSelector((state)=>state.clienteActual)
 
 
     useEffect(() => {
@@ -128,9 +129,9 @@ const Home = () => {
                 <h1 className="titulo-home">TOP RESEÑAS DE CLIENTES</h1>
                 <SimpleCard className="comentarios" />
                 <div className="linea1"></div>
-
-
-                <div className={classes.root}>
+                
+                <div>
+                    {useActual.length ? <div className={classes.root}>
                     <ImageList className={classes.imageList}>
                         {allReviews?.map((reviews) => {
                             return (
@@ -145,10 +146,8 @@ const Home = () => {
                             )
                         })}
                     </ImageList>
-                </div>
-                <div>
-                    
-                    <Reviews />
+                </div> : false}
+                    {useActual.length? <Reviews /> : false} 
                 </div>
                 <div className="linea"></div>
                 <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>

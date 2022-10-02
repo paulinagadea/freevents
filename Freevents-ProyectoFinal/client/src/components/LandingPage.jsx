@@ -14,10 +14,11 @@ import { /*Button,*/ Container } from "@mui/material";
 // import f14 from "../imagenes/14.jpg";
 // import theme from '../temaConfig'
 
+
+
 export default function LandingPage(){
     return(
                 <div className="encabezado">
-                    {/* <NavBarLanding/> */}
                     <Container /*sx={{mt:5.7}} maxWidth="xl"*/></Container>
                     <Link to= "/home" >
                         <button>INGRESAR</button>
