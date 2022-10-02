@@ -227,8 +227,14 @@ const postMP = async (req, res) => {
 };
 
 const urlPago = async (req, res) => {
+    try {
+        
+        res.status(200).send("listo")
+    } 
+    catch (error) {
+        res.status(404).send(error);
+    }
     
-    res.status(200).send("listo")
 
 }
 
