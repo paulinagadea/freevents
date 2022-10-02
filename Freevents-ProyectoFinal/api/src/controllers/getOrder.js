@@ -116,7 +116,7 @@ const postOrder = async (req, res) => {
         await orderCreate.setClient(clientDb.id);
         await orderCreate.setPack_service(packServiceDb.id); 
         
-
+        // console.log("QUE FUNCIONE LA WEA")
 
         res.status(201).json(orderCreate); 
     }
