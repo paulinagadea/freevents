@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 
 const Paquetes = () => {
   const dispatch = useDispatch();
-  const allEvents = useSelector((state) => state.events)
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
   const [order, setOrder] = useState('')
@@ -28,6 +27,10 @@ const Paquetes = () => {
   }
 
   useEffect(() => {
+  
+  }, [order])
+
+  useEffect(() => {
     dispatch(getEvents())
     dispatch(getPacks())
     dispatch(getServices())
@@ -36,10 +39,8 @@ const Paquetes = () => {
   useEffect(() => {
     let filtroGrafico = (window.location.href.slice(window.location.href.indexOf("=") + 1)).replace("_", " ")
     filtroGrafico.replace("%20","ñ")
-    console.log(filtroGrafico, "este es FILTROGRA")
-      console.log("BUENOOOOO")
       dispatch(filterPacksByEvents(filtroGrafico))
-  }, [allPacks.length])
+  }, [dispatch])
 
 
   const handleFilterService = (e) => {
@@ -105,11 +106,12 @@ const Paquetes = () => {
       </div>
       <div className="grid">
         {currentPacks?.map((packs) => {
-          console.log(packs.services)
+          
           return (
             <div className='item'>
               <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}>
                 <CardPaquetes
+                  key={packs.id}
                   name={packs.name}
                   price={packs.price}
                   galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg"}

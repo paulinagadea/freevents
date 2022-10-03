@@ -220,7 +220,7 @@ export const filterPacksByService = (payload) => {
 }
 
 export const filterPacksByEvents = (payload) => {
-    console.log(payload, "PABLOOOOOOOO")
+    
     return {
 
         type: actionTypes.filterPacksByEvents,
@@ -251,7 +251,7 @@ export const getProviders = () => {
 };
 
 export function orderByPrice(payload) {
-    console.log(payload, "soy el payload")
+    
     return {
         type: actionTypes.orderByPrice,
         payload
@@ -321,7 +321,7 @@ export function createProvider(payload) {
 
 
 export function buscarSiExisteCliente(payload) {
-    console.log(payload, "PAYLOAD ACTION BUSCAR CLIENT")
+    
     return async (dispatch) => {
         try {
             return await dispatch({

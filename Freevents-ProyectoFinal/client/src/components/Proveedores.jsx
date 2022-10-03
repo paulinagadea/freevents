@@ -44,7 +44,7 @@ const Proveedores = () => {
   const allProviders = useSelector((state) => state.providers)
   const allEve = useSelector((state) => state.events)
   // const allReviews = useSelector((state) => state.reviews)
-  const [/*orden,*/ setOrder] = useState('')
+  const [order, setOrder] = useState('')
   // const eventos = useSelector((state) => state.events)
 
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
@@ -52,11 +52,15 @@ const Proveedores = () => {
   const indexOfLastProvider = currentPage * providersPerPage //8
   const indexOfFirstProvider = indexOfLastProvider - providersPerPage //0
   const currentProviders = allProviders.slice(indexOfFirstProvider, indexOfLastProvider)
-  console.log(currentProviders, "current providers")
+  
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
+
+  useEffect(() => {
+
+  }, [order])
 
   useEffect(() => {
     dispatch(getProviders())
@@ -66,7 +70,6 @@ const Proveedores = () => {
 
   function handleSort(e) {
     e.preventDefault()
-    console.log(e.target.value, "Soy el target")
     dispatch(orderByName(e.target.value))
     setCurrentPage(1)
     setOrder(`Ordenado.${e.target.value}`)
