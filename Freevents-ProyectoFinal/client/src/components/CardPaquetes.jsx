@@ -9,6 +9,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import { addToFavs } from "../actions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -48,7 +49,9 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
 
   return (
     <Card className={classes.root}>
+    <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${id}`}>
       <CardActionArea>
+      
         <CardMedia
           className={classes.media}
           image={galery_image}
@@ -74,13 +77,14 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={handleAddToFavs}>🧡 Añadir a favoritos</Button>
           {/* <Link to={`/detail/${packs.id}`}>
         
        
         </Link> */}
         </CardActions>
       </CardActionArea>
+      </Link>
+          <Button onClick={handleAddToFavs}>🧡 Añadir a favoritos</Button>
     </Card>
   );
 };

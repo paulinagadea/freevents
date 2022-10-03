@@ -70,7 +70,7 @@ function rootReducer(state = initialState, action) {
                 const allProviders = state.allProviders //aqui estan todos los proveedores
                 console.log(action.payload,"Soy el action payload reducer")
                 const buscarProveedor = allProviders.map(el=> el.sub) // false o true
-                console.log(buscarProveedor, "MapSubALProviders")
+                // console.log(buscarProveedor, "MapSubALProviders")
                 const includesUser = buscarProveedor.includes(action.payload)
                 // const respuesta = buscarProveedor ? true : false
                 console.log(includesUser, "True o false")
