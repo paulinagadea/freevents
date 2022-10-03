@@ -283,7 +283,7 @@ const patchOrder = async (req, res) => {
                 from: "Freevents <freeevents4@gmail.com>",
                 to: emailDb.email,
                 subject: "Freevents",
-                text: `<div align="center"><a href="https://ibb.co/sRDJBcr"><img src="https://i.ibb.co/h9n1qrv/Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa.png" align="center" alt="Compra Existosa" border="0"></a></div>`, 
+                text: `<a href="https://freevents.vercel.app/home"><div align="center"><img src="https://i.ibb.co/h9n1qrv/Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa.png" align="center" alt="Compra Exitosa" border="0"></div></a>`, 
             }; 
 
             const result = await transporter.sendMail(mailOptions);

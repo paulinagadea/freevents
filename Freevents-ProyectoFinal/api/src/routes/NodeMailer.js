@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
                 from: "Freevents <freeevents4@gmail.com>",
                 to: email,
                 subject: "Freevents",
-                html: `<div align="center"><a href="https://ibb.co/C2bKxpx"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></a></div>`,
+                html: `<a href="https://freevents.vercel.app/home"><div align="center"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></div></a>`,
                 
             }; 
 
