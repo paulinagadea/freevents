@@ -34,7 +34,7 @@ const Orden = () => {
 
   const [input, setInput] = useState({
     //<<<<QUITAR HARD>>>>
-    clientId: "611ed52e-1bba-4c95-b76b-1eb43ae469f7",
+    clientId: "035d4923-d682-4dec-8ccb-ce191de82751",
     providerId: "a533aa44-67ed-4521-ad60-1c5d12fc927c",
     packServiceId: "243a718b-62e5-419f-abbc-20b923110dab",
     //<<<<QUITAR HARD>>>>
@@ -184,6 +184,12 @@ const Orden = () => {
               type="text"
               defaultValue={input.price}
               // name="event_address"
+              onChange={(e) => handleChange(e)} />
+              <label>Email</label>
+              <input
+              type="text"
+              defaultValue={input.email}
+              name="email"
               onChange={(e) => handleChange(e)} />
             {/* {errors.direccion && <p>{errors.direccion}</p>} */}
           </div>
