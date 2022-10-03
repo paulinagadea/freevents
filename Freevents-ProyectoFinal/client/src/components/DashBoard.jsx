@@ -23,7 +23,9 @@ import PersonPinIcon from '@mui/icons-material/Person';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
-
+import MaterialTable from 'material-table';
+import MUIDataTable from "mui-datatables";
+import axios from "axios";
 
 
 import { getProviders, getPacks, getAllClients } from '../actions'
@@ -31,6 +33,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import CardProveedor from './CardProveedor'
+import { useSelect } from '@mui/base';
 
 
 const drawerWidth = 240;
@@ -109,11 +112,54 @@ export default function MiniDrawer() {
   console.log(packs, 'packs')
   const clients = useSelector((state) => state.allClients)
   console.log(clients, 'clients')
+  const [clientes, setClientes] = useState([])
 
+  const endpoint = 'http://localhost:3001/client';
+  // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
+
+  const getData = async () => {
+    await axios.get(endpoint).then((response) => {
+        const data = response.data
+        console.log(data)
+        setClientes(data)
+    })
+  }
+
+  const columns = [{
+    name: 'id',
+    label: 'id'
+  },
+  {
+    name: 'name',
+    label: 'Nombre'
+  },
+  {
+    name: 'dni',
+    label: 'DNI'
+  },
+  {
+    name: 'email',
+    label: 'Email'
+  },
+  {
+    name: 'telefono',
+    label: 'Teléfono'
+  },
+  {
+    label: 'Fecha de creación',
+    name: 'createdAt'
+  },
+  {
+    name: 'status',
+    label: 'Estado'
+  }
+  
+  ]
   useEffect(() => {
     dispatch(getProviders())
     dispatch(getAllClients())
     dispatch(getPacks())
+    getData()
   }, [dispatch])
 
   const [open, setOpen] = React.useState(false);
@@ -125,6 +171,9 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -262,14 +311,27 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <div className='proveedores'>
-          <h1>Proveedores</h1>
-          {providers?.map((provider) => {
-            return (
-              <div key={provider.id} className='item'>
-                    {provider.name}
-              </div>
-            )
-          })}
+          <h1>Clientes</h1>
+          <MUIDataTable 
+                    title={"Lista de clientes"}
+                    data={clientes}
+                    columns={columns}
+                    // options={options}
+          />
+          {/* <MaterialTable
+            columns={columnas}
+            data={providers.name}
+            >
+            {providers?.map((provider) => {
+              return (
+                <div key={provider.id} className='item'>
+                      {provider.name}
+                </div>
+              )
+            })}
+            
+          </MaterialTable> */}
+
         </div>
 
         <div className='packs'>
