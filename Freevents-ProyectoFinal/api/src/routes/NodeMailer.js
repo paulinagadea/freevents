@@ -8,13 +8,13 @@ const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 router.post('/', async (req, res) => {
 
 
-    const { name, lastname,  passwordHash_client, dni, email, phone_number } = req.body;
+    const { name, lastname,  passwordHash, dni, email, phone_number } = req.body;
     
    
       const clientCreated = await Client.create({
             name,
             lastname,
-            passwordHash_client,
+            passwordHash,
             dni,
             email,
             phone_number
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "kristhianlizcano@gmail.com",
+                    user: "freeevents4@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
             })
             
             const mailOptions = {
-                from: "Freevents <kristhianlizcano@gmail.com>",
+                from: "Freevents <freeevents4@gmail.com>",
                 to: email,
                 subject: "Freevents",
                 html: `<div align="center"><a href="https://ibb.co/C2bKxpx"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></a></div>`,
