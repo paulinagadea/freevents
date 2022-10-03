@@ -4,7 +4,7 @@ import './Paquetes.css'
 import CardPaquetes from './CardPaquetes'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice,getEvents,filterPacksByEvents } from "../actions";
+import { getPacks, getServices, orderByNamePack, filterPacksByService, orderByPrice, getEvents, filterPacksByEvents } from "../actions";
 import PaginadoPacks from "./PaginadoPacks"
 //import Container from '@mui/material/Container'
 // import NavbarNuevo from "./NavbarNuevo";
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const Paquetes = () => {
   const dispatch = useDispatch();
-  const allEvents = useSelector((state)=>state.events)
+  const allEvents = useSelector((state) => state.events)
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
   const [order, setOrder] = useState('')
@@ -31,8 +31,12 @@ const Paquetes = () => {
     dispatch(getEvents())
     dispatch(getPacks())
     dispatch(getServices())
-    
-  }, [dispatch])
+  }, [dispatch]) //probar  sacar el dispatch
+
+  // useEffect(() => {
+  //   dispatch(filterPacksByEvents(allEvents))
+  // }, [allEvents])
+
 
   const handleFilterService = (e) => {
     dispatch(filterPacksByService(e.target.value))
@@ -67,6 +71,8 @@ const Paquetes = () => {
 
   return (
     <div>
+      {
+        console.log(window.location.href.slice(window.location.href.indexOf("=") + 1), "AAAAAA PIMBA PIMBA")}
       <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
