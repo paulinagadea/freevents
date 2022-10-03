@@ -14,8 +14,6 @@ export default function PerfilUser() {
   const ordenes = useSelector((state) => state.ordercita)
   console.log(ordenes, 'orden')
 
-  
-
 
   useEffect(() => {
     dispatch(getOrder())
