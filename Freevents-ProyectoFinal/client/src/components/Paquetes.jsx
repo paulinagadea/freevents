@@ -17,7 +17,7 @@ const Paquetes = () => {
   const allEvents = useSelector((state) => state.events)
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
-  const [/*order,*/ setOrder] = useState('')
+  const [order, setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
   const [packsPerPage] = useState(4)// cantidad de cards x pagina
   const indexOfLastPack = currentPage * packsPerPage //8
@@ -47,8 +47,6 @@ const Paquetes = () => {
     setCurrentPage(1)
 
   }
-
-
 
   function handleSort(e) {
     e.preventDefault()
