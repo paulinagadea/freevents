@@ -38,9 +38,16 @@ const Paquetes = () => {
 
   useEffect(() => {
     let filtroGrafico = (window.location.href.slice(window.location.href.indexOf("=") + 1)).replace("_", " ")
-    filtroGrafico.replace("%20","ñ")
+
+    
+    console.log(filtroGrafico, "este es FILTROGRA")
+    console.log("BUENOOOOO")
+    if (filtroGrafico.length < 20) {
+      console.log("HOLIIIIIISSSSS", filtroGrafico.length)
       dispatch(filterPacksByEvents(filtroGrafico))
-  }, [dispatch])
+    }
+  }, [allPacks.length])
+
 
 
   const handleFilterService = (e) => {
@@ -95,7 +102,7 @@ const Paquetes = () => {
             {allServicesP?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
           </select>
 
-      
+
           {/* <select onChange={e => { handlePrice(e) }}>
             <option selected disabled>Rango precio</option>
             {allServicesP.map((t) =>

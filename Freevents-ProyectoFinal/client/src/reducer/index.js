@@ -18,8 +18,11 @@ const initialState = {
     allClient: [],
     idClient: [],
     reviews: [],
-    allReviews:[],
-    clienteActual:[],
+    allReviews: [],
+    clienteActual: [],
+    admins: [],
+    adminById: {},
+    promociones: [],
 }
 
 if (localStorage.getItem('favs')) {
@@ -33,6 +36,36 @@ if (localStorage.getItem('order')) {
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
+        case actionTypes.getAdmins: {
+            return {
+                ...state,
+                admins: action.payload,
+            };
+        } case actionTypes.getByAdminId: {
+            return {
+                ...state,
+                adminById: action.payload,
+            };
+        } case actionTypes.postAdmin: {
+            return {
+                ...state,
+            }
+        } case actionTypes.postPromociones: {
+            return {
+                ...state,
+                promociones: action.payload,
+            }
+        } case actionTypes.updateAdmin: {
+            return {
+                ...state,
+                admins: action.payload,
+            }
+        } case actionTypes.deleteAdmin: {
+            return {
+                ...state,
+                admins: action.payload,
+            }
+        }
         case actionTypes.getEvents: {
             return {
                 ...state,
@@ -66,6 +99,7 @@ function rootReducer(state = initialState, action) {
             };
         }
 
+
             case actionTypes.buscarSiExisteCliente:{
                 const allProviders = state.allProviders //aqui estan todos los proveedores
                 console.log(action.payload,"Soy el action payload reducer")
@@ -76,10 +110,11 @@ function rootReducer(state = initialState, action) {
                 console.log(includesUser, "True o false")
                 return{
                     ...state,
+
                 clienteActual: includesUser,
-                }
             }
-        
+        }
+
 
         // case actionTypes.addLastOrder:{
         //     console.log(state.ordercita, "estado ordercita")
@@ -225,10 +260,12 @@ function rootReducer(state = initialState, action) {
         }
 
         case actionTypes.filterPacksByEvents: {
+            let evento = action.payload.replace("%C3%B1", "ñ")
+            console.log(evento, "REDUCER")
             return {
                 ...state,
                 packs: state.allPacks.filter((s) =>
-                    s.events.map(se => se.name).includes(action.payload)),
+                s.events.map(se => se.name.toLowerCase()).includes(evento.toLowerCase())),
             }
         }
 
@@ -332,7 +369,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
             }
-        } 
+        }
 
         default:
             return state;

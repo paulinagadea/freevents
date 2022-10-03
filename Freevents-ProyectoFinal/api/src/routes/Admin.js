@@ -2,13 +2,13 @@ const Admi = require('express').Router();
 const bcrypt = require('bcrypt')
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const {getAllAdmins, getAdminByName, getAdminById } = require('../controllers/getAllAdmins.js');
-const { Admin } = require('../models/Admin.js');
+const { getAllAdmins, getAdminByName, getAdminById } = require('../controllers/getAllAdmins.js');
+const { Admin } = require('../db');
 const { Client } = require('../db');
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
 Admi.get('/', async (req, res) => {
-    
+
     const { name } = req.query;
     // Si no recibo un nombre por query muestro todos los servicios.
     try {
@@ -23,13 +23,13 @@ Admi.get('/', async (req, res) => {
                 res.status(404).send("Admin not found");
             };
         };
-    } catch(error) {
+    } catch (error) {
         res.send(error);
     };
 });
 
 Admi.get('/:id', async (req, res) => {
-    
+
     try {
         const { id } = req.params
         const adminById = await getAdminById(id)
@@ -49,14 +49,14 @@ Admi.post("/", async (req, res) => {
     try {
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(passwordHash_admin, saltRounds)
-        
+
         const adminCreated = await Admin.create({
-            name, 
+            name,
             email,
             passwordHash,
             user_admin
         })
-        
+
         const savedAdmin = await adminCreated.save();
 
         res.status(200).json(savedAdmin);
@@ -69,29 +69,31 @@ Admi.post("/", async (req, res) => {
 
 Admi.post("/promocion", async (req, res) => {
 
-    const { name, lastname,  passwordHash_client, dni, email, phone_number } = req.body;
-    
-   
+    const { name, lastname, passwordHash_client, dni, email, phone_number } = req.body;
+console.log(name, lastname, passwordHash_client, dni, email, phone_number)
+
+
     const clientCreated = await Client.create({
-          name,
-          lastname,
-          passwordHash_client,
-          dni,
-          email,
-          phone_number
-      })
+        name,
+        lastname,
+        passwordHash:passwordHash_client,
+        dni,
+        email,
+        phone_number
+    })
+console.log("@1@")
 
-        JSON.stringify(clientCreated)
+    JSON.stringify(clientCreated)
 
-        const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+    const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 
-    oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
+    oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
     async function sendMail() {
         try {
 
             const accessToken = await oAuth2Client.getAccessToken()
-           
+
             const transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth: {
@@ -105,55 +107,55 @@ Admi.post("/promocion", async (req, res) => {
 
                 },
             })
-            
+
             const mailOptions = {
                 from: "Freevents <kristhianlizcano@gmail.com>",
                 to: email,
                 subject: "Freevents",
                 html: `<div align="center"><a href="https://ibb.co/kXDQ6X4"><img src="https://i.ibb.co/Xt5Skt7/oferta.png" alt="oferta" border="0"></a></div>`,
-                
-            }; 
+
+            };
 
 
             const result = await transporter.sendMail(mailOptions);
             return result;
         }
-        catch(error) {
+        catch (error) {
             console.log(error);
         }
-    } 
+    }
 
     sendMail()
-    .then(result => res.status(200).send("Enviado"))
-    .catch(error => console.log(error));
+        .then(result => res.status(200).send("Enviado"))
+        .catch(error => console.log(error));
 })
 
 
 
 Admi.put("/:id", async (req, res) => {
 
-    try{
-        
-       await Admin.update(req.body, {
-                   where: { id: req.params.id }
-               });
-               res.status(200).json({ succes: 'Update Admin' })
-   
-   } catch(error) {
+    try {
 
-       res.status(500).json({ message: 'Error', error })
+        await Admin.update(req.body, {
+            where: { id: req.params.id }
+        });
+        res.status(200).json({ succes: 'Update Admin' })
 
-   }
-   
+    } catch (error) {
+
+        res.status(500).json({ message: 'Error', error })
+
+    }
+
 })
 
 Admi.delete("/:id", async (req, res) => {
 
     try {
         await Admin.destroy({
-                    where: { id: req.params.id }
-                });
-                res.status(200).json({ success: 'Delete Admin' })
+            where: { id: req.params.id }
+        });
+        res.status(200).json({ success: 'Delete Admin' })
 
     } catch (error) {
         res.status(500).json({ message: 'Error', error })
