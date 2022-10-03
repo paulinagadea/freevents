@@ -9,11 +9,6 @@ Content-Type: application/json
   "cuit": "987654321",
   "email": "email@test.com",
   "phone_number": "123456789",
-  "logotype": "logotype",
-  "background_image": "background_image",
-  # "galery_image": ["galery_image", "galery_image"],
- 
-  "password": "abc1234",
-  "sub":"holiiii"
+  "sub":"holis"
   
 }

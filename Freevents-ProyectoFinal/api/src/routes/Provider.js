@@ -41,10 +41,10 @@ Prov.get('/:id', async (req, res) => {
 
 
 Prov.post("/", async (req, res) => {
-    const { name, sub, address, location, postal_code, cuit, email, password, phone_number, logotype, background_image, galery_image } = req.body;
+    const { name, sub, address, location, postal_code, cuit, email, passwordHash, phone_number, logotype, background_image, galery_image } = req.body;
     try {
-        const saltRounds = 10 // nivel de hasheo
-        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        // const saltRounds = 10 // nivel de hasheo
+        // const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
 
         const newProvider = await Provider.create({
             name,

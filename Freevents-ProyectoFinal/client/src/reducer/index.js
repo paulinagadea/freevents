@@ -69,14 +69,14 @@ function rootReducer(state = initialState, action) {
             case actionTypes.buscarSiExisteCliente:{
                 const allProviders = state.allProviders //aqui estan todos los proveedores
                 console.log(action.payload,"Soy el action payload reducer")
-                const buscarProveedor = allProviders.includes(action.payload) // false o true
-                console.log(buscarProveedor, "BUSCRAR PROV REDUCER")
-                
-                const respuesta = buscarProveedor ? true : false
-                console.log(respuesta, "BUSCRAR PROV REDUCER")
+                const buscarProveedor = allProviders.map(el=> el.sub) // false o true
+                console.log(buscarProveedor, "MapSubALProviders")
+                const includesUser = buscarProveedor.includes(action.payload)
+                // const respuesta = buscarProveedor ? true : false
+                console.log(includesUser, "True o false")
                 return{
                     ...state,
-                clienteActual: respuesta,
+                clienteActual: includesUser,
                 }
             }
         
@@ -225,11 +225,10 @@ function rootReducer(state = initialState, action) {
         }
 
         case actionTypes.filterPacksByEvents: {
-            let evento = action.payload.replace("%C3%B1","ñ")
             return {
                 ...state,
                 packs: state.allPacks.filter((s) =>
-                    s.events.map(se => se.name.toLowerCase()).includes(evento.toLowerCase())),
+                    s.events.map(se => se.name).includes(action.payload)),
             }
         }
 

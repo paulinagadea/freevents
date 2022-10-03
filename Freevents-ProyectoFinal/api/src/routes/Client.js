@@ -88,7 +88,7 @@ Cliente.post("/", async (req, res) => {
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "kristhianlizcano@gmail.com",
+                    user: "freeevents4@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -99,10 +99,10 @@ Cliente.post("/", async (req, res) => {
             })
 
             const mailOptions = {
-                from: "Freevents <kristhianlizcano@gmail.com>",
+                from: "Freevents <freeevents4@gmail.com>",
                 to: email,
                 subject: "Freevents",
-                html: `<div align="center"><a href="https://ibb.co/C2bKxpx"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></a></div>`,
+                html: `<div align="center"><a href="https://freevents.vercel.app"><img href="https://freevents.vercel.app" align="center" alt="Welcome" border="0"></a></div>`,
 
             };
 

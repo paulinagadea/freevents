@@ -128,7 +128,9 @@ const Home = () => {
                 <div className="linea"></div>
                 <h1 className="titulo-home">TOP RESEÑAS DE CLIENTES</h1>
                 <SimpleCard className="comentarios" />
+
                 <div className="linea1"></div>
+
 
                 <div>
                     {isAuthenticated ? <div className={classes.root}>

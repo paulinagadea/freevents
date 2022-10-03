@@ -11,24 +11,27 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {getProviders, buscarSiExisteCliente} from '../actions/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useRouteError } from 'react-router-dom';
+import FormularioProveedor from './FormularioProveedor';
 
 
  const BusquedaUser = () => {
 
   const {  user, isAuthenticated, isLoading } = useAuth0();
+  // const { sub } = user
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
     // const userr = user.sub
-    // console.log(userr, )
+
   //aqui ponemos lo que enviamos
 // const storageUser = (localStorage.setItem('userAuth0Provider', JSON.stringify(user)));
 
 
+console.log("LLGUE HASTA LA 32")//SE RENDERIZA 4 VECES Q ONDA
 const  mifuncionQueBusca  = async () => {
-  const aux = await user
+  const aux = await user.sub
   console.log(aux, "soy el user en el componente busquedaUser")
   dispatch(buscarSiExisteCliente(aux))
   return 
@@ -37,9 +40,11 @@ const  mifuncionQueBusca  = async () => {
 
 
 useEffect(() => {
-        
     dispatch(getProviders())
-    mifuncionQueBusca()
+    setTimeout(() => {
+      mifuncionQueBusca();
+    }, 3000)
+   
     // clienteActual ? true 
     // if (clienteActual !== true){
     //   window.location.assign("http://localhost:3000/home")
@@ -57,12 +62,22 @@ useEffect(() => {
     //con la propiedad SUB dentro de los objetos del array allProviders.
     //recien ahi el resultado true o false del includes dara una respuesta correcta.
     //AHORA ANDA MAL POR ESA RAZON CREO.
+}, [dispatch, user])
 
-}, [dispatch ])
+  // if (clienteActual !== true){
+  //     window.location.assign("http://localhost:3000/providerregister")
+  //   }else{
+  //     window.location.assign("http://localhost:3000/home")
+  //   }
+
+
+    // else {
+    //   window.location.assign("http://localhost:3000/providerregister")
+    // }
     
     // console.log(clienteActual, "HAY ALGO AQUI?")
-    // if (clienteActual === true){
-    //   navigate("/home")
+    // if (clienteActual === false){
+    //   navigate("http://localhost:3000/userregister")
     // }else {
     //   navigate("./providerregister")
     // }
@@ -81,8 +96,9 @@ useEffect(() => {
     <div>
     WEA
     {
-      clienteActual === true ? <h1>si existo</h1> : <h1>No existo</h1>
+      clienteActual === false ? <h1>No existo</h1> : <h1>Existo</h1>
     }
+    <button>HOLANDA</button>
     </div>
     
   )

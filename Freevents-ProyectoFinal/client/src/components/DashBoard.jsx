@@ -23,14 +23,18 @@ import PersonPinIcon from '@mui/icons-material/Person';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
-
-
-
+import MaterialTable from 'material-table';
+import MUIDataTable from "mui-datatables";
+import axios from "axios";
+import AdminClients from './Admin/AdminClients';
+import AdminProviders from './Admin/AdminProviders';
+import AdminPacks from './Admin/AdminPacks';
 import { getProviders, getPacks, getAllClients } from '../actions'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import CardProveedor from './CardProveedor'
+import { useSelect } from '@mui/base';
 
 
 const drawerWidth = 240;
@@ -109,11 +113,15 @@ export default function MiniDrawer() {
   console.log(packs, 'packs')
   const clients = useSelector((state) => state.allClients)
   console.log(clients, 'clients')
+  
+
+  
 
   useEffect(() => {
     dispatch(getProviders())
     dispatch(getAllClients())
     dispatch(getPacks())
+   
   }, [dispatch])
 
   const [open, setOpen] = React.useState(false);
@@ -125,6 +133,9 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -262,36 +273,15 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <div className='proveedores'>
-          <h1>Proveedores</h1>
-          {providers?.map((provider) => {
-            return (
-              <div key={provider.id} className='item'>
-                    {provider.name}
-              </div>
-            )
-          })}
+          
+          <AdminClients/>
+          <AdminProviders/>
+          <AdminPacks/>
+          
+
         </div>
 
-        <div className='packs'>
-          <h1>Packs</h1>
-          {packs?.map((packs) => { 
-            return (
-              <div key={packs.id} className='item'>
-                    {packs.name}
-              </div>
-            )
-          })}
-        </div>
-        <div className='Clientes'>
-          <h1>Clientes</h1>
-          {clients?.map((client) => {
-            return (
-              <div key={client.id} className='item'>
-                    {client.name}
-              </div>
-            )
-          })}
-        </div>
+        
 
       </Box>
     </Box>

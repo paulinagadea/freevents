@@ -271,7 +271,7 @@ const patchOrder = async (req, res) => {
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "kristhianlizcano@gmail.com",
+                    user: "freeevents4@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -280,10 +280,10 @@ const patchOrder = async (req, res) => {
             })
             
             const mailOptions = {
-                from: "Freevents <kristhianlizcano@gmail.com>",
+                from: "Freevents <freeevents4@gmail.com>",
                 to: emailDb.email,
                 subject: "Freevents",
-                text: "COMPRA REALIZADA", 
+                text: `<div align="center"><a href="https://ibb.co/sRDJBcr"><img src="https://i.ibb.co/h9n1qrv/Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa.png" align="center" alt="Compra Existosa" border="0"></a></div>`, 
             }; 
 
             const result = await transporter.sendMail(mailOptions);
