@@ -33,9 +33,13 @@ const Paquetes = () => {
     dispatch(getServices())
   }, [dispatch]) //probar  sacar el dispatch
 
-  // useEffect(() => {
-  //   dispatch(filterPacksByEvents(allEvents))
-  // }, [allEvents])
+  useEffect(() => {
+    let filtroGrafico = (window.location.href.slice(window.location.href.indexOf("=") + 1)).replace("_", " ")
+    filtroGrafico.replace("%20","ñ")
+    console.log(filtroGrafico, "este es FILTROGRA")
+      console.log("BUENOOOOO")
+      dispatch(filterPacksByEvents(filtroGrafico))
+  }, [allPacks.length])
 
 
   const handleFilterService = (e) => {
@@ -44,35 +48,25 @@ const Paquetes = () => {
 
   }
 
-  const handlefilterPacksByEvents = (e) => {
-    // navigate("/paquetes")
-    dispatch(filterPacksByEvents(e.target.value))
-    setCurrentPage(1)
-  }
+
 
   function handleSort(e) {
     e.preventDefault()
-    console.log(e.target.value, "Soy el target")
     dispatch(orderByNamePack(e.target.value))
     setCurrentPage(1)
-    console.log(e.target.value, "TARGET VALUE")
     setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
     //ESTADO
   }
   function handleSortPrice(e) {
     e.preventDefault()
-    console.log(e.target.value, "Soy el target")
     dispatch(orderByPrice(e.target.value))
     setCurrentPage(1)
-    console.log(e.target.value, "TARGET VALUE")
     setOrder(`Ordenado.${e.target.value}`)// HACER PAGINADO
     //ESTADO
   }
 
   return (
     <div>
-      {
-        console.log(window.location.href.slice(window.location.href.indexOf("=") + 1), "AAAAAA PIMBA PIMBA")}
       <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
@@ -102,12 +96,7 @@ const Paquetes = () => {
             {allServicesP?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
           </select>
 
-          <select onChange={e => { handlefilterPacksByEvents(e) }}>
-            <option selected disabled value='All'>Eventos</option>
-            {allEvents?.map(el => <option key={el.id} value={el.name}> {el.name} </option>)}
-          </select>
-
-
+      
           {/* <select onChange={e => { handlePrice(e) }}>
             <option selected disabled>Rango precio</option>
             {allServicesP.map((t) =>

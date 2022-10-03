@@ -38,8 +38,8 @@ export const actionTypes = {
     getReviews: "getReviews",
     postReviews: "postReviews",
     getDetailsReviews: "getDetailsReviews",
-    buscarSiExisteCliente:"buscarSiExisteCliente",
-    filterPacksByEvents:"filterPacksByEvents"
+    buscarSiExisteCliente: "buscarSiExisteCliente",
+    filterPacksByEvents: "filterPacksByEvents"
 };
 
 
@@ -220,7 +220,9 @@ export const filterPacksByService = (payload) => {
 }
 
 export const filterPacksByEvents = (payload) => {
+    console.log(payload, "PABLOOOOOOOO")
     return {
+
         type: actionTypes.filterPacksByEvents,
         payload: payload,
     }
@@ -312,25 +314,25 @@ export function createProvider(payload) {
             });
 
         } catch (error) {
-        return error
+            return error
         }
     };
 };
 
 
-    export function buscarSiExisteCliente(payload) {
-        console.log(payload, "PAYLOAD ACTION BUSCAR CLIENT")
-        return async (dispatch) => {
-                try{
-                return await dispatch({
-                    type: actionTypes.buscarSiExisteCliente,
-                    payload: payload
-                })
-            }catch(error){
-                return error
-            }
+export function buscarSiExisteCliente(payload) {
+    console.log(payload, "PAYLOAD ACTION BUSCAR CLIENT")
+    return async (dispatch) => {
+        try {
+            return await dispatch({
+                type: actionTypes.buscarSiExisteCliente,
+                payload: payload
+            })
+        } catch (error) {
+            return error
         }
     }
+}
 
 
 export function createUser(payload) {

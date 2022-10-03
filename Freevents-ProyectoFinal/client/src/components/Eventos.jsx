@@ -153,7 +153,7 @@ export default function ButtonBases() {
           focusVisibleClassName={classes.focusVisible}
           value= "15_birthday_party"
           type= "image"
-          href="/paquetes" //onClick={(e)=>{handlefilterPacksByEvents(e)}}  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Full_Party" //onClick={(e)=>{handlefilterPacksByEvents(e)}}  // ojo cambiar por filtro de evento
           style={{
             width: images[0].width,
           }}
@@ -183,7 +183,7 @@ export default function ButtonBases() {
     <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Aniversarios"  // ojo cambiar por filtro de evento
           style={{
             width: images[7].width,
           }}
@@ -213,7 +213,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=15_años" 
           style={{
             width: images[1].width,
           }}
@@ -243,7 +243,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes?event=graduaciones"  // ojo cambiar por filtro de eventoaaaaa
+          href="/paquetes?event=Graduaciones"  // ojo cambiar por filtro de eventoaaaaa
           style={{
             width: images[2].width,
           }}
@@ -273,7 +273,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Matrimonios"  // ojo cambiar por filtro de evento
           style={{
             width: images[3].width,
           }}
@@ -303,7 +303,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Despedidas"  // ojo cambiar por filtro de evento
           style={{
             width: images[4].width,
           }}
@@ -333,7 +333,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Cumpleaños"  // ojo cambiar por filtro de evento
           style={{
             width: images[5].width,
           }}
@@ -363,7 +363,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Baby_Showers"  // ojo cambiar por filtro de evento
           style={{
             width: images[6].width,
           }}
