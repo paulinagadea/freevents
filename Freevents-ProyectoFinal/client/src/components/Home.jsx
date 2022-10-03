@@ -72,7 +72,7 @@ const Home = () => {
     return (
 
         <div>
-            
+
             <NavbarHome />
             {/* <img className="imghome" src={image20} alt="" /> */}
             <div>
@@ -84,14 +84,14 @@ const Home = () => {
             </div>
             <div className="barra">
                 <Box color="primary.main" component="span" b={4}>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>ANIVERSARIOS</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>CUMPLEAÑOS</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>DESPEDIDAS</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>GRADUACIONES</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>BABY SHOWERS</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>15 AÑOS</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>FULL PARTY</Button>
-                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>MATRIMONIO</Button>
+                    <Button href="/paquete?event=Aniversarios" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>ANIVERSARIOS</Button>
+                    <Button href="/paquete?event=Full_Party" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>CUMPLEAÑOS</Button>
+                    <Button href="/paquete?event=Cumpleaños" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>DESPEDIDAS</Button>
+                    <Button href="/paquete?event=Graduaciones" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>GRADUACIONES</Button>
+                    <Button href="/paquete?event=Baby_Showers" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>BABY SHOWERS</Button>
+                    <Button href="/paquete?event=15_años" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>15 AÑOS</Button>
+                    <Button href="/paquete?event=Full_Party" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>FULL PARTY</Button>
+                    <Button href="/paquete?event=Matrimonio" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>MATRIMONIO</Button>
                 </Box>
             </div>
             <Container fixed>
@@ -129,25 +129,25 @@ const Home = () => {
                 <h1 className="titulo-home">TOP RESEÑAS DE CLIENTES</h1>
                 <SimpleCard className="comentarios" />
                 <div className="linea1"></div>
-                
+
                 <div>
                     {isAuthenticated ? <div className={classes.root}>
-                    <ImageList className={classes.imageList}>
-                        {allReviews?.map((reviews) => {
-                            return (
-                                <div className={classes.img}>
-                                    <CardReviews
-                                        name={reviews.name}
-                                        comments={reviews.comments}
-                                        rating={reviews.rating}
-                                        events={reviews.events}
-                                    />
-                                </div>
-                            )
-                        })}
-                    </ImageList>
-                </div> : false}
-                    {isAuthenticated? <Reviews /> : false} 
+                        <ImageList className={classes.imageList}>
+                            {allReviews?.map((reviews) => {
+                                return (
+                                    <div className={classes.img}>
+                                        <CardReviews
+                                            name={reviews.name}
+                                            comments={reviews.comments}
+                                            rating={reviews.rating}
+                                            events={reviews.events}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </ImageList>
+                    </div> : false}
+                    {isAuthenticated ? <Reviews /> : false}
                 </div>
                 <div className="linea"></div>
                 <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
