@@ -40,16 +40,20 @@ Cliente.get('/:id', async (req, res) => {
 //crear cliente 
 Cliente.post("/", async (req, res) => {
 
-    //primero busco al cliente con los datos que me mandaron Where: findOne(email === email.dataBase)
-    //if cliente (existe) => regresa "el cliente ya existe"
-    //else (no existe), frontend ponerle a llenar el componente formulario 
+    const { 
+    name,
+    lastname,
+    passwordHash,
+    dni,
+    email,
+    phone_number,
+    userType,
+    status
+    } = req.body;
 
-
-    const { name, lastname, password, dni, email, phone_number, sub, status } = req.body;
-    console.log('llega?', req.query)
     try {
-        const saltRounds = 10
-        const passwordHash = await bcrypt.hash(password, saltRounds)
+        // const saltRounds = 10
+        // const passwordHash = await bcrypt.hash(password, saltRounds)
 
         const clientCreated = await Client.create({
             name,
@@ -58,13 +62,13 @@ Cliente.post("/", async (req, res) => {
             dni,
             email,
             phone_number,
-            sub,
+            userType,
             status
-        })
+})
 
-        const savedClient = await clientCreated.save();
+        const aux = await clientCreated.save();
 
-        res.status(200).json(savedClient);
+        res.status(200).json(aux);
     }
     catch (error) {
         console.log(error)
@@ -118,26 +122,18 @@ Cliente.post("/", async (req, res) => {
 
 Cliente.patch("/:id", async (req, res) => {
     const { id } = req.params
-    const { name, lastname, password, dni, phone_number, status } = req.body
+    // const { status, phone_number } = req.body
 
     try {
-        const saltRounds = 10 // nivel de hasheo
-        const passwordHash = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        const ClientUpdated = await getClientById(id)
+        // const saltRounds = 10 // nivel de hasheo
+        // const passwordHash_provider = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        
+            await ClientUpdated.update(req.body)
+            res.status(200).json(ClientUpdated);
 
-        await Client.update({
-            name,
-            lastname,
-            passwordHash,
-            dni,
-            phone_number,
-            status
-        }, { where: { id: id } })
-
-        const ClientUpdated = await Client.findByPk(id)
-
-        res.status(200).json(ClientUpdated);
     } catch (error) {
-        console.log("error", error)
+        console.log("error post client", error)
         res.status(500).json({ msg: 'Error', error })
     }
 })

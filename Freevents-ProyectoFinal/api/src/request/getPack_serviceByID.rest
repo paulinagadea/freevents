@@ -1,0 +1,2 @@
+GET   http://localhost:3001/packs/243a718b-62e5-419f-abbc-20b923110dab
+Content-Type: application/json
