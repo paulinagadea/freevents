@@ -17,7 +17,7 @@ const Paquetes = () => {
   const allEvents = useSelector((state)=>state.events)
   const allPacks = useSelector((state) => state.packs)
   const allServicesP = useSelector((state) => state.services)
-  const [order, setOrder] = useState('')
+  const [/*order,*/ setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
   const [packsPerPage] = useState(4)// cantidad de cards x pagina
   const indexOfLastPack = currentPage * packsPerPage //8
@@ -70,7 +70,9 @@ const Paquetes = () => {
       <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
-      <h1 className="Titulo-proveedores"> PAQUETES DE SERVICIO </h1>
+      <div className="barra">
+        <h1 className="Titulo-proveedores"> PAQUETES DE SERVICIO </h1>
+      </div>
 
       <div>
         <div className="row">
@@ -83,8 +85,8 @@ const Paquetes = () => {
           </select>
           <select onChange={e => { handleSortPrice(e) }}>
             <option selected disabled>Precios</option>
-            <option value='ascendente'>menor a mayor precio</option>
-            <option value='descendente'>mayor a menor precio</option>
+            <option value='ascendente'>Menor a mayor precio</option>
+            <option value='descendente'>Mayor a menor precio</option>
           </select>
 
           {/* <input  type="range" id="points" name="points" min="0" max="25000"></input> */}

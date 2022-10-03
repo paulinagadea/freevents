@@ -9,6 +9,7 @@
 .parent {
     background-color: #fff;
     border-radius: 5px;
+    justify-content: flex-end;
 }
 
 .user {
