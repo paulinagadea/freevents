@@ -14,7 +14,7 @@
 
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 30px;
     height: 30px;
 }
@@ -22,7 +22,7 @@
 select {
     user-select: none;
     outline: none;
-    width: 150px;
+    width: 180px;
     border: 1px solid #D9C2BA;
     padding-left: 8px;
     font-family: "Segoe UI";

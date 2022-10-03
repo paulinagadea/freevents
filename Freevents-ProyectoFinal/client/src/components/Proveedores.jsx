@@ -6,45 +6,45 @@ import NavbarProveedores from "./NavBarProveedores.jsx";
 import "./Paquetes.css";
 import CardProveedor from "./CardProveedor";
 import Paginado from './Paginado'
-import { makeStyles } from '@material-ui/core/styles';
-import ImageList from '@material-ui/core/ImageList';
+// import { makeStyles } from '@material-ui/core/styles';
+// import ImageList from '@material-ui/core/ImageList';
 import { Link } from "react-router-dom";
 //import CardReviews from "./CardReviews";
 import './Comentarios.css'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    overflow: 'hidden',
-    backgroundColor: '#d9c2ba',
-    height: '300px',
-    borderRadius: '5px',
-  },
-  imageList: {
-    transform: 'translateZ(0)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    color: theme.palette.primary.light,
-  },
-  titleBar: {
-    background:
-    'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
-  img: {
-    margin: '3px',
-  }
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     overflow: 'hidden',
+//     backgroundColor: '#d9c2ba',
+//     height: '300px',
+//     borderRadius: '5px',
+//   },
+//   imageList: {
+//     transform: 'translateZ(0)',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   title: {
+//     color: theme.palette.primary.light,
+//   },
+//   titleBar: {
+//     background:
+//     'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+//   },
+//   img: {
+//     margin: '3px',
+//   }
+// }));
 
 const Proveedores = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const dispatch = useDispatch();
   const allProviders = useSelector((state) => state.providers)
   const allEve = useSelector((state) => state.events)
-  const allReviews = useSelector((state) => state.reviews)
-  const [orden, setOrder] = useState('')
+  // const allReviews = useSelector((state) => state.reviews)
+  const [/*orden,*/ setOrder] = useState('')
   // const eventos = useSelector((state) => state.events)
 
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
@@ -71,10 +71,10 @@ const Proveedores = () => {
     setCurrentPage(1)
     setOrder(`Ordenado.${e.target.value}`)
   }
-  const handleClick = (e) => {
-    e.preventDefault() //preventivo
-    dispatch(getProviders())
-  }
+  // const handleClick = (e) => {
+  //   e.preventDefault() //preventivo
+  //   dispatch(getProviders())
+  // }
 
   return (
     <div>
@@ -87,7 +87,7 @@ const Proveedores = () => {
       </div>
 
       <div className="row">
-      <button className="button" onClick={e => { handleClick(e) }}> ⇦ </button>
+      {/* <button className="button" onClick={e => { handleClick(e) }}> ⇦ </button> */}
         <select onChange={e => handleSort(e)}>
           <option className="option" selected disabled>Ordenamiento</option>
           <option className="option" value="ascendente">A - Z</option>
@@ -114,7 +114,6 @@ const Proveedores = () => {
         })}
       </div>
 
-      <div className="linea1"></div>
       {/* <h1 className="titulo">COMENTARIOS DE NUESTROS CLIENTES</h1>
 
       <div className={classes.root}>

@@ -36,6 +36,7 @@ export default function SimpleCard() {
         <Card className={classes.root}>
             <div className='cont-comentarios'>
             <div className='parent'>
+
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         Reseña
@@ -52,8 +53,9 @@ export default function SimpleCard() {
                     <Typography variant="body2" component="p">
                         "Gracias Perla eventos! Todo salió como lo acordamos! Recomendado"
                     </Typography>
+                    <Button size="small">★★★★★</Button>
                 </CardContent>
-                <Button size="small">★★★★★</Button>
+
             </div>
             <div className='parent'>
                 <CardContent>

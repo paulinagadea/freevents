@@ -62,20 +62,20 @@ export default function NavbarHome() {
 
           {
             isAuthenticated === false && 
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button> 
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/login">Ingresar</Button> 
           }
 
-          {
+          {/* {
             isAuthenticated === false && 
-            <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          } 
+            <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/userregister">Registrate</Button>
+          }  */}
 
-          <Button size="small" onClick={handleClick} href="/home">Home</Button>
-          <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/home">Home</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          {/* <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/paquetes">Paquetes</Button> */}
           {
             // auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
           }
@@ -98,6 +98,19 @@ export default function NavbarHome() {
  .containerbar{
     margin-right: 5%;
   }
+
+  .containerbar .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.containerbar .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #fff;
+    background-size: 100% 2px;
+}
 
     h2{
       color: white;

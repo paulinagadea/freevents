@@ -61,20 +61,21 @@ export default function NavbarHome() {
         <div className="containerbar">
           {
             isAuthenticated === false && 
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button> 
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/login">Ingresar</Button> 
           }
 
-          {
+          {/* {
             isAuthenticated === false && 
-            <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
-          }
+            <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/userregister">Registrate</Button>
+          } */}
 
-          <Button size="small" onClick={handleClick} href="/home">Home</Button>
-          <Button disabled={"/paquetes" !== null ? true : false} size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/home">Home</Button>
+          
+          {/* <Button disabled={"/paquetes" !== null ? true : false} style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button> */}
           
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button  size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
           {/* {
             auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
           } */}
