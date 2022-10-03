@@ -21,7 +21,7 @@ const images = [
     },
     {
       img: 'https://res.cloudinary.com/freevents/image/upload/v1664336904/Imagens/15_dauxrj.jpg',
-      title: 'Egresos',
+      title: 'Graduaciones',
       width: '100%',
     },
     {
@@ -31,7 +31,7 @@ const images = [
       },
       {
         img: 'https://res.cloudinary.com/freevents/image/upload/v1664336834/Imagens/5_tf4uaz.jpg',
-        title: 'Despedida de Solter@s',
+        title: 'Despedidas',
         width: '100%',
       },
       {
@@ -243,7 +243,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=graduaciones"  // ojo cambiar por filtro de eventoaaaaa
           style={{
             width: images[2].width,
           }}

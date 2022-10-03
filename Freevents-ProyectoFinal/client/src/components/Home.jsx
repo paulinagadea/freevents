@@ -56,14 +56,13 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0(); //use.name //user.logotype
     const allReviews = useSelector((state) => state.reviews);
     const classes = useStyles();
-    const useActual = useSelector((state)=>state.clienteActual)
+    //const useActual = useSelector((state)=>state.clienteActual)
 
 
     useEffect(() => {
-
         dispatch(getProviders())
         dispatch(getAllClients())
         dispatch(getReviews())
@@ -73,6 +72,7 @@ const Home = () => {
     return (
 
         <div>
+            
             <NavbarHome />
             {/* <img className="imghome" src={image20} alt="" /> */}
             <div>
@@ -131,7 +131,7 @@ const Home = () => {
                 <div className="linea1"></div>
                 
                 <div>
-                    {useActual.length ? <div className={classes.root}>
+                    {isAuthenticated ? <div className={classes.root}>
                     <ImageList className={classes.imageList}>
                         {allReviews?.map((reviews) => {
                             return (
@@ -147,7 +147,7 @@ const Home = () => {
                         })}
                     </ImageList>
                 </div> : false}
-                    {useActual.length? <Reviews /> : false} 
+                    {isAuthenticated? <Reviews /> : false} 
                 </div>
                 <div className="linea"></div>
                 <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
