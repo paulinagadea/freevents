@@ -22,35 +22,15 @@ const Details = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const myservice = useSelector((state) => state.detail);
-  console.log(
-    "🚀 ~ file: Details.jsx ~ line 15 ~ Details ~ myservice",
-    myservice
-  );
   const evente = useSelector((state) => state.events);
   const detallePack = useSelector((state) => state.detailPack);
   const packs = useSelector((state) => state.packs);
   const nombrepack = packs.name;
-  console.log(
-    "🚀 ~ file: Details.jsx ~ line 20 ~ Details ~ nombrepack",
-    nombrepack
-  );
-  console.log("🚀 ~ file: Details.jsx ~ line 19 ~ Details ~ packs", packs);
   const auxProvId = myservice.id;
-  console.log(
-    "🚀 ~ file: Details.jsx ~ line 21 ~ Details ~ auxProvId",
-    auxProvId
-  );
   const auxPackId = packs.map((idPack) => idPack.providerId);
-  console.log(
-    "🚀 ~ file: Details.jsx ~ line 25 ~ Details ~ auxPackId",
-    auxPackId
-  );
   const verificacion = auxPackId.includes(auxProvId);
   const coincidencia = packs.filter((e) => e.providerId === auxProvId);
-  console.log(
-    "🚀 ~ file: Details.jsx ~ line 27 ~ Details ~ coincidencia",
-    coincidencia
-  );
+  
 
   useEffect(() => {
     dispatch(getEvents());
