@@ -1,13 +1,14 @@
 const { Op } = require('sequelize')
-const { Pack_Service } = require('../db')
+// const { Pack_Services } = require('../db')
+const { Pack_services} =require('../db')
 
-const getServicePackByName = async (name) => {
+const getService_PackByName = async (name) => {
 
-    const serviceByName = await Client.findAll({
+    const serviceByName = await Pack_services.findAll({
         where: { name: { [Op.iLike]: '%' + name + '%' } }
     })
 
     return serviceByName.length ? serviceByName : "Not found"
 }
 
-module.exports = { getServicePackByName }
+module.exports = { getService_PackByName }
