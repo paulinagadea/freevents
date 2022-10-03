@@ -15,7 +15,7 @@ export default function SearchBarFinal() {
     const [currentPage, setCurrentPage] = useState(1)
     const provider = useSelector((state) => state.providers)
     const packss = useSelector((state) => state.packs)
-    console.log(provider, "soy el provider")
+    
 
     function handleInputChange(e) {
         e.preventDefault()
