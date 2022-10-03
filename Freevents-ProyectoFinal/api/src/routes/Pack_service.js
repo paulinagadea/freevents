@@ -1,8 +1,9 @@
 // const PackServices = require('express').Router()
 const PackServices = require('express').Router()
 
-const { getAllPackServices} = require('../controllers/getAllPackServices'); 
-const { getPack_ServiceByName} = require('../controllers/getPack_ServiceByName'); 
+const { getAllPackServices} = require('../controllers/getAllPackServices');
+const {getService_PackByName} = require('../controllers/getPack_ServiceByName')
+// const { getPack_ServiceByName} = require('../controllers/getPack_ServiceByName'); 
 const {getPack_serviceByID} = require('../controllers/getPack_ServiceByID.js')
 const { Pack_services, Event, Service, Provider } = require('../db'); 
 
@@ -10,7 +11,7 @@ PackServices.get('/', async(req, res) => {
     try {
         const { name } = req.query; 
         const packs = await getAllPackServices(); 
-        const packsByName = await getPack_ServiceByName(name); 
+        const packsByName = await getService_PackByName(name); 
 
         name
         ? res.status(200).json(packsByName) 
@@ -68,6 +69,24 @@ PackServices.post('/', async(req, res) => {
     catch(error) {
         console.log(error); 
         res.status(400).send('Bad request.')
+    }
+})
+
+PackServices.patch("/:id", async (req, res) => {
+    const { id } = req.params
+    // const { status, phone_number } = req.body
+
+    try {
+        const PackUpdated = await getPack_serviceByID(id)
+        // const saltRounds = 10 // nivel de hasheo
+        // const passwordHash_provider = await bcrypt.hash(password, saltRounds)//tomamos el password que nos envian en el formulario del frontend y le aplicamos un algoritmo de hasheo
+        
+            await PackUpdated.update(req.body)
+            res.status(200).json(PackUpdated);
+
+    } catch (error) {
+        console.log("error post pack", error)
+        res.status(500).json({ msg: 'Error', error })
     }
 })
 
