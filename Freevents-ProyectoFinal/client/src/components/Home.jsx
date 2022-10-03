@@ -84,14 +84,14 @@ const Home = () => {
             </div>
             <div className="barra">
                 <Box color="primary.main" component="span" b={4}>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>ANIVERSARIOS</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>CUMPLEAÑOS</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>DESPEDIDAS</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>GRADUACIONES</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>BABY SHOWERS</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>15 AÑOS</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>FULL PARTY</Button>
-                    <Button href="/paquetes" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>MATRIMONIO</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>ANIVERSARIOS</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>CUMPLEAÑOS</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>DESPEDIDAS</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>GRADUACIONES</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>BABY SHOWERS</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>15 AÑOS</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>FULL PARTY</Button>
+                    <Button href="/paquete" style={{ color: brown[600], fontFamily: "Mollie", fontSize: "17px" }}>MATRIMONIO</Button>
                 </Box>
             </div>
             <Container fixed>

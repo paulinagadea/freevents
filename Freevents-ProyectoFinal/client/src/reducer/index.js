@@ -225,10 +225,11 @@ function rootReducer(state = initialState, action) {
         }
 
         case actionTypes.filterPacksByEvents: {
+            let evento = action.payload.replace("%C3%B1","ñ")
             return {
                 ...state,
                 packs: state.allPacks.filter((s) =>
-                    s.events.map(se => se.name).includes(action.payload)),
+                    s.events.map(se => se.name.toLowerCase()).includes(evento.toLowerCase())),
             }
         }
 
