@@ -129,19 +129,17 @@ const images = [
 
 export default function ButtonBases() {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
+  //const dispatch = useDispatch();
+  //const [currentPage, setCurrentPage] = useState(1);
 
   // useEffect(() => {
   //   dispatch(filterPacksByEvents())
   // }, [dispatch])
 
-  const handlefilterPacksByEvents = (e) => {
-    navigate("/paquetes")
-    dispatch(filterPacksByEvents(e.target.value))
-    setCurrentPage(1)
-  }
+  // const handlefilterPacksByEvents = (e) => {
+  //   dispatch(filterPacksByEvents(e.target.value))
+  //   setCurrentPage(1)
+  // }
 
   return (
     <div className={classes.root}>
