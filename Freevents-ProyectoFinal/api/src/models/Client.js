@@ -37,12 +37,12 @@ module.exports = (sequelize) => {
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue: true,
         },
         userType: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue: "client",
         },
         status: {

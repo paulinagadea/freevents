@@ -1,0 +1,12 @@
+POST http://localhost:3001/packs
+Content-Type: application/json
+
+{
+"name":"Arbolardo",
+"description":"Mones",
+"price":"400",
+"galery_image":"holi",
+"events":"Matrimonios",
+"services":"Catering",
+"providerId":"a533aa44-67ed-4521-ad60-1c5d12fc927c"
+}

@@ -1,7 +1,7 @@
-PATCH  http://localhost:3001/providers/851f4460-22ae-4696-acc5-2878334b525f
+PATCH  http://localhost:3001/providers/0c147936-8115-4165-a6a1-452eba85e5df
 Content-Type: application/json
 
 {
-  "status": "disabled",
-  "name": "Provider_test"
+  "status": "enabled",
+  "name": "CRissss"
 }

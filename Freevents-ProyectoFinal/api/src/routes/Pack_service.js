@@ -1,13 +1,16 @@
-const { Router } = require('express');
-const { getAllPackServices, getPacksByName, getPacksById } = require('../controllers/getAllPackServices'); 
-const { Pack_services, Event, Service, Provider } = require('../db'); 
-const router = Router(); 
+// const PackServices = require('express').Router()
+const PackServices = require('express').Router()
 
-router.get('/', async(req, res) => {
+const { getAllPackServices} = require('../controllers/getAllPackServices'); 
+const { getPack_ServiceByName} = require('../controllers/getPack_ServiceByName'); 
+const {getPack_serviceByID} = require('../controllers/getPack_ServiceByID.js')
+const { Pack_services, Event, Service, Provider } = require('../db'); 
+
+PackServices.get('/', async(req, res) => {
     try {
         const { name } = req.query; 
         const packs = await getAllPackServices(); 
-        const packsByName = await getPacksByName(name); 
+        const packsByName = await getPack_ServiceByName(name); 
 
         name
         ? res.status(200).json(packsByName) 
@@ -19,10 +22,10 @@ router.get('/', async(req, res) => {
     }
 })
 
-router.get('/:id', async(req, res) => {
+PackServices.get('/:id', async(req, res) => {
     try {
         const { id } = req.params; 
-        const packsId = await getPacksById(id);
+        const packsId = await getPack_serviceByID(id);
         console.log('prueba de pack', packsId)
 
         res.status(200).json(packsId); 
@@ -33,7 +36,7 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', async(req, res) => {
+PackServices.post('/', async(req, res) => {
     const { name, description, price, status, galery_image, events, services, providerId } = req.body; 
     try {
         const packCreate = await Pack_services.create({
@@ -68,35 +71,9 @@ router.post('/', async(req, res) => {
     }
 })
 
-router.put("/:id", async (req, res) => {
-
-    try{
-        
-       await Pack_services.update(req.body, {
-                   where: { id: req.params.id }
-               });
-               res.status(200).json({ succes: 'Update Pack' })
-   
-   } catch(error) {
-
-       res.status(500).json({ message: 'Error', error })
-
-   }
-   
-})
-
-router.delete("/:id", async (req, res) => {
-
-    try {
-        await Pack_services.destroy({
-                    where: { id: req.params.id }
-                });
-                res.status(200).json({ success: 'Delete Pack' })
-
-    } catch (error) {
-        res.status(500).json({ message: 'Error', error })
-    }
-})
 
 
-module.exports = router;
+
+
+
+module.exports = PackServices;
