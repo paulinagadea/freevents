@@ -2,5 +2,14 @@
     width: 90%;
     height: 200px;
     background-color: rgb(116, 116, 116);
-    margin: auto;
+    margin-top: 500px;
+}
+
+.datos{
+    display: flex;
+    justify-content: center;
+}
+
+.boxfav{
+    margin-left: 1000px;
 }
