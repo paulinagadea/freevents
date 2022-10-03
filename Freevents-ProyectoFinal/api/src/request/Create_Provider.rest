@@ -2,18 +2,18 @@ POST http://localhost:3001/providers
 Content-Type: application/json
 
 {
-  "name": "PruebaProvider3",
+  "name": "cristina tlv",
   "address": "MyAdress",
   "location": "MyLocation",
   "postal_code": "MyPostal_code",
   "cuit": "987654321",
-  "email": "email@test.com",
+  "email": "cristrejolavalle@gmail.com",
   "phone_number": "123456789",
   "logotype": "logotype",
   "background_image": "background_image",
-  # "galery_image": ["galery_image", "galery_image"],
+   "galery_image": ["galery_image", "galery_image"],
  
   "password": "abc1234",
-  "sub":"holiiii"
+  "sub":"google-oauth2|114250000337886377346"
   
 }
