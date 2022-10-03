@@ -80,7 +80,7 @@ export default function Reviews() {
                         <option selected disabled>
                             Evento
                         </option>
-                        {allEvents.map((events) => (
+                        {allEvents?.map((events) => (
                             <option
                                 key={events}
                                 defaultValue={events}> {events.name} </option>

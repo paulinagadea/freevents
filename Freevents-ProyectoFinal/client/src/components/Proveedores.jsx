@@ -51,7 +51,7 @@ const Proveedores = () => {
   const [providersPerPage] = useState(5)// cantidad de cards x pagina
   const indexOfLastProvider = currentPage * providersPerPage //8
   const indexOfFirstProvider = indexOfLastProvider - providersPerPage //0
-  const currentProviders = allProviders.slice(indexOfFirstProvider, indexOfLastProvider)
+  const currentProviders = allProviders?.slice(indexOfFirstProvider, indexOfLastProvider)
   console.log(currentProviders, "current providers")
 
   const paginado = (pageNumber) => {
@@ -135,7 +135,7 @@ const Proveedores = () => {
 
       <Paginado
         providersPerPage={providersPerPage}
-        allProviders={allProviders.length}
+        allProviders={allProviders?.length}
         paginado={paginado}
       />
     </div>

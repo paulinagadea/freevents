@@ -361,7 +361,7 @@ export default function ButtonBases() {
         <ButtonBase focusRipple
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          href="/paquetes?event=Baby_Showers"  // ojo cambiar por filtro de evento
+          href="/paquetes?event=Baby_Shower"  // ojo cambiar por filtro de evento
           style={{
             width: images[6].width,
           }}
