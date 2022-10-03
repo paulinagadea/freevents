@@ -282,6 +282,16 @@ export default function MiniDrawer() {
             )
           })}
         </div>
+        <div className='Clientes'>
+          <h1>Clientes</h1>
+          {clients?.map((client) => {
+            return (
+              <div key={client.id} className='item'>
+                    {client.name}
+              </div>
+            )
+          })}
+        </div>
 
       </Box>
     </Box>
