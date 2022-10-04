@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 //import { useSelector, useDispatch } from 'react-redux';
 //import { getProviders } from '../actions';
@@ -37,7 +36,7 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      
         <CardMedia
           className={classes.media}
           image={background_image}
@@ -60,7 +59,7 @@ const CardProveedor = ({ name, address, email, phone_number, background_image, c
             Eventos: {event?.length === 0 && "Desconocido" } {createdInDb? event?.map(el=>el.name):event.map(el=>el)} */}
           </Typography>
         </CardContent>
-      </CardActionArea>
+     
       {/* <CardActions>
         <Button size="small"> + Info</Button>
       </CardActions> */}
