@@ -13,6 +13,7 @@ import { createProvider, getAllClients } from '../actions';
 import { useDispatch } from "react-redux";
 // import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormularioProveedor() {
   // console.log( "recien entro")
@@ -23,8 +24,8 @@ export default function FormularioProveedor() {
   
     // console.log(user.name, "traje el auth0")
     const dispatch = useDispatch();
-    // const navigate = useNavigate()
-
+    const navigate = useNavigate()
+  
     // console.log(user.name, "primer name")
     
     
@@ -69,7 +70,8 @@ export default function FormularioProveedor() {
         e.preventDefault();
         dispatch(createProvider(proveedor))
         console.log(proveedor)
-        alert("Raza creada")
+        alert("Proveedor creada")
+        localStorage.setItem('providerUser', JSON.stringify(proveedor));
         setInputProveedor({
           name: "",
           address: "",
@@ -80,7 +82,8 @@ export default function FormularioProveedor() {
           phone_number: "",
           sub:"",
         })
-        
+
+        navigate("/home")
     }
     
     
