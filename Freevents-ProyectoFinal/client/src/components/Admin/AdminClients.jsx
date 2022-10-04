@@ -2,10 +2,12 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import MaterialTable from "material-table"
 import axios from "axios";
+import { updateClient, getAllClients, getIdClient, deleteClient } from "../../actions"
+import { useDispatch, useSelector  } from 'react-redux';
 import { useState, useEffect } from 'react';
 import edit from '@material-ui/icons/Edit';
 import { AddBox, ArrowDownward } from "@material-ui/icons";
-import { makeStyles } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core';
 import { Modal, TextField, Button } from '@material-ui/core';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
@@ -74,31 +76,38 @@ const tableIcons = {
 
 
 export default function AdmiClients() {
-const styles = makeStyles()
+  const dispatch = useDispatch()
+  const clients = useSelector((state)=>state.allClients)
+
+// const styles = makeStyles()
 const [clientes, setClientes] = useState([])
     
-  const endpoint = 'http://localhost:3001/client';
+  // const endpoint = 'http://localhost:3001/client';
   // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
 
-  const getData = async () => {
-    await axios.get(endpoint).then((response) => {
-        const data = response.data
-        console.log(data)
-        setClientes(data)
-    })
-  }
+  // const getData = async () => {
+  //   await axios.get(endpoint).then((response) => {
+  //       const data = response.data
+  //       console.log(data)
+  //       setClientes(data)
+  //   })
+  // }
   
   useEffect(() => {
-    getData()
+    dispatch(getAllClients)
+    setClientes(clients)
+    // getData()
 }, [])
 
 return (
     <div>
         <MaterialTable 
                     title={"Lista de clientes"}
-                    data={clientes}
+                    data={clients}
                     columns={columns}
                     icons={tableIcons}
+                    options={{actionsColumnIndex: -1}}
+                    localization={{header:{actions:"Acciones"}}}
                     actions={[{
                       icon: edit,
                       tooltip:"editar",
