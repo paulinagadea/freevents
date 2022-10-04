@@ -92,6 +92,11 @@ const [clientes, setClientes] = useState([])
   //       setClientes(data)
   //   })
   // }
+
+  function handleChange(e){
+    
+    dispatch(updateClient(e))
+  }
   
   useEffect(() => {
     dispatch(getAllClients)
@@ -108,11 +113,23 @@ return (
                     icons={tableIcons}
                     options={{actionsColumnIndex: -1}}
                     localization={{header:{actions:"Acciones"}}}
-                    actions={[{
-                      icon: edit,
-                      tooltip:"editar",
-                      onClick:(event, rowData)=>alert("Editando" + rowData.name)
-                    }]}
+                    // actions={[{
+                    //   icon: edit,
+                    //   tooltip:"editar",
+                    //   onClick:(event, rowData)=>handleChange(rowData.id && rowData.status)
+                    // }]}
+                    editable={{
+                      onRowUpdate:(updateRow, oldRow)=>new Promise((resolve, reject)=>{
+                        const index = oldRow.tableData.id;
+                        const updatadRows=[...clients]
+                        updatadRows[index]=updateRow
+                        setTimeout(()=>{
+                          setClientes(updatadRows)
+                          console.log("🚀 ~ file: AdminClients.jsx ~ line 128 ~ setTimeout ~ setClientes", setClientes)
+                          resolve()
+                        }, 2000)
+                      })
+                    }}
                     // options={options}
           />
     </div>
