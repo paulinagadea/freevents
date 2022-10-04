@@ -3,10 +3,6 @@ Content-Type: application/json
 
 {
 "name":"Armando",
-"lastname":"dfdf",
-"passwordHash":"dsfsdfs",
-"dni":"sdfsdf",
 "email":"sdfsdf",
-"phone_number": "sdfsf",
-"status":"disabled"
+"sub":"disabled"
 }

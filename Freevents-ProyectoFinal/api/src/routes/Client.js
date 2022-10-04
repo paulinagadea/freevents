@@ -42,13 +42,14 @@ Cliente.post("/", async (req, res) => {
 
     const { 
     name,
-    lastname,
-    passwordHash,
-    dni,
+    // lastname,
+    // passwordHash,
+    // dni,
     email,
-    phone_number,
-    userType,
-    status
+    // phone_number,
+    // userType,
+    // status
+    sub,
     } = req.body;
 
     try {
@@ -57,13 +58,14 @@ Cliente.post("/", async (req, res) => {
 
         const clientCreated = await Client.create({
             name,
-            lastname,
-            passwordHash,
-            dni,
+            // lastname,
+            // passwordHash,
+            // dni,
             email,
-            phone_number,
-            userType,
-            status
+            // phone_number,
+            // userType,
+            // status
+            sub
 })
 
         const aux = await clientCreated.save();

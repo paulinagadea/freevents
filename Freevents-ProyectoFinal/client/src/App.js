@@ -16,6 +16,7 @@ import LoginAu from './components/Auth0'
 import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
 import BusquedaUser from './components/BusquedaUser'
+import BusquedaUserClient from './components/BusquedaUserClient'
 
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -65,9 +66,11 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/eventos' element= { <Eventos/> }/>
             <Route exact path = '/detail/:id' element= { <Detail/> }/>
             {/* <Route exact path = '/providerregister' element= { queEres === "provider" ? <FormProvider/>  : <Navigate to = "/home"/>}/> */}
-            {/* <Route exact path = '/busquedaUser' element= { queEres === "provider" ? <BusquedaUser/>  : <Navigate to = "/home"/>}/> */}
+            {/* <Route exact path = '/busquedaUser' element= { queEres === "provider" ? <BusquedaUser/>  : <Navigate to = "/BusquedaUserClient"/>}/> */}
+
             <Route exact path = '/busquedaUser' element= { <BusquedaUser/> }/>
             <Route exact path = '/providerregister' element={ <FormProvider/> }/>
+            <Route exact path = '/BusquedaUserClient' element={ <BusquedaUserClient/> }/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
