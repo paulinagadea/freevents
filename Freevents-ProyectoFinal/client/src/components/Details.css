@@ -69,6 +69,11 @@ button:hover {
     color: #d9c2ba;
 }
 
+.imgloading {
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+}
 
 
 
@@ -77,8 +82,6 @@ button:hover {
 
 
 
-
----------------------------------------------------------------------
 
 .Button{
     background-color: #D9C2BA;
