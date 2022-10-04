@@ -25,9 +25,18 @@ export default function paginado({ providersPerPage, allProviders, currentPage, 
             {/* <button onClick={(el)=>handleNext(el)}>Prev</button> */}
             {pageNumbers &&
                 pageNumbers.map(number => (
-                    <li className='pagination' key={number}>
-                        <a onClick={() => paginado(number)}>{number}</a>
-                    </li>
+                    // <li className='pagination' key={number}>
+                    //     <a onClick={() => paginado(number)}>{number}</a>
+                    // </li>
+                    <button
+                        style={ currentPage === number ? {
+                                backgroundColor: '#736A68',
+                                color: '#D9C2BA',
+                        } 
+                        : null } 
+                        key={number}
+                        onClick={() => paginado(number)}>{number}
+                    </button>
                 ))}
                 {/* <button onClick={(el)=>handleNext(el)}>Next</button> */}
             </ul>

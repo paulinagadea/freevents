@@ -53,7 +53,6 @@ const Proveedores = () => {
   const indexOfFirstProvider = indexOfLastProvider - providersPerPage //0
 
   const currentProviders = allProviders?.slice(indexOfFirstProvider, indexOfLastProvider)
-  console.log(currentProviders, "current providers")
 
 
   const paginado = (pageNumber) => {
@@ -139,6 +138,7 @@ const Proveedores = () => {
 
 
       <Paginado
+        currentPage={currentPage}
         providersPerPage={providersPerPage}
         allProviders={allProviders?.length}
         paginado={paginado}
