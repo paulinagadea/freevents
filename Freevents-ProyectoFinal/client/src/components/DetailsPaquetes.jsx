@@ -13,7 +13,6 @@ const DetailsPaquetes = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const detalleP = useSelector((state) => state.detailPack);
-  console.log(detalleP, "DETAIL PACK");
 
   useEffect(() => {
     dispatch(getDetailsPacks(id));
@@ -23,52 +22,42 @@ const DetailsPaquetes = () => {
   }, [dispatch, id]);
 
   const handleAddOrder = () => {
-    console.log(detalleP, "detalle P");
     dispatch(addToOrder(detalleP));
   };
 
   return detalleP && detalleP.id ? (
-    <>
-      <div>
-        <NavbarHome />
-        <div>
+    <div>
+      <NavbarHome />
+      <div className="background">
+        <div className="container">
           <img src={detalleP.galery_image} alt={detalleP.name} />
+
+          <div>
+            <h1 className="name">{detalleP.name}</h1>
+            <h1 className="price">Precio: ${detalleP.price}</h1>
+            <p>{detalleP.description}</p>
+            <h1>Servicios que incluye:</h1>
+            <h2>{detalleP.services.map((el) => el.name + ", ")}</h2>
+            <h1>Eventos:</h1>
+            <h2>{detalleP.events.map((el) => el.name + " ")}</h2>
+
+            <button href={"/paquetes"} key={id}> VOLVER </button>
+            <Link to={auth.currentUser == null ? "/login" : "/orden"}>
+              <button onClick={handleAddOrder}> CONTRATAR </button>
+            </Link>
+          </div>
+
         </div>
-        <div>
-          <h1>{detalleP.name}</h1>
-          <p>Detalles: {detalleP.description}</p>
-          <h3>Precio: ${detalleP.price}</h3>
-          <h1>Servicios que incluye:</h1>
-          <h4>{detalleP.services.map((el) => el.name + ", ")}</h4>
-          <h1>Eventos:</h1>
-          <h4>{detalleP.events.map((el) => el.name + " ")}</h4>
-          <Link to={auth.currentUser == null ? "/login" : "/orden"}>
-            <Button onClick={handleAddOrder}>Adquirir producto</Button>
-          </Link>
-          {/* <Button>Adquirit producto</Button> */}
-          {/* onClick={handleAddOrder} */}
-        </div>
-        {/* <Link to={'/paquetes'}>
-                        <button key={id}>Volver</button>
-                    </Link> */}
       </div>
-      <Button
-        color="secondary"
-        variant="outlined"
-        href={"/paquetes"}
-        key={id}
-      >
-        Volver
-      </Button>
-    </>
+    </div>
   ) : (
     <div>
-      <p>Loading...</p>
       <img
         className="imgloading"
         alt="img not found"
-        src="https://pa1.narvii.com/6707/510b0daee67fbc091f14b9d8ef40aeb6c0d4dc7d_hq.gif"
+        src="https://imgs.search.brave.com/YoaXWrA6MHXu0NYY-W7oWOrfJ87CVRMphSnCQNMaWx0/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9naWZp/bWFnZS5uZXQvd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDQv/bG9hZGVyLWdpZi10/cmFuc3BhcmVudC1h/bmltYXRlZC03Lmdp/Zg.gif"
       />
+      
     </div>
   );
 };
