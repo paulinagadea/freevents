@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../../actions";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
-import  handlePayment from '../Orden2'
+import handlePayment from '../Orden2'
+import { useAuth0 } from "@auth0/auth0-react";
+
 // import styles from "../Orden/Orden.css"
 // import { useParams } from "react-router-dom";
 
@@ -19,9 +21,9 @@ const Orden = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const [errors, setErrors] = useState({})
-  // const clientis = useSelector((state) => state.order)
-  // const ordencita = useSelector((state)=>state.ordencita)
-  // const detalles = useSelector((state) => state.detail)
+  
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   let misDatos = JSON.parse(localStorage.getItem("order"));
 
@@ -40,19 +42,19 @@ const Orden = () => {
     //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
-    price:misDatos[0].price
+    price: misDatos[0].price
 
   });
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
-    
+
     // let validacion = (
     //   validate(input)
     // );
     // setErrors(validacion)
     const aux = await dispatch(postOrder(input));
-    
+
     // console.log('que trae dispatch?', aux)
     handlePayment(aux)
     // navigate("/orden2")
@@ -63,7 +65,7 @@ const Orden = () => {
     setInput({
       event_date: "",
       event_address: "",
-      price:""
+      price: ""
     });
     // navigate('/PerfilUser')
 
@@ -90,7 +92,7 @@ const Orden = () => {
           },
         })
       ).json();
-    console.log('imprimimos preference', preference)
+      console.log('imprimimos preference', preference)
 
       var script = document.createElement("script");
       console.log("estamos .aquí", script)
@@ -102,18 +104,19 @@ const Orden = () => {
       console.log("estamos aquí", script)
 
       script.setAttribute("data-button-label", "Pagar con Mercado Pago");
-      
+
       const element = document.getElementById("mercado").innerHTML = "";
 
       const elementTwo = document.querySelector("#mercado")
-      
-      
+
+
       elementTwo.appendChild(script);
 
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
-    }};
+    }
+  };
 
   function handleChange(e) {
     setInput({
@@ -130,28 +133,36 @@ const Orden = () => {
     <div>
       <div>
         <h1>Detalles de tu Pedido</h1>
-        <h3>Información de paquete</h3>
-      <img
-        className="cover"
-        src={misDatos.map(i => i.galery_image)}
-        alt=""
-        width="100%"
-        height="100%"
-      ></img>
-      {/* <div> */}
+        <div className="datos">
+              <p>Nombre: {user.given_name}</p>
+              <p>Apellido: {user.family_name}</p>
+              <p>Email: {user.email}</p>
+            </div>
+        <img
+          className="cover"
+          src={misDatos.map(i => i.galery_image)}
+          alt=""
+          width="100%"
+          height="100%"
+        ></img>
+        {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
         {/* <h1> $ {misDatos.map(p => p.price)}</h1> */}
-      {/* </div> */}
-      {/* <div>
+        {/* </div> */}
+        {/* <div>
       </div> */}
-      <h1> Detalles del Paquete</h1>
-      <h4> {misDatos.map(d => d.description)} </h4>
+        <h1> Detalles del Paquete</h1>
+        <h4> {misDatos.map(d => d.description)} </h4>
 
-      <h1>Servicios incluidos: </h1>
-      <h4> </h4>
+        {/* <h3>Servicios incluidos: </h3>
+        <h4>{misDatos.services?.map((n) => {
+          return (
+            n.name
+          )
+        })} </h4> */}
 
 
-      {/* <h3>Informacion del Cliente:</h3>
+        {/* <h3>Informacion del Cliente:</h3>
     
             <div>
                 <h4>Nombre:</h4>
@@ -159,7 +170,10 @@ const Orden = () => {
             <div>
                 <h1>Proveedor:</h1>
             </div> */}
-        </div>
+      </div>
+
+
+      
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
@@ -185,8 +199,8 @@ const Orden = () => {
               defaultValue={input.price}
               // name="event_address"
               onChange={(e) => handleChange(e)} />
-              <label>Email</label>
-              <input
+            <label>Email</label>
+            <input
               type="text"
               defaultValue={input.email}
               name="email"
@@ -203,8 +217,8 @@ const Orden = () => {
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
                 </Link> */}
-  
-        </div>
+
+    </div>
   )
 };
 
