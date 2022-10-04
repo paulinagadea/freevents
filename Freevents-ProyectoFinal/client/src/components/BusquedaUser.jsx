@@ -17,13 +17,18 @@ import { Redirect } from 'react-router-dom';
 
 
  const BusquedaUser = () => {
+  let storageTypeUsers = JSON.parse(localStorage.getItem("user"));
+  console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
 
-  const {  user, isAuthenticated, isLoading } = useAuth0();
-  // const { sub } = user
+ 
+    
+  
+    const {  user, isAuthenticated, isLoading } = useAuth0();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
+    
     console.log(stateProviders, "ACA LOS PROVIDERS")
     // const userr = user.sub
 
@@ -32,6 +37,11 @@ import { Redirect } from 'react-router-dom';
 
 
 console.log("LLGUE HASTA LA 32")//SE RENDERIZA 4 VECES Q ONDA
+
+// if (storageTypeUsers === 'provider'){
+
+  
+// }
 const  mifuncionQueBusca  = async () => {
   if(user.sub){
 
@@ -52,6 +62,9 @@ useEffect(() => {
   useEffect(() => {
     if (stateProviders.length > 0){
       mifuncionQueBusca()
+      // if (clienteActual === true){
+      //   localStorage.setItem('prueba', JSON.stringify(user));
+      // }
     }
     
   }, [stateProviders])
@@ -106,14 +119,18 @@ useEffect(() => {
 
   return (
     <div>
-    WEA
+    Cargando..
+    {/* {storageTypeUsers === 'provider' ?} */}
     {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
     }
     {
-      clienteActual === true && <Navigate to = "/home" replace = {true}/>
+      clienteActual === true && localStorage.setItem('providerUser', JSON.stringify(user)) 
     }
-    <button>HOLANDA</button>
+    {
+      clienteActual === true &&  <Navigate to = "/home" replace = {true}/>
+    }
+    
     </div>
     
   )

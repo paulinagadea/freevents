@@ -115,6 +115,22 @@ function rootReducer(state = initialState, action) {
             }
         }
 
+        case actionTypes.buscarSiExisteClienteVerdadero:{
+            const allClients = state.clients //aqui estan todos los clientes
+            console.log(allClients, "LLegaron los clientes?reducer")
+            console.log(action.payload,"Soy el action payload reducerde client")
+            const buscarCliente = allClients.map(el=> el.sub) // false o true
+            console.log(buscarCliente, "MapSubALclientes")
+            const includesClient = buscarCliente.includes(action.payload)
+            // const respuesta = buscarProveedor ? true : false
+            console.log(includesClient, "True o false")
+            return{
+                ...state,
+
+            clienteActual: includesClient,
+        }
+    }
+
 
         // case actionTypes.addLastOrder:{
         //     console.log(state.ordercita, "estado ordercita")

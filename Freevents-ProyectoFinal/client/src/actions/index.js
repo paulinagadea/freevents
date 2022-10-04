@@ -46,6 +46,7 @@ export const actionTypes = {
     postPromociones:"postPromociones",
     updateAdmin:"updateAdmin",
     deleteAdmin:"deleteAdmin",
+    buscarSiExisteClienteVerdadero:"buscarSiExisteClienteVerdadero",
 };
 
 
@@ -413,6 +414,20 @@ export function buscarSiExisteCliente(payload) {
         }
     }
 }
+export function buscarSiExisteClienteVerdadero(payload) {
+    
+    return async (dispatch) => {
+        try {
+            return await dispatch({
+                type: actionTypes.buscarSiExisteClienteVerdadero,
+                payload: payload
+            })
+        } catch (error) {
+            return error
+        }
+    }
+}
+
 
 
 export function createUser(payload) {
