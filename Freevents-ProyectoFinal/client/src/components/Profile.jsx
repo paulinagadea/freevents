@@ -94,7 +94,7 @@ export const Profile = () => {
 
     </div> */}
 
-    <Link to="/home">
+    <Link to="/">
         <button>Volver</button>
     </Link>
 

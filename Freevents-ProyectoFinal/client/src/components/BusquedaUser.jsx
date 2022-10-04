@@ -125,7 +125,9 @@ useEffect(() => {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
     }
     {
+
       clienteActual === true && localStorage.setItem('providerUser', JSON.stringify(user)) 
+
     }
     {
       clienteActual === true &&  <Navigate to = "/home" replace = {true}/>

@@ -5,7 +5,8 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import edit from '@material-ui/icons/Edit';
 import { AddBox, ArrowDownward } from "@material-ui/icons";
-
+import { updateClient, getAllClients, getIdClient, deleteClient, getPacks } from "../../actions"
+import { useDispatch, useSelector  } from 'react-redux';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
@@ -38,12 +39,12 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
       },
       {
         title: 'Proveedor',
-        field: 'provider'
+        field: 'provider.name'
       },
       {
         title: 'Fecha de creación',
         field: 'createdAt'
-    },
+      },
       {
         title: 'Estado',
         field: 'status'
@@ -74,29 +75,31 @@ const tableIcons = {
 
 
 export default function AdmiPakets() {
-
+  const dispatch = useDispatch()
+  const packs = useSelector((state)=>state.allPacks)
 const [paquetes, setPaquetes] = useState([])
     
-const endpoint = 'http://localhost:3001/packs';
-  // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
+// const endpoint = 'http://localhost:3001/packs';
+//   // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
 
-  const getData = async () => {
-    await axios.get(endpoint).then((response) => {
-        const data = response.data
-        console.log(data)
-        setPaquetes(data)
-    })
-  }
+//   const getData = async () => {
+//     await axios.get(endpoint).then((response) => {
+//         const data = response.data
+//         console.log(data)
+//         setPaquetes(data)
+//     })
+//   }
   
   useEffect(() => {
-    getData()
+    dispatch(getPacks)
+    setPaquetes(packs)
 }, [])
 
 return (
     <div>
         <MaterialTable 
                     title={"Lista de Paquetes"}
-                    data={paquetes}
+                    data={packs}
                     columns={columns}
                     icons={tableIcons}
                     actions={[{

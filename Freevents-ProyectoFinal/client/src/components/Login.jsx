@@ -47,10 +47,10 @@ export default function Login() {
     try {
       await login(user.email, user.password);
       //  setLog(user)
-       if(window.location.href === "http://localhost:3000/home"){
-        navigate("/home");
-      }else if(window.location.href !== "http://localhost:3000/home")
-              navigate("/home");
+       if(window.location.href === "http://localhost:3000/"){
+        navigate("/");
+      }else if(window.location.href !== "http://localhost:3000/")
+              navigate("/");
 
     } catch (error) {
       setError(error.message);
@@ -90,7 +90,7 @@ export default function Login() {
     <div>
 
     <div className='container-todo'>
-      <Button to="/home">Inicio</Button>
+      <Button to="/">Inicio</Button>
     
     <div className="container-login">
 
