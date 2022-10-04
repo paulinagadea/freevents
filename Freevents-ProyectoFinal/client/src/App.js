@@ -82,7 +82,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
             <Route exact path = '/orden2' element={<Orden2/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
-            <Route exact path = '/PerfilUser' element={<PerfilUser/>}/> 
+            {/* <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>  */}
             <Route exact path = "/orden" element={<Orden/>}/>
             <Route exact path = "/customertype" element={<CustomerType/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>
