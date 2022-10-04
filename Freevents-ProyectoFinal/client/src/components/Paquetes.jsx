@@ -10,8 +10,6 @@ import PaginadoPacks from "./PaginadoPacks"
 // import NavbarNuevo from "./NavbarNuevo";
 import { Link } from "react-router-dom";
 
-
-
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
@@ -132,6 +130,7 @@ const Paquetes = () => {
         })}
       </div>
       <PaginadoPacks
+        currentPage={currentPage}
         packsPerPage={packsPerPage}
         allPacks={allPacks.length}
         paginado={paginado}

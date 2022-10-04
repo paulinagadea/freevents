@@ -1,85 +1,32 @@
-.pagination{
-  border-radius: 30px;
-  background: #d9c2ba;
-  width: 30px;
-  align-items: center;
+.pag {
+  margin-top: 40px;
+  display: flex;
   justify-content: center;
-  text-align: center;
-  padding: 3px;
-  height: 28px;
 }
   
-  ul.pagination {
-    display: flex;
-    background-color: #736A68;
-    border-radius: 20px;
-    padding: 0;
-    margin: 0;
-  }
-    
-  ul.pagination li {
-    display: inline;
-  }
-    
-  ul.pagination li a {
-    color: rgb(248, 251, 248);
-    font-family:unset;
-    font-size: 20px;
-    font: bold;
-    float:inline-end;
-    padding: 8px 16px;
-    margin-top: 5px;
-    text-decoration:none;  
-  }
-      
-  ul.pagination li a:hover:not(.active) {
-    background-color: #D9C2BA;
-    color: rgb(0, 6, 0);
-    height: 100px;
-    width: 100px;
-    font: bold;
-    cursor: pointer;  
-  }
-  
-  .pag {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-  
-  .barr3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10px;
-  }
-  
-  .pagination button{
-    display: inline-block;
-    color: #fbf9f7;
-    background-color: #736A68;
-    font: bold;
-    border-radius: 50px;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .pagination  button:hover:not(.active) {
-    background-color: #fbf9f7;
-    color: rgb(0, 6, 0);
-    border-radius: 0px;
-    font: bold;
-    cursor: pointer;
-  }
+.pagination button {
+  border-radius: 30px;
+  text-align: center;
+  padding: 3px;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+  color: #fff;
+  background: #D9C2BA;
+  height: 40px;
+  width: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
 
-  ul.pagination li a:hover:not(.active) {
-    color: rgb(248, 251, 248);
-    font-family:unset;
-    font-size: 20px;
-    font: bold;
-    float:inline-start;
-    padding: 2px 10px;
-    margin-top: 5px;
-    text-decoration:none;  
-  }
+.pagination button:hover {
+  color: #736A68;
+}
+  
+.barr3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+}
