@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 
  const Auth0 = () => {
 
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isLoading } = useAuth0();
   const usardo = "client"
   const soyUnUser = () => (localStorage.setItem('user', JSON.stringify(usardo)));
 
@@ -28,7 +28,7 @@ import { useDispatch } from 'react-redux'
     <div>
     <button onClick={e => {handleTest(e)}} >Login</button>
         {/* <LoginButton/> */}
-        <LogoutButton/>
+        {isLoading !== true ? <LogoutButton/> : null }
         <IngresarAuth0/>
     </div>
     
