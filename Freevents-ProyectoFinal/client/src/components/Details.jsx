@@ -58,8 +58,8 @@ const Details = () => {
         className="imgdetail2"
         src={myservice.logotype}
         alt={myservice.nombre}
-        width="200px"
-        height="200px"
+        width="150px"
+        height="150px"
       ></img>
       <Container fixed>
         <div className="grit">

@@ -98,7 +98,7 @@ console.log("@1@")
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "kristhianlizcano@gmail.com",
+                    user: "freeevents4@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -109,10 +109,10 @@ console.log("@1@")
             })
 
             const mailOptions = {
-                from: "Freevents <kristhianlizcano@gmail.com>",
+                from: "Freevents <freeevents4@gmail.com>",
                 to: email,
-                subject: "Freevents",
-                html: `<div align="center"><a href="https://ibb.co/kXDQ6X4"><img src="https://i.ibb.co/Xt5Skt7/oferta.png" alt="oferta" border="0"></a></div>`,
+                subject: "Oferta Freevents",
+                html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/Xt5Skt7/oferta.png" alt="Oferta" border="0"></div></a>`,
 
             };
 
