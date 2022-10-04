@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import edit from '@material-ui/icons/Edit';
 import { AddBox, ArrowDownward } from "@material-ui/icons";
 // import { makeStyles } from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 import { Modal, TextField, Button } from '@material-ui/core';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
@@ -22,6 +23,28 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+
+
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  },
+  iconos:{
+    cursor: 'pointer'
+  }, 
+  inputMaterial:{
+    width: '100%'
+  }
+}));
 
 const columns = [
 {
@@ -74,15 +97,23 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+const endpoint = 'http://localhost:3001/client';
 
 export default function AdmiClients() {
   const dispatch = useDispatch()
   const clients = useSelector((state)=>state.allClients)
 
-// const styles = makeStyles()
+  const styles= useStyles();
 const [clientes, setClientes] = useState([])
+const [data, setData]= useState([]);
+  const [modalInsertar, setModalInsertar]= useState(false);
+  const [modalEditar, setModalEditar]= useState(false);
+  const [modalEliminar, setModalEliminar]= useState(false);
+  const [clienteSeleccionado, setClienteSeleccionado]=useState({
+    id: "",
+    status: ""
+  })
     
-  // const endpoint = 'http://localhost:3001/client';
   // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
 
   // const getData = async () => {
@@ -93,11 +124,59 @@ const [clientes, setClientes] = useState([])
   //   })
   // }
   
+  const handleChange=e=>{
+    const {name, value}=e.target;
+    setClienteSeleccionado(prevState=>({
+      ...prevState,
+      [name]: value
+    }));
+  }
+  
+  const peticionPut=async()=>{
+    await axios.patch(endpoint+"/"+clienteSeleccionado.id, clienteSeleccionado)
+    .then(response=>{
+      var dataNueva= data;
+      dataNueva.map(cliente=>{
+        if(cliente.id===clienteSeleccionado.id){
+          cliente.status=clienteSeleccionado.status;
+        }
+      });
+      setData(dataNueva);
+      abrirCerrarModalEditar();
+    }).catch(error=>{
+      console.log(error);
+    })
+  }
+  
+  const seleccionarCliente=(cliente, caso)=>{
+    setClienteSeleccionado(cliente);
+    (caso==="Editar")?abrirCerrarModalEditar()
+    :
+    abrirCerrarModalEliminar()
+  }
+  
+  const abrirCerrarModalEditar=()=>{
+    setModalEditar(!modalEditar);
+  }
+  const abrirCerrarModalEliminar=()=>{
+    setModalEliminar(!modalEliminar);
+  }
   useEffect(() => {
     dispatch(getAllClients)
     setClientes(clients)
     // getData()
-}, [])
+  }, [])
+  const bodyEditar=(
+    <div className={styles.modal}>
+      <h3>Editar Cliente</h3>
+      <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={clienteSeleccionado&&clienteSeleccionado.status}/>
+      <br /><br />
+      <div align="right">
+        <Button color="primary" onClick={()=>peticionPut()}>Editar</Button>
+        <Button onClick={()=>abrirCerrarModalEditar()}>Cancelar</Button>
+      </div>
+    </div>
+  )
 
 return (
     <div>
@@ -111,10 +190,16 @@ return (
                     actions={[{
                       icon: edit,
                       tooltip:"editar",
-                      onClick:(event, rowData)=>alert("Editando" + rowData.name)
+                      onClick: (event, rowData) => seleccionarCliente(rowData, "Editar")
                     }]}
                     // options={options}
           />
+
+  <Modal
+          open={modalEditar}
+          onClose={abrirCerrarModalEditar}>
+            {bodyEditar}
+          </Modal>
     </div>
 )
 
