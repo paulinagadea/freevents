@@ -11,8 +11,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {getProviders, buscarSiExisteCliente} from '../actions/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
-import { useNavigate, useRouteError } from 'react-router-dom';
+import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom';
 import FormularioProveedor from './FormularioProveedor';
+import { Redirect } from 'react-router-dom';
 
 
  const BusquedaUser = () => {
@@ -23,6 +24,7 @@ import FormularioProveedor from './FormularioProveedor';
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
+    console.log(stateProviders, "ACA LOS PROVIDERS")
     // const userr = user.sub
 
   //aqui ponemos lo que enviamos
@@ -31,20 +33,30 @@ import FormularioProveedor from './FormularioProveedor';
 
 console.log("LLGUE HASTA LA 32")//SE RENDERIZA 4 VECES Q ONDA
 const  mifuncionQueBusca  = async () => {
-  const aux = await user.sub
-  console.log(aux, "soy el user en el componente busquedaUser")
-  dispatch(buscarSiExisteCliente(aux))
-  return 
+  if(user.sub){
+
+    const aux = await user.sub
+    console.log(aux, "soy el user en el componente busquedaUser")
+    dispatch(buscarSiExisteCliente(aux))
+    return
+  }
 }
 
 
 
 useEffect(() => {
     dispatch(getProviders())
-    setTimeout(() => {
-      mifuncionQueBusca();
-    }, 3000)
-   
+    
+  }, [dispatch, user])
+
+  useEffect(() => {
+    if (stateProviders.length > 0){
+      mifuncionQueBusca()
+    }
+    
+  }, [stateProviders])
+
+
     // clienteActual ? true 
     // if (clienteActual !== true){
     //   window.location.assign("http://localhost:3000/home")
@@ -62,7 +74,6 @@ useEffect(() => {
     //con la propiedad SUB dentro de los objetos del array allProviders.
     //recien ahi el resultado true o false del includes dara una respuesta correcta.
     //AHORA ANDA MAL POR ESA RAZON CREO.
-}, [dispatch, user])
 
   // if (clienteActual !== true){
   //     window.location.assign("http://localhost:3000/providerregister")
@@ -92,11 +103,15 @@ useEffect(() => {
     // const  todosLosProveedores = allProviders?.find(el =>el?.sub)
     // console.log(todosLosProveedores)
     // if (todosLosProveedores === user.sub)
+
   return (
     <div>
     WEA
     {
-      clienteActual === false ? <h1>No existo</h1> : <h1>Existo</h1>
+      clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
+    }
+    {
+      clienteActual === true && <Navigate to = "/home" replace = {true}/>
     }
     <button>HOLANDA</button>
     </div>

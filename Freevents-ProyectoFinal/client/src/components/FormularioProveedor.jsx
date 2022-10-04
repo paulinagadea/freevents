@@ -41,18 +41,18 @@ export default function FormularioProveedor() {
 
     })
     // console.log(user.name, "segundo name")
-    // useEffect(()=>{
-    //   if(user && user.name){
-    //     setInputProveedor({
-    //       ...proveedor,
-    //       name:user.name,
-    //       email: user.email,
-    //       sub:user.sub,
-    //     })
-    //   }
+    useEffect(()=>{
+      if(user && user.name){
+        setInputProveedor({
+          ...proveedor,
+          name:user.name,
+          email: user.email,
+          sub:user.sub,
+        })
+      }
 
-    // },[user])
-      // dispatch(functionquepregunt(user.name))
+    },[user])
+    //   dispatch(functionquepregunt(user.name))
 
     function handleChange(e) {
       e.preventDefault()
