@@ -17,15 +17,15 @@ module.exports = (sequelize) => {
         },
         lastname: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         passwordHash: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         dni: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         },
         phone_number: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         createdInDb: {
             type: DataTypes.BOOLEAN,
@@ -49,7 +49,11 @@ module.exports = (sequelize) => {
             type: DataTypes.ENUM("disabled", "enabled"),
             defaultValue: "enabled",
             allowNull: true,
-        }
+        },
+        sub: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
         {
             freezeTableName: true
