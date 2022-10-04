@@ -2,11 +2,7 @@ POST http://localhost:3001/client
 Content-Type: application/json
 
 {
-"name":"Armando",
-"lastname":"dfdf",
-"passwordHash":"dsfsdfs",
-"dni":"sdfsdf",
+"name":"cristina",
 "email":"sdfsdf",
-"phone_number": "sdfsf",
-"status":"disabled"
+"sub":"google-oauth2|114250000337886377346"
 }

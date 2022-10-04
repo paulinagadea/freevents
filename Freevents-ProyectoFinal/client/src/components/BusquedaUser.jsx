@@ -14,16 +14,24 @@ import { useState, useEffect } from "react";
 import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom';
 import FormularioProveedor from './FormularioProveedor';
 import { Redirect } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
  const BusquedaUser = () => {
+  console.log("ENTRE AL BUSQUEDA USER")
+  let storageTypeUsers = JSON.parse(localStorage.getItem("user"));
+  console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
 
-  const {  user, isAuthenticated, isLoading } = useAuth0();
-  // const { sub } = user
+ 
+    
+  
+    const {  user, isAuthenticated, isLoading } = useAuth0();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
+    
     console.log(stateProviders, "ACA LOS PROVIDERS")
     // const userr = user.sub
 
@@ -32,6 +40,11 @@ import { Redirect } from 'react-router-dom';
 
 
 console.log("LLGUE HASTA LA 32")//SE RENDERIZA 4 VECES Q ONDA
+
+if (storageTypeUsers === 'client'){
+  navigate('/BusquedaUserClient')
+  
+}
 const  mifuncionQueBusca  = async () => {
   if(user.sub){
 
@@ -52,6 +65,9 @@ useEffect(() => {
   useEffect(() => {
     if (stateProviders.length > 0){
       mifuncionQueBusca()
+      // if (clienteActual === true){
+      //   localStorage.setItem('prueba', JSON.stringify(user));
+      // }
     }
     
   }, [stateProviders])
@@ -106,14 +122,23 @@ useEffect(() => {
 
   return (
     <div>
-    WEA
+    {/* <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box> */}
+    Loading..
+    {/* {storageTypeUsers === 'provider' ?} */}
     {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
     }
     {
-      clienteActual === true && <Navigate to = "/home" replace = {true}/>
+
+      clienteActual === true && localStorage.setItem('providerUser', JSON.stringify(user)) 
+
     }
-    <button>HOLANDA</button>
+    {
+      clienteActual === true &&  <Navigate to = "/home" replace = {true}/>
+    }
+    
     </div>
     
   )

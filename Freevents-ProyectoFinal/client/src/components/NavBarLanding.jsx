@@ -13,10 +13,10 @@ export default function NavBarLanding() {
     return (
       <div>
         <NavContainer>
-        <Link className="link" to="/home">Freevents</Link>
+        <Link className="link" to="/">Freevents</Link>
         <div className="containerbar">
           <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
-          <Button size="small" onClick={handleClick} href="/home">Home</Button>
+          <Button size="small" onClick={handleClick} href="/">Home</Button>
           <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
           <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>

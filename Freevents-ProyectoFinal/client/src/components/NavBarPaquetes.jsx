@@ -70,7 +70,7 @@ export default function NavbarHome() {
             <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/userregister">Registrate</Button>
           }  */}
 
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/home">Home</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/">Home</Button>
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
           
           

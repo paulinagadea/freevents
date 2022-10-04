@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -16,6 +15,12 @@ const useStyles = makeStyles({
     minWidth: 800,
     maxWidth: 800,
     padding: 50,
+    borderRadius: '10px',
+    margin: '30px',
+    '&:hover': {
+      backgroundColor: 'rgba(0,0,0,0.10)',
+      transition: ".6s",
+    },
   },
   bullet: {
     display: "inline-block",
@@ -23,20 +28,51 @@ const useStyles = makeStyles({
     transform: "scale(0.8)",
   },
   title: {
-    fontSize: 14,
+    fontSize: '40px',
+    fontFamily: "Mollie",
+    letterSpacing: "1px",
+    color: '#735949',
+    marginBottom: '10px',
   },
   pos: {
     marginBottom: 12,
   },
   media: {
     height: 500,
-    width: 800
+    width: 800,
+    borderRadius: '10px',
   },
+  content: {
+    fontFamily: "Segoe UI",
+    color: '#735949',
+    letterSpacing: "1px",
+    fontSize: '17px',
+  },
+  price: {
+    fontFamily: "Mollie",
+    color: '#735949',
+    letterSpacing: "1px",
+    fontSize: '30px',
+    marginBottom: '10px',
+  },
+  button: {
+    backgroundColor: '#D9C2BA',
+    height: "50px",
+    width: "180px",
+    fontFamily: "Segoe UI",
+    fontSize: '15px',
+    border: 'none',
+    borderRadius: '5px',
+    letterSpacing: "1px",
+    '&:hover': {
+      color: '#fff',
+    }
+  }
 });
 
 const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  // const bull = <span className={classes.bullet}>•</span>;
 
   const dispatch = useDispatch();
 
@@ -58,22 +94,23 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography variant="h5" color="info" component="h2">
+          <Typography className={classes.title} variant="h5" color="info" component="h2">
             {/* <Link style={{textDecoration:"none"}} to= '/proveedores'> */}
             <h3>{name}</h3>
             {/* </Link> */}
           </Typography>
+          <h1 className={classes.price}>Precio: {price}</h1>
           <Typography
             variant="body2"
             color="primary"
             display="inline"
             component="p"
+            className={classes.content}
           >
             Servicios que incluye: {services}
             <br />
-            Precio: {price}
-            <br />
             Eventos: {events}
+            {/* <br /> */}
           </Typography>
         </CardContent>
         <CardActions>
@@ -84,7 +121,7 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
         </CardActions>
       </CardActionArea>
       </Link>
-          <Button onClick={handleAddToFavs}>🧡 Añadir a favoritos</Button>
+          <button className={classes.button} onClick={handleAddToFavs}>🧡 Añadir a favoritos</button>
     </Card>
   );
 };

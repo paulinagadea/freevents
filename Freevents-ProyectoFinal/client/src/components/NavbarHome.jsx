@@ -55,7 +55,7 @@ export default function NavbarHome() {
       <div>
 
         <NavContainer> 
-        <Link className='link' to="/home">Freevents</Link>
+        <Link className='link' to="/">Freevents</Link>
           {/* <SearchBar/> */}
         <div className="containerbar">
 
@@ -65,11 +65,18 @@ export default function NavbarHome() {
           {/* } */}
 
           {/* <Button style={{fontFamily: "Mollie", fontSize: "17px"}} disabled={"/home" !== null ? true : false} onClick={handleClick} href="/home">Home</Button> */}
+          {
+            isAuthenticated &&
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
+          }
           
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/devs">Nosotros</Button>
+          {
+            isAuthenticated &&
+          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/PerfilUser">Perfil</Button>
+          }
           
           {/* <Salir/> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}

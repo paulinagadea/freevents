@@ -127,7 +127,6 @@ export default function FormularioProveedor() {
                         name="password"
                         onChange={(e)=>handleChange(e)}
                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
-
                     />
                     
                 </div> */}
@@ -210,7 +209,6 @@ export default function FormularioProveedor() {
                         name="logotype"
                         onChange={(e)=>handleChange(e)}
                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
-
                     />
                     
                 </div> */}
@@ -225,7 +223,6 @@ export default function FormularioProveedor() {
                     />
                     
                 </div>
-
                 <div>
                     <label>galery_image: </label>
                     <input
@@ -235,7 +232,6 @@ export default function FormularioProveedor() {
                         name="galery_image"
                         onChange={(e)=>handleChange(e)}
                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
-
                     />
                     
                 </div> */}
@@ -268,4 +264,3 @@ export default function FormularioProveedor() {
     )
 //   )
 }
-

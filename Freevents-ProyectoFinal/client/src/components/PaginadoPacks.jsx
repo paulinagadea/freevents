@@ -2,7 +2,7 @@ import React from "react";
 import './Paginado.css';
 
 
-export default function paginado({ packsPerPage, allPacks, paginado }) {
+export default function paginado({ packsPerPage, allPacks, paginado, currentPage }) {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(allPacks / packsPerPage); i++) {
@@ -25,9 +25,15 @@ export default function paginado({ packsPerPage, allPacks, paginado }) {
             {/* <button onClick={(el)=>handleNext(el)}>Prev</button> */}
             {pageNumbers &&
                 pageNumbers.map(number => (
-                    <li className='pagination' key={number}>
-                        <a onClick={() => paginado(number)}>{number}</a>
-                    </li>
+                    <button
+                        style={ currentPage === number ? {
+                                backgroundColor: '#736A68',
+                                color: '#D9C2BA',
+                        } 
+                        : null } 
+                        key={number}
+                        onClick={() => paginado(number)}>{number}
+                    </button>
                 ))}
                 {/* <button onClick={(el)=>handleNext(el)}>Next</button> */}
             </ul>
