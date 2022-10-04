@@ -65,7 +65,7 @@ export default function PerfilUser() {
         {/* hacer logica comparando el uuid del auth0 con el id de cliente */}
         <div className="cont-info">
           <div className="info">
-            <h3>MIS COMPRAS</h3>
+            <h3>MIS ORDENES</h3>
             <div className="compras">
               {
                 order?.map((ord) => {

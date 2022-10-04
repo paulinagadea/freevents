@@ -7,7 +7,7 @@
 }
 
 .box_form {
-   background: #807A83;
+   /* background: #CD9BFF; */
    padding: 45px 0;
    border-radius: 10px;
    height: auto;
@@ -80,7 +80,7 @@ textarea {
     font-family: monospace;
     font-size: 0.875em;
 
-    border: solid 2px #49454567;
+    border: solid 2px #515A5A;
 }
 
 .description {
@@ -125,7 +125,7 @@ textarea:valid~.label {
 
 .btn_submit {
     font-family: system-ui;
-    background: #807A83;
+    /* background: #807A83; */
     border: 1px solid;
     display: block;
     width: 80%;
@@ -139,7 +139,7 @@ textarea:valid~.label {
 }
 
 .select_create {
-  background-color: #807A83;
+  background-color: transparent;
   padding: 15px;
   font-size: 16px;
   width: 500px;
@@ -167,7 +167,7 @@ textarea:valid~.label {
    display: inline-block;
    margin-right: 10px;
    margin-bottom: 15px;
-   background-color: #807A83;
+   background-color: transparent;
    padding: 5px;
    border-radius: 5px;
 }
@@ -186,7 +186,7 @@ textarea:valid~.label {
     text-align: center;
     padding: 0;
     height: 20px;
-    background: white;
+    background: transparent;
     cursor: pointer;
 }
 
