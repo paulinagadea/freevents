@@ -17,6 +17,7 @@ import { Redirect } from 'react-router-dom';
 
 
  const BusquedaUser = () => {
+  console.log("ENTRE AL BUSQUEDA USER")
   let storageTypeUsers = JSON.parse(localStorage.getItem("user"));
   console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
 
@@ -38,10 +39,10 @@ import { Redirect } from 'react-router-dom';
 
 console.log("LLGUE HASTA LA 32")//SE RENDERIZA 4 VECES Q ONDA
 
-// if (storageTypeUsers === 'provider'){
-
+if (storageTypeUsers === 'client'){
+  navigate('/BusquedaUserClient')
   
-// }
+}
 const  mifuncionQueBusca  = async () => {
   if(user.sub){
 
