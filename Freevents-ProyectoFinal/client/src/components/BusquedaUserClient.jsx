@@ -17,6 +17,8 @@ import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom
     const stateClients = useSelector((state)=>state.clients)// traer estado todos los client
     console.log(user, "soy el user")
     console.log(stateClients, "ACA LOS CLIENTES")
+    let storageTypeUsers = JSON.parse(localStorage.getItem("user"));
+    console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
 
 
     console.log("LLGUE HASTA LA 32")
@@ -55,14 +57,14 @@ import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom
     } */}
     {/* {
       clienteActual === false && <h1>SOY FALSE, no estoy en la base</h1>  
-    }
+    } */}
 
     {
       clienteActual === true && localStorage.setItem('providerUser', JSON.stringify(user)) 
     }
     {
       clienteActual === true &&  <Navigate to = "/home" replace = {true}/>
-    } */}
+    }
     </div>
   )
 }
