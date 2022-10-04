@@ -23,7 +23,7 @@ export default function LandingPage() {
         <Button
           size="large"
           variant="outlined"
-          href={"/home"}
+          href={"/"}
           color="secondary"
           
         >

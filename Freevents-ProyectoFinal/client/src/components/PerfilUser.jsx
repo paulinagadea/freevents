@@ -100,7 +100,7 @@ export default function PerfilUser() {
         </div>
         </div>
 
-        <Link to="/home">
+        <Link to="/">
           <button>Volver</button>
         </Link>
       </div>

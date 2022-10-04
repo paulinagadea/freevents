@@ -43,7 +43,7 @@ export default function FormUser(){
         isAuthenticated && (
         <div>
             <div className='boton_inicio'>
-                <Button href="/home" color= "secondary" variant="outlined" 
+                <Button href="/" color= "secondary" variant="outlined" 
                 style={{
                     float:'left'
                 }}>Inicio</Button>
