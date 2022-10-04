@@ -24,7 +24,7 @@ import RedeemIcon from '@mui/icons-material/Redeem';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
 import MaterialTable from 'material-table';
-import MUIDataTable from "mui-datatables";
+
 import axios from "axios";
 import AdminClients from './Admin/AdminClients';
 import AdminProviders from './Admin/AdminProviders';
