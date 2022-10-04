@@ -25,8 +25,11 @@ const Orden = () => {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
+  console.log('¿Qué trae el user?', user)
+
   let misDatos = JSON.parse(localStorage.getItem("order"));
 
+  console.log('¿Qué tiene datos?', misDatos)
 
 
   useEffect(() => {
@@ -39,6 +42,7 @@ const Orden = () => {
     clientId: "035d4923-d682-4dec-8ccb-ce191de82751",
     providerId: "a533aa44-67ed-4521-ad60-1c5d12fc927c",
     packServiceId: "243a718b-62e5-419f-abbc-20b923110dab",
+    // "243a718b-62e5-419f-abbc-20b923110dab"
     //<<<<QUITAR HARD>>>>
     event_date: "",
     event_address: "",
@@ -103,7 +107,7 @@ const Orden = () => {
       script.dataset.preferenceId = preference.preferenceId;
       console.log("estamos aquí", script)
 
-      script.setAttribute("data-button-label", "Pagar con Mercado Pago");
+      script.setAttribute("data-button-label", "Pagar");
 
       const element = document.getElementById("mercado").innerHTML = "";
 
@@ -126,7 +130,7 @@ const Orden = () => {
     console.log(input, "input")
   }
 
-
+console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => n.name)))
   return (
 
 
@@ -144,7 +148,7 @@ const Orden = () => {
           alt=""
           width="100%"
           height="100%"
-        ></img>
+          ></img>
         {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
         {/* <h1> $ {misDatos.map(p => p.price)}</h1> */}
@@ -154,13 +158,13 @@ const Orden = () => {
         <h1> Detalles del Paquete</h1>
         <h4> {misDatos.map(d => d.description)} </h4>
 
-        {/* <h3>Servicios incluidos: </h3>
-        <h4>{misDatos.services?.map((n) => {
-          return (
-            n.name
-          )
-        })} </h4> */}
+        <h3>Precio</h3>
+        <h4> {misDatos.map(d => d.price)} </h4>
 
+        <h3>Servicios incluidos: </h3>
+        <h4>{misDatos.map((e) => e.services && e.services.map((n) => n.name + ", "))} </h4>
+      
+{/* <h4>{detalleP.events.map((el) => el.name + " ")}</h4> */}
 
         {/* <h3>Informacion del Cliente:</h3>
     
@@ -193,12 +197,12 @@ const Orden = () => {
               name="event_address"
               onChange={(e) => handleChange(e)} />
             {/* {errors.direccion && <p>{errors.direccion}</p>} */}
-            <label>Precio</label>
-            <input
+
+            {/* <input
               type="text"
               defaultValue={input.price}
               // name="event_address"
-              onChange={(e) => handleChange(e)} />
+              onChange={(e) => handleChange(e)} /> */}
             <label>Email</label>
             <input
               type="text"

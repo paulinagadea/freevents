@@ -52,9 +52,9 @@ module.exports = (sequelize) => {
         },
         sub: {
             type: DataTypes.STRING,
-           
-            allowNull: false,
-        }
+            allowNull: true,
+        },
+
     },
         {
             freezeTableName: true
