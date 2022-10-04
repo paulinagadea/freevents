@@ -14,6 +14,8 @@ import { useState, useEffect } from "react";
 import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom';
 import FormularioProveedor from './FormularioProveedor';
 import { Redirect } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
  const BusquedaUser = () => {
@@ -120,7 +122,10 @@ useEffect(() => {
 
   return (
     <div>
-    Cargando..
+    {/* <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box> */}
+    Loading..
     {/* {storageTypeUsers === 'provider' ?} */}
     {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  

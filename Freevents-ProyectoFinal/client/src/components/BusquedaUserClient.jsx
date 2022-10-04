@@ -51,7 +51,7 @@ import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom
     console.log(clienteActual, "Cliente actual")
   return (
     <div>
-       Cargando..
+       Loading..
     {/* {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
     } */}
