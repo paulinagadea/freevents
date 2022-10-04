@@ -2,6 +2,7 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import MaterialTable from "material-table"
 import axios from "axios";
+import Switch from '@mui/material/Switch';
 import { updateClient, getAllClients, getIdClient, deleteClient } from "../../actions"
 import { useDispatch, useSelector  } from 'react-redux';
 import { useState, useEffect } from 'react';
@@ -23,6 +24,11 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import { styled } from '@mui/material/styles';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -102,13 +108,17 @@ const endpoint = 'http://localhost:3001/client';
 export default function AdmiClients() {
   const dispatch = useDispatch()
   const clients = useSelector((state)=>state.allClients)
-
+  const [checked, setChecked] = React.useState(true);
   const styles= useStyles();
 const [clientes, setClientes] = useState([])
 const [data, setData]= useState([]);
   const [modalInsertar, setModalInsertar]= useState(false);
   const [modalEditar, setModalEditar]= useState(false);
   const [modalEliminar, setModalEliminar]= useState(false);
+
+  const handleCambio = (event) => {
+    setChecked(event.target.checked);
+  };
   const [clienteSeleccionado, setClienteSeleccionado]=useState({
     id: "",
     status: ""
@@ -169,6 +179,18 @@ const [data, setData]= useState([]);
   const bodyEditar=(
     <div className={styles.modal}>
       <h3>Editar Cliente</h3>
+      <Stack direction="row" spacing={1} alignItems="center">
+      <Typography>Enable</Typography>
+      <Switch
+      checked={checked}
+      onChange={handleCambio}
+      inputProps={{ 'aria-label': 'controlled' }}
+      value={clienteSeleccionado&&clienteSeleccionado.status}
+      
+    />
+    <Typography>Disable</Typography>
+    </Stack>
+    
       <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={clienteSeleccionado&&clienteSeleccionado.status}/>
       <br /><br />
       <div align="right">
