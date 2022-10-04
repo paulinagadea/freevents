@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import edit from '@material-ui/icons/Edit';
 import { AddBox, ArrowDownward } from "@material-ui/icons";
 import { updateClient, getAllClients, getIdClient, deleteClient, getPacks } from "../../actions"
+import {makeStyles} from '@material-ui/core/styles';
+import { Modal, TextField, Button } from '@material-ui/core';
 import { useDispatch, useSelector  } from 'react-redux';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
@@ -20,6 +22,27 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  },
+  iconos:{
+    cursor: 'pointer'
+  }, 
+  inputMaterial:{
+    width: '100%'
+  }
+}));
 
   const columns = [{
         title: 'Id',
@@ -73,12 +96,21 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+const endpoint = 'http://localhost:3001/packs';
 
 export default function AdmiPakets() {
   const dispatch = useDispatch()
   const packs = useSelector((state)=>state.allPacks)
-const [paquetes, setPaquetes] = useState([])
-    
+  const [paquetes, setPaquetes] = useState([])
+  const styles= useStyles();  
+  const [data, setData]= useState([]);
+  const [modalInsertar, setModalInsertar]= useState(false);
+  const [modalEditar, setModalEditar]= useState(false);
+  const [modalEliminar, setModalEliminar]= useState(false);
+  const [packSeleccionado, setPacksSeleccionado]=useState({
+    id: "",
+    status: ""
+  })
 // const endpoint = 'http://localhost:3001/packs';
 //   // pasar a ruta de deploy https://freevents-backend-render.onrender.com/client
 
@@ -89,11 +121,61 @@ const [paquetes, setPaquetes] = useState([])
 //         setPaquetes(data)
 //     })
 //   }
+
+const handleChange=e=>{
+  const {name, value}=e.target;
+  setPacksSeleccionado(prevState=>({
+    ...prevState,
+    [name]: value
+  }));
+}
+
+const peticionPut=async()=>{
+  await axios.patch(endpoint+"/"+packSeleccionado.id, packSeleccionado)
+  .then(response=>{
+    var dataNueva= data;
+    dataNueva.map(cliente=>{
+      if(cliente.id===packSeleccionado.id){
+        cliente.status=packSeleccionado.status;
+      }
+    });
+    setData(dataNueva);
+    abrirCerrarModalEditar();
+  }).catch(error=>{
+    console.log(error);
+  })
+}
+
+const seleccionarPack=(pack, caso)=>{
+  setPacksSeleccionado(pack);
+  (caso==="Editar")?abrirCerrarModalEditar()
+  :
+  abrirCerrarModalEliminar()
+}
+
+const abrirCerrarModalEditar=()=>{
+  setModalEditar(!modalEditar);
+}
+const abrirCerrarModalEliminar=()=>{
+  setModalEliminar(!modalEliminar);
+}
   
   useEffect(() => {
     dispatch(getPacks)
     setPaquetes(packs)
 }, [])
+
+const bodyEditar=(
+  <div className={styles.modal}>
+    <h3>Editar Cliente</h3>
+    <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={packSeleccionado&&packSeleccionado.status}/>
+    <br /><br />
+    <div align="right">
+      <Button color="primary" onClick={()=>peticionPut()}>Editar</Button>
+      <Button onClick={()=>abrirCerrarModalEditar()}>Cancelar</Button>
+    </div>
+  </div>
+)
 
 return (
     <div>
@@ -102,13 +184,20 @@ return (
                     data={packs}
                     columns={columns}
                     icons={tableIcons}
+                    options={{actionsColumnIndex: -1}}
+                    localization={{header:{actions:"Acciones"}}}
                     actions={[{
                       icon: edit,
                       tooltip:"editar",
-                      onClick:(event, rowData)=>alert("Editando" + rowData.name)
+                      onClick:(event, rowData)=>seleccionarPack(rowData, "Editar")
                     }]}
                   
           />
+          <Modal
+          open={modalEditar}
+          onClose={abrirCerrarModalEditar}>
+            {bodyEditar}
+          </Modal>
     </div>
 )
 
