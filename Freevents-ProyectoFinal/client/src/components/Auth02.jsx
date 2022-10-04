@@ -9,7 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
  const Auth02 = () => {
   //  const dispatch = useDispatch()
-   const { loginWithRedirect } = useAuth0();
+   const { loginWithRedirect, isLoading } = useAuth0();
   const usardo = "provider"
   const soyUnUser = () => (localStorage.setItem('user', JSON.stringify(usardo)));
   // let agarrarItem = JSON.parse(localStorage.getItem("user"));
@@ -32,7 +32,7 @@ import { useAuth0 } from "@auth0/auth0-react";
     {/* {e => { handleClick(e) }} */}
         {/* <LoginButton/> */}
         
-        <LogoutButton/>
+        {isLoading !== true ? <LogoutButton/> : null }
         <IngresarAuth0/>
     </div>
     
