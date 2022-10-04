@@ -111,7 +111,7 @@ useEffect(() => {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
     }
     {
-      clienteActual === true && <Navigate to = "/home" replace = {true}/>
+      clienteActual === true && <Navigate to = "/" replace = {true}/>
     }
     <button>HOLANDA</button>
     </div>
