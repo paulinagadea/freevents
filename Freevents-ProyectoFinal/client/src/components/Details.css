@@ -1,3 +1,85 @@
+.background {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background: #f2f2f2;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    background: #d9c2ba;
+    color: #fff;
+    width: 70%;
+}
+
+.container img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.name {
+    font-family: Mollie;
+    font-size: 60px;
+    color: #736A68;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-family: Mollie;
+    font-size: 40px;
+    color: #736A68;
+    letter-spacing: 1px;
+}
+
+.container h1 {
+    font-family: Mollie;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.container p {
+    font-family: "Segoe UI";
+    font-size: 25px;
+}
+
+button {
+    font-family: "Segoe UI";
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background-color: #736A68;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    margin: 15px;
+    width: 110px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: #d9c2ba;
+}
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+
 .Button{
     background-color: #D9C2BA;
 }
