@@ -91,7 +91,12 @@ import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom
   return (
     <div>
        {/* Loading.. */}
-   Loading..
+   {/* Loading.. */}
+    <img
+        className="imgloading"
+        alt="img not found"
+        src="https://imgs.search.brave.com/YoaXWrA6MHXu0NYY-W7oWOrfJ87CVRMphSnCQNMaWx0/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9naWZp/bWFnZS5uZXQvd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDQv/bG9hZGVyLWdpZi10/cmFuc3BhcmVudC1h/bmltYXRlZC03Lmdp/Zg.gif"
+      />
     {
       clienteActual2 === false && <Navigate to = "/formularioCliente" replace = {true}/>  
     }
