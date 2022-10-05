@@ -25,6 +25,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function NavbarHome() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const typeUser = JSON.parse(localStorage.getItem("user"));
   
   const handleClose = () => {
     setAnchorEl(null);
@@ -66,7 +68,7 @@ export default function NavbarHome() {
 
           {/* <Button style={{fontFamily: "Mollie", fontSize: "17px"}} disabled={"/home" !== null ? true : false} onClick={handleClick} href="/home">Home</Button> */}
           {
-            isAuthenticated &&
+            isAuthenticated && typeUser !== "provider" &&
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
           }
           
@@ -74,7 +76,7 @@ export default function NavbarHome() {
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/devs">Nosotros</Button>
           {
-            isAuthenticated &&
+            isAuthenticated && typeUser !== "provider" &&
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/PerfilUser">Perfil</Button>
           }
           

@@ -21,6 +21,7 @@ const Orden = () => {
   const dispatch = useDispatch();
   //const navigate = useNavigate()
   const [errors, setErrors] = useState({})
+
   
 
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -131,6 +132,16 @@ const Orden = () => {
     console.log(input, "input")
   }
 
+
+
+  function handleClick(e){
+    e.preventDefault()
+
+    localStorage.removeItem('order')
+   navigate("/paquetes")
+
+  }
+
 console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => n.name)))
   return (
 
@@ -139,9 +150,11 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
       <div>
         <h1>Detalles de tu Pedido</h1>
         <div className="datos">
+
               <p>Nombre: {user.given_name}</p>
               <p>Apellido: {user.family_name}</p>
               {/* <p>Email: {user.email}</p> */}
+
             </div>
         <img
           className="cover"
@@ -217,6 +230,7 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
         </form>
       </div>
 
+      <button onClick={e=>handleClick(e)}>Volver</button>
       <button onClick={(e) => handleSubmit(e)}>Generar orden</button>
       <div id="mercado" className="mercado"></div>
       {/* <Link to={'/paquetes'}>

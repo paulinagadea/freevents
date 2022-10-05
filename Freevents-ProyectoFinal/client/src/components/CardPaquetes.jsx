@@ -9,6 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { addToFavs } from "../actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles({
   root: {
@@ -75,7 +76,7 @@ const useStyles = makeStyles({
 const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
   const classes = useStyles();
   // const bull = <span className={classes.bullet}>•</span>;
-
+  const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
 
   const product = { name, price, events, services, id, galery_image };
@@ -123,7 +124,10 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
         {/* </CardActions> */}
       {/* </CardActionArea> */}
       </Link>
+      {
+        isAuthenticated &&
           <button className={classes.button} onClick={handleAddToFavs}>🧡 Añadir a favoritos</button>
+      }
     </Card>
   );
 };
