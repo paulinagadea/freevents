@@ -44,9 +44,9 @@ Cliente.post("/", async (req, res) => {
     name,
     // lastname,
     // passwordHash,
-    // dni,
+    dni,
     email,
-    // phone_number,
+    phone_number,
     // userType,
     // status
     sub,
@@ -60,9 +60,9 @@ Cliente.post("/", async (req, res) => {
             name,
             // lastname,
             // passwordHash,
-            // dni,
+            dni,
             email,
-            // phone_number,
+            phone_number,
             // userType,
             // status
             sub
