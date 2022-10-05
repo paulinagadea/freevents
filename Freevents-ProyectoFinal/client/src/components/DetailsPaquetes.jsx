@@ -41,7 +41,9 @@ const DetailsPaquetes = () => {
             <h1>Eventos:</h1>
             <p>{detalleP.events.map((el) => el.name + ", ")}</p>
 
-            <button href={"/paquetes"} key={id}> VOLVER </button>
+            <Link to={"/paquetes"}>
+              <button key={id}> VOLVER </button>
+            </Link>
             <Link to={auth.currentUser == null ? "/login" : "/orden"}>
               <button onClick={handleAddOrder}> CONTRATAR </button>
             </Link>

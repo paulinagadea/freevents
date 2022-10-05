@@ -18,7 +18,7 @@ import DetailsPaquetes from './components/DetailsPaquetes'
 import BusquedaUser from './components/BusquedaUser'
 import BusquedaUserClient from './components/BusquedaUserClient'
 import FormularioCLiente from './components/FormularioCliente'
-
+import Nosotros from './components/Nosotros/Nosotros.jsx';
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
@@ -91,6 +91,7 @@ console.log(queEres, "VALOR DEL STORE")
             {/* <Route exact path = "/AlertSuscribe" element={<AlertSuscribe/>}/> */}
             <Route exact path = "/Reviews" element={<Reviews/>}/>
             <Route exact path = "/CardReviews" element={<CardReviews/>}/>
+            <Route exact path = "/devs" element={<Nosotros/>}/>
             
 
 
