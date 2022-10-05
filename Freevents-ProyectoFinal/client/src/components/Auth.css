@@ -1,0 +1,32 @@
+.container2 {
+    background-color: #f2f2f2;
+    height: 100vh;
+    width: 100%;
+}
+
+.container2 {
+    display: flex;
+    position: absolute;
+    place-items: center;
+    justify-content: center;
+}
+
+.imglogin {
+    width: 45%;
+    height: 400px;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    background: #d9c2ba;
+    border-radius: 10px;
+    border: 2px solid #736A68;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.botones2 {
+    display: flex;
+    flex-direction: column;
+}
