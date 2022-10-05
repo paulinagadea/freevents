@@ -271,7 +271,7 @@ const patchOrder = async (req, res) => {
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "freeevents4@gmail.com",
+                    user: "estefaniachavez1506@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -280,7 +280,7 @@ const patchOrder = async (req, res) => {
             })
             
             const mailOptions = {
-                from: "Freevents <freeevents4@gmail.com>",
+                from: "Freevents <estefaniachavez1506@gmail.com>",
                 to: emailDb.email,
                 subject: "Compra Exitosa",
                 html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/h9n1qrv/Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa.png" align="center" alt="Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa" border="0"></div></a>`, 
