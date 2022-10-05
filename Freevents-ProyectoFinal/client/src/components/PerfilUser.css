@@ -7,9 +7,10 @@
 
 .datos{
     display: flex;
-    justify-content: center;
+    text-align: justify;
 }
 
 .boxfav{
     margin-left: 1000px;
 }
+

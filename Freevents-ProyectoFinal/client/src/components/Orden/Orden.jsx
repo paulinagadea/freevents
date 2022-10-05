@@ -19,7 +19,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Orden = () => {
   // let { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
   const [errors, setErrors] = useState({})
   
 
@@ -69,7 +69,8 @@ const Orden = () => {
     setInput({
       event_date: "",
       event_address: "",
-      price: ""
+      price: "", 
+      mail:""
     });
     // navigate('/PerfilUser')
 
@@ -140,7 +141,7 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
         <div className="datos">
               <p>Nombre: {user.given_name}</p>
               <p>Apellido: {user.family_name}</p>
-              <p>Email: {user.email}</p>
+              {/* <p>Email: {user.email}</p> */}
             </div>
         <img
           className="cover"

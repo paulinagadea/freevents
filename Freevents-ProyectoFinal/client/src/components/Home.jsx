@@ -10,9 +10,9 @@ import { getProviders, getAllClients, filterPacksByEvents, getReviews } from "..
 import Eventos from "./Eventos"
 import { Box, Container, Grid } from "@material-ui/core";
 import Boximg from "./Boxing";
-import Reviews from "./Reviews"
-import CardReviews from "./CardReviews";
-import ImageList from '@material-ui/core/ImageList';
+//import Reviews from "./Reviews"
+//import CardReviews from "./CardReviews";
+//import ImageList from '@material-ui/core/ImageList';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -57,8 +57,8 @@ const Home = () => {
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
     const { user, isAuthenticated, isLoading } = useAuth0(); //use.name //user.logotype
-    const allReviews = useSelector((state) => state.reviews);
-    const classes = useStyles();
+    //const allReviews = useSelector((state) => state.reviews);
+    //const classes = useStyles();
     //const useActual = useSelector((state)=>state.clienteActual)
 
 
@@ -131,7 +131,7 @@ const Home = () => {
 
                 {/* <div className="linea1"></div> */}
 
-
+{/* 
                 <div>
                     {isAuthenticated ? <div className={classes.root}>
                         <ImageList className={classes.imageList}>
@@ -150,7 +150,7 @@ const Home = () => {
                         </ImageList>
                     </div> : false}
                     {isAuthenticated ? <Reviews /> : false}
-                </div>
+                </div> */}
                 <div className="linea"></div>
                 <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
                 <div className="boxing">
