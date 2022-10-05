@@ -47,6 +47,7 @@ export const actionTypes = {
     updateAdmin:"updateAdmin",
     deleteAdmin:"deleteAdmin",
     buscarSiExisteClienteVerdadero:"buscarSiExisteClienteVerdadero",
+    cambioClienteActual:"cambioClienteActual"
 };
 
 
@@ -87,6 +88,8 @@ export function postAdmin(payload) {
         }
     };
 };
+
+
 
 export function postPromociones(payload) {
     return async function (dispatch) {
@@ -184,17 +187,25 @@ export function postClient(payload) {
     return async function (dispatch) {
         try {
             const creado = await axios.post("/client", payload);
+            console.log(payload, "PAYLOAD ACTION POST CLIENT")
             return dispatch({
                 type: actionTypes.postClient,
                 payload: creado.data
             })
         } catch (error) {
-            throw new Error(error);
+            return error;
         }
     };
 };
 
-
+export const cambioClienteActual = (payload) =>{
+    return async function (dispatch){
+        return dispatch({
+            type: actionTypes.cambioClienteActual,
+            payload: payload
+        })
+    }
+}
 
 export const getAllClients = () => {
     return async function (dispatch) {
@@ -430,17 +441,17 @@ export function buscarSiExisteClienteVerdadero(payload) {
 
 
 
-export function createUser(payload) {
-    return async function () {
-        try {
-            const creado = await axios.post("/client", payload);
-            console.log(creado)
-            return creado;
-        } catch (error) {
-            throw new Error(error);
-        }
-    };
-};
+// export function createUser(payload) {
+//     return async function () {
+//         try {
+//             const creado = await axios.post("/client", payload);
+//             console.log(creado)
+//             return creado;
+//         } catch (error) {
+//             throw new Error(error);
+//         }
+//     };
+// };
 
 
 export function getDetails(id) {
