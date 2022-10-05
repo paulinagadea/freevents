@@ -122,7 +122,7 @@ export default function FormularioCliente() {
                     <input
                     
                         type= "text"
-                        value= {client.phone_number}
+                        value= {client.dni}
                         name="dni"
                         onChange={(e)=>handleChange(e)}
                         // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
