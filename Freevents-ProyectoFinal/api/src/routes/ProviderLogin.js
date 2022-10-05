@@ -65,7 +65,7 @@ providerLogin.post('/', async (req, res) => {
                 service: "gmail",
                 auth: {
                     type: "OAuth2",
-                    user: "freeevents4@gmail.com",
+                    user: "estefaniachavez1506@gmail.com",
                     clientId: CLIENT_ID,
                     clientSecret: CLIENT_SECRET,
                     refreshToken: REFRESH_TOKEN,
@@ -76,7 +76,7 @@ providerLogin.post('/', async (req, res) => {
             })
 
             const mailOptions = {
-                from: "Freevents <freeevents4@gmail.com>",
+                from: "Freevents <estefaniachavez1506@gmail.com>",
                 to: email,
                 subject: "Freevents",
                 html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></div></a>`,

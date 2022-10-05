@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   createPack,
   getEvents,
-  getProviders,
   getServices,
 } from "../actions/index.js";
 import Styles from "../components/CreatePack.module.css";
@@ -44,8 +43,7 @@ export default function Create() {
     description: "",
     price: 0,
     status_enable: "",
-    galery_image: [],
-    providers: [],
+    galery_image: "",
     events: [],
     services: [],
   });
@@ -57,13 +55,13 @@ export default function Create() {
 
   const eventos = useSelector((state) => state.events);
   const servicios = useSelector((state) => state.services);
-  const proveedores = useSelector((state) => state.providers);
+  
   const allNames = useSelector((state) => state.allPacks);
 
   useEffect(() => {
     dispatch(getEvents());
     dispatch(getServices());
-    dispatch(getProviders());
+    
   }, [dispatch]);
 
   function handleSubmit(e) {
@@ -77,8 +75,8 @@ export default function Create() {
       if (
         error.length !== 0 ||
         !input.events.length ||
-        !input.services.length ||
-        !input.providers.length
+        !input.services.length 
+        
       ) {
         Swal.fire({
           position: 'center',
@@ -143,14 +141,6 @@ export default function Create() {
     }
   }
 
-  function handleProviders(e) {
-    if (!input.providers.includes(e.target.value)) {
-      setInput({
-        ...input,
-        providers: [...input.providers, e.target.value],
-      });
-    }
-  }
 
   function handleDeleteE(e) {
     setInput({
@@ -166,12 +156,7 @@ export default function Create() {
     });
   }
 
-  function handleDeleteP(e) {
-    setInput({
-      ...input,
-      providers: input.providers.filter((pro) => pro !== e),
-    });
-  }
+
 
   return (
     <>
@@ -318,49 +303,6 @@ export default function Create() {
                     onClick={() => handleDeleteS(s)}
                     key={s}
                     value={s}
-                  >
-                    <span className={Styles.x}>X</span>
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            <div className={Styles.grupo}>
-              <select
-                className={Styles.select_create}
-                id="providers"
-                defaultValue=""
-                onChange={(e) => handleProviders(e)}
-              >
-                <option
-                  className={Styles.option_create}
-                  value=""
-                  disabled
-                  hidden
-                >
-                </option>
-                {proveedores?.map((p) => {
-                  return (
-                    <option
-                      key={p.id}
-                      value={p.name}
-                      className={Styles.option_create}
-                    >
-                      {p.name}
-                    </option>
-                  );
-                })}
-              </select>{" "}
-              <span className={Styles.barra}></span>
-              <Typography variant="h8" color="ligth">Proveedor: </Typography>
-              {input.providers.map((p) => (
-                <div className={Styles.box_opcion}>
-                  <div className={Styles.opcion_title}>{p}</div>
-                  <button
-                    className={Styles.btn_remove}
-                    onClick={() => handleDeleteP(p)}
-                    key={p}
-                    value={p}
                   >
                     <span className={Styles.x}>X</span>
                   </button>
