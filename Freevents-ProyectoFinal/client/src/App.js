@@ -17,7 +17,8 @@ import LoginAu2 from './components/Auth02'
 import DetailsPaquetes from './components/DetailsPaquetes'
 import BusquedaUser from './components/BusquedaUser'
 import BusquedaUserClient from './components/BusquedaUserClient'
-
+import FormularioCLiente from './components/FormularioCliente'
+import Nosotros from './components/Nosotros/Nosotros.jsx';
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
@@ -71,6 +72,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/busquedaUser' element= { <BusquedaUser/> }/>
             <Route exact path = '/providerregister' element={ <FormProvider/> }/>
             <Route exact path = '/BusquedaUserClient' element={ <BusquedaUserClient/> }/>
+            <Route exact path = '/formularioCliente' element={ <FormularioCLiente/> }/>
             <Route exact path = '/userregister' element= { <FormUser/> }/>
             <Route exact path = '/paquetes' element={<Paquetes/>}/>
             <Route exact path = '/proveedores' element={<Proveedores/>}/>
@@ -89,6 +91,7 @@ console.log(queEres, "VALOR DEL STORE")
             {/* <Route exact path = "/AlertSuscribe" element={<AlertSuscribe/>}/> */}
             <Route exact path = "/Reviews" element={<Reviews/>}/>
             <Route exact path = "/CardReviews" element={<CardReviews/>}/>
+            <Route exact path = "/devs" element={<Nosotros/>}/>
             
 
 
