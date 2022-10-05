@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
+// import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import CardActionArea from "@material-ui/core/CardActionArea";
+// import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import { addToFavs } from "../actions";
 import { useDispatch } from "react-redux";
@@ -81,7 +81,7 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
   const product = { name, price, events, services, id, galery_image };
 
   const handleAddToFavs = () => {
-    console.log(product, "PRODUCTARDO");
+    // console.log(product, "PRODUCTARDO");
     dispatch(addToFavs(product));
   };
 
