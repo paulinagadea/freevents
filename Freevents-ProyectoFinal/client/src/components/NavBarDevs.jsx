@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-export default function NavBarLanding() {
+export default function NavBarDevs() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     //cuando esta true lo pasa a false y vice versa
@@ -15,11 +15,11 @@ export default function NavBarLanding() {
         <NavContainer>
         <Link className="link" to="/">Freevents</Link>
         <div className="containerbar">
-          <Button size="small" onClick={handleClick} href="/login">Ingresar</Button>
-          <Button size="small" onClick={handleClick} href="/">Home</Button>
-          <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
-          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button>
+          <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/home">Home</Button>
+          {/* <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
+          <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button> */}
+          {/* <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
       
@@ -30,17 +30,27 @@ export default function NavBarLanding() {
   
   const NavContainer= styled.nav`
   .link{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-family: 'Mollie';
+    font-size: 70px;
     margin-left: 5%;
-    font-family: 'Epilogue', sans-serif;
   }
-
 
  .containerbar{
     margin-right: 5%;
   }
 
+  .containerbar .MuiButton-label {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;;
+}
+.containerbar .MuiButton-label:hover, .MuiButton-label:focus {
+    color: #fff;
+    background-size: 100% 2px;
+}
 
     h2{
       color: white;
@@ -109,21 +119,3 @@ export default function NavBarLanding() {
       }
     }
   `
-// const BgDiv = styled.div`
-// background-color: #222;
-// position: absolute;
-// top: -1000px;
-// left: -1000px;
-// width: 100%;
-// height: 100%;
-// z-index: -1;
-// transition: all .6s ease ;
-
-// &.active{
-//   border-radius: 0 0 80% 0;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-// }
-// `
