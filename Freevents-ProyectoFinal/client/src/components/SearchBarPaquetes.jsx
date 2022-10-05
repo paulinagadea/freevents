@@ -38,7 +38,7 @@ export default function SearchBar({setCurrentPage}) {
                 text:"No se ha encontrado tu búsqueda, intenta de nuevo.",
                 confirmButtonText:"Intentar",
                 confirmButtonColor: "#735949",
-                imageUrl: "https://i.pinimg.com/564x/dd/36/01/dd360137cc6e7d7d093e2df028864b34.jpg",
+                imageUrl: "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg",
                 imageHeight: 200,
                 
             })
