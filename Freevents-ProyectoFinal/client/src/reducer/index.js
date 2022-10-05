@@ -24,6 +24,7 @@ const initialState = {
     admins: [],
     adminById: {},
     promociones: [],
+    ordenesStore:[],
 }
 
 if (localStorage.getItem('favs')) {
@@ -37,6 +38,12 @@ if (localStorage.getItem('order')) {
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
+        case actionTypes.storeOrder:{
+            return{
+                ...state,
+                ordenesStore: [...action.payload],
+            }
+        }
         case actionTypes.getAdmins: {
             return {
                 ...state,

@@ -120,7 +120,7 @@ const Paquetes = () => {
                   name={packs.name}
                   price={packs.price}
                   galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg"}
-                  events={packs.events.map(e => e.name + " ")}
+                  events={packs.events?.map(e => e.name + " ")}
                   services={packs.services?.map(s => s.name + " ")}
                   id={packs.id}
                 />

@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 
 
 
-const CardPaquetes = ({id, status, event_date, event_address, price, pack_service, provider }) => {
+const CardPaquetes = ({id, status, event_date, event_address, price, pack_service, provider, name }) => {
   
     const dispatch = useDispatch()
 
@@ -27,36 +27,26 @@ const CardPaquetes = ({id, status, event_date, event_address, price, pack_servic
         <CardActionArea>
         <CardContent>
         <Typography variant="body2" component="p">
-            Pack contratado : {pack_service}
+            Pack contratado : {name}
             <br/>
         </Typography> 
-
         <Typography variant="body2" component="p">
             Precio : {price}
             <br/>
         </Typography> 
-
-
         <Typography variant="body2" component="p">
             Estado: {status}
             <br/>
         </Typography>
-
         <Typography variant="body2" component="p">
             Proveedor : {provider}
             <br/>
         </Typography> 
-
         <Typography variant="body2" component="p">
             Direccion : {event_address}
             <br/>
         </Typography> 
-
-        
-
         </CardContent>
-        
-       
         </CardActionArea>
         </Card>
     )
