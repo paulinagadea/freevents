@@ -1,21 +1,51 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import './Profile.css';
-import { useDispatch,  } from "react-redux";//useSelector
+import { useDispatch, useSelector, } from "react-redux";//useSelector
 import { Link } from "react-router-dom";
 import { getOrder } from '../actions'
 //import { getPacks, getServices} from "../actions";
 import CardOrden from './CardOrden'
+import Reviews from "./Reviews"
+import CardReviews from "./CardReviews";
+import ImageList from '@material-ui/core/ImageList';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    overflow: 'hidden',
+    backgroundColor: '#d9c2ba',
+    height: '300px',
+    borderRadius: '5px',
+  },
+  imageList: {
+    transform: 'translateZ(0)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+  img: {
+    margin: '3px',
+  }
+}));
+
 
 
 export default function PerfilUser() {
   const dispatch = useDispatch()
   // const { favs } = useSelector((state) => state.favs)
-
+  const classes = useStyles();
+  const allReviews = useSelector((state) => state.reviews)
   //const ordenes = useSelector((state) => state.ordercita)
- // const providersO = useSelector((state)=>state.providers)
-  
-
+  // const providersO = useSelector((state)=>state.providers)
 
 
   useEffect(() => {
@@ -58,7 +88,7 @@ export default function PerfilUser() {
             <div className="datos">
               <p>Nombre: {user.given_name}</p>
               <p>Apellido: {user.family_name}</p>
-              <p>Email: {user.email}</p>
+              {/* <p>Email: {user.email}</p> */}
             </div>
           </div>
         </div>
@@ -72,35 +102,52 @@ export default function PerfilUser() {
                   return (
                     <div>
                       <CardOrden
-                        pack_service={ord.pack_service ? ord.pack_service.name : false}
+                        name={ord.name ? ord.name : false}
                         price={ord.price}
-                        status={ord.status}
-                        provider={ord.provider ? ord.provider.name : false}
-                        event_address={ord.event_address? ord.event_address :false}
                       />
                     </div>
                   )
                 })
               }
             </div>
-          </div> 
+          </div>
           <div className="info">
             <div className="compras">
-          <h3>FAVORITOS</h3>
-          {y ? y.map((f) => {
-            return (
-              <div>
-                <ul>
-                🤍 {f.name}
-                </ul>
-              </div>
-            )
-          }) : "No hay Favoritos"}
+              <h3>FAVORITOS</h3>
+              {y ? y.map((f) => {
+                return (
+                  <Link to={`/detailPaquete/${f.id}`} >
+                    <div>
+                      <ul>
+                        🤍 {f.name}
+                      </ul>
+                    </div>
+                  </Link>
+                )
+              }) : "No hay Favoritos"}
+            </div>
           </div>
         </div>
-        </div>
-
-        <Link to="/">
+        {/* <div>
+          <div className={classes.root}>
+            <ImageList className={classes.imageList}>
+              {allReviews?.map((reviews) => {
+                return (
+                  <div className={classes.img}>
+                    <CardReviews
+                      name={reviews.name}
+                      comments={reviews.comments}
+                      rating={reviews.rating}
+                      events={reviews.events}
+                    />
+                  </div>
+                )
+              })}
+            </ImageList>
+          </div> 
+          <Reviews /> 
+        </div> */}
+        <Link to="/home">
           <button>Volver</button>
         </Link>
       </div>

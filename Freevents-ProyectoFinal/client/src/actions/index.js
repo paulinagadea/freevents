@@ -47,8 +47,20 @@ export const actionTypes = {
     updateAdmin:"updateAdmin",
     deleteAdmin:"deleteAdmin",
     buscarSiExisteClienteVerdadero:"buscarSiExisteClienteVerdadero",
-    cambioClienteActual:"cambioClienteActual"
+    cambioClienteActual:"cambioClienteActual",
+    storeOrder:"storeOrder",
 };
+
+
+export const storeOrder = (payload) => {
+    return async function (dispatch) {
+        return dispatch({
+            type:actionTypes.storeOrder,
+            payload: payload
+        })
+
+    }
+}
 
 
 export const getAdmins = (payload) => {

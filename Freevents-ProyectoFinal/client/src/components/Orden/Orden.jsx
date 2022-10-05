@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrder, postOrder, getDetailsPacks, addLastOrder } from "../../actions";
+import { getOrder, postOrder, getDetailsPacks, addLastOrder, storeOrder } from "../../actions";
 import { useEffect } from "react";
 import { Link, redirect, useNavigate, Redirect } from "react-router-dom";
 import handlePayment from '../Orden2'
@@ -22,15 +22,13 @@ const Orden = () => {
   const navigate = useNavigate()
   const [errors, setErrors] = useState({})
 
-  
+
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  console.log('¿Qué trae el user?', user)
 
   let misDatos = JSON.parse(localStorage.getItem("order"));
 
-  console.log('¿Qué tiene datos?', misDatos)
 
 
   useEffect(() => {
@@ -53,7 +51,9 @@ const Orden = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    console.log(e.target, "ESTO ES E")
+    //const orden = {name:e.target.value}
+    //dispatch(storeOrder())
     // let validacion = (
     //   validate(input)
     // );
@@ -97,16 +97,16 @@ const Orden = () => {
           },
         })
       ).json();
-      console.log('imprimimos preference', preference)
+
 
       var script = document.createElement("script");
-      console.log("estamos .aquí", script)
+
 
       script.src =
         "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
       script.type = "text/javascript";
       script.dataset.preferenceId = preference.preferenceId;
-      console.log("estamos aquí", script)
+
 
       script.setAttribute("data-button-label", "Pagar");
 
@@ -128,20 +128,18 @@ const Orden = () => {
       ...input,
       [e.target.name]: e.target.value,
     });
-    console.log(input, "input")
   }
 
 
 
-  function handleClick(e){
+  function handleClick(e) {
     e.preventDefault()
 
     localStorage.removeItem('order')
-   navigate("/paquetes")
+    navigate("/paquetes")
 
   }
 
-console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => n.name)))
   return (
 
 
@@ -149,17 +147,15 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
       <div>
         <h1>Detalles de tu Pedido</h1>
         <div className="datos">
-              <p>Nombre: {user.name}</p>
-              
-             
-            </div>
+          <p>Nombre: {user.name}</p>
+        </div>
         <img
           className="cover"
           src={misDatos.map(i => i.galery_image)}
           alt=""
           width="100%"
           height="100%"
-          ></img>
+        ></img>
         {/* <div> */}
         <h1>{misDatos.map(n => n.name)}</h1>
         {/* <h1> $ {misDatos.map(p => p.price)}</h1> */}
@@ -174,8 +170,8 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
 
         <h3>Servicios incluidos: </h3>
         <h4>{misDatos.map((e) => e.services && e.services.map((n) => n.name + ", "))} </h4>
-      
-{/* <h4>{detalleP.events.map((el) => el.name + " ")}</h4> */}
+
+        {/* <h4>{detalleP.events.map((el) => el.name + " ")}</h4> */}
 
         {/* <h3>Informacion del Cliente:</h3>
     
@@ -188,7 +184,7 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
       </div>
 
 
-      
+
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
@@ -224,11 +220,12 @@ console.log('MisDatos', misDatos.map((e) => e.services && e.services.map((n) => 
           </div>
           <div>
           </div>
+          <button type="onSubmit">Generar orden</button>
         </form>
       </div>
 
-      <button onClick={e=>handleClick(e)}>Volver</button>
-      <button onClick={(e) => handleSubmit(e)}>Generar orden</button>
+      <button onClick={e => handleClick(e)}>Volver</button>
+
       <div id="mercado" className="mercado"></div>
       {/* <Link to={'/paquetes'}>
                     <button key={id}>Volver</button>
