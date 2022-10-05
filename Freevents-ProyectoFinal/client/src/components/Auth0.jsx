@@ -30,7 +30,7 @@ import "./Auth.css";
       <div className="container2">
         <div className="imglogin">
           <img src="https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg" alt="img"/>
-          <div className="botones2">
+          <div>
             <button onClick={e => {handleTest(e)}} >Login</button>
             {/* <LoginButton/> */}
             {isLoading !== true ? <LogoutButton/> : null }
