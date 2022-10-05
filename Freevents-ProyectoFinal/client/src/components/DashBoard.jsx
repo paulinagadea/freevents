@@ -100,8 +100,13 @@ export default function MiniDrawer() {
   console.log(packs, 'packs')
   const clients = useSelector((state) => state.allClients)
   console.log(clients, 'clients')
-  
 
+  const [buttonCliente, setButtonCliente] = useState(false);
+  console.log(buttonCliente, 'btn cliente')
+  const [buttonProveedor, setButtonProveedor] = useState(false);
+  console.log(buttonProveedor, 'btn cliente')
+  const [buttonPaquetes, setButtonPaquetes] = useState(false);
+  console.log(buttonPaquetes, 'btn cliente')
   
 
   useEffect(() => {
@@ -121,7 +126,27 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
-
+  const handleButtonCliente = ()=>{
+    if(buttonCliente === false){
+      setButtonCliente(true)
+    } else{
+      setButtonCliente(false)
+    }
+  }
+  const handleButtonProveedor = ()=>{
+    if(buttonProveedor === false){
+      setButtonProveedor(true)
+    } else{
+      setButtonProveedor(false)
+    }
+  }
+  const handleButtonPaquete = ()=>{
+    if(buttonPaquetes === false){
+      setButtonPaquetes(true)
+    } else{
+      setButtonPaquetes(false)
+    }
+  }
 
 
   return (
@@ -154,8 +179,10 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
+
         <List >
           {['Salir'].map((text, index) => (
+
             <ListItem key={text} disablePadding sx={{ display: 'block' }} >
               <ListItemButton
                 href='/home'
@@ -180,7 +207,9 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
+
         {/* <List>
+
           {['Ordenes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -206,7 +235,9 @@ export default function MiniDrawer() {
           ))}
         </List> */}
         <Divider />
+
         {/* <List>
+
           {['Proveedor'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -230,8 +261,10 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
+
         </List> */}
         {/* <List>
+
           {['Paquetes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -265,12 +298,9 @@ export default function MiniDrawer() {
         
 
         <div className='proveedores'>
-          
-          <AdminClients/>
-          <AdminProviders/>
-          <AdminPacks/>
-          
-
+          {buttonCliente === true ? <AdminClients/> : null}
+          {buttonProveedor === true ? <AdminProviders/> : null}
+          {buttonPaquetes === true ? <AdminPacks/> : null}
         </div>
       </Box>
     </Box>

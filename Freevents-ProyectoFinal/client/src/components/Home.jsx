@@ -131,26 +131,6 @@ const Home = () => {
 
                 {/* <div className="linea1"></div> */}
 
-
-                <div>
-                    {isAuthenticated ? <div className={classes.root}>
-                        <ImageList className={classes.imageList}>
-                            {allReviews?.map((reviews) => {
-                                return (
-                                    <div className={classes.img}>
-                                        <CardReviews
-                                            name={reviews.name}
-                                            comments={reviews.comments}
-                                            rating={reviews.rating}
-                                            events={reviews.events}
-                                        />
-                                    </div>
-                                )
-                            })}
-                        </ImageList>
-                    </div> : false}
-                    {isAuthenticated ? <Reviews /> : false}
-                </div>
                 <div className="linea"></div>
                 <h1 className="titulo-home">CONOCE NUESTROS PROVEEDORES MÁS TALENTOSOS </h1>
                 <div className="boxing">

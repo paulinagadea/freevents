@@ -20,9 +20,11 @@ const initialState = {
     reviews: [],
     allReviews: [],
     clienteActual: [],
+    clienteActual2:[],
     admins: [],
     adminById: {},
     promociones: [],
+    ordenesStore:[],
 }
 
 if (localStorage.getItem('favs')) {
@@ -36,6 +38,12 @@ if (localStorage.getItem('order')) {
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
+        case actionTypes.storeOrder:{
+            return{
+                ...state,
+                ordenesStore: [...action.payload],
+            }
+        }
         case actionTypes.getAdmins: {
             return {
                 ...state,
@@ -127,7 +135,7 @@ function rootReducer(state = initialState, action) {
             return{
                 ...state,
 
-            clienteActual: includesClient,
+                clienteActual2: includesClient,
         }
     }
 
@@ -175,7 +183,7 @@ function rootReducer(state = initialState, action) {
         case actionTypes.postClient: {
             return {
                 ...state,
-                clients: action.payload,
+                
             }
         }
 
@@ -209,6 +217,13 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 packs: action.payload
+            }
+        }
+        case actionTypes.cambioClienteActual:{
+            return{
+                ...state,
+                clienteActual2: action.payload
+
             }
         }
         case actionTypes.orderByNamePack: {

@@ -31,6 +31,7 @@ const images = [
       width: '100%',
     },
     image: {
+      borderRadius: '10px',
       position: 'relative',
       height: 300,
       [theme.breakpoints.down('xs')]: {
@@ -52,6 +53,7 @@ const images = [
     },
     focusVisible: {},
     imageButton: {
+      borderRadius: '10px',
       position: 'absolute',
       left: 0,
       right: 0,
@@ -63,6 +65,7 @@ const images = [
       color: theme.palette.common.white,
     },
     imageSrc: {
+      borderRadius: '10px',
       position: 'absolute',
       left: 0,
       right: 0,
@@ -72,6 +75,7 @@ const images = [
       backgroundPosition: 'center 40%',
     },
     imageBackdrop: {
+      borderRadius: '10px',
       position: 'absolute',
       left: 0,
       right: 0,
