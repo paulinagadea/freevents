@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 export default function SearchBar({setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
+    const [currentPage, setCurrentPage] = useState(1)
     const packss = useSelector((state) => state.packs)
     console.log(packss, "soy el paquete")
 
