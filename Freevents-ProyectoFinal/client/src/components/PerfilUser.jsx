@@ -129,6 +129,7 @@ export default function PerfilUser() {
           </div>
         </div>
 
+
         {/* <div>
           <div className={classes.root}>
             <ImageList className={classes.imageList}>
@@ -148,6 +149,7 @@ export default function PerfilUser() {
           </div> 
           <Reviews /> 
         </div> */}
+
 
         <Link to="/home">
           <button>Volver</button>
