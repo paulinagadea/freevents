@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 // import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 export default function FormularioProveedor() {
   // console.log( "recien entro")
@@ -70,7 +71,15 @@ export default function FormularioProveedor() {
         e.preventDefault();
         dispatch(createProvider(proveedor))
         console.log(proveedor)
-        alert("Proveedor creada")
+        Swal.fire({
+            position: 'center',
+            title: '¡Bievenido a Freevents!🥂',
+            text: "Fuiste registrado correctamente",
+            confirmButtonText: "Aceptar",
+            confirmButtonColor: "#735949",
+            imageUrl: "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg",
+            imageHeight: 200,
+          })
         localStorage.setItem('providerUser', JSON.stringify(proveedor));
         setInputProveedor({
           name: "",
