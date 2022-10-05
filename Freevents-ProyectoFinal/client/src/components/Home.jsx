@@ -148,7 +148,13 @@ const Home = () => {
                 >REGISTRATE AQUÍ
                 </Button>
             </div>
+            <button
+                className= "button_subir_home"
+                onClick={() => window.scrollTo({top: 0, behavior:'smooth'})}
+                > 🡹
+            </button> 
             <Footer />
+            
         </div>
     )
 

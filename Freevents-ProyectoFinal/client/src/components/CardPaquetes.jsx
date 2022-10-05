@@ -10,6 +10,7 @@ import { addToFavs } from "../actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles({
   root: {
@@ -84,6 +85,15 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
   const handleAddToFavs = () => {
     // console.log(product, "PRODUCTARDO");
     dispatch(addToFavs(product));
+    Swal.fire({
+      title: "¡Se ha añadido a tus favoritos!❤️",
+      text:"Puedes encontrarlo ingresando a tu perfil.",
+      confirmButtonText:"Aceptar",
+      confirmButtonColor: "#735949",
+      imageUrl: "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg",
+      imageHeight: 200,
+      
+  })
   };
 
   return (
