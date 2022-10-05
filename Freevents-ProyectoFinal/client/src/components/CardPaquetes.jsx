@@ -15,10 +15,12 @@ const useStyles = makeStyles({
     minWidth: 800,
     maxWidth: 800,
     padding: 50,
+    backgroundColor: "#fff",
     borderRadius: '10px',
     margin: '30px',
+    border: '3px solid #D9C2BA',
     '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0.10)',
+      backgroundColor: 'rgba(0,0,0,0.05)',
       transition: ".6s",
     },
   },
@@ -28,7 +30,7 @@ const useStyles = makeStyles({
     transform: "scale(0.8)",
   },
   title: {
-    fontSize: '40px',
+    fontSize: '45px',
     fontFamily: "Mollie",
     letterSpacing: "1px",
     color: '#735949',
@@ -52,7 +54,7 @@ const useStyles = makeStyles({
     fontFamily: "Mollie",
     color: '#735949',
     letterSpacing: "1px",
-    fontSize: '30px',
+    fontSize: '35px',
     marginBottom: '10px',
   },
   button: {
@@ -86,7 +88,7 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
   return (
     <Card className={classes.root}>
     <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${id}`}>
-      <CardActionArea>
+      {/* <CardActionArea> */}
       
         <CardMedia
           className={classes.media}
@@ -113,13 +115,13 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
             {/* <br /> */}
           </Typography>
         </CardContent>
-        <CardActions>
+        {/* <CardActions> */}
           {/* <Link to={`/detail/${packs.id}`}>
         
        
         </Link> */}
-        </CardActions>
-      </CardActionArea>
+        {/* </CardActions> */}
+      {/* </CardActionArea> */}
       </Link>
           <button className={classes.button} onClick={handleAddToFavs}>🧡 Añadir a favoritos</button>
     </Card>
