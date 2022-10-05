@@ -14,14 +14,27 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import { brown } from '@mui/material/colors';
 import PersonPinIcon from '@mui/icons-material/Person';
+import RedeemIcon from '@mui/icons-material/Redeem';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import RoomServiceIcon from '@mui/icons-material/RoomService';
+import MaterialTable from 'material-table';
+import MUIDataTable from "mui-datatables";
+import axios from "axios";
 import AdminClients from './Admin/AdminClients';
 import AdminProviders from './Admin/AdminProviders';
 import AdminPacks from './Admin/AdminPacks';
 import { getProviders, getPacks, getAllClients } from '../actions'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+
+import CardProveedor from './CardProveedor'
+import { useSelect } from '@mui/base';
 
 
 const drawerWidth = 240;
@@ -128,7 +141,7 @@ export default function MiniDrawer() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar >
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -141,8 +154,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-         
-          <Typography variant="h3" noWrap component="div">
+          <Typography variant="h6" noWrap component="div">
             Freevents
           </Typography>
         </Toolbar>
@@ -155,21 +167,20 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List >
-          {['Salir'].map((text, index) => (
+          {['Cliente'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }} >
               <ListItemButton
-                href='/home'
                 sx={{
-                  minHeight: 38,
+                  minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
-                  px: 4.5,
+                  px: 2.5,
                 }}
               >
                 <PersonPinIcon
                 color= 'action'
                   sx={{
-                    minWidth: 6,
-                    mr: open ? 7 : 'auto',
+                    minWidth: 0,
+                    mr: open ? 4 : 'auto',
                     justifyContent: 'center',
                   }}
                 />
@@ -180,7 +191,7 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        {/* <List>
+        <List>
           {['Ordenes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -204,9 +215,9 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </List> */}
+        </List>
         <Divider />
-        {/* <List>
+        <List>
           {['Proveedor'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -230,8 +241,8 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </List> */}
-        {/* <List>
+        </List>
+        <List>
           {['Paquetes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -255,15 +266,12 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </List> */}
+        </List>
         
         
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-
-        
-
         <div className='proveedores'>
           
           <AdminClients/>
@@ -272,12 +280,13 @@ export default function MiniDrawer() {
           
 
         </div>
+
+        
+
       </Box>
     </Box>
   );
 }
-
-
 
 
 
