@@ -22,7 +22,9 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import { Modal, TextField, Button } from '@material-ui/core';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -105,24 +107,44 @@ const endpoint = 'http://localhost:3001/providers';
 export default function AdmiPakets() {
   const dispatch = useDispatch()
   const providers = useSelector((state)=>state.allProviders)
+  const [checked, setChecked] = React.useState(true);
   const [proveedores, setProveedores] = useState([])
   const styles= useStyles();
   const [data, setData]= useState([]);
   const [modalInsertar, setModalInsertar]= useState(false);
   const [modalEditar, setModalEditar]= useState(false);
   const [modalEliminar, setModalEliminar]= useState(false);
+
+
+  const handleCambio = (event) => {
+    setChecked(event.target.checked);
+  
+    if(checked){
+      setProviderSeleccionado(prevState=>({
+        ...prevState,
+        status: "disabled"
+      }));
+    }else if(checked){
+      setProviderSeleccionado(prevState=>({
+        ...prevState,
+        status: "enabled"
+      }));
+    }
+    
+  };
+
   const [providerSeleccionado, setProviderSeleccionado]=useState({
     id: "",
     status: ""
   })  
 
-  const handleChange=e=>{
-    const {name, value}=e.target;
-    setProviderSeleccionado(prevState=>({
-      ...prevState,
-      [name]: value
-    }));
-  }
+  // const handleChange=e=>{
+  //   const {name, value}=e.target;
+  //   setProviderSeleccionado(prevState=>({
+  //     ...prevState,
+  //     [name]: value
+  //   }));
+  // }
   
   const peticionPut=async()=>{
     await axios.patch(endpoint+"/"+providerSeleccionado.id, providerSeleccionado)
@@ -138,6 +160,7 @@ export default function AdmiPakets() {
     }).catch(error=>{
       console.log(error);
     })
+    window.location.reload();
   }
   
   const seleccionarCliente=(provider, caso)=>{
@@ -175,10 +198,22 @@ export default function AdmiPakets() {
 const bodyEditar=(
   <div className={styles.modal}>
     <h3>Editar Cliente</h3>
-    <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={providerSeleccionado&&providerSeleccionado.status}/>
+
+    <Stack direction="row" spacing={1} alignItems="center">
+      <Typography>Disable</Typography>
+      <Switch
+      checked={checked}
+      onChange={handleCambio}
+      inputProps={{ 'aria-label': 'controlled' }}
+      value={providerSeleccionado&&providerSeleccionado.status}
+      
+    />
+    <Typography>Enable</Typography>
+    </Stack>
+    {/* <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={providerSeleccionado&&providerSeleccionado.status}/> */}
     <br /><br />
     <div align="right">
-      <Button color="primary" onClick={()=>peticionPut()}>Editar</Button>
+      <Button color="primary" onClick={()=>peticionPut()}>Guardar</Button>
       <Button onClick={()=>abrirCerrarModalEditar()}>Cancelar</Button>
     </div>
   </div>

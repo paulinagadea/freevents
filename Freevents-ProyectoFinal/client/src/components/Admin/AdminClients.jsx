@@ -2,7 +2,6 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import MaterialTable from "material-table"
 import axios from "axios";
-import Switch from '@mui/material/Switch';
 import { updateClient, getAllClients, getIdClient, deleteClient } from "../../actions"
 import { useDispatch, useSelector  } from 'react-redux';
 import { useState, useEffect } from 'react';
@@ -29,6 +28,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
 
 
 
@@ -109,6 +109,7 @@ export default function AdmiClients() {
   const dispatch = useDispatch()
   const clients = useSelector((state)=>state.allClients)
   const [checked, setChecked] = React.useState(true);
+  console.log("🚀 ~ file: AdminClients.jsx ~ line 112 ~ AdmiClients ~ checked", checked)
   const styles= useStyles();
 const [clientes, setClientes] = useState([])
 const [data, setData]= useState([]);
@@ -118,7 +119,22 @@ const [data, setData]= useState([]);
 
   const handleCambio = (event) => {
     setChecked(event.target.checked);
+  
+    if(checked){
+      setClienteSeleccionado(prevState=>({
+        ...prevState,
+        status: "disabled"
+      }));
+    }else if(checked){
+      setClienteSeleccionado(prevState=>({
+        ...prevState,
+        status: "enabled"
+      }));
+    }
+    
   };
+
+  
   const [clienteSeleccionado, setClienteSeleccionado]=useState({
     id: "",
     status: ""
@@ -134,13 +150,13 @@ const [data, setData]= useState([]);
   //   })
   // }
   
-  const handleChange=e=>{
-    const {name, value}=e.target;
-    setClienteSeleccionado(prevState=>({
-      ...prevState,
-      [name]: value
-    }));
-  }
+  // const handleChange= e =>{
+  //   const {value}= e.target;
+  //   setClienteSeleccionado(prevState=>({
+  //     ...prevState,
+  //     status: value
+  //   }));
+  // }
   
   const peticionPut=async()=>{
     await axios.patch(endpoint+"/"+clienteSeleccionado.id, clienteSeleccionado)
@@ -156,6 +172,7 @@ const [data, setData]= useState([]);
     }).catch(error=>{
       console.log(error);
     })
+    window.location.reload();
   }
   
   const seleccionarCliente=(cliente, caso)=>{
@@ -174,13 +191,14 @@ const [data, setData]= useState([]);
   useEffect(() => {
     dispatch(getAllClients)
     setClientes(clients)
+    
     // getData()
   }, [])
   const bodyEditar=(
     <div className={styles.modal}>
       <h3>Editar Cliente</h3>
       <Stack direction="row" spacing={1} alignItems="center">
-      <Typography>Enable</Typography>
+      <Typography>Disable</Typography>
       <Switch
       checked={checked}
       onChange={handleCambio}
@@ -188,13 +206,13 @@ const [data, setData]= useState([]);
       value={clienteSeleccionado&&clienteSeleccionado.status}
       
     />
-    <Typography>Disable</Typography>
+    <Typography>Enable</Typography>
     </Stack>
     
-      <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={clienteSeleccionado&&clienteSeleccionado.status}/>
+      {/* <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={clienteSeleccionado&&clienteSeleccionado.status}/> */}
       <br /><br />
       <div align="right">
-        <Button color="primary" onClick={()=>peticionPut()}>Editar</Button>
+        <Button color="primary" onClick={()=>peticionPut()}>Guardar</Button>
         <Button onClick={()=>abrirCerrarModalEditar()}>Cancelar</Button>
       </div>
     </div>
@@ -213,6 +231,7 @@ return (
                       icon: edit,
                       tooltip:"editar",
                       onClick: (event, rowData) => seleccionarCliente(rowData, "Editar")
+                      
                     }]}
                     // options={options}
           />

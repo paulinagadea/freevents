@@ -22,6 +22,9 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -102,11 +105,32 @@ export default function AdmiPakets() {
   const dispatch = useDispatch()
   const packs = useSelector((state)=>state.allPacks)
   const [paquetes, setPaquetes] = useState([])
+  const [checked, setChecked] = React.useState(true);
   const styles= useStyles();  
   const [data, setData]= useState([]);
   const [modalInsertar, setModalInsertar]= useState(false);
   const [modalEditar, setModalEditar]= useState(false);
   const [modalEliminar, setModalEliminar]= useState(false);
+  
+
+  const handleCambio = (event) => {
+    setChecked(event.target.checked);
+  
+    if(checked){
+      setPacksSeleccionado(prevState=>({
+        ...prevState,
+        status: "disabled"
+      }));
+    }else if(checked){
+      setPacksSeleccionado(prevState=>({
+        ...prevState,
+        status: "enabled"
+      }));
+    }
+    
+  };
+
+
   const [packSeleccionado, setPacksSeleccionado]=useState({
     id: "",
     status: ""
@@ -122,13 +146,13 @@ export default function AdmiPakets() {
 //     })
 //   }
 
-const handleChange=e=>{
-  const {name, value}=e.target;
-  setPacksSeleccionado(prevState=>({
-    ...prevState,
-    [name]: value
-  }));
-}
+// const handleChange=e=>{
+//   const {name, value}=e.target;
+//   setPacksSeleccionado(prevState=>({
+//     ...prevState,
+//     [name]: value
+//   }));
+// }
 
 const peticionPut=async()=>{
   await axios.patch(endpoint+"/"+packSeleccionado.id, packSeleccionado)
@@ -144,6 +168,7 @@ const peticionPut=async()=>{
   }).catch(error=>{
     console.log(error);
   })
+  window.location.reload();
 }
 
 const seleccionarPack=(pack, caso)=>{
@@ -168,10 +193,21 @@ const abrirCerrarModalEliminar=()=>{
 const bodyEditar=(
   <div className={styles.modal}>
     <h3>Editar Cliente</h3>
-    <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={packSeleccionado&&packSeleccionado.status}/>
+    <Stack direction="row" spacing={1} alignItems="center">
+      <Typography>Disable</Typography>
+      <Switch
+      checked={checked}
+      onChange={handleCambio}
+      inputProps={{ 'aria-label': 'controlled' }}
+      value={packSeleccionado&&packSeleccionado.status}
+      
+    />
+    <Typography>Enable</Typography>
+    </Stack>
+    {/* <TextField className={styles.inputMaterial} label="Estado" name="status" onChange={handleChange} value={packSeleccionado&&packSeleccionado.status}/> */}
     <br /><br />
     <div align="right">
-      <Button color="primary" onClick={()=>peticionPut()}>Editar</Button>
+      <Button color="primary" onClick={()=>peticionPut()}>Guardar</Button>
       <Button onClick={()=>abrirCerrarModalEditar()}>Cancelar</Button>
     </div>
   </div>
