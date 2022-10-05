@@ -80,7 +80,15 @@ export default function Create() {
         !input.services.length ||
         !input.providers.length
       ) {
-        alert("Llene los campos correctamente");
+        Swal.fire({
+          position: 'center',
+          title: 'Oh...tuvimos un problema🤔',
+          text: "Llene los campos correctamente.",
+          confirmButtonText: "Volver",
+          confirmButtonColor: "#735949",
+          imageUrl: "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg",
+          imageHeight: 200,
+        })
         return;
       } else {
         dispatch(createPack(input));
@@ -88,7 +96,7 @@ export default function Create() {
           name: "",
           description: "",
           price: 0,
-          status_enable: "",
+          // status_enable: "",
           galery_image: [],
           providers: [],
           events: [],
@@ -205,7 +213,7 @@ export default function Create() {
 
             <div className={Styles.grupo}>
             
-              <Select 
+              {/* <Select 
                 fullWidth
                 required
                 value={input.status_enable}
@@ -214,9 +222,9 @@ export default function Create() {
                 >
                 <MenuItem value="10" >Disabled </MenuItem>
                 <MenuItem value="20" >Enabled </MenuItem>
-                </Select>
+                </Select> */}
                 
-              <Typography variant="h8" color="ligth">Status: </Typography>
+              {/* <Typography variant="h8" color="ligth">Status: </Typography> */}
             </div>
 
             <div className={Styles.grupo}>

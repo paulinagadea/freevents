@@ -108,7 +108,7 @@ const Orden = () => {
       script.dataset.preferenceId = preference.preferenceId;
       console.log("estamos aquí", script)
 
-      script.setAttribute("data-button-label", "Pagar");
+      script.setAttribute("data-button-label", "Pagar💸");
 
       const element = document.getElementById("mercado").innerHTML = "";
 
