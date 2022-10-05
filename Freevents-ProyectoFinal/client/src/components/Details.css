@@ -8,14 +8,15 @@
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     margin-top: 60px;
     margin-bottom: 40px;
     border-radius: 20px;
     background: #d9c2ba;
     color: #fff;
     width: 70%;
-    
+    display: block;
+    border: 2px solid #736A68;
 }
 
 .container img {
@@ -25,7 +26,7 @@
 
 .name {
     font-family: Mollie;
-    font-size: 60px;
+    font-size: 70px;
     color: #736A68;
     letter-spacing: 1px;
     margin-top: 10px;
@@ -41,14 +42,17 @@
 
 .container h1 {
     font-family: Mollie;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    color: #736A68;
 }
 
 .container p {
     font-family: "Segoe UI";
     font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 button {
