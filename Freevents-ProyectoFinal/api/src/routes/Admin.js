@@ -112,7 +112,7 @@ console.log("@1@")
                 from: "Freevents <estefaniachavez1506@gmail.com>",
                 to: email,
                 subject: "Oferta Freevents",
-                html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/Xt5Skt7/oferta.png" alt="Oferta" border="0"></div></a>`,
+                html: `<a href="https://freevents.vercel.app/home"><div align="center"><img src="https://i.ibb.co/Xt5Skt7/oferta.png" alt="Oferta" border="0"></div></a>`,
 
             };
 
