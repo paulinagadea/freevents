@@ -391,7 +391,7 @@ export default function Create() {
           </div>
 
           <div>
-            <NavLink to={"/paquetes"} className={Styles.back_home}>
+            <NavLink to={"/PerfilProvider"} className={Styles.back_home}>
               Cancelar
             </NavLink>
           </div>
