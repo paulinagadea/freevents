@@ -63,10 +63,8 @@ export default function NavBarDevs() {
     background-color: #736A68;
     display: flex;
     height: 10vh;
-    width: 100vw;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
     a{
       color:white;
       text-decoration:none;
