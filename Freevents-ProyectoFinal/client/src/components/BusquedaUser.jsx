@@ -8,7 +8,7 @@
 //NOTA, LOGRAR QUE LA WEA DEPENDIENDO DE SI EXISTE O NO ME LLEVE YA SEA AL HOME, O AL FORMULARIO DE PROVIDER
 import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-import {getProviders, buscarSiExisteCliente} from '../actions/index'
+import {getProviders, buscarSiExisteCliente, objetoProveedorUnico} from '../actions/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
 import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom';
@@ -31,10 +31,18 @@ import Box from '@mui/material/Box';
     const navigate = useNavigate();
     const clienteActual = useSelector((state) => state.clienteActual)
     const stateProviders = useSelector((state)=>state.allProviders)
+    const estadoProveedorUnico = useSelector((state)=>state.proveedorUnico)
     
-    console.log(stateProviders, "ACA LOS PROVIDERS")
+    // console.log(stateProviders.map(el=>el ), "ACA LOS PROVIDERS")
+
+    // const mapita = stateProviders.map(el=>el && el.includes(user.sub))
+    const mapita = stateProviders.find(el =>el.sub === user.sub)
+
+    console.log(mapita, " A VER Q ONDA")
+    console.log(estadoProveedorUnico)
     // const userr = user.sub
 
+    
   //aqui ponemos lo que enviamos
 // const storageUser = (localStorage.setItem('userAuth0Provider', JSON.stringify(user)));
 
@@ -51,12 +59,10 @@ const  mifuncionQueBusca  = async () => {
     const aux = await user.sub
     console.log(aux, "soy el user en el componente busquedaUser")
     dispatch(buscarSiExisteCliente(aux))
+    dispatch(objetoProveedorUnico(aux))
     return
   }
 }
-
-
-
 useEffect(() => {
     dispatch(getProviders())
     
@@ -65,13 +71,27 @@ useEffect(() => {
   useEffect(() => {
     if (stateProviders.length > 0){
       mifuncionQueBusca()
+      localStorageProvider()
       // if (clienteActual === true){
       //   localStorage.setItem('prueba', JSON.stringify(user));
       // }
     }
     
-  }, [stateProviders])
+  }, [stateProviders, estadoProveedorUnico])
 
+
+  const  localStorageProvider  = async () => {
+   
+    if (clienteActual === true){
+
+      localStorage.setItem('providerUser', JSON.stringify(estadoProveedorUnico))
+      navigate("/home") 
+    }else if(clienteActual === false) {
+    navigate("/providerregister")
+    }
+   
+    }
+  
 
     // clienteActual ? true 
     // if (clienteActual !== true){
@@ -132,17 +152,15 @@ useEffect(() => {
         src="https://imgs.search.brave.com/YoaXWrA6MHXu0NYY-W7oWOrfJ87CVRMphSnCQNMaWx0/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9naWZp/bWFnZS5uZXQvd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDQv/bG9hZGVyLWdpZi10/cmFuc3BhcmVudC1h/bmltYXRlZC03Lmdp/Zg.gif"
       />
     {/* {storageTypeUsers === 'provider' ?} */}
-    {
+    {/* {
       clienteActual === false && <Navigate to = "/providerregister" replace = {true}/>  
-    }
-    {
-
-      clienteActual === true && localStorage.setItem('providerUser', JSON.stringify(user)) 
-
-    }
-    {
+    } */}
+    {/* {
+      localStorageProvider() 
+    } */}
+    {/* {
       clienteActual === true &&  <Navigate to = "/home" replace = {true}/>
-    }
+    } */}
     
     </div>
     
