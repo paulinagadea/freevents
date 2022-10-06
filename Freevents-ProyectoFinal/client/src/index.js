@@ -19,7 +19,7 @@ ReactDOM.render(
   <Auth0Provider 
   domain="dev-npb1i0xc.us.auth0.com" 
   clientId="vpQToaI04NOeyLgK4Fy3hxCZr18o0GXw" 
-  redirectUri= 'https://freevents.vercel.app/busquedaUser'>
+  redirectUri= 'http://localhost:3000/busquedaUser'>
       
     <App />
     </Auth0Provider>
