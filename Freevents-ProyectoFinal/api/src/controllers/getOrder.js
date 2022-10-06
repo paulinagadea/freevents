@@ -207,9 +207,9 @@ const postMP = async (req, res) => {
          ],
         external_reference: `${orderMP.id}`,
         back_urls: {
-            success: `http://localhost:3001/order/payment-confirm`,
-            failure: `http://localhost:3001/order/payment-confirm`,
-            pending: `http://localhost:3001/order/payment-confirm`
+            success: `https://freevents-production.up.railway.app/order/payment-confirm`,
+            failure: `https://freevents-production.up.railway.app/order/payment-confirm`,
+            pending: `https://freevents-production.up.railway.app/order/payment-confirm`
         },
         auto_return: "approved",
       };
@@ -283,7 +283,7 @@ const patchOrder = async (req, res) => {
                 from: "Freevents <estefaniachavez1506@gmail.com>",
                 to: emailDb.email,
                 subject: "Compra Exitosa",
-                html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/h9n1qrv/Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa.png" align="center" alt="Tarjeta-de-Agradecimiento-Gracias-por-tu-compra-Rosa" border="0"></div></a>`, 
+                html: `<a href="https://freevents.vercel.app/home"><div align="center"><img src="https://i.ibb.co/7S3ryCM/carta-mp.png" align="center" alt="Compra Exitosa" border="0"></div></a>`, 
             }; 
 
             const result = await transporter.sendMail(mailOptions);

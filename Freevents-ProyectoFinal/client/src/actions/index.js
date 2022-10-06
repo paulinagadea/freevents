@@ -49,6 +49,8 @@ export const actionTypes = {
     buscarSiExisteClienteVerdadero:"buscarSiExisteClienteVerdadero",
     cambioClienteActual:"cambioClienteActual",
     storeOrder:"storeOrder",
+    objetoProveedorUnico:"objetoProveedorUnico",
+    objetoClienteUnico:"objetoClienteUnico",
 };
 
 
@@ -437,6 +439,36 @@ export function buscarSiExisteCliente(payload) {
         }
     }
 }
+
+export function objetoProveedorUnico(payload) {
+    
+    return async (dispatch) => {
+        try {
+            return await dispatch({
+                type: actionTypes.objetoProveedorUnico,
+                payload: payload
+            })
+        } catch (error) {
+            return error
+        }
+    }
+}
+export function objetoClienteUnico(payload) {
+    
+    return async (dispatch) => {
+        try {
+            return await dispatch({
+                type: actionTypes.objetoClienteUnico,
+                payload: payload
+            })
+        } catch (error) {
+            return error
+        }
+    }
+}
+
+
+
 export function buscarSiExisteClienteVerdadero(payload) {
     
     return async (dispatch) => {

@@ -16,18 +16,15 @@ import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
-//import SearchBar from "./SearchBar";
-// import { auth } from "../firebase";
-// import { useAuth } from "../context/AuthContext";
-// import Salir from "./Salir"
 import { useAuth0 } from "@auth0/auth0-react";
+import { LogoutButton } from './LogoutButton'
 
 export default function NavbarHome() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const typeUser = JSON.parse(localStorage.getItem("user"));
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -41,55 +38,52 @@ export default function NavbarHome() {
 
   // const { logout, user } = useAuth();
   // console.log(user);
-  
-    // cerrar sesion
-    // const handleLogout = async () => {
-    //   try {
-    //     await logout();
-    //   } catch (error) {
-    //     console.error(error.message);
-    //   }
-    // };
-    const { user, isAuthenticated, isLoading } = useAuth0();
+
+  // cerrar sesion
+  // const handleLogout = async () => {
+  //   try {
+  //     await logout();
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
 
-    return (
-      <div>
+  return (
+    <div>
 
-        <NavContainer> 
-        <Link className='link' to="/">Freevents</Link>
-          {/* <SearchBar/> */}
+      <NavContainer>
+        <Link className='link' to="/home">Freevents</Link>
         <div className="containerbar">
 
-          {/* {
-            auth.currentUser === null &&  */}
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/customertype">Ingresar</Button> 
-          {/* } */}
+          {isAuthenticated ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          }
 
-          {/* <Button style={{fontFamily: "Mollie", fontSize: "17px"}} disabled={"/home" !== null ? true : false} onClick={handleClick} href="/home">Home</Button> */}
           {
             isAuthenticated && typeUser !== "provider" &&
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button>
+            <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/proveedores">Proveedores</Button>
           }
-          
-          {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/devs">Nosotros</Button>
+
+
+          <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/devs">Nosotros</Button>
           {
             isAuthenticated && typeUser !== "provider" &&
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/PerfilUser">Perfil</Button>
+            <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/PerfilUser">Perfil</Button>
           }
-          
-          {/* <Salir/> */}
-          {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
+
+
         </div>
-      
+
       </NavContainer>
-      </div>
-    )
-  }
-  
-  const NavContainer= styled.nav`
+    </div>
+  )
+}
+
+const NavContainer = styled.nav`
   @font-face {
     font-family: "Mollie";
     src: "../../public/Mollie-Glaston.ttf";

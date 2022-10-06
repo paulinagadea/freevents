@@ -33,7 +33,7 @@ import Footer from "./components/Footer"
 import Reviews from './components/Reviews';
 //import AlertSuscribe from "./components/AlertSuscribe";
 import CardReviews from './components/CardReviews';
-
+import PerfilProvider from './components/PerfilProveedor';
 
 
 function App() {
@@ -84,7 +84,7 @@ console.log(queEres, "VALOR DEL STORE")
             <Route exact path = '/comentarios' element={<Comentarios/>}/>
             <Route exact path = '/orden2' element={<Orden2/>}/>
             <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>
-            {/* <Route exact path = '/PerfilUser' element={<PerfilUser/>}/>  */}
+            <Route exact path = '/PerfilProvider' element={<PerfilProvider/>}/> 
             <Route exact path = "/orden" element={<Orden/>}/>
             <Route exact path = "/customertype" element={<CustomerType/>}/>
             <Route exact path = "/Footer" element={<Footer/>}/>

@@ -1,10 +1,12 @@
 import React from "react";
+import { Container, FormGroup, Input, Col, Label } from 'reactstrap'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useEffect } from "react";
 import { useState } from "react";
+import { Button } from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import {
   createPack,
@@ -15,6 +17,7 @@ import Styles from "../components/CreatePack.module.css";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import SubiendoImagenes from './SubiendoImagenes';
 
 function validate(input) {
   let errors = {};
@@ -43,11 +46,12 @@ export default function Create() {
     description: "",
     price: 0,
     status_enable: "",
-    galery_image: "",
+    galery_image: "", 
     events: [],
     services: [],
   });
-
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
@@ -55,14 +59,34 @@ export default function Create() {
 
   const eventos = useSelector((state) => state.events);
   const servicios = useSelector((state) => state.services);
+  const [input2, setInput2]= useState({imagen:''})
   
   const allNames = useSelector((state) => state.allPacks);
 
-  useEffect(() => {
-    dispatch(getEvents());
-    dispatch(getServices());
+ async function submitImage (e) {
+        e.preventDefault()
+        const files = e.target.files
+        const data = new FormData();
+        data.append("file", image);
+        data.append("upload_preset", "images") //upload_preset
+        data.append("cloud_name", "freevents")
+
+      await fetch("https://api.cloudinary.com/v1_1/freevents/image/upload",{
+        method: "post",
+        body:data
+      })
+        .then((res)=>res.json())
+        .then((data) => {
+          console.log("🚀 ~ file: CreatePack.jsx ~ line 79 ~ .then ~ data", data.secure_url)
+          setInput({ ...input, "galery_image":data.secure_url})
+          console.log("🚀 ~ file: CreatePack.jsx ~ line 81 ~ .then ~ input", input)
+        	}).catch((err)=>{
+            	console.log(err)
+        	}
+     ) }
+        
     
-  }, [dispatch]);
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -96,9 +120,8 @@ export default function Create() {
           name: "",
           description: "",
           price: 0,
-
           // status_enable: "",
-          galery_image: [],
+          galery_image: "",
           providers: [],
           events: [],
           services: [],
@@ -114,6 +137,12 @@ export default function Create() {
       navigate("/paquetes");
     }
   }
+
+  useEffect(() => {
+    dispatch(getEvents());
+    dispatch(getServices());
+    
+  }, [dispatch]);
 
   function handleChange(e) {
     e.preventDefault();
@@ -215,7 +244,7 @@ export default function Create() {
               {/* <Typography variant="h8" color="ligth">Status: </Typography> */}
             </div>
 
-            <div className={Styles.grupo}>
+            {/* <div className={Styles.grupo}>
               <TextField
                 className={Styles.create_input}
                 type="text"
@@ -228,7 +257,7 @@ export default function Create() {
               {errors.galery_image && (
                 <p className={Styles.danger}>{errors.galery_image}</p>
                 )}
-            </div>
+            </div> */}
 
             <div className={Styles.grupo}>
               <select
@@ -328,9 +357,34 @@ export default function Create() {
               <Typography variant="h8" color="ligth">Descripción: </Typography>
               
             </div>
+                <div className={Styles.grupo}>
+                <Container style={{textAlign:"center"}}>
+                <h1>
+                    Subiendo Imagenes
+                </h1>
+                <FormGroup row>
+                    <Label
+                    for="exampleFile"
+                    sm={2}
+                    >
+                    File
+                    </Label>
+                    <Col sm={10}>
+                    <Input
+                        id="exampleFile"
+                        name="file"
+                        type="file"
+                        placeholder='Sube tu Imagen aqui'
+                        onChange={(e)=>setImage(e.target.files[0])}
+                    />
+                    </Col>
+                </FormGroup>
+            </Container>
+                </div>
 
           </div>
           <div>
+                    <button className={Styles.btn_submit} onClick={submitImage}>Subir</button>
             <button type="submit" className={Styles.btn_submit}>
               CREAR PACK
             </button>
@@ -346,3 +400,4 @@ export default function Create() {
     </>
   );
 }
+

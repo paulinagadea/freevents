@@ -10,8 +10,7 @@ import Reviews from "./Reviews"
 import CardReviews from "./CardReviews";
 import ImageList from '@material-ui/core/ImageList';
 import { makeStyles } from '@material-ui/core/styles';
-import "./Home.css"
-// import "./"
+import { createPack } from "./CreatePack"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,12 +40,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function PerfilUser() {
+export default function PerfilProveedor() {
   const dispatch = useDispatch()
   // const { favs } = useSelector((state) => state.favs)
   const classes = useStyles();
-  const allReviews = useSelector((state) => state.reviews)
-  const infoMiPerfil = JSON.parse(localStorage.getItem('providerUser'));
+  
   //const ordenes = useSelector((state) => state.ordercita)
   // const providersO = useSelector((state)=>state.providers)
 
@@ -79,22 +77,19 @@ export default function PerfilUser() {
     //   </div>
     // )
 
-    <div className="caja">
+    <div>
       <div>
         <div>
           <div>
-            <h1>Mi Perfil</h1></div>
-          <img className="foto-perfil" src={user.pepe ? user.pepe : "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg"}  alt={user.name} />
-          {/* <h1 className="titulo">Bienvenido {infoMiPerfil.name}</h1> */}
-          <div className="infoO">
+            <h1 className="portada">Mi Perfil</h1></div>
+          <img className="foto-perfil" src={user.picture ? user.picture : false} alt={user.name} />
+          <h1 className="titulo">Bienvenido {user.name}</h1>
+          <div className="info">
             <h3>Mis datos</h3>
             <div className="datos">
               <p>Nombre: {user.given_name}</p>
               <p>Apellido: {user.family_name}</p>
               {/* <p>Email: {user.email}</p> */}
-              <p>Número de teléfono: {infoMiPerfil.phone_number}</p>
-              <p>Dni: {infoMiPerfil.dni}</p>
-              <p></p>
             </div>
           </div>
         </div>
@@ -135,7 +130,6 @@ export default function PerfilUser() {
           </div>
         </div>
 
-
         {/* <div>
           <div className={classes.root}>
             <ImageList className={classes.imageList}>
@@ -155,8 +149,7 @@ export default function PerfilUser() {
           </div> 
           <Reviews /> 
         </div> */}
-
-
+                    
         <Link to="/home">
           <button>Volver</button>
         </Link>
@@ -164,4 +157,3 @@ export default function PerfilUser() {
     </div>
   )
 };
-

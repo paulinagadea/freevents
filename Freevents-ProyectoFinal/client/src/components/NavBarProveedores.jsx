@@ -62,6 +62,12 @@ export default function NavbarHome() {
       <NavContainer>
         <Link className="link" to="/">Freevents</Link>
         <SearchFinal />
+    return (
+      <div>
+ 
+        <NavContainer>
+        <Link className="link" to="/home">Freevents</Link>
+          <SearchFinal/>
         <div className="containerbar">
 
           {userStorage ?

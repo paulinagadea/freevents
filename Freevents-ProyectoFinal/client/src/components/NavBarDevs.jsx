@@ -21,6 +21,7 @@ export default function NavBarDevs() {
     <div>
       <NavContainer>
         <Link className="link" to="/">Freevents</Link>
+
         <div className="containerbar">
           {userStorage ?
             < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
@@ -78,10 +79,8 @@ const NavContainer = styled.nav`
     background-color: #736A68;
     display: flex;
     height: 10vh;
-    width: 100vw;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
     a{
       color:white;
       text-decoration:none;

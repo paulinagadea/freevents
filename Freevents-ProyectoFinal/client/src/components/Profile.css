@@ -5,14 +5,7 @@
     margin-top: 100px;
 }
 
-.foto-perfil{
-    float: left;
-    border-radius: 150px;
-    margin-left: 6%;
-    margin-top: -50px;
-    width: 150px;
 
-}
 
 .titulo{
     margin: auto;
@@ -30,6 +23,7 @@
     width: 700px;
 }
 
+
 .boxfav{
 
     margin: auto;
@@ -37,5 +31,31 @@
     width: 90%;
     margin-left: 300px;
 }
+.caja{
+    /* font-family: "Mollie"; */
+    /* display: flex; */
+    
+    margin-top: 3%;
+    font-family:"Mollie";
+    
+}
+
+body{
+    background-color: rgb(255, 238, 238);
+}
+
+.foto-perfil{
+    float: left;
+    border-radius: 150px;
+    margin-left: 45%;
+    margin-top: -1px;
+    width: 150px;
 
 
+}
+.infoO{
+    border: 1px solid rgb(199, 150, 150);
+    width: 700px;
+    margin-left: 27%;
+    margin-top: 13%;
+}

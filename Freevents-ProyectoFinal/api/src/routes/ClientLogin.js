@@ -77,7 +77,7 @@ clientLogin.post('/', async (req, res) => {
                 from: "Freevents <freeevents4@gmail.com>",
                 to: email,
                 subject: "Freevents",
-                html: `<a href="https://freevents.vercel.app/"><div align="center"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></div></a>`,
+                html: `<a href="https://freevents.vercel.app/home"><div align="center"><img src="https://i.ibb.co/VmgYX0X/Welcome.png" align="center" alt="Welcome" border="0"></div></a>`,
 
             };
 

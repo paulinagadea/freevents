@@ -39,6 +39,7 @@ PackServices.get('/:id', async(req, res) => {
 
 PackServices.post('/', async(req, res) => {
     const { name, description, price, status, galery_image, events, services, providerId } = req.body; 
+    console.log("🚀 ~ file: Pack_service.js ~ line 42 ~ PackServices.post ~ req.body", req.body)
     try {
         const packCreate = await Pack_services.create({
             name, 
