@@ -92,7 +92,7 @@ export default function FormularioProveedor() {
           sub:"",
         })
 
-        navigate("/home")
+        navigate("/PerfilProvider")
     }
     
     

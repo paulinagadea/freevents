@@ -1,5 +1,6 @@
 import { Container, FormGroup, Input, Col, Label } from 'reactstrap'
 import React, {useState} from "react";
+import Styles from "../components/CreatePack.module.css";
 import { Button } from '@material-ui/core';
 
 
@@ -21,7 +22,7 @@ const SubiendoImagenes = (props) => {
         .then((res)=>res.json())
         .then((data)=>{
             console.log(data);
-        }) .catch((err)=>{
+        }).catch((err)=>{
             console.log(err)
         })    
         
@@ -49,7 +50,7 @@ const SubiendoImagenes = (props) => {
                         placeholder='Sube tu Imagen aqui'
                         onChange={(e)=>setImage(e.target.files[0])}
                     />
-                    <Button onClick={submitImage}>upload</Button>
+                    <button className={Styles.btn_submit} onClick={submitImage}>Subir</button>
                     </Col>
                 </FormGroup>
             </Container>
