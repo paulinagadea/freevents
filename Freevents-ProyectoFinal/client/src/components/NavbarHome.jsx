@@ -16,8 +16,8 @@ import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
-import { useAuth0 } from "@auth0/auth0-react";
-import { LogoutButton } from './LogoutButton'
+// import { useAuth0 } from "@auth0/auth0-react";
+// import { LogoutButton } from './LogoutButton'
 import { useAuth0 } from "@auth0/auth0-react";//logout
 import { LogoutButton } from './LogoutButton'//logout
 

@@ -22,7 +22,7 @@ import { LogoutButton } from './LogoutButton'//logout
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function NavbarHome() {
