@@ -85,7 +85,7 @@ useEffect(() => {
     if (clienteActual === true){
 
       localStorage.setItem('providerUser', JSON.stringify(estadoProveedorUnico))
-      navigate("/home") 
+      navigate("/PerfilProvider") 
     }else if(clienteActual === false) {
     navigate("/providerregister")
     }
