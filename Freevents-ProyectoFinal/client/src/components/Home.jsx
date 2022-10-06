@@ -142,7 +142,7 @@ const Home = () => {
             <div className="barra1">
                 <h1 className="titulo-home"> ¿QUIERES OFRECER TUS SERVICIOS?</h1>
                 <Button style={{ color: brown[500], fontFamily: "Mollie", fontSize: "17px" }}
-                    href="/providerregister"
+                    href="/loginProveedor"
                     variant="contained"
                     disableElevation
                 >REGISTRATE AQUÍ
