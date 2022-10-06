@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './LogoutButton'//logout
 
 export default function NavBarDevs() {
   const [clicked, setClicked] = useState(false)
@@ -10,12 +12,19 @@ export default function NavBarDevs() {
     setClicked(!clicked)
   }
 
+  const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+  console.log('esto es userStorage:', userStorage)//logout
+
     return (
       <div>
         <NavContainer>
         <Link className="link" to="/home">Freevents</Link>
         <div className="containerbar">
-          <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button>
+          {/* <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button> */}
+          {userStorage ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          }
           <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/home">Home</Button>
           {/* <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button> */}
