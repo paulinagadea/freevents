@@ -102,8 +102,8 @@ const tableIcons = {
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
-
-const endpoint = 'http://localhost:3001/client';
+// const endpoint = 'http://localhost:3001/client';
+const endpoint = 'https://freevents-production.up.railway.app/client';
 
 export default function AdmiClients() {
   const dispatch = useDispatch()
