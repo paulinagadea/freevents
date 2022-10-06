@@ -29,7 +29,8 @@ import axios from "axios";
 import AdminClients from './Admin/AdminClients';
 import AdminProviders from './Admin/AdminProviders';
 import AdminPacks from './Admin/AdminPacks';
-import { getProviders, getPacks, getAllClients } from '../actions'
+import AdminOrdenes from './Admin/AdminOrdenes'
+import { getProviders, getPacks, getAllClients, getOrder } from '../actions'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -113,19 +114,24 @@ export default function MiniDrawer() {
   console.log(packs, 'packs')
   const clients = useSelector((state) => state.allClients)
   console.log(clients, 'clients')
+  const order = useSelector((state) => state.ordercita)
+  console.log(providers, 'order')
 
   const [buttonCliente, setButtonCliente] = useState(false);
   console.log(buttonCliente, 'btn cliente')
   const [buttonProveedor, setButtonProveedor] = useState(false);
-  console.log(buttonProveedor, 'btn cliente')
+  console.log(buttonProveedor, 'btn prov')
   const [buttonPaquetes, setButtonPaquetes] = useState(false);
-  console.log(buttonPaquetes, 'btn cliente')
+  console.log(buttonPaquetes, 'btn paquete')
+  const [buttonOrder, setButtonOrder] = useState(false);
+  console.log(buttonPaquetes, 'btn order')
   
 
   useEffect(() => {
     dispatch(getProviders())
     dispatch(getAllClients())
     dispatch(getPacks())
+    dispatch(getOrder())
    
   }, [dispatch])
 
@@ -160,7 +166,13 @@ export default function MiniDrawer() {
       setButtonPaquetes(false)
     }
   }
-
+  const handleButtonOrden = ()=>{
+    if(buttonOrder === false){
+      setButtonOrder(true)
+    } else{
+      setButtonOrder(false)
+    }
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -216,7 +228,7 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        <List >
+        <List onClick={handleButtonOrden}>
           {['Ordenes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -260,8 +272,6 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 />
-                  
-                
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
@@ -301,6 +311,11 @@ export default function MiniDrawer() {
           {buttonCliente === true ? <AdminClients/> : null}
           {buttonProveedor === true ? <AdminProviders/> : null}
           {buttonPaquetes === true ? <AdminPacks/> : null}
+          {buttonOrder === true ? <AdminOrdenes/> : null}
+        </div>
+        <div>
+
+
         </div>
 
         
