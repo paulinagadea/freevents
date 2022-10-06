@@ -207,9 +207,9 @@ const postMP = async (req, res) => {
          ],
         external_reference: `${orderMP.id}`,
         back_urls: {
-            success: `http://localhost:3001/order/payment-confirm`,
-            failure: `http://localhost:3001/order/payment-confirm`,
-            pending: `http://localhost:3001/order/payment-confirm`
+            success: `https://freevents-production.up.railway.app/order/payment-confirm`,
+            failure: `https://freevents-production.up.railway.app/order/payment-confirm`,
+            pending: `https://freevents-production.up.railway.app/order/payment-confirm`
         },
         auto_return: "approved",
       };

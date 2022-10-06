@@ -13,7 +13,7 @@ export default function NavBarDevs() {
     return (
       <div>
         <NavContainer>
-        <Link className="link" to="/">Freevents</Link>
+        <Link className="link" to="/home">Freevents</Link>
         <div className="containerbar">
           <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button>
           <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/home">Home</Button>
