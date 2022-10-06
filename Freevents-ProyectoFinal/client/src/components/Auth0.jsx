@@ -9,7 +9,7 @@ import "./Auth.css";
 
  const Auth0 = () => {
 
-  const { loginWithRedirect, isLoading } = useAuth0();
+  const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
   const usardo = "client"
   const soyUnUser = () => (localStorage.setItem('user', JSON.stringify(usardo)));
 
@@ -31,6 +31,7 @@ import "./Auth.css";
         <div className="imglogin">
           <img src="https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg" alt="img"/>
           <div>
+          
             <button onClick={e => {handleTest(e)}} >Login</button>
             {/* <LoginButton/> */}
             {isLoading !== true ? <LogoutButton/> : null }
