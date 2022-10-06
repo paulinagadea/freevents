@@ -46,7 +46,9 @@ PackServices.post('/', async(req, res) => {
             description, 
             price, 
             status, 
-            galery_image
+            galery_image,
+            providerId
+          
         })
         for (let e of events){
             let eventsDb = await Event.findOne({
