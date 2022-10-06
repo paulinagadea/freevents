@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 const Paquetes = () => {
   const dispatch = useDispatch();
   const allPacks = useSelector((state) => state.packs)
+  console.log("🚀 ~ file: Paquetes.jsx ~ line 16 ~ Paquetes ~ allPacks", allPacks)
   const allServicesP = useSelector((state) => state.services)
   const [order, setOrder] = useState('')
   const [currentPage, setCurrentPage] = useState(1) //pagina uno
@@ -70,8 +71,11 @@ const Paquetes = () => {
   }
 
   return (
+
+    
     <div>
-      <NavBarPaquetes />
+    
+    <NavBarPaquetes />
       {/* <Container m={5} maxWidth="xs"> */}
       <img className="png" src={'https://res.cloudinary.com/freevents/image/upload/v1664336909/Imagens/foterfoto_ngklm8.png'} alt="" />
       <div className="barra">
@@ -111,7 +115,6 @@ const Paquetes = () => {
       </div>
       <div className="grid">
         {currentPacks?.map((packs) => {
-          
           return (
             <div className='item'>
               {/* <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}> */}
@@ -123,21 +126,23 @@ const Paquetes = () => {
                   events={packs.events?.map(e => e.name + " ")}
                   services={packs.services?.map(s => s.name + " ")}
                   id={packs.id}
-                />
+                  />
               {/* </Link> */}
             </div>
           )
         })}
       </div>
+    
       <PaginadoPacks
-        currentPage={currentPage}
-        packsPerPage={packsPerPage}
-        allPacks={allPacks.length}
-        paginado={paginado}
+      currentPage={currentPage}
+      packsPerPage={packsPerPage}
+      allPacks={allPacks.length}
+      paginado={paginado}
       />
-    </div>
-  )
-}
-
-export default Paquetes;
-
+      </div>
+      )
+    }
+    
+    export default Paquetes;
+    
+    
