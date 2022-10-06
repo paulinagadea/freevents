@@ -21,6 +21,8 @@ import SearchFinal from "./SearchFinal";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
 import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './LogoutButton'//logout
 
 
 export default function NavbarHome() {
@@ -49,6 +51,8 @@ export default function NavbarHome() {
     //     console.error(error.message);
     //   }
     // };
+    const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+    console.log('esto es userStorage:', userStorage)//logout
 
     const { user, isAuthenticated, isLoading } = useAuth0();
 
@@ -60,9 +64,13 @@ export default function NavbarHome() {
         <SearchFinal/>
         <div className="containerbar">
 
-          {
+          {/* {
             isAuthenticated === false && 
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/customertype">Ingresar</Button> 
+          } */}
+          {userStorage ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
           }
 
           {/* {

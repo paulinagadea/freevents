@@ -18,6 +18,8 @@ import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
 import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from './LogoutButton'
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './LogoutButton'//logout
 
 export default function NavbarHome() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,6 +49,9 @@ export default function NavbarHome() {
   //     console.error(error.message);
   //   }
   // };
+  const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+  console.log('esto es userStorage:', userStorage)//logout
+
   const { user, isAuthenticated, isLoading } = useAuth0();
 
 
@@ -57,7 +62,11 @@ export default function NavbarHome() {
         <Link className='link' to="/home">Freevents</Link>
         <div className="containerbar">
 
-          {isAuthenticated ?
+          {/* {isAuthenticated ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          } */}
+          {userStorage ?
             < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
             : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
           }
