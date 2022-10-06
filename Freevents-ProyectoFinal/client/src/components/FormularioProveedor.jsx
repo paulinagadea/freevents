@@ -99,6 +99,7 @@ export default function FormularioProveedor() {
     return (
         // isAuthenticated && (
             <div>
+            <h1>Solo unos pasos más! Completa tu información personal</h1>
             <form onSubmit={(e)=>handleSubmit(e)}>
             <div>
                     <label>Nombre: </label>
@@ -185,7 +186,7 @@ export default function FormularioProveedor() {
                 <div>
                     <label>email: </label>
                     <input
-                    
+                    disabled
                         type= "text"
                         value= {proveedor.email}
                         name="email"
@@ -259,7 +260,7 @@ export default function FormularioProveedor() {
                 <div>
                     <label>sub: </label>
                     <input
-                        type= "text"
+                        type= "hidden"
                         value= {proveedor.sub}
                         name="sub"
                         onChange={(e)=>handleChange(e)}

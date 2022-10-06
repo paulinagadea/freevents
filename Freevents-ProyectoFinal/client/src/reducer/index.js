@@ -25,6 +25,7 @@ const initialState = {
     adminById: {},
     promociones: [],
     ordenesStore:[],
+    proveedorUnico:[]
 }
 
 if (localStorage.getItem('favs')) {
@@ -122,6 +123,22 @@ function rootReducer(state = initialState, action) {
                 clienteActual: includesUser,
             }
         }
+
+
+        case actionTypes.objetoProveedorUnico:{
+            const allProviders = state.allProviders //aqui estan todos los proveedores
+            console.log(action.payload,"Soy el action payload reducer 2")
+            const buscarProveedor = allProviders.find(el =>el.sub === action.payload)
+            
+            // .find(item => item === action.payload
+            console.log(buscarProveedor, "ACTIONS OBJETO PROVEEDOR UNICO")
+         
+            return{
+                ...state,
+
+                proveedorUnico: buscarProveedor,
+        }
+    }
 
         case actionTypes.buscarSiExisteClienteVerdadero:{
             const allClients = state.clients //aqui estan todos los clientes
