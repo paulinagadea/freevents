@@ -25,7 +25,7 @@ const Paquetes = () => {
   }
 
   useEffect(() => {
-  
+
   }, [order])
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Paquetes = () => {
   useEffect(() => {
     let filtroGrafico = (window.location.href.slice(window.location.href.indexOf("=") + 1)).replace("_", " ")
 
-    
+
     console.log(filtroGrafico, "este es FILTROGRA")
     console.log("BUENOOOOO")
     if (filtroGrafico.length < 20) {
@@ -49,6 +49,7 @@ const Paquetes = () => {
 
 
   const handleFilterService = (e) => {
+    e.preventDefault()
     dispatch(filterPacksByService(e.target.value))
     setCurrentPage(1)
 
@@ -111,19 +112,19 @@ const Paquetes = () => {
       </div>
       <div className="grid">
         {currentPacks?.map((packs) => {
-          
+
           return (
             <div className='item'>
               {/* <Link style={{ textDecoration: "none" }} to={`/detailPaquete/${packs.id}`}> */}
-                <CardPaquetes
-                  key={packs.id}
-                  name={packs.name}
-                  price={packs.price}
-                  galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg"}
-                  events={packs.events.map(e => e.name + " ")}
-                  services={packs.services?.map(s => s.name + " ")}
-                  id={packs.id}
-                />
+              <CardPaquetes
+                key={packs.id}
+                name={packs.name}
+                price={packs.price}
+                galery_image={packs.galery_image ? packs.galery_image : "https://www.dondeir.com/wp-content/uploads/2018/09/fiesta-1.jpg"}
+                events={packs.events.map(e => e.name + " ")}
+                services={packs.services?.map(s => s.name + " ")}
+                id={packs.id}
+              />
               {/* </Link> */}
             </div>
           )

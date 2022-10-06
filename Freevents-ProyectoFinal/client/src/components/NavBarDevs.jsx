@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { useState } from 'react'
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './ButtonLogoutPacksRoute'//logout
 
 export default function NavBarDevs() {
   const [clicked, setClicked] = useState(false)
@@ -10,25 +12,38 @@ export default function NavBarDevs() {
     setClicked(!clicked)
   }
 
-    return (
-      <div>
-        <NavContainer>
+  const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+  console.log('esto es userStorage:', userStorage)//logout
+
+  const { isAuthenticated } = useAuth0();
+
+  return (
+    <div>
+      <NavContainer>
         <Link className="link" to="/">Freevents</Link>
         <div className="containerbar">
-          <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button>
-          <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/home">Home</Button>
+          {userStorage ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          }
+          {/* {isAuthenticated ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          } */}
+          {/* <Button style={{fontFamily: "Mollie", fontSize: "20px"}} onClick={handleClick} href="/login">Ingresar</Button> */}
+          <Button style={{ fontFamily: "Mollie", fontSize: "20px" }} onClick={handleClick} href="/home">Home</Button>
           {/* <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>
           <Button size="small" onClick={handleClick} href="/paquetes">Paquetes</Button> */}
           {/* <Button size="small" onClick={handleClick} href="/userregister">Registrate</Button> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
-      
+
       </NavContainer>
-      </div>
-    )
-  }
-  
-  const NavContainer= styled.nav`
+    </div>
+  )
+}
+
+const NavContainer = styled.nav`
   .link{
     font-family: 'Mollie';
     font-size: 70px;

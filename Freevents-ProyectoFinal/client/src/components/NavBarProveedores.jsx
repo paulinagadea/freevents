@@ -20,16 +20,20 @@ import SearchFinal from "./SearchFinal";
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './ButtonLogoutPacksRoute'//logout
 
 
 export default function NavbarHome() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+  console.log('esto es userStorage:', userStorage)//logout
 
   const [clicked, setClicked] = useState(false)
   const handleClick = (event) => {
@@ -40,7 +44,7 @@ export default function NavbarHome() {
 
   // const { logout, user } = useAuth();
   // console.log(user);
-  
+
   //   // cerrar sesion
   //   const handleLogout = async () => {
   //     try {
@@ -52,43 +56,49 @@ export default function NavbarHome() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
 
-    return (
-      <div>
- 
-        <NavContainer>
+  return (
+    <div>
+
+      <NavContainer>
         <Link className="link" to="/">Freevents</Link>
-          <SearchFinal/>
+        <SearchFinal />
         <div className="containerbar">
-          {
+
+          {userStorage ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
+          }
+
+          {/* {
             isAuthenticated === false && 
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/login">Ingresar</Button> 
-          }
+          } */}
 
           {/* {
             isAuthenticated === false && 
             <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/userregister">Registrate</Button>
           } */}
 
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/home">Home</Button>
-          
+          <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/home">Home</Button>
+
           {/* <Button disabled={"/paquetes" !== null ? true : false} style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/proveedores">Proveedores</Button> */}
-          
-          
+
+
           {/* {(estadoUser === "provider"  ||   estadoUser === "user") && <Button size="small" onClick={handleClick} href="/proveedores">Proveedores</Button>} */}
-          <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/paquetes">Paquetes</Button>
+          <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/paquetes">Paquetes</Button>
           {/* {
             auth.currentUser === null && <Button disabled={auth.currentUser !== null ? true : false} size="small" onClick={handleClick} href="/userregister">Registrate</Button>
           } */}
           {/* <Salir/> */}
           {/* <Button size="small" onClick={handleClick} href="/eventos">Crea tu evento</Button> */}
         </div>
-      
+
       </NavContainer>
-      </div>
-    )
-  }
-  
-  const NavContainer= styled.nav`
+    </div>
+  )
+}
+
+const NavContainer = styled.nav`
   
   .link{
     font-size: 70px;
