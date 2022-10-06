@@ -21,7 +21,7 @@ import Box from '@mui/material/Box';
  const BusquedaUser = () => {
   console.log("ENTRE AL BUSQUEDA USER")
   let storageTypeUsers = JSON.parse(localStorage.getItem("user"));
-  console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
+  // console.log(storageTypeUsers, "SOY EL TIPO DE USUARIO")
 
  
     
@@ -36,10 +36,10 @@ import Box from '@mui/material/Box';
     // console.log(stateProviders.map(el=>el ), "ACA LOS PROVIDERS")
 
     // const mapita = stateProviders.map(el=>el && el.includes(user.sub))
-    const mapita = stateProviders.find(el =>el.sub === user.sub)
+    // const mapita = stateProviders.find(el =>el.sub === user.sub)
 
-    console.log(mapita, " A VER Q ONDA")
-    console.log(estadoProveedorUnico)
+    // console.log(mapita, " A VER Q ONDA")
+    // console.log(estadoProveedorUnico)
     // const userr = user.sub
 
     

@@ -91,7 +91,7 @@ export default function FormularioCliente() {
             <div>
                     <label>Nombre: </label>
                     <input 
-                    disabled
+                  
                         type= "text"
                         value= {client.name}
                         name="name"
@@ -147,7 +147,7 @@ export default function FormularioCliente() {
               
 
                 <div>
-                    <label>sub: </label>
+                   
                     <input
                         type= "hidden"
                         value= {client.sub}

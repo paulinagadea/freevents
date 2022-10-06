@@ -50,6 +50,7 @@ export const actionTypes = {
     cambioClienteActual:"cambioClienteActual",
     storeOrder:"storeOrder",
     objetoProveedorUnico:"objetoProveedorUnico",
+    objetoClienteUnico:"objetoClienteUnico",
 };
 
 
@@ -452,6 +453,20 @@ export function objetoProveedorUnico(payload) {
         }
     }
 }
+export function objetoClienteUnico(payload) {
+    
+    return async (dispatch) => {
+        try {
+            return await dispatch({
+                type: actionTypes.objetoClienteUnico,
+                payload: payload
+            })
+        } catch (error) {
+            return error
+        }
+    }
+}
+
 
 
 export function buscarSiExisteClienteVerdadero(payload) {
