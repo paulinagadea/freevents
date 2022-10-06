@@ -7,6 +7,7 @@ import NavbarHome from "./NavbarHome.jsx";
 import { auth } from "../firebase";
 import { useAuth } from "../context/AuthContext";
 import { useAuth0 } from "@auth0/auth0-react";
+import Button from "@material-ui/core/Button"
 // import { Button } from "@material-ui/core";
 // import { useNavigate } from "react-router-dom";
 
@@ -46,9 +47,14 @@ const DetailsPaquetes = () => {
             <Link to={"/paquetes"}>
               <button key={id}> VOLVER </button>
             </Link>
+            {detalleP.status==="enabled"?
             <Link to={isAuthenticated ? "/orden" : "/loginCliente"  }>
               <button onClick={handleAddOrder}> CONTRATAR </button>
             </Link>
+            : 
+            <Button disabled= {true} > INHABILITADO </Button>
+
+            }
           </div>
 
         </div>
