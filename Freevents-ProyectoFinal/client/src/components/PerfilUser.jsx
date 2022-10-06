@@ -84,7 +84,7 @@ export default function PerfilUser() {
         <div>
           <div>
             <h1>Mi Perfil</h1></div>
-          <img className="foto-perfil" src={user.pepe ? user.pepe : "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg"}  alt={user.name} />
+          <img className="foto-perfil" src={user.picture ? user.picture : "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg"}  alt={user.name} />
           {/* <h1 className="titulo">Bienvenido {infoMiPerfil.name}</h1> */}
           <div className="infoO">
             <h3>Mis datos</h3>

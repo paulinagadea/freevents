@@ -261,7 +261,7 @@ export default function FormularioProveedor() {
                 </div> */}
 
                 <div>
-                    <label>sub: </label>
+                  
                     <input
                         type= "hidden"
                         value= {proveedor.sub}

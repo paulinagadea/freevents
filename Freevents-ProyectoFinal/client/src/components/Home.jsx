@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import SimpleCard from "./Comentarios";
 import Footer from "./Footer";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 // import image20 from "../imagenes/FOTOCONFREEVENTS.jpg";
 // import { Link } from "react-router-dom";
 // import fotogeneral from '../imagenes/FOTOGENERAL.png';
@@ -54,6 +55,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Home = () => {
+    const navigate = useNavigate();
+    const admin = JSON.parse(localStorage.getItem('providerUser'));
+    // console.log(admin,"soy local host")
+    // if (admin?.userType === "admin" || admin?.email === "marc_rob92@hotmail.com"){
+    //     navigate("/Dashboard")
+    // }
     const dispatch = useDispatch();
     //const allProviders = useSelector((state) => state.providers)
     const { user, isAuthenticated, isLoading } = useAuth0(); //use.name //user.logotype

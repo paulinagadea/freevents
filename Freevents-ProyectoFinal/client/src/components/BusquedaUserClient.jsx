@@ -68,7 +68,14 @@ import { Navigate, redirect, useNavigate, useRouteError } from 'react-router-dom
         if (clienteActual2 === true){
     
           localStorage.setItem('providerUser', JSON.stringify(estadoClienteUnico))
-          navigate("/home") 
+          
+      localStorage.setItem('providerUser', JSON.stringify(estadoClienteUnico))
+      const admin = JSON.parse(localStorage.getItem('providerUser'));
+     if (admin?.userType === "admin" || admin?.email === "marc_rob92@hotmail.com"){
+     }else {
+
+       navigate("/home") 
+     }
         }else if(clienteActual2 === false) {
         navigate("/formularioCliente")
         }

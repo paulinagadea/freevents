@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import NavbarHome from "./NavbarHome.jsx";
 import { auth } from "../firebase";
 import { useAuth } from "../context/AuthContext";
+import { useAuth0 } from "@auth0/auth0-react";
 // import { Button } from "@material-ui/core";
 // import { useNavigate } from "react-router-dom";
 
@@ -13,6 +14,7 @@ const DetailsPaquetes = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const detalleP = useSelector((state) => state.detailPack);
+  const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     dispatch(getDetailsPacks(id));
@@ -44,7 +46,7 @@ const DetailsPaquetes = () => {
             <Link to={"/paquetes"}>
               <button key={id}> VOLVER </button>
             </Link>
-            <Link to={auth.currentUser == null ? "/login" : "/orden"}>
+            <Link to={isAuthenticated ? "/orden" : "/loginCliente"  }>
               <button onClick={handleAddOrder}> CONTRATAR </button>
             </Link>
           </div>
