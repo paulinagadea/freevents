@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
+import './Formularios.css';
 
 export default function FormularioCliente() {
   // console.log( "recien entro")
@@ -82,9 +83,11 @@ export default function FormularioCliente() {
     
     return (
         // isAuthenticated && (
-            <div>
+
+            <div className="form">
             <h1>Solo unos pasos más! Completa tu información personal</h1>
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form className="box" onSubmit={(e)=>handleSubmit(e)}>
+
             <div>
                     <label>Nombre: </label>
                     <input 
