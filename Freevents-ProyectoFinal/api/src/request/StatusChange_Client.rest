@@ -1,8 +1,6 @@
-PATCH  http://localhost:3001/client/faff03b0-e153-44fb-bc16-dadd0fdda3a5
+PATCH  http://localhost:3001/client/471ea457-dc74-4ac4-bee7-c8449216e634
 Content-Type: application/json
 
 {
-  "sub": "disabled",
-  "name": "funca?",
-  "sub":"holis"
+  "userType":"admin"
 }
