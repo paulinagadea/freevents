@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export const LogoutButton = () => {
   const { logout } = useAuth0();
-  const Salida = () => logout({ returnTo: 'http://localhost:3000/home' })
+  const Salida = () => logout({ returnTo: 'https://freevents.vercel.app/home' })
 
 
   function handleSubmit(e){
