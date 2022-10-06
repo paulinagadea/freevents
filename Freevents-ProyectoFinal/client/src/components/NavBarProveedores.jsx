@@ -17,6 +17,8 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Hidden from '@mui/material/Hidden';
 import SearchFinal from "./SearchFinal";
+import { useAuth0 } from "@auth0/auth0-react";//logout
+import { LogoutButton } from './LogoutButton'//logout
 // import { auth } from "../firebase";
 // import { useAuth } from "../context/AuthContext";
 // import Salir from "./Salir"
@@ -49,6 +51,9 @@ export default function NavbarHome() {
   //       console.error(error.message);
   //     }
   //   };
+  const userStorage = JSON.parse(localStorage.getItem("providerUser"))//logout
+  console.log('esto es userStorage:', userStorage)//logout
+  
   const { user, isAuthenticated, isLoading } = useAuth0();
 
 
@@ -56,12 +61,16 @@ export default function NavbarHome() {
       <div>
  
         <NavContainer>
-        <Link className="link" to="/">Freevents</Link>
+        <Link className="link" to="/home">Freevents</Link>
           <SearchFinal/>
         <div className="containerbar">
-          {
+          {/* {
             isAuthenticated === false && 
           <Button style={{fontFamily: "Mollie", fontSize: "17px"}} onClick={handleClick} href="/login">Ingresar</Button> 
+          } */}
+          {userStorage ?
+            < LogoutButton style={{ fontFamily: "Mollie", fontSize: "17px" }} />
+            : <Button style={{ fontFamily: "Mollie", fontSize: "17px" }} onClick={handleClick} href="/customertype">Ingresar</Button>
           }
 
           {/* {

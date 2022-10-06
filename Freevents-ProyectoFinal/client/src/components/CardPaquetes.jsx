@@ -94,7 +94,7 @@ const CardPaquetes = ({ name, price, galery_image, events, services, id }) => {
       imageHeight: 200,
       
   })
-  };
+};
 
   return (
     <Card className={classes.root}>
