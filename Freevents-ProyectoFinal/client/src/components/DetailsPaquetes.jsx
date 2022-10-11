@@ -5,7 +5,6 @@ import { clearDetails, getDetailsPacks, addToOrder } from "../actions";
 import { useEffect } from "react";
 import NavbarHome from "./NavbarHome.jsx";
 import { auth } from "../firebase";
-import { useAuth } from "../context/AuthContext";
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from "@material-ui/core/Button"
 // import { Button } from "@material-ui/core";
@@ -15,7 +14,7 @@ const DetailsPaquetes = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const detalleP = useSelector((state) => state.detailPack);
-  const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
+  console.log("🚀 ~ file: DetailsPaquetes.jsx ~ line 16 ~ DetailsPaquetes ~ detalleP", detalleP)
 
   useEffect(() => {
     dispatch(getDetailsPacks(id));

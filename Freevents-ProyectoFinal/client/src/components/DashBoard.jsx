@@ -32,10 +32,7 @@ import AdminPacks from './Admin/AdminPacks';
 import AdminOrdenes from './Admin/AdminOrdenes'
 import { getProviders, getPacks, getAllClients, getOrder } from '../actions'
 import { useState, useEffect } from 'react';
-import { LogoutButton } from './LogoutButton'
 import { useDispatch, useSelector } from 'react-redux'
-
-
 
 import CardProveedor from './CardProveedor'
 import { useSelect } from '@mui/base';
@@ -197,7 +194,6 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap component="div">
             Freevents
           </Typography>
-          <LogoutButton />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -281,10 +277,7 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-
-       
         <List onClick={handleButtonPaquete}>
-
           {['Paquetes'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton

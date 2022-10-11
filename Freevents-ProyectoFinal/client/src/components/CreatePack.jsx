@@ -41,10 +41,7 @@ function validate(input) {
 }
 
 export default function Create() {
-  const idProvider= JSON.parse(localStorage.getItem('providerUser'));
-  console.log(idProvider.id, "ID PROVIDER")
   const [input, setInput] = useState({
-    providerId:idProvider.id,
     name: "",
     description: "",
     price: 0,
@@ -137,7 +134,7 @@ export default function Create() {
           timer: 1500
         })
       }
-      navigate("/PerfilProvider");
+      navigate("/paquetes");
     }
   }
 
@@ -200,29 +197,6 @@ export default function Create() {
           <div className={Styles.form}>
             <Typography variant="h3" color="info">CREA TÚ PACK</Typography>
 
-            <div className={Styles.grupo}>
-              {/* <TextField
-                fullWidth
-                
-                type="hidden"
-                required
-                name="name"
-                value={input.id}
-                onChange={(e) => handleChange(e)}
-              /> */}
-             
-             <input 
-                  
-                  type= "text"
-                  value= {input.providerId}
-                  name="providerId"
-                  onChange={(e)=>handleChange(e)}
-                  
-                  // onInput="this.value = this.value.replace(/[^a-zA-Z0-9]/,'')"
-
-              />
-              
-            </div>
             <div className={Styles.grupo}>
               <TextField
                 fullWidth

@@ -85,13 +85,7 @@ useEffect(() => {
     if (clienteActual === true){
 
       localStorage.setItem('providerUser', JSON.stringify(estadoProveedorUnico))
-     const admin = JSON.parse(localStorage.getItem('providerUser'));
-    if (admin?.userType === "admin" || admin?.email === "marc_rob92@hotmail.com"){
-        navigate("/Dashboard")
-    }else {
-
       navigate("/PerfilProvider") 
-    }
     }else if(clienteActual === false) {
     navigate("/providerregister")
     }

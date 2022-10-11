@@ -10,9 +10,7 @@ import Reviews from "./Reviews"
 import CardReviews from "./CardReviews";
 import ImageList from '@material-ui/core/ImageList';
 import { makeStyles } from '@material-ui/core/styles';
-import { LogoutButton } from './LogoutButton'
 import { createPack } from "./CreatePack"
-import './Profile.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +64,6 @@ export default function PerfilProveedor() {
   const y = JSON.parse(localStorage.getItem("favs"));
   //const data = auth.currentUser.providerData[0];
   const order = JSON.parse(localStorage.getItem("order"));
-  const infoMiPerfil = JSON.parse(localStorage.getItem('providerUser'));
 
   return (
     // isAuthenticated?  (
@@ -80,29 +77,24 @@ export default function PerfilProveedor() {
     //   </div>
     // )
 
-    <div className="caja">
+    <div>
       <div>
         <div>
           <div>
-            <h1 >Mi Perfil</h1></div>
-          <img className="foto-perfil" src={user.picture ? user.picture : "https://i.pinimg.com/564x/b2/4b/a6/b24ba6f4b92554b071283ebcf7ff2c92.jpg"}  alt={user.name} />
-          {/* <h1 className="titulo">Bienvenido {user.name}</h1> */}
-          <div className="infoO">
+            <h1 className="portada">Mi Perfil</h1></div>
+          <img className="foto-perfil" src={user.picture ? user.picture : false} alt={user.name} />
+          <h1 className="titulo">Bienvenido {user.name}</h1>
+          <div className="info">
             <h3>Mis datos</h3>
             <div className="datos">
               <p>Nombre: {user.given_name}</p>
               <p>Apellido: {user.family_name}</p>
-              <p>Número de teléfono: {infoMiPerfil.phone_number}</p>
-              <p>Cuit: {infoMiPerfil.cuit}</p>
-              <p>Código postal: {infoMiPerfil.postal_code}</p>
-              <p>Locación: {infoMiPerfil.location}</p>
-
               {/* <p>Email: {user.email}</p> */}
             </div>
           </div>
         </div>
         {/* hacer logica comparando el uuid del auth0 con el id de cliente */}
-        {/* <div className="cont-info">
+        <div className="cont-info">
           <div className="info">
             <h3>MIS ORDENES</h3>
             <div className="compras">
@@ -136,7 +128,7 @@ export default function PerfilProveedor() {
               }) : "No hay Favoritos"}
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* <div>
           <div className={classes.root}>
@@ -157,10 +149,9 @@ export default function PerfilProveedor() {
           </div> 
           <Reviews /> 
         </div> */}
-        <LogoutButton/>
                     
-        <Link to="/createpack">
-          <button>Crear paquete</button>
+        <Link to="/home">
+          <button>Volver</button>
         </Link>
       </div>
     </div>
