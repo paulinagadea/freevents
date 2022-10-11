@@ -99,7 +99,9 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const endpoint = 'http://localhost:3001/packs';
+// const endpoint = 'http://localhost:3001/packs';
+const endpoint = 'https://freevents-production.up.railway.app/packs';
+
 
 export default function AdmiPakets() {
   const dispatch = useDispatch()
